@@ -244,7 +244,7 @@ public class Smelting {
 			if(c.getItems().freeSlots() >= 1) {
 				smelt = 1; 
 			} else {
-				smelt = -1;
+				smelt = c.getItems().freeSlots();
 			}
 			return smelt;
 		}
@@ -252,7 +252,7 @@ public class Smelting {
 			if(c.getItems().freeSlots() >= 5) {
 				smelt = 5; 
 			} else {
-				smelt = -1;
+				smelt = c.getItems().freeSlots();
 			}
 			return smelt;
 		}
@@ -260,16 +260,12 @@ public class Smelting {
 			if(c.getItems().freeSlots() >= 10) {
 				smelt = 10; 
 			} else {
-				smelt = -1;
+				smelt = c.getItems().freeSlots();
 			}
 			return smelt;
 		}
 		if (Objects.equals(amount, "ALL")) {
-			if(c.getItems().freeSlots() >= 0) {
-				smelt = c.getItems().freeSlots();
-			} else {
-				smelt = -1;
-			}
+			smelt = c.getItems().freeSlots();
 			return smelt;
 		}
 		return -1;
