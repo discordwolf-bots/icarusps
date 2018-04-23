@@ -1,0 +1,10 @@
+[03/09/2018 02:29:47] Recipient = Mason, message = Still got the right rank?
+----------------------------------------------
+[03/09/2018 02:30:14] Recipient = Mason, message = Nope, try and yell
+----------------------------------------------
+[03/09/2018 02:30:38] Recipient = Mason, message = What rank do you want it to show?
+----------------------------------------------
+[03/09/2018 02:31:38] Recipient = Mason, message = I mean do you want it to show donator crown, or you want the skull?
+----------------------------------------------
+[03/09/2018 02:32:12] Recipient = Mason, message = Log out, and ill message on discord when you can log in
+----------------------------------------------
