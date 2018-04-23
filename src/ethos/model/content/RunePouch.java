@@ -3,6 +3,7 @@ package ethos.model.content;
 import ethos.model.content.LootingBag.LootingBagItem;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerSave;
+import ethos.util.Misc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -194,6 +195,7 @@ public class RunePouch extends Pouch {
 
 	private boolean pouchContainsItem(int id) {
 		for (LootingBagItem item : items) {
+			Misc.println("[RP199]: item.getId()=" + item.getId() + ", id = " + id);
 			if (item.getId() == id) {
 				return true;
 			}
@@ -222,6 +224,7 @@ public class RunePouch extends Pouch {
 		}
 		for (int i = 0; i < runes.length; i++) {
 			if (!pouchContainsItem(runes[i], runeAmounts[i])) {
+				Misc.println("[RP226]: i=" + i + ", runes.length = " + runes.length + ", pouchContainsItem(" + runes[i] + ", " + runeAmounts[i] + ")");
 				return false;
 			}
 		}
