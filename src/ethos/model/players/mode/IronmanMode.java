@@ -149,7 +149,7 @@ public class IronmanMode extends Mode {
 			break;
 
 		case 22:
-			if (itemId != 314 && itemId != 317 && itemId != 335 && itemId != 377) {
+			if (itemId != 317 && itemId != 335 && itemId != 377) {
 				return true;
 			}
 			break;
