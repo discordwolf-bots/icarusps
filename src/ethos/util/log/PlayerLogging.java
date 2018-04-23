@@ -31,7 +31,7 @@ public class PlayerLogging {
 	 *
 	 */
 	public enum LogType {
-		COMMAND, PRIVATE_CHAT, CHANGE_IDENTITY, CHANGE_IP_ADDRESS, CHANGE_PASSWORD, CHANGE_MAC_ADDRESS, PUBLIC_CHAT, DONATION_TRANSACTION, TRADE_LOG, DEATH_LOG, DIED_LOG, IRON_KILLED_PLAYER, STAKE_LOG, VOTE_LOG, SHOP_LOG, DC_LOG
+		COMMAND, PRIVATE_CHAT, CHANGE_IDENTITY, CHANGE_IP_ADDRESS, CHANGE_PASSWORD, CHANGE_MAC_ADDRESS, PUBLIC_CHAT, DONATION_TRANSACTION, TRADE_LOG, DEATH_LOG, DIED_LOG, IRON_KILLED_PLAYER, STAKE_LOG, VOTE_LOG, SHOP_LOG, DC_LOG, CLAN_CHAT
 	}
 
 	/**
@@ -86,6 +86,42 @@ public class PlayerLogging {
 	
 	public static void write(LogType type, Player player, String message) {
 		 write(type, player, message, "");
+	}
+	
+	public static void writeGlobal(LogType type, Player player, String message) {
+		 writeGlobal(type, player, message, "");
+	}
+	
+	public static void writeGlobal(LogType type, Player player, String message, String message2) {
+		Path path = Paths.get(LOG_DIRECTORY.getPath(), ".Global" + type.toString().toLowerCase() + ".txt");
+		
+		if (!Files.exists(path)) {
+			try {
+				Files.createDirectories(path.getParent());
+				Files.createFile(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		service.execute(() -> {
+			try (BufferedWriter writer = Files.newBufferedWriter(path, StandardOpenOption.APPEND )) {
+				DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+				Date date = new Date();
+				writer.write("[" + dateFormat.format(date) + "] " + message);
+				writer.newLine();
+				if (message2.length() > 5) {
+					writer.write(message2);
+					writer.newLine();
+				}	
+				writer.newLine();
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+});
+		
+		
 	}
 
 }
