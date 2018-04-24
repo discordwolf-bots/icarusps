@@ -220,15 +220,16 @@ public class DropManager {
 							}
 						}
 						int mBoxChance = 350;
+						int rewardItem = 405;
 						if(Misc.random(mBoxChance) == 1) {
 							player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
 							if (player.getItems().freeSlots() > 1) {
-								player.getItems().addItem(6199, 1);
+								player.getItems().addItem(rewardItem, 1);
 							} else {
-								player.getItems().addItemToBank(6199, 1);
+								player.getItems().addItemToBank(rewardItem, 1);
 								player.sendMessage("Your reward is in your bank");
 							}							
-							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a Mystery Box from their Slayer Task!");
+							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a PvM Casket from their Slayer Task!");
 						}
 					});
 				}
