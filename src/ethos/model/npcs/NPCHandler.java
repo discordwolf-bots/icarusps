@@ -3007,7 +3007,7 @@ public class NPCHandler {
 				c.sendMessage("You gain @red@1 @bla@point for killing the Mage! You now have @red@"+ c.getArenaPoints() +" @bla@Arena Points.");
 			}
 			if (npcs[i].npcType == 5744 || npcs[i].npcType == 5762) {
-				c.setShayPoints(c.getShayPoints() + 1);
+				c.setShayPoints(c.getShayPoints() + 3);
 				c.sendMessage("You gain @red@1 @bla@point for killing the Penance! You now have @red@"+ c.getShayPoints() +" @bla@Assault Points.");
 			}
 			for(MonsterHunt.Npcs hunt : MonsterHunt.Npcs.values()) {
