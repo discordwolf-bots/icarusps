@@ -54,7 +54,7 @@ public class Fishing extends SkillHandler {
 	};
 	
 	private static void clueBottles(Player player) {
-		int chance = player.playerSkillProp[10][10] / 7;
+		int chance = player.playerSkillProp[10][10] / 100;
 		int bottleRoll = Misc.random(10);
 		if (Misc.random(chance) == 1) {
 			player.sendMessage("You catch a clue bottle!");
