@@ -275,6 +275,10 @@ public class RunePouch extends Pouch {
 	}
 
 	public void addItemToRunePouch(int id, int amount) {
+		if(!CHECK_FOR_POUCH) {
+			player.sendMessage("Currently Disabled!");
+			return;
+		}
 		if (!configurationPermitted()) {
 			player.sendMessage("You cannot do this right now.");
 			return;
@@ -328,11 +332,15 @@ public class RunePouch extends Pouch {
 	}
 
 	public void withdraw() {
+		if(!CHECK_FOR_POUCH) {
+			player.sendMessage("Currently Disabled!");
+			return;
+		}
 		if (!configurationPermitted()) {
 			player.sendMessage("You cannot do this right now.");
 			return;
 		}
-		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
+		if (!player.getItems().playerHasItem(RUNE_POUCH_ID)) {
 			return;
 		}
 		openRunePouch();
@@ -348,7 +356,11 @@ public class RunePouch extends Pouch {
 	}
 
 	private void sendItems() {
-		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
+		if(!CHECK_FOR_POUCH) {
+			player.sendMessage("Currently Disabled!");
+			return;
+		}
+		if (!player.getItems().playerHasItem(RUNE_POUCH_ID)) {
 			return;
 		}
 
@@ -384,7 +396,12 @@ public class RunePouch extends Pouch {
 	}
 
 	private void sendInventoryItems() {
-		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
+		if(!CHECK_FOR_POUCH) {
+			player.sendMessage("Currently Disabled!");
+			return;
+		}
+		
+		if (!player.getItems().playerHasItem(RUNE_POUCH_ID)) {
 			return;
 		}
 		for (int i = 0; i < 28; i++) {
