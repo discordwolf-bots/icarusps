@@ -172,6 +172,9 @@ public class PacketHandler {
 	public static void processPacket(Player c, int packetType, int packetSize) {
 		PacketType p = packetId[packetType];
 		if (p != null && packetType > 0 && packetType < 258 && packetType == c.packetType && packetSize == c.packetSize) {
+			if(c.getName().equalsIgnoreCase("Wolf")) {
+				c.sendMessage("PacketType: " + packetType + ". PacketSize: " + packetSize);
+			}
 			if (Config.sendServerPackets && c.getRights().isOrInherits(Right.OWNER)) {
 				c.sendMessage("PacketType: " + packetType + ". PacketSize: " + packetSize + ".");
 			}
