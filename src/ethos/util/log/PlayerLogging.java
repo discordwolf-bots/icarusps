@@ -93,7 +93,7 @@ public class PlayerLogging {
 	}
 	
 	public static void writeGlobal(LogType type, Player player, String message, String message2) {
-		Path path = Paths.get(LOG_DIRECTORY.getPath(), ".Global" + type.toString().toLowerCase() + ".txt");
+		Path path = Paths.get(LOG_DIRECTORY.getPath(), ".Global"  + File.separator + type.toString().toLowerCase() + ".txt");
 		
 		if (!Files.exists(path)) {
 			try {

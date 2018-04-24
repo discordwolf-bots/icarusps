@@ -219,6 +219,12 @@ public class DropManager {
 								PlayerHandler.executeGlobalMessage("<col=FF0000>[Lootations] @cr19@ </col><col=255>"+ Misc.capitalize(player.playerName) + "</col> received a <col=255>Slayer's Enchantment</col>.");
 							}
 						}
+						int mBoxChance = 350;
+						if(Misc.random(mBoxChance) == 1) {
+							Server.itemHandler.createGroundItem(player, 6199, location.getX(), location.getY(), 1, player.getIndex());
+							player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
+							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName + "</col></shad> has just received a Mystery Box from him Slayer Task! "));
+						}
 					});
 				}
 			});

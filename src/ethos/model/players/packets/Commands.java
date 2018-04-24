@@ -119,7 +119,7 @@ public class Commands implements PacketType {
 			if (c.clan != null) {
 				c.clan.sendChat(c, playerCommand);
 				PlayerLogging.write(LogType.PUBLIC_CHAT, c, "Clan spoke = "+playerCommand);
-				PlayerLogging.writeGlobal(LogType.CLAN_CHAT, c, playerCommand.substring(1));
+				PlayerLogging.writeGlobal(LogType.CLAN_CHAT, c, c.playerName + ": " + playerCommand.substring(1));
 				
 				return;
 			}
