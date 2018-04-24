@@ -223,7 +223,7 @@ public class DropManager {
 						if(Misc.random(mBoxChance) == 1) {
 							Server.itemHandler.createGroundItem(player, 6199, location.getX(), location.getY(), 1, player.getIndex());
 							player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
-							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName + "</col></shad> has just received a Mystery Box from him Slayer Task! "));
+							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a Mystery Box from their Slayer Task!");
 						}
 					});
 				}
