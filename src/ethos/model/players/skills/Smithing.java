@@ -1367,7 +1367,6 @@ public class Smithing {
 				c.smeltAmount = c.getItems().getItemAmount(getOre(barType));
 				if(c.smeltAmount > 28) c.smeltAmount = 28;
 				if(c.smeltAmount > c.getItems().freeSlots()) c.smeltAmount = c.getItems().freeSlots();
-				c.sendMessage("Smelting " + c.smeltAmount);
 				smelt(barType);
 			} else {
 				c.sendMessage("You do not have the required ores to smelt this.");

@@ -52,7 +52,11 @@ public class RunePouch extends Pouch {
 	}
 
 	public void openRunePouch() {
-		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
+		if(!CHECK_FOR_POUCH) {
+			player.sendMessage("Currently disabled");
+			return;
+		}
+		if (!player.getItems().playerHasItem(RUNE_POUCH_ID)) {
 			return;
 		}
 		if (!configurationPermitted()) {
@@ -212,25 +216,39 @@ public class RunePouch extends Pouch {
 		return false;
 	}
 
-	@SuppressWarnings("unused")
 	public boolean hasRunes(int runes, int amount) {
-
-		return player.getItems().playerHasItem(RUNE_POUCH_ID)||!CHECK_FOR_POUCH&&(runes<=0||amount<=0||pouchContainsItem(runes, amount));
+		if(CHECK_FOR_POUCH) {
+			if(player.getItems().playerHasItem(RUNE_POUCH_ID)) {
+				if(runes<=0) {
+					return true;
+				}
+				if(amount <= 0) {
+					return true;
+				}
+				if(pouchContainsItem(runes, amount)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public boolean hasRunes(int[] runes, int[] runeAmounts) {
-		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
+		if(!CHECK_FOR_POUCH) {
+			return false;
+		}
+		if (!player.getItems().playerHasItem(RUNE_POUCH_ID)) {
 			return false;
 		}
 		for (int i = 0; i < runes.length; i++) {
 			if (!pouchContainsItem(runes[i], runeAmounts[i])) {
-				Misc.println("[RP226]: i=" + i + ", runes.length = " + runes.length + ", pouchContainsItem(" + runes[i] + ", " + runeAmounts[i] + ")");
 				return false;
 			}
 		}
 		return true;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean deleteRunesOnCast(int runes, int runeAmounts) {
 		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
 			return false;
@@ -242,6 +260,7 @@ public class RunePouch extends Pouch {
 		return true;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean deleteRunesOnCast(int[] runes, int[] runeAmounts) {
 		if (!player.getItems().playerHasItem(RUNE_POUCH_ID) && CHECK_FOR_POUCH) {
 			return false;
