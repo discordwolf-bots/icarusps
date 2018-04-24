@@ -205,7 +205,7 @@ public class Slayer {
 						handleSuperiorExp(npc);
 					}
 					if ((taskAmount%10 == 0 || taskAmount < 10) && taskAmount != 0) {
-						player.sendMessage("Only <col=ff0000><shad=000000>" + taskAmount + " " + name + " left!");
+						player.sendMessage("Only <col=ff0000><shad=000000>" + taskAmount + "</shad></col> " + name + " left!");
 					}
 					if (taskAmount == 0) {
 						int consecutive = consecutiveTasks + 1;
