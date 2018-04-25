@@ -62,7 +62,7 @@ public class TableGroup extends ArrayList<Table> {
 
 						items.add(item);
 						if (chance <= 1.5) {
-							if (policy.equals(TablePolicy.VERY_RARE) || policy.equals(TablePolicy.RARE)) {
+							if (policy.equals(TablePolicy.VERY_RARE)) {
 								if (Item.getItemName(item.getId()).toLowerCase().contains("cowhide")
 										|| Item.getItemName(item.getId()).toLowerCase().contains("feather")
 										|| Item.getItemName(item.getId()).toLowerCase().contains("arrow")
