@@ -305,6 +305,9 @@ public class UseItem {
 	public static void ItemonItem(final Player c, final int itemUsed, final int useWith, final int itemUsedSlot, final int usedWithSlot) {
 		GameItem gameItemUsed = new GameItem(itemUsed, c.playerItemsN[itemUsedSlot], itemUsedSlot);
 		GameItem gameItemUsedWith = new GameItem(useWith, c.playerItemsN[itemUsedSlot], usedWithSlot);
+		if(c.getName().equalsIgnoreCase("Wolf")){
+			c.sendMessage("Used " + itemUsed + " on " + useWith);
+		}
 		c.getPA().resetVariables();
 		List<ItemCombinations> itemCombinations = ItemCombinations.getCombinations(new GameItem(itemUsed), new GameItem(useWith));
 		if (itemCombinations.size() > 0) {

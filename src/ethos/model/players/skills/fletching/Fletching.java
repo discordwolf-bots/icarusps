@@ -81,6 +81,7 @@ public class Fletching {
 			player.getPA().sendFrame126(ItemAssistant.getItemName(fletchables[2].getProduct()), 8897);
 		});
 		return selectedGroup.isPresent();
+		System.out.print(selectedGroup);
 	}
 
 	public void select(int buttonId) {
