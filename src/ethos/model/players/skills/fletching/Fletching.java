@@ -112,6 +112,8 @@ public class Fletching {
 	 * @param logId the log being cut
 	 */
 	public void fletchLog(FletchableLog fletchable, int amount) {
+		if(player.getName().equalsIgnoreCase("Wolf"))
+			player.sendMessage("Log ID: " + fletchable.getItemId() + ", Result: " + fletchable.getProduct() + ", level: " + fletchable.getLevel());
 		selectedGroup = Optional.empty();
 		selectedFletchable = Optional.empty();
 		if (!player.getItems().playerHasItem(fletchable.getItemId())) {
