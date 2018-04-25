@@ -93,6 +93,8 @@ public class Fletching {
 				} else {
 					amount = player.getItems().getItemAmount(fletchable.getItemId());
 				}
+				if(player.getName().equalsIgnoreCase("Wolf"))
+					player.sendMessage("index: " + index + ", button: " + buttonId);
 				Misc.println("Fletching: " + amount + " x " + fletchable.getName());
 				selectedFletchable = Optional.of(fletchable);
 				if (amount == -1) {
