@@ -69,6 +69,7 @@ public class Fletching {
 		selectedGroup = FLETCHABLE_LOG_GROUP.stream().filter(g -> Arrays.stream(g.getFletchables()).anyMatch(f -> f.getItemId() == use || f.getItemId() == used)).findFirst();
 		selectedGroup.ifPresent(group -> {
 			FletchableLog[] fletchables = group.getFletchables();
+			System.out.print(fletchables.toString());
 			player.getSkilling().stop();
 			player.getSkilling().setSkill(Skill.FLETCHING);
 			player.getPA().sendFrame164(8880);
@@ -80,6 +81,8 @@ public class Fletching {
 			player.getPA().sendFrame126(ItemAssistant.getItemName(fletchables[1].getProduct()), 8893);
 			player.getPA().sendFrame126(ItemAssistant.getItemName(fletchables[2].getProduct()), 8897);
 		});
+		System.out.println(selectedGroup);
+		
 		return selectedGroup.isPresent();
 	}
 
@@ -87,7 +90,7 @@ public class Fletching {
 		selectedGroup.ifPresent(group -> {
 			for (FletchableLog fletchable : group.getFletchables()) {
 				int index = Misc.linearSearch(fletchable.getButtonIds(), buttonId);
-				System.out.println(fletchable.getButtonIds().length);
+				System.out.println(fletchable.getButtonIds());
 				int amount = -1;
 				if (index != -1) {
 					amount = FLETCHABLE_AMOUNTS[index];
