@@ -484,13 +484,16 @@ public class LootingBag {
 				if (item != null) {
 					id = item.getId();
 					amt = item.getAmount();
+					player.sendMessage("i: " + i + ", id: " + id + ", amount: " + amt);
 				}
+			} else {
+				
 			}
 
 			if (id <= 0) {
 				id = -1;
 			}
-			player.getPA().sendFrame34a(START_ITEM_INTERFACE + i, id, 0, amt);
+			player.getPA().sendFrame34a(START_ITEM_INTERFACE + 6, id, i, amt);
 		}
 	}
 
