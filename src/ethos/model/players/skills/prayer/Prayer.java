@@ -75,7 +75,6 @@ public class Prayer {
 		player.getSkilling().setSkill(Skill.PRAYER);
 		ItemDefinition definition = ItemDefinition.forId(bone.getItemId());
 		player.sendMessage("You bury the " + (definition == null ? "bone" : definition.getName()) + ".");
-		player.getPA().addSkillXP(bone.getExperience() * (Boundary.isIn(player, Boundary.LAVA_DRAGON_ISLE) && bone.getItemId() == 11943 ? (player.getMode().getType().equals(ModeType.OSRS) ? 4 * 4 : Config.PRAYER_EXPERIENCE * 4) : (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.PRAYER_EXPERIENCE)), Skill.PRAYER.getId(), true);
 		player.getItems().deleteItem2(bone.getItemId(), 1);
 		player.startAnimation(827);
 		lastAction.reset();
