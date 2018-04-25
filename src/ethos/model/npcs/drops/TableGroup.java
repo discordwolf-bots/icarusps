@@ -76,10 +76,10 @@ public class TableGroup extends ArrayList<Table> {
 									
 								} else {
 									PlayerHandler.executeGlobalMessage(
-											"<col=FF0000>[Lootations] @cr19@ </col><col=255><img=" + rights + ">"
-													+ Misc.capitalize(player.playerName) + "</col> received <col=255>"
-													+ item.getAmount() + "</col>x <col=255>"
-													+ ItemAssistant.getItemName(item.getId()) + "</col>.");
+											"<col=FF0000>@cr19@<shad=ff0000>[VERY RARE] </shad></col><img=" + rights + ">"
+													+ "<col=0000ff><shad=000000>" + Misc.capitalize(player.playerName) + "</shad></col> received "
+													+ "<col=0000ff><shad=000000>" + item.getAmount() + "</shad></col>x "
+													+ "<col=0000ff><shad=000000>" + ItemAssistant.getItemName(item.getId()) + "</shad></col>.");
 								}
 							}
 						}
