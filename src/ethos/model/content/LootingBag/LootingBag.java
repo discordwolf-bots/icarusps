@@ -190,14 +190,20 @@ public class LootingBag {
 	 * Opens the check looting bag interface
 	 */
 	public void openLootbag() {
-		if (!configurationPermitted()) {
+		
+		if (!configurationPermitted() || !player.getName().equalsIgnoreCase("Wolf")) {
 			player.sendMessage("You cannot do this right now.");
 			return;
 		}
+		player.sendMessage("onClose();");
 		onClose();
+		player.sendMessage("sendItems();");
 		sendItems();
+		player.sendMessage("updateTotalCost();");
 		updateTotalCost();
+		player.sendMessage("player.setSidebarInterface(3, 37342);");
 		player.setSidebarInterface(3, 37342);
+		player.sendMessage("player.viewingLootBag = true;");
 		player.viewingLootBag = true;
 	}
 
@@ -468,10 +474,11 @@ public class LootingBag {
 			return;
 		}
 		final int START_ITEM_INTERFACE = 47342;
+		player.sendMessage("size: " + items.size());
 		for (int i = 0; i < 28; i++) {
 			int id = 0;
 			int amt = 0;
-
+			
 			if (i < items.size()) {
 				LootingBagItem item = items.get(i);
 				if (item != null) {
