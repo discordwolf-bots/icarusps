@@ -88,7 +88,22 @@ public class Fletching {
 
 	public void select(int buttonId) {
 		selectedGroup.ifPresent(group -> {
-			for (FletchableLog fletchable : group.getFletchables()) {
+			for(FletchableLog fletchable : group.getFletchables()) {
+				int index = Misc.linearSearch(fletchable.getButtonIds(), buttonId);
+				int amount = -1;
+				if(index != -1) {
+					amount = FLETCHABLE_AMOUNTS[index];
+					selectedFletchable = Optional.of(fletchable);
+					if(amount == -1) {
+						player.getOutStream().createFrame(27);
+						player.flushOutStream();
+						break;
+					}
+					fletchLog(fletchable, amount);
+					break;
+				}
+			}
+			/*for (FletchableLog fletchable : group.getFletchables()) {
 				int index = Misc.linearSearch(fletchable.getButtonIds(), buttonId);
 				System.out.println(fletchable.getButtonIds());
 				int amount = -1;
@@ -108,7 +123,7 @@ public class Fletching {
 				}
 				fletchLog(fletchable, amount);
 				break;
-			}
+			}*/
 		});
 	}
 
@@ -122,6 +137,7 @@ public class Fletching {
 			player.sendMessage("Log ID: " + fletchable.getItemId() + ", Result: " + fletchable.getProduct() + ", level: " + fletchable.getLevel());
 		selectedGroup = Optional.empty();
 		selectedFletchable = Optional.empty();
+		player.getPA().removeAllWindows();
 		if (!player.getItems().playerHasItem(fletchable.getItemId())) {
 			player.getPA().removeAllWindows();
 			player.sendMessage("You do not have the items required for this.");
@@ -133,7 +149,6 @@ public class Fletching {
 			return;
 		}
 		player.startAnimation(1248);
-		player.getPA().removeAllWindows();
 		Server.getEventHandler().stop(player, "skilling");
 		Server.getEventHandler().submit(new FletchLogEvent(player, 3, fletchable, amount));
 	}
