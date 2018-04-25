@@ -87,6 +87,7 @@ public class Fletching {
 		selectedGroup.ifPresent(group -> {
 			for (FletchableLog fletchable : group.getFletchables()) {
 				int index = Misc.linearSearch(fletchable.getButtonIds(), buttonId);
+				System.out.println(fletchable.getButtonIds().length);
 				int amount = -1;
 				if (index != -1) {
 					amount = FLETCHABLE_AMOUNTS[index];
@@ -119,10 +120,12 @@ public class Fletching {
 		selectedGroup = Optional.empty();
 		selectedFletchable = Optional.empty();
 		if (!player.getItems().playerHasItem(fletchable.getItemId())) {
+			player.getPA().removeAllWindows();
 			player.sendMessage("You do not have the items required for this.");
 			return;
 		}
 		if (player.playerLevel[Skill.FLETCHING.getId()] < fletchable.getLevel()) {
+			player.getPA().removeAllWindows();
 			player.sendMessage("You need a fletching level of " + fletchable.getLevel() + " to do this.");
 			return;
 		}

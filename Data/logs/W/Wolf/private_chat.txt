@@ -8,3 +8,9 @@
 ----------------------------------------------
 [03/09/2018 02:32:12] Recipient = Mason, message = Log out, and ill message on discord when you can log in
 ----------------------------------------------
+[04/24/2018 22:17:00] Recipient = g, message = Hey callum
+----------------------------------------------
+[04/24/2018 22:27:59] Recipient = g, message = Dont worry man, jeff just told me, and its all good
+----------------------------------------------
+[04/24/2018 22:28:12] Recipient = g, message = But yeah, i look forward to seeing you around :p
+----------------------------------------------

@@ -1,2 +1,8 @@
 [04/17/2018 03:21:53] Recipient = osrs jeff, message = Noob
 ----------------------------------------------
+[04/24/2018 23:37:34] Recipient = osrs jeff, message = Btw, even though we are mods on these, dont tele around to others
+----------------------------------------------
+[04/24/2018 23:52:19] Recipient = osrs jeff, message = Does herb sack work?
+----------------------------------------------
+[04/24/2018 23:54:34] Recipient = osrs jeff, message = Ill look into the loot bag interface soon
+----------------------------------------------

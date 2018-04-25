@@ -128,3 +128,11 @@
 ----------------------------------------------
 [04/24/2018 20:15:41] osrs jeff typed command Teleto g at X: 1504 Y:3626
 ----------------------------------------------
+[04/24/2018 22:27:56] osrs jeff typed command teleto iron pencian at X: 1504 Y:3618
+----------------------------------------------
+[04/25/2018 00:18:42] osrs jeff typed command yell dont forget to vote guys, and save them tickets up at X: 1710 Y:10018
+----------------------------------------------
+[04/25/2018 01:52:50] osrs jeff typed command Teleto osrs matt at X: 2835 Y:9820
+----------------------------------------------
+[04/25/2018 01:52:58] osrs jeff typed command teleto osrs wolf at X: 2835 Y:9820
+----------------------------------------------

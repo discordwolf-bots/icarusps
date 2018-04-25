@@ -44,3 +44,31 @@
 ----------------------------------------------
 [04/21/2018 18:18:02] Recipient = pencian, message = Yupyup
 ----------------------------------------------
+[04/24/2018 22:49:22] Recipient = iron pencian, message = Hey question
+----------------------------------------------
+[04/24/2018 22:49:42] Recipient = iron pencian, message = Are u gonna stay as iron man as main acc>?
+----------------------------------------------
+[04/24/2018 22:50:31] Recipient = iron pencian, message = Just which ever is more acc ur gonna be on
+----------------------------------------------
+[04/24/2018 22:50:59] Recipient = iron pencian, message = Because i can swap them arround
+----------------------------------------------
+[04/24/2018 23:37:44] Recipient = OSRS Wolf, message = Kk
+----------------------------------------------
+[04/24/2018 23:51:55] Recipient = OSRS Wolf, message = Shouldnt the looting bag work the same way as herb sack?
+----------------------------------------------
+[04/24/2018 23:52:06] Recipient = OSRS Wolf, message = Except for the visual part
+----------------------------------------------
+[04/24/2018 23:54:09] Recipient = OSRS Wolf, message = Yes it does
+----------------------------------------------
+[04/24/2018 23:55:34] Recipient = OSRS Wolf, message = I was just saying if like the gem bag and herbsack work
+----------------------------------------------
+[04/24/2018 23:55:45] Recipient = OSRS Wolf, message = Then looting bag has same thing except for the "check"
+----------------------------------------------
+[04/24/2018 23:56:13] Recipient = OSRS Wolf, message = Actually theres a check on the herbsack too
+----------------------------------------------
+[04/25/2018 00:16:33] Recipient = OSRS Wolf, message = I was also in the process of looking to change the rate of fishing for clue bott
+----------------------------------------------
+[04/25/2018 00:16:38] Recipient = OSRS Wolf, message = Bottles
+----------------------------------------------
+[04/25/2018 00:16:49] Recipient = OSRS Wolf, message = But i couldnt find it, its like slim to never
+----------------------------------------------
