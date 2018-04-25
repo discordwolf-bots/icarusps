@@ -41,20 +41,37 @@ public class MagicRequirements extends MagicConfig {
 		int wep = c.playerEquipment[c.playerWeapon];
 		switch (runeId) {
 		case FIRE:
-			if (wep == 1387 || wep == 1393 || wep == 1401 || wep == 12796 || wep == 11789 || wep == 12000)
+			if (wep == 1387 || wep == 1393 || wep == 1401 || // fire
+				wep == 3053 || wep == 3054 || // lava
+				wep == 11787 || wep == 12795 || wep == 12796 || wep == 11789 || // steam
+				wep == 11998 || wep == 12000 // smoke
+			)
 				return true;
 			break;
 		case WATER:
-			if (wep == 1383 || wep == 1395 || wep == 12796 || wep == 11789 || wep == 6563 || wep == 1403 || wep == 21006)
+			if (wep == 1383 || wep == 1395 || wep == 1403 || // water
+				wep == 11787 || wep == 12795 || wep == 12796 || wep == 11789 || // steam staff
+				wep == 6562 || wep == 6563 || // mud
+				wep == 20730 || wep == 20733 || // mist
+				wep == 21006 // kodai wand
+			)
 				return true;
 			break;
 		case AIR:
-			if (wep == 1381 || wep == 1397 || wep == 1405 || wep == 12000 || wep == 20736)
+			if (wep == 1381 || wep == 1397 || wep == 1405 || // air
+				wep == 11998 || wep == 12000 || // smoke
+				wep == 20730 || wep == 20733 || // mist
+				wep == 20736 || wep == 20739 // dust
+			)
 				return true;
 			break;
 			
 		case EARTH:
-			if (wep == 1385 || wep == 1399 || wep == 1407 || wep == 6563 || wep == 20736)
+			if (wep == 1385 || wep == 1399 || wep == 1407 || // earth
+				wep == 3053 || wep == 3054 || // lava 
+				wep == 6562 || wep == 6563 || // mud
+				wep == 20736 || wep == 20739 // dust
+			)
 				return true;
 			break;
 		}
