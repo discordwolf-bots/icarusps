@@ -29,69 +29,71 @@ import ethos.model.content.dailytasks.DailyTasks.PossibleTasks;
 
 public class Cooking extends SkillHandler {
 
-	public static int[] fishIds = { 315, 2309, 319, 325, 347, 355, 333, 339, 351, 329, 361, 365, 2140, 2142, 379, 373,
+	public static int[] fishIds = { 
+			315, 2309, 319, 325, 347, 355, 333, 339, 
+			351, 329, 361, 365, 2140, 2142, 379, 373,
 			385, 397, 391, 7946, 11936, 3144, 13441 };
 
 	public static void cookThisFood(Player p, int i, int object) {
 		switch (i) {
-		case 317:
+		case 317: // shrimp
 			cookFish(p, i, 30, 1, 323, 315, object);
 			break;
-		case 2307:
+		case 2307: // bead dough
 			cookFish(p, i, 1, 1, 2309, 2309, object);
 			break;
-		case 321:
+		case 321: // anchovy
 			cookFish(p, i, 30, 1, 323, 319, object);
 			break;
-		case 327:
+		case 327: // sardine
 			cookFish(p, i, 40, 1, 367, 325, object);
 			break;
-		case 345:
+		case 345: // herring
 			cookFish(p, i, 50, 5, 357, 347, object);
 			break;
-		case 353:
+		case 353: // mackerel
 			cookFish(p, i, 60, 10, 357, 355, object);
 			break;
-		case 335:
+		case 335: // trout
 			cookFish(p, i, 70, 15, 343, 333, object);
 			break;
-		case 341:
+		case 341: // cod
 			cookFish(p, i, 75, 18, 343, 339, object);
 			break;
-		case 349:
+		case 349: // pike
 			cookFish(p, i, 80, 20, 343, 351, object);
 			break;
-		case 331:
+		case 331: // salmon
 			cookFish(p, i, 90, 25, 343, 329, object);
 			break;
-		case 359:
+		case 359: // tuna
 			cookFish(p, i, 100, 30, 367, 361, object);
 			break;
-		case 361:
+		case 363: // bass 
 			cookFish(p, i, 100, 30, 367, 365, object);
 			break;
-		case 2138:
+		case 2138: // chicken
 			cookFish(p, i, 30, 1, 2144, 2140, object);
 			break;
-		case 2132:
+		case 2132: // beef
 			cookFish(p, i, 30, 1, 2146, 2142, object);
 			break;
-		case 377:
+		case 377: // lobster
 			cookFish(p, i, 120, 40, i + 4, i + 2, object);
 			break;
-		case 371:
+		case 371: // swordfish
 			cookFish(p, i, 140, 45, i + 4, i + 2, object);
 			break;
-		case 383:
+		case 383: // shark
 			cookFish(p, i, 210, 80, i + 4, i + 2, object);
 			break;
-		case 395:
+		case 395: // sea turtle
 			cookFish(p, i, 212, 82, i + 4, i + 2, object);
 			break;
-		case 389:
+		case 389: // manta ray
 			cookFish(p, i, 216, 91, i + 4, i + 2, object);
 			break;
-		case 7944:
+		case 7944: // monkfish
 			cookFish(p, i, 150, 62, i + 4, i + 2, object);
 			break;
 		case 11934: //Dark crab
@@ -100,7 +102,7 @@ public class Cooking extends SkillHandler {
 		case 13439: //Angler
 			cookFish(p, i, 212, 84, i + 4, i + 2, object);
 			break;
-		case 3142:
+		case 3142: // karambwan
 			cookFish(p, i, 190, 30, i + 4, i + 2, object);
 			break;
 		default:
