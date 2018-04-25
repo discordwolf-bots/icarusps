@@ -1,9 +1,9 @@
 package ethos.model.players.skills.fletching;
 
 public enum FletchableLog {
+	ARROW_SHAFT(1511, 52, 1, 5, new int[] { 34193, 34192, 34191, 34190 }),
 	SHORTBOW(1511, 50, 5, 5, new int[] { 34185, 34184, 34183, 34182 }), 
-	LONGBOW(1511, 48, 10, 10, new int[] { 34189, 34188, 34187, 34186 }), 
-	ARROW_SHAFT(1511, 52, 1, 5, new int[] { 34193, 34192, 34191, 34190 }), 
+	LONGBOW(1511, 48, 10, 10, new int[] { 34189, 34188, 34187, 34186 }),
 	OAK_SHORTBOW(1521, 54, 20, 17, new int[] { 34185, 34184, 34183, 34182 }), 
 	OAK_LONGBOW(1521, 56, 25, 25, new int[] { 34189, 34188, 34187, 34186 }), 
 	OAK_SHAFT(1521, 52, 24, 16, new int[] { 34193, 34192, 34191, 34190 }), 
