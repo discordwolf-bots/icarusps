@@ -103,27 +103,7 @@ public class Fletching {
 					break;
 				}
 			}
-			/*for (FletchableLog fletchable : group.getFletchables()) {
-				int index = Misc.linearSearch(fletchable.getButtonIds(), buttonId);
-				System.out.println(fletchable.getButtonIds());
-				int amount = -1;
-				if (index != -1) {
-					amount = FLETCHABLE_AMOUNTS[index];
-				} else {
-					amount = player.getItems().getItemAmount(fletchable.getItemId());
-				}
-				if(player.getName().equalsIgnoreCase("Wolf"))
-					player.sendMessage("index: " + index + ", button: " + buttonId);
-				Misc.println("Fletching: " + amount + " x " + fletchable.getName());
-				selectedFletchable = Optional.of(fletchable);
-				if (amount == -1) {
-					player.getOutStream().createFrame(27);
-					player.flushOutStream();
-					break;
-				}
-				fletchLog(fletchable, amount);
-				break;
-			}*/
+			player.sendMessage("ERROR! Please tell an Admin what happened!");
 		});
 	}
 
