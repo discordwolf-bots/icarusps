@@ -3008,7 +3008,7 @@ public class NPCHandler {
 			}
 			if (npcs[i].npcType == 5744 || npcs[i].npcType == 5762) {
 				c.setShayPoints(c.getShayPoints() + 3);
-				c.sendMessage("You gain @red@1 @bla@point for killing the Penance! You now have @red@"+ c.getShayPoints() +" @bla@Assault Points.");
+				c.sendMessage("You gain @red@3 @bla@points for killing the Penance! You now have @red@"+ c.getShayPoints() +" @bla@Assault Points.");
 			}
 			for(MonsterHunt.Npcs hunt : MonsterHunt.Npcs.values()) {
 				if(npcs[i].npcType == hunt.getNpcId() && npcs[i].getHealth().getAmount() <= 0) {
@@ -4518,6 +4518,11 @@ public class NPCHandler {
 				npcs[i].hitDelayTimer = 3;
 				npcs[i].projectileId = 1248;
 				npcs[i].attackTimer = 15;
+				break;
+				
+			default:
+				npcs[i].attackType = CombatType.MELEE;
+				npcs[i].hitDelayTimer = 3;
 				break;
 		}
 	}
