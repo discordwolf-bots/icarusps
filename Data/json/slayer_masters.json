@@ -548,6 +548,33 @@
                 "maximum": 90,
 				"locations": [ "Catacombs" ],
 				"teleport": [2704, 10025, 0]
+		    },
+            {
+                "names": [ "black brutal dragon", "king black dragon" ],
+                "level": 318,
+                "experience": 320,
+                "minimum": 10,
+                "maximum": 40,
+                "locations": [ "catacombs" ],
+                "teleport": [1614, 10095, 0]
+            },
+            {
+                "names": [ "red brutal dragon"],
+                "level": 289,
+                "experience": 306,
+                "minimum": 10,
+                "maximum": 40,
+                "locations": [ "catacombs" ],
+                "teleport": [1615, 10075, 0]
+		    },
+            {
+                "names": [ "blue brutal dragon"],
+                "level": 289,
+                "experience": 257,
+                "minimum": 10,
+                "maximum": 40,
+                "locations": [ "catacombs" ],
+                "teleport": [1633, 10075, 0]
             },
       {
         "names": [ "lava dragon" ],
