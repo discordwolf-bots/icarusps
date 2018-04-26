@@ -551,7 +551,7 @@
 		    },
             {
                 "names": [ "brutal black dragon",],
-                "level": 318,
+                "level": 70,
                 "experience": 320,
                 "minimum": 10,
                 "maximum": 40,
@@ -560,7 +560,7 @@
             },
             {
                 "names": [ "brutal red dragon"],
-                "level": 289,
+                "level": 60,
                 "experience": 306,
                 "minimum": 10,
                 "maximum": 40,
@@ -569,7 +569,7 @@
 		    },
             {
                 "names": [ "brutal blue dragon"],
-                "level": 289,
+                "level": 55,
                 "experience": 257,
                 "minimum": 10,
                 "maximum": 40,
