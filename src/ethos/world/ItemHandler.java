@@ -182,7 +182,7 @@ public class ItemHandler {
 			boolean crusher = player.getItems().playerHasItem(13116);
 			Optional<Bone> bone = Prayer.isOperableBone(itemId);
 			if (crusher && bone.isPresent()) {
-				double experience = player.getRechargeItems().hasItem(13114) ? 0.75 : player.getRechargeItems().hasItem(13115) ? 1 : 0.50;
+				double experience = player.getRechargeItems().hasItem(13114) ? 1.5 : player.getRechargeItems().hasItem(13115) ? 1.75 : 1;
 				if (itemId == bone.get().getItemId()) {
 					player.getPA().addSkillXP((int) (bone.get().getExperience() * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.PRAYER_EXPERIENCE) * experience),
 							Skill.PRAYER.getId(), true);
