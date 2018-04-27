@@ -1267,6 +1267,7 @@
       ]
     }
   },
+  
   {
     "npc_id": 6594,
     "constant": {
@@ -1285,12 +1286,12 @@
         {
           "item": 1522,
           "minimum": 25,
-          "maximum": 200
+          "maximum": 100
         },
         {
-          "item": 1516,
-          "minimum": 50,
-          "maximum": 200
+          "item": 1520,
+          "minimum": 10,
+          "maximum": 75
         },
         {
           "item": 1518,
@@ -1298,48 +1299,29 @@
           "maximum": 50
         },
         {
-          "item": 1520,
+          "item": 1516,
           "minimum": 1,
           "maximum": 50
         },
         {
-          "item": 1514,
-          "minimum": 5,
-          "maximum": 20
-        },
-        {
-          "item": 554,
-          "minimum": 50,
-          "maximum": 200
-        },
-        {
-          "item": 8836,
-          "minimum": 10,
-          "maximum": 50
-        },
-        {
-          "item": 1379,
+          "item": 1392,
           "minimum": 1,
-          "maximum": 1
+          "maximum": 10
         }
       ]
     },
     "uncommon": {
-      "accessibility": 55,
+      "accessibility": 25,
       "items": [
-        {
-          "item": 21257,
+       	{
+          "item": 1514,
           "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 12746,
-          "minimum": 1,
-          "maximum": 1
+          "maximum": 20
         }
       ]
 	} 
   },
+  
   {
     "npc_id": 1543,
     "constant": {
