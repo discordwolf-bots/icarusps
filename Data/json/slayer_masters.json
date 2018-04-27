@@ -550,7 +550,7 @@
 				"teleport": [2704, 10025, 0]
 		    },
             {
-                "names": [ "brutal black dragon",],
+                "names": [ "brutal black dragon"],
                 "level": 70,
                 "experience": 320,
                 "minimum": 10,
