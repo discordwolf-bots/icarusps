@@ -103,7 +103,6 @@ public class Fletching {
 					break;
 				}
 			}
-			player.sendMessage("ERROR! Please tell an Admin what happened!");
 		});
 	}
 
