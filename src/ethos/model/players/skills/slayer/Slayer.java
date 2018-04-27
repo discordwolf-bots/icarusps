@@ -189,15 +189,15 @@ public class Slayer {
 						taskAmount--;
 						// if you have morytania legs 2/3/4 and in slayer tower, 1.1x experience and then x1 for osrs
 						// if you dont, 1x experience and then x3 for osrs
-						player.getPA().addSkillXP(player.getRechargeItems().hasAnyItem(13113, 13114, 13115) && Boundary.isIn(player, Boundary.SLAYER_TOWER_BOUNDARY) ? (int) (task.getExperience() * 1.10) * (player.getMode().getType().equals(ModeType.OSRS) ? 3 : Config.SLAYER_EXPERIENCE)
-						: task.getExperience() * (player.getMode().getType().equals(ModeType.OSRS) ? 3 : Config.SLAYER_EXPERIENCE),
+						player.getPA().addSkillXP(player.getRechargeItems().hasAnyItem(13113, 13114, 13115) && Boundary.isIn(player, Boundary.SLAYER_TOWER_BOUNDARY) ? (int) (task.getExperience() * 1.10) * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SLAYER_EXPERIENCE)
+						: task.getExperience() * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SLAYER_EXPERIENCE),
 									Skill.SLAYER.getId(), true);
 						break;
 					case 7663:
 						if (npc.inWild()) {
 							taskAmount--;
-							player.getPA().addSkillXP(player.getRechargeItems().hasAnyItem(13113, 13114, 13115) && Boundary.isIn(player, Boundary.SLAYER_TOWER_BOUNDARY) ? (int) (task.getExperience() * 1.10) * (player.getMode().getType().equals(ModeType.OSRS) ? 3 : Config.SLAYER_EXPERIENCE)
-							: task.getExperience() * (player.getMode().getType().equals(ModeType.OSRS) ? 3 : Config.SLAYER_EXPERIENCE),
+							player.getPA().addSkillXP(player.getRechargeItems().hasAnyItem(13113, 13114, 13115) && Boundary.isIn(player, Boundary.SLAYER_TOWER_BOUNDARY) ? (int) (task.getExperience() * 1.10) * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SLAYER_EXPERIENCE)
+							: task.getExperience() * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SLAYER_EXPERIENCE),
 									Skill.SLAYER.getId(), true);
 							break;
 						}
