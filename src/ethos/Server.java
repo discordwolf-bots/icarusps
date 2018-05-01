@@ -32,6 +32,7 @@ import ethos.model.minigames.FightPits;
 import ethos.model.minigames.pk_arena.Highpkarena;
 import ethos.model.minigames.pk_arena.Lowpkarena;
 import ethos.model.multiplayer_session.MultiplayerSessionListener;
+import ethos.model.npcs.NPCDefinitions2;
 import ethos.model.npcs.NPCHandler;
 import ethos.model.npcs.drops.DropManager;
 import ethos.model.players.PlayerHandler;
@@ -210,6 +211,7 @@ public class Server {
 			events.submit(new PunishmentCycleEvent(PUNISHMENTS, 50));
 			Listing.loadNextSale();
 			Wogw.init();
+			NPCDefinitions2.load();
 			ItemDefinition.load();
 			DoorDefinition.load();
 			GodwarsEquipment.load();

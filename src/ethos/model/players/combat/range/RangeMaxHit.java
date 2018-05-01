@@ -5,6 +5,8 @@ import java.util.stream.IntStream;
 import ethos.Config;
 import ethos.model.items.Item;
 import ethos.model.npcs.NPC;
+import ethos.model.npcs.NPCDefinitions;
+import ethos.model.npcs.NPCDefinitions2;
 import ethos.model.npcs.NPCHandler;
 import ethos.model.players.Player;
 import ethos.util.Misc;
@@ -56,11 +58,6 @@ public class RangeMaxHit extends RangeData {
 				}
 			}
 
-		}
-		
-		if(c.playerEquipment[3] == 20997) {
-			// Is using Twisted Bow
-			//TODO add the effect here
 		}
 
 		if (c.fullVoidRange() && c.specAccuracy > 1.15) {

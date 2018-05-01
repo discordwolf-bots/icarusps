@@ -24,6 +24,7 @@ import ethos.model.minigames.raids.bosses.Tekton;
 import ethos.model.minigames.rfd.RecipeForDisaster;
 import ethos.model.minigames.warriors_guild.WarriorsGuild;
 import ethos.model.npcs.NPC;
+import ethos.model.npcs.NPCDefinitions2;
 import ethos.model.npcs.NPCHandler;
 import ethos.model.npcs.bosses.CorporealBeast;
 import ethos.model.npcs.bosses.Scorpia;
@@ -191,6 +192,32 @@ public class AttackNPC {
 			} else if (combatType.equals(CombatType.RANGE)) {
 				maximumDamage = attacker.getCombat().rangeMaxHit();
 				maximumAccuracy = attacker.getCombat().calculateRangeAttack();
+				
+				if(attacker.playerEquipment[3] == 20997) {
+					NPCDefinitions2 def = NPCDefinitions2.get(attacker.npcIndex);
+					
+					int npcMagic;
+					if(def != null) {
+						System.out.println(def.getBonus());
+						if(def.getBonus() != null) {
+							npcMagic= def.getBonus()[4];							
+						} else {
+							npcMagic = 1;
+						}
+					} else {
+						npcMagic = 1;
+					}
+					maximumAccuracy = 140 + (3*npcMagic-10)/100- (((3*npcMagic) /10 - 100)*((3*npcMagic) /10 - 100))/100;
+					if(maximumAccuracy >= 140) maximumAccuracy = 140;
+					maximumDamage = 250 + (3*npcMagic-14)/100 - ((3*npcMagic /10 - 140)*(3*npcMagic /10 - 140))/100;
+					if(maximumDamage >= 250) maximumDamage = 250;
+					
+					if(attacker.getName().equalsIgnoreCase("Wolf")) {
+						attacker.sendMessage("Acc: " + maximumAccuracy + ", Dmg: " + maximumDamage);
+						attacker.sendMessage("npcMagic: " + npcMagic);
+					}
+				}
+				
 				if (attacker.debugMessage)
 					attacker.sendMessage("Max Range hit: "+maximumDamage);
 				if (special != null) {
