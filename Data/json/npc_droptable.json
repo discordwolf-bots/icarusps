@@ -156,39 +156,6 @@
     }
   },
   {
-    "npc_id": 6594,
-    "uncommon": {
-      "accessibility": 15,
-      "items": [
-        {
-          "item": 1520,
-          "minimum": 1,
-          "maximum": 10
-        },
-        {
-          "item": 1518,
-          "minimum": 1,
-          "maximum": 10
-        }
-      ]
-    },
-    "rare": {
-      "accessibility": 40,
-      "items": [
-        {
-          "item": 1516,
-          "minimum": 1,
-          "maximum": 10
-        },
-        {
-          "item": 1514,
-          "minimum": 1,
-          "maximum": 10
-        }
-      ]
-    }
-  },
-  {
     "npc_id": [
       6462,
       6465
