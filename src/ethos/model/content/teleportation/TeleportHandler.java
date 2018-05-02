@@ -253,7 +253,7 @@ public class TeleportHandler {
 				player.getPA().startTeleport(1245, 3561, 0, "modern"); // change
 				player.sendMessage("Teleporting to " + minigameNames[1] + ".");
 			} else if (player.teleSelected == 2) { // Bosses - Barrelchest
-				player.getPA().startTeleport(1229, 3497, 0, "modern");// change
+				player.getPA().startTeleport(2910, 3612, 0, "modern");// change
 				player.sendMessage("Teleporting to " + bossNames[1] + ".");
 			} else if (player.teleSelected == 3) { // Wilderness - Green Dragons
 				player.getPA().startTeleport(2976, 3591, 0, "modern");

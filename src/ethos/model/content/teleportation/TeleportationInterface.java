@@ -256,7 +256,7 @@ public final class TeleportationInterface {
 		KING_BLACK_DRAGON(62129, 3005, 3850, 0, "Fight the vicious king black dragon \\n @red@Be aware, this is within the wilderness"),
 		CHAOS_ELEMENTAL(62137, 3262, 3929, 0, "Fight the vicious chaos elemental \\n @red@Be aware, this is within the wilderness"),
 		GODWARS(62122, 2880, 5310, 2, "Enter the dungeon of godwars \\n And test how long lived you really are"),
-		BARRELCHEST(62136, 3331, 3706, 0, "Fight the vicious yet clumsy barrelchest \\n @red@Be aware, this is within the wilderness"),
+		BARRELCHEST(62136, 2910, 3612, 0, "Fight the vicious yet clumsy barrelchest \\n @red@Be aware, this is within the wilderness"),
 		KRAKEN(62131, 3292, 3648, 0, "Fight the vicious multi tentacled kraken \\n @red@Be aware, this is within the wilderness"),
 		VENENATIS(62132, 3343, 3741, 0, "Fight the vicious spider, venenatis \\n @red@Be aware, this is within the wilderness"),
 		VETION(62133, 3179, 3774, 0, "Fight the vicious undead, vetion \\n @red@Be aware, this is within the wilderness"),
