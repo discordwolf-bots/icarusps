@@ -495,6 +495,51 @@
                 "locations": [ "slayer tower", "stronghold slayer cave", "donator zone" ],
                 "teleport": [3442, 3565, 2]
             },
+			{
+                "names": [ "skeleton warlord" ],
+                "level": 50,
+                "experience": 105,
+                "minimum": 40,
+                "maximum": 100,
+                "locations": [ "around home area" ],
+                "teleport": [1507, 3598, 1]
+            },
+			{
+                "names": [ "skeleton brute" ],
+                "level": 50,
+                "experience": 105,
+                "minimum": 40,
+                "maximum": 100,
+                "locations": [ "around home area" ],
+                "teleport": [1546, 3613, 1]
+            },
+	        {
+                "names": [ "skeleton hero" ],
+                "level": 50,
+                "experience": 105,
+                "minimum": 40,
+                "maximum": 100,
+                "locations": [ "around home area" ],
+                "teleport": [1537, 3642, 1]
+            },
+			{
+                "names": [ "skeleton thug" ],
+                "level": 50,
+                "experience": 105,
+                "minimum": 40,
+                "maximum": 100,
+                "locations": [ "around home area" ],
+                "teleport": [1463, 3643, 1]
+            },
+						{
+                "names": [ "skeleton heavy" ],
+                "level": 50,
+                "experience": 105,
+                "minimum": 40,
+                "maximum": 100,
+                "locations": [ "around home area" ],
+                "teleport": [1467, 3610, 1]
+            },
             {
                 "names": [ "smoke devil", "thermonuclear smoke devil", "nuclear smoke devil" ],
                 "level": 93,
@@ -576,15 +621,24 @@
                 "locations": [ "catacombs" ],
                 "teleport": [1633, 10075, 0]
             },
-      {
-        "names": [ "lava dragon" ],
-        "level": 1,
-        "experience": 200,
-        "minimum": 5,
-        "maximum": 25,
-        "locations": [ "wilderness" ],
-        "teleport": [-1, -1, -1]
-      }
+			{
+               "names": [ "lava dragon" ],
+               "level": 1,
+               "experience": 200,
+               "minimum": 5,
+               "maximum": 25,
+               "locations": [ "wilderness" ],
+               "teleport": [-1, -1, -1]
+            },
+	        {
+               "names": [ "deviant spectre" ],
+               "level": 50,
+               "experience": 194,
+               "minimum": 5,
+               "maximum": 90,
+               "locations": [ "catacombs" ],
+               "teleport": [-1, -1, -1]
+            }
         ]
     },
     {
