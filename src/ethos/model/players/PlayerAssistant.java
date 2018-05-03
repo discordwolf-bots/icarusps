@@ -3279,7 +3279,7 @@ public void sendFrame107() {
 			sendFrame126("" + c.playerLevel[0] + "", 4004);
 			sendFrame126("" + getLevelForXP(c.playerXP[0]) + "", 4005);
 			sendFrame126("" + c.playerXP[0] + "", 4044);
-			sendFrame126("" + getXPForLevel(getLevelForXP(c.playerXP[0]) + 1) + "", 4045);
+			if(c.playerXP[0] != Config.MAX_STACK) sendFrame126("" + getXPForLevel(getLevelForXP(c.playerXP[0]) + 1) + "", 4045);
 			requestUpdates();
 			break;
 
@@ -3430,7 +3430,7 @@ public void sendFrame107() {
 	public int getXPForLevel(int level) {
 		int points = 0;
 		int output = 0;
-
+		if(level > 120) level = 120;
 		for (int lvl = 1; lvl <= level; lvl++) {
 			points += Math.floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
 			if (lvl >= level)
@@ -3443,9 +3443,9 @@ public void sendFrame107() {
 	public int getLevelForXP(int exp) {
 		int points = 0;
 		int output;
-		if (exp > 13034430)
-			return 99;
-		for (int lvl = 1; lvl <= 99; lvl++) {
+		if (exp > 104273168)
+			return 120;
+		for (int lvl = 1; lvl <= 120; lvl++) {
 			points += Math.floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
 			output = (int) Math.floor(points / 4);
 			if (output >= exp) {
@@ -3456,18 +3456,24 @@ public void sendFrame107() {
 	}
 
 	public boolean addSkillXP(int amount, int skill, boolean dropExperience) {
+		if(skill == 1) System.out.println("--1");
 		if (c.skillLock[skill]) {
 			return false;
 		}
+		if(skill == 1) System.out.println("--2");
 		if (Boundary.isIn(c, Boundary.FOUNTAIN_OF_RUNE_BOUNDARY)) {
 			return false;
 		}
+		if(skill == 1) System.out.println("--3");
 		if (c.expLock && skill <= 6) {
 			return false;
 		}
-		if (amount + c.playerXP[skill] < 0) {
+		if(skill == 1) System.out.println("--4");
+		
+		if ((double) amount + (double) c.playerXP[skill] < 0) {
 			return false;
 		}
+		if(skill == 1) System.out.println("--5");
 			//Amount applied
 		
 		//If within thedonator zone, VIP accounts get bonus xp while bonus weekend is off
@@ -3523,11 +3529,22 @@ public void sendFrame107() {
 			PlayerHandler.executeGlobalMessage("<img=10></img>[<col=255>News</col>] <col=CC0000>" + Misc.capitalize(c.playerName) + "</col> has reached " + newMult + "00M XP in <col=CC0000>"
 					+ s.toString() + "</col>, congratulations.");
 		}
-		if (c.playerXP[skill] + amount > 500000000) {
-			c.playerXP[skill] = 500000000;
-		} else {
-			c.playerXP[skill] += amount;
+		
+		// SET EXPERIENCE
+		System.out.println(skill);
+		if(skill == 1)
+		{
+			System.out.println("CurrentXP: " + (double) c.playerXP[skill]);
+			System.out.println("Amount to add: " + (double) amount);
+			System.out.println("New XP: " + ((double) c.playerXP[skill] + (double) amount));
+			System.out.println("Max: " + (double) Config.MAX_STACK);
 		}
+		if((double) c.playerXP[skill] + (double) amount > (double) Config.MAX_STACK) {
+			c.playerXP[skill] = Config.MAX_STACK;
+		} else {
+			c.playerXP[skill] += amount;			
+		}
+		
 		if (oldLevel < getLevelForXP(c.playerXP[skill])) {
 			if (c.playerLevel[skill] < c.getLevelForXP(c.playerXP[skill]) && skill != 3 && skill != 5)
 				c.playerLevel[skill] = c.getLevelForXP(c.playerXP[skill]);
