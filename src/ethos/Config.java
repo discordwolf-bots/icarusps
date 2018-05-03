@@ -284,9 +284,9 @@ public class Config {
 	/**
 	 * Combat experience rates.
 	 */
-	public static final int MELEE_EXP_RATE = 1500;
-	public static final int RANGE_EXP_RATE = 1300;
-	public static final int MAGIC_EXP_RATE = 1300;
+	public static final int MELEE_EXP_RATE = 500;
+	public static final int RANGE_EXP_RATE = 400;
+	public static final int MAGIC_EXP_RATE = 400;
 	/**
 	 * Special server experience bonus rates. (Double experience weekend etc)
 	 */
