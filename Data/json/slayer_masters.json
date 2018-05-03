@@ -924,6 +924,15 @@
 				"teleport": [-1, -1, -1]
             },
 			{
+                "names": [ "chaos druid" ],
+                "level": 1,
+                "experience": 67,
+                "minimum": 55,
+                "maximum": 95,
+				"locations": [ "edgevill dungeon" ],
+				"teleport": [-1, -1, -1]
+            },
+			{
                 "names": [ "lesser demon" ],
                 "level": 1,
                 "experience": 69,
