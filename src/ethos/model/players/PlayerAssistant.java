@@ -3456,24 +3456,21 @@ public void sendFrame107() {
 	}
 
 	public boolean addSkillXP(int amount, int skill, boolean dropExperience) {
-		if(skill == 1) System.out.println("--1");
 		if (c.skillLock[skill]) {
 			return false;
 		}
-		if(skill == 1) System.out.println("--2");
+		
 		if (Boundary.isIn(c, Boundary.FOUNTAIN_OF_RUNE_BOUNDARY)) {
 			return false;
 		}
-		if(skill == 1) System.out.println("--3");
+		
 		if (c.expLock && skill <= 6) {
 			return false;
 		}
-		if(skill == 1) System.out.println("--4");
 		
 		if ((double) amount + (double) c.playerXP[skill] < 0) {
 			return false;
 		}
-		if(skill == 1) System.out.println("--5");
 			//Amount applied
 		
 		//If within thedonator zone, VIP accounts get bonus xp while bonus weekend is off
@@ -3531,14 +3528,6 @@ public void sendFrame107() {
 		}
 		
 		// SET EXPERIENCE
-		System.out.println(skill);
-		if(skill == 1)
-		{
-			System.out.println("CurrentXP: " + (double) c.playerXP[skill]);
-			System.out.println("Amount to add: " + (double) amount);
-			System.out.println("New XP: " + ((double) c.playerXP[skill] + (double) amount));
-			System.out.println("Max: " + (double) Config.MAX_STACK);
-		}
 		if((double) c.playerXP[skill] + (double) amount > (double) Config.MAX_STACK) {
 			c.playerXP[skill] = Config.MAX_STACK;
 		} else {
