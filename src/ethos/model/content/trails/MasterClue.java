@@ -42,8 +42,8 @@ public class MasterClue {
 	public static void generateRequirement(Player player) {
 		int SKILL_ONE = Misc.random(21);
 		int SKILL_TWO = Misc.random(21);
-		int LEVEL_REQUIREMENT_ONE = Misc.random(29) + 70;
-		int LEVEL_REQUIREMENT_TWO = Misc.random(29) + 70;
+		int LEVEL_REQUIREMENT_ONE = Misc.random(29) + 1;
+		int LEVEL_REQUIREMENT_TWO = Misc.random(29) + 1;
 		
 		player.masterClueRequirement[0] = SKILL_ONE;
 		player.masterClueRequirement[1] = LEVEL_REQUIREMENT_ONE;
