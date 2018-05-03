@@ -122,7 +122,7 @@ public class PvmCasket extends CycleEvent {
 						new GameItem(537, 50),
 						new GameItem(859),
 						new GameItem(4131),
-						new GameItem(538, 50),
+						new GameItem(537, 50),
 						new GameItem(5698, 1),
 						new GameItem(6568),
 						new GameItem(4089),
