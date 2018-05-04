@@ -1,14 +1,14 @@
 package ethos.model.players.skills.fletching;
 
 public enum FletchableArrow {
-	BRONZE(39, 882, 1, 2.6), 
-	IRON(40, 884, 15, 3.8), 
-	STEEL(41, 886, 30, 6.3), 
-	MITHRIL(42, 888, 45, 8.8), 
-	ADAMANT(43, 890, 60, 11.3), 
-	RUNE(44, 892, 75, 13.8), 
-	AMETHYST(21350, 21326, 82, 14.3), 
-	DRAGON(11237, 11212, 90, 15);
+	BRONZE(39, 882, 1, 20), 
+	IRON(40, 884, 15, 37.5), 
+	STEEL(41, 886, 30, 75), 
+	MITHRIL(42, 888, 45, 112.5), 
+	ADAMANT(43, 890, 60, 150), 
+	RUNE(44, 892, 75, 187.5), 
+	AMETHYST(21350, 21326, 82, 202.5), 
+	DRAGON(11237, 11212, 90, 225);
 
 	/**
 	 * The id
