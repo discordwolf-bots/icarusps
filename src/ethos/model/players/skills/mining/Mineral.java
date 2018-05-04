@@ -16,36 +16,180 @@ import ethos.util.Misc;
  * @date Feb 18, 2015, 5:14:50 PM
  */
 public enum Mineral {
-			CLAY(new int[] { 7487, 7454 }, "none", 1, 18, 0, 3, 15, 30000, true, generateExclusive(434)), 
-			COPPER(new int[] { 7484, 11961, 11960, 11962, 13709 }, "bronze", 1, 18, 5, 5, 15, 15000, true, generateExclusive(436)), 
-			TIN(new int[] { 7485, 9714, 9716, 11957, 11958, 11959, 13712 }, "bronze", 1, 18, 5, 5, 15, 15000, true, generateExclusive(438)), 
-			IRON(new int[] { 7488, 11954, 11955, 11956, 13710, 13444, 13445, 13446, 7455 }, "iron", 15, 35, 5, 8, 17, 14800, true, generateExclusive(440)), 
-			COAL(new int[] { 7489, 9717, 9718, 9719, 2096, 13714, 13706 }, "none", 30, 50, 3, 15, 29, 14600, true, generateExclusive(453)), 
-			GOLD(new int[] { 7491, 7458, 9722, 9720, 13707, 14962, 14963, 14964, 13441, 13442, 13443, 8728, 8975 }, "gold", 40, 65, 3, 25, 32, 14200, true, generateExclusive(444)), 
-			MITHRIL(new int[] { 7492, 13718, 7459 }, "mithril", 55, 80, 3, 40, 35, 13800, true, generateExclusive(447)), 
-			ADAMANT(new int[] { 7493, 13720, 7460 }, "adamant", 70, 95, 2, 50, 37, 13200, true, generateExclusive(449)), 
-			RUNE(new int[] { 7494, 7461, 14175 }, "rune", 85, 125, 0, 100, 39, 12500, true, generateExclusive(451)), 
-			ESSENCE(new int[] { 7471, 14912 }, "none", 30, 5, -1, -1, 5, 15000, false, generateExclusive(7936)),
-			AMETHYST(new int[] { 30371, 30372 }, "none", 92, 140, 0, 100, 40, 11500, false, generateExclusive(21347)),			
-			GEM(new int[] { 9030 }, "none", 40, 60, 20, 25, 20, 15000, true, new MineralReturn() {
-				
-				@Override
-				public int generate() {
-					int[] inclusives = inclusives();
-					int percent = RandomUtils.nextInt(0, 100);
-					
-					return percent < 50 ? Misc.randomSearch(inclusives, 0, 2) : 
-						   percent >= 50 && percent < 80 ? inclusives[2] : 
-						   percent >= 80 && percent < 98 ? Misc.randomSearch(inclusives, 3, 5) : 
-						   inclusives[inclusives.length - 1];
-				}
-
-				@Override
-				public int[] inclusives() {
-					return new int[] { 1625, 1627, 1623, 1621, 1619, 1617 };
-				}
-
-			});
+			CLAY(
+					new int[] { 7487, 7454 }, // rock objects 
+					"none",	// bar name
+					1,	// level
+					18,	// experience
+					0,	// depletion (1 in value+1)
+					3, 	// respawn rate (cycles to respawn)
+					15, // extraction rate
+					30000, 	// pet chance
+					true, 	// does it deplete?
+					generateExclusive(434)	// mineral return
+				), 
+			COPPER(
+					new int[] { 7453, 7484, 11961, 11960, 11962, 13709 }, // rock objects
+					"bronze", // bar name
+					1, // level
+					18, // experience
+					5, // depletion (1 in value+1)
+					5, // respawn rate (cycles to respawn)
+					15, // extraction rate
+					15000, // pet chance
+					true, // does it deplete?
+					generateExclusive(436)	// mineral return
+				), 
+			TIN(
+					new int[] { 7485, 9714, 9716, 11957, 11958, 11959, 13712 }, // rock objects
+					"bronze", // bar name
+					1, // level
+					18, // experience
+					5, // depletion (1 in value+1)
+					5, // respawn rate (cycles to respawn)
+					15, // extraction rate
+					15000, // pet chance
+					true, // does it deplete?
+					generateExclusive(438)	// mineral return
+				), 
+			IRON(
+					new int[] { 7488, 11954, 11955, 11956, 13710, 13444, 13445, 13446, 7455 }, // rock objects
+					"iron", // bar name
+					15, // level
+					35, // experience
+					5, // depletion (1 in value+1)
+					8, // respawn rate (cycles to respawn)
+					17, // extraction rate
+					14800, // pet chance
+					true, // does it deplete?
+					generateExclusive(440)	// mineral return
+				), 
+			COAL(
+					new int[] { 7489, 9717, 9718, 9719, 2096, 13714, 13706 }, // rock objects
+					"none", // bar name
+					30, // level
+					50, // experience
+					3, // depletion (1 in value+1)
+					15, // respawn rate (cycles to respawn)
+					29, // extraction rate
+					14600, // pet chance
+					true, // does it deplete?
+					generateExclusive(453)	// mineral return
+				), 
+			GOLD(
+					new int[] { 7491, 7458, 9722, 9720, 13707, 14962, 14963, 14964, 13441, 13442, 13443, 8728, 8975 }, // rock objects
+					"gold", // bar name
+					40, // level
+					65, // experience
+					3, // depletion (1 in value+1)
+					25, // respawn rate (cycles to respawn)
+					32, // extraction rate
+					14200, // pet chance
+					true, // does it deplete?
+					generateExclusive(444)	// mineral return
+				), 
+			MITHRIL(
+					new int[] { 7492, 13718, 7459 }, // rock objects
+					"mithril", // bar name
+					55, // level
+					80, // experience
+					3, // depletion (1 in value+1)
+					40, // respawn rate (cycles to respawn)
+					35, // extraction rate
+					13800, // pet chance
+					true, // does it deplete?
+					generateExclusive(447)	// mineral return
+				), 
+			ADAMANT(
+					new int[] { 7493, 13720, 7460 }, // rock objects
+					"adamant", // bar name
+					70, // level
+					95, // experience
+					2, // depletion (1 in value+1)
+					50, // respawn rate (cycles to respawn)
+					37, // extraction rate
+					13200, // pet chance
+					true, // does it deplete?
+					generateExclusive(449)	// mineral return
+				), 
+			RUNE(
+					new int[] { 7494, 7461, 14175 }, // rock objects
+					"rune", // bar name
+					85, // level
+					125, // experience
+					0, // depletion (1 in value+1)
+					100, // respawn rate (cycles to respawn)
+					39, // extraction rate
+					12500, // pet chance
+					true, // does it deplete?
+					generateExclusive(451)	// mineral return
+				), 
+			ESSENCE(
+					new int[] { 7471, 14912 }, // rock objects
+					"none", // bar name
+					30, // level
+					5, // experience
+					-1, // depletion [never depletes]
+					-1, // respawn rate [never respawns]
+					5, // extraction rate
+					15000, // pet chance
+					false, // does it deplete?
+					generateExclusive(7936)	// mineral return
+				),
+			AMETHYST(
+					new int[] { 30371, 30372 }, // rock objects
+					"none", // bar name
+					92, // level
+					140, // experience
+					0, // depletion (1 in value+1)
+					100, // respawn rate (cycles to respawn)
+					40, // extraction rate
+					11500, // pet chance
+					false, // does it deplete?
+					generateExclusive(21347) // mineral return
+				),			
+			GEM(
+					new int[] { 9030 }, // rock objects
+					"none", // bar name
+					40, // level
+					60, // experience
+					20, // depletion (1 in value+1)
+					25, // respawn rate (cycles to respawn)
+					20, // extraction rate
+					15000, // pet chance
+					true, // does it deplete?
+					new MineralReturn() { // mineral return
+						@Override
+						public int generate() {
+							int[] inclusives = inclusives();
+							int percent = RandomUtils.nextInt(0, 100);
+							int dstoneChance = RandomUtils.nextInt(0, 750);
+							int onyxChance = RandomUtils.nextInt(0, 2500);
+							
+							if(dstoneChance == 1) 
+								return 1631;
+							if(onyxChance == 1) 
+								return 6571;
+							
+							return percent < 50 ? Misc.randomSearch(inclusives, 0, 2) : 
+								   percent >= 50 && percent < 80 ? inclusives[2] : 
+								   percent >= 80 && percent < 98 ? Misc.randomSearch(inclusives, 3, 5) : 
+								   inclusives[inclusives.length - 1];
+						}
+						@Override
+						public int[] inclusives() {
+							return new int[] { 
+								1625, // opal
+								1627, // jade
+								1623, // sapphire
+								1621, // emerald
+								1619, // ruby
+								1617  // diamond
+							};
+						}
+		
+					}
+				);
 
 	/**
 	 * An array of object ids that are associated with the mineral obtained from them
