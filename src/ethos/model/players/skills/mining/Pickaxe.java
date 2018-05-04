@@ -14,17 +14,18 @@ import ethos.model.players.skills.Skill;
  * @date Feb 18, 2015, 5:47:35 PM
  */
 public enum Pickaxe {
-		BRONZE(0, 1265, 1, 6747, 0), 
-		IRON(1, 1267, 1, 6748, 2), 
-		STEEL(2, 1269, 6, 6749, 3), 
-		BLACK(3, 12297, 15, 6751, 5), 
-		MITHRIL(4, 1273, 21, 6751, 5), 
-		ADAMANT(5, 1271, 31, 6750, 7), 
+	// NAME(priority, itemId, level, animation, extractionReduction)
+		BRONZE(0, 1265, 1, 6747, 1), 
+		IRON(1, 1267, 1, 6748, 3), 
+		STEEL(2, 1269, 6, 6749, 5), 
+		BLACK(3, 12297, 15, 6751, 7), 
+		MITHRIL(4, 1273, 21, 6751, 7), 
+		ADAMANT(5, 1271, 31, 6750, 9), 
 		RUNE(6, 1275, 41, 6746, 10), 
-		DRAGON(7, 11920, 61, 7139, 13), 
-		DRAGON_OR(8, 12797, 61, 335, 13), 
-		INFERNAL(9, 13243, 61, 4482, 13), 
-		THIRD_AGE(10, 20014, 61, 7283, 13);
+		DRAGON(7, 11920, 61, 7139, 15), 
+		DRAGON_OR(8, 12797, 61, 335, 15), 
+		INFERNAL(9, 13243, 61, 4482, 15), 
+		THIRD_AGE(10, 20014, 61, 7283, 18);
 
 	/**
 	 * The priority of the pickaxe. The higher the value, the higher the priority. This serves as a replacement to the {@link Enum.ordinal()} function.

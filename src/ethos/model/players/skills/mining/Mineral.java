@@ -33,7 +33,7 @@ public enum Mineral {
 					"bronze", // bar name
 					1, // level
 					18, // experience
-					5, // depletion (1 in value+1)
+					29, // depletion (1 in value+1)
 					5, // respawn rate (cycles to respawn)
 					15, // extraction rate
 					15000, // pet chance
@@ -45,7 +45,7 @@ public enum Mineral {
 					"bronze", // bar name
 					1, // level
 					18, // experience
-					5, // depletion (1 in value+1)
+					29, // depletion (1 in value+1)
 					5, // respawn rate (cycles to respawn)
 					15, // extraction rate
 					15000, // pet chance
@@ -57,7 +57,7 @@ public enum Mineral {
 					"iron", // bar name
 					15, // level
 					35, // experience
-					5, // depletion (1 in value+1)
+					24, // depletion (1 in value+1)
 					8, // respawn rate (cycles to respawn)
 					17, // extraction rate
 					14800, // pet chance
@@ -69,7 +69,7 @@ public enum Mineral {
 					"none", // bar name
 					30, // level
 					50, // experience
-					3, // depletion (1 in value+1)
+					20, // depletion (1 in value+1)
 					15, // respawn rate (cycles to respawn)
 					29, // extraction rate
 					14600, // pet chance
@@ -81,7 +81,7 @@ public enum Mineral {
 					"gold", // bar name
 					40, // level
 					65, // experience
-					3, // depletion (1 in value+1)
+					20, // depletion (1 in value+1)
 					25, // respawn rate (cycles to respawn)
 					32, // extraction rate
 					14200, // pet chance
@@ -93,7 +93,7 @@ public enum Mineral {
 					"mithril", // bar name
 					55, // level
 					80, // experience
-					3, // depletion (1 in value+1)
+					15, // depletion (1 in value+1)
 					40, // respawn rate (cycles to respawn)
 					35, // extraction rate
 					13800, // pet chance
@@ -105,7 +105,7 @@ public enum Mineral {
 					"adamant", // bar name
 					70, // level
 					95, // experience
-					2, // depletion (1 in value+1)
+					10, // depletion (1 in value+1)
 					50, // respawn rate (cycles to respawn)
 					37, // extraction rate
 					13200, // pet chance
@@ -117,7 +117,7 @@ public enum Mineral {
 					"rune", // bar name
 					85, // level
 					125, // experience
-					0, // depletion (1 in value+1)
+					5, // depletion (1 in value+1)
 					100, // respawn rate (cycles to respawn)
 					39, // extraction rate
 					12500, // pet chance
@@ -153,7 +153,7 @@ public enum Mineral {
 					"none", // bar name
 					40, // level
 					60, // experience
-					20, // depletion (1 in value+1)
+					30, // depletion (1 in value+1)
 					25, // respawn rate (cycles to respawn)
 					20, // extraction rate
 					15000, // pet chance
