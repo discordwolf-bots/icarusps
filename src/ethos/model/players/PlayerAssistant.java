@@ -3268,6 +3268,16 @@ public void sendFrame107() {
 						+ s.toString() + "</col> on " + gm + " Mode, congratulations.");
 			}
 		}
+		if (getLevelForXP(c.playerXP[skill]) == 99) {
+			Skill s = Skill.forId(skill);
+			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {			
+				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
+						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
+						+ "</shad></col> has reached level 120 <col=CC0000>"
+						+ s.toString() + "</col> on " + gm + " Mode, congratulations.");
+			}
+		}
+		
 		c.dialogueAction = 0;
 		c.nextChat = 0;
 	}
@@ -3518,13 +3528,35 @@ public void sendFrame107() {
 			
 		int oldLevel = getLevelForXP(c.playerXP[skill]);
 		int oldExperience = c.playerXP[skill];
-		int oldMult = (int) Math.floor(oldExperience/100_000_000);
-		int newMult = (int) Math.floor((oldExperience+amount)/100_000_000);
-		if(oldMult < newMult) {
-		//if (oldExperience < 500_000_000 && oldExperience + amount >= 500_000_000) {
+		int newExperience;
+		if((double) c.playerXP[skill] + (double) amount > (double) Config.MAX_STACK) {
+			newExperience = Config.MAX_STACK;
+		} else {
+			newExperience = c.playerXP[skill] + amount;
+		}
+		int oldMult = (int) Math.floor(oldExperience/200_000_000);
+		int newMult = (int) Math.floor(((double) newExperience)/200000000);
+		if((oldMult < newMult) || (newExperience == Config.MAX_STACK && oldExperience != Config.MAX_STACK) ) {
 			Skill s = Skill.forId(skill);
-			PlayerHandler.executeGlobalMessage("<img=10></img>[<col=255>News</col>] <col=CC0000>" + Misc.capitalize(c.playerName) + "</col> has reached " + newMult + "00M XP in <col=CC0000>"
-					+ s.toString() + "</col>, congratulations.");
+			int rights = c.rights.getPrimary().getValue();
+			String crown = "";
+			if(rights != 0) crown = "@cr" + rights + "@";
+			String name = crown + Misc.capitalize(c.playerName);
+			String skillName = s.toString();
+			String colOpen = "<col=ff0000><shad=000000>";
+			String colOpen2 = "<col=096c02><shad=000000>";
+			String colOpen3 = "<col=004080><shad=000000>";
+			String colClose = "</shad></col>";
+			String expAlert = "";
+			String gameMode = "Normal";
+			if(newExperience != Config.MAX_STACK)
+				expAlert += colOpen + (newMult * 200) + "M" + colClose;
+			if(newExperience == Config.MAX_STACK)
+				expAlert += colOpen2 + "MAX" + colClose;
+			if(c.getRights().isOrInherits(Right.OSRS)) gameMode = colOpen + "OSRS" + colClose;
+			if(c.getRights().isOrInherits(Right.IRONMAN)) gameMode = "Ironman";
+			if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gameMode = "Ultimate Ironman";
+			PlayerHandler.executeGlobalMessage(colOpen3 +"[@cr10@" + "ALERT" + "] " + colClose + colOpen + name + colClose + " has just achieved " + expAlert + " Experience in " + colOpen + skillName + colClose + " on " + gameMode + " Mode!");
 		}
 		
 		// SET EXPERIENCE
