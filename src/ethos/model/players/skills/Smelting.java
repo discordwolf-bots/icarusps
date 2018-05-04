@@ -96,8 +96,14 @@ public class Smelting {
 	 */
 	public static void startSmelting(Player c, String type, String amount, String usage) {
 		c.barType = type;
-		c.smeltAmount = getAmount(amount, c);
 		c.bar = Bars.forType(c.barType);
+		if(c.bar.twoOres()) {
+			c.smeltAmount = getAmount(amount, c, c.bar.getOre1(), c.bar.getOre2());			
+		} else {
+			c.smeltAmount = getAmount(amount, c, c.bar.getOre1(), -1);
+		}
+		
+		
 		if(c.bar == null) //Making sure when the "bar" is null it returns
 			return;
 		boolean hasItems;
@@ -238,37 +244,57 @@ public class Smelting {
 	/**
 	 * Gets the smelting amount
 	 */
-	private static int getAmount(String amount, Player c) {
+	private static int getAmount(String amount, Player c, int ore1, int ore2) {
 		int smelt = 0;
-		if (Objects.equals(amount, "ONE")) {
-			if(c.getItems().freeSlots() >= 1) {
+		if(ore1 == 436 || ore1 == 438 || ore1 == 440 || ore1 == 444) {
+			if (Objects.equals(amount, "ONE")) {
+				if(c.getItems().freeSlots() >= 1) {
+					smelt = 1; 
+				} else {
+					smelt = c.getItems().freeSlots();
+				}
+				return smelt;
+			}
+			if (Objects.equals(amount, "FIVE")) {
+				if(c.getItems().freeSlots() >= 5) {
+					smelt = 5; 
+				} else {
+					smelt = c.getItems().freeSlots();
+				}
+				return smelt;
+			}
+			if (Objects.equals(amount, "TEN")) {
+				if(c.getItems().freeSlots() >= 10) {
+					smelt = 10; 
+				} else {
+					smelt = c.getItems().freeSlots();
+				}
+				return smelt;
+			}
+			if (Objects.equals(amount, "ALL")) {
+				smelt = c.getItems().freeSlots();
+				return smelt;
+			}
+			return -1;
+		} else {
+			if (Objects.equals(amount, "ONE")) {
 				smelt = 1; 
-			} else {
-				smelt = c.getItems().freeSlots();
+				return smelt;
 			}
-			return smelt;
-		}
-		if (Objects.equals(amount, "FIVE")) {
-			if(c.getItems().freeSlots() >= 5) {
-				smelt = 5; 
-			} else {
-				smelt = c.getItems().freeSlots();
+			if (Objects.equals(amount, "FIVE")) {
+				smelt = 1; 
+				return smelt;
 			}
-			return smelt;
-		}
-		if (Objects.equals(amount, "TEN")) {
-			if(c.getItems().freeSlots() >= 10) {
+			if (Objects.equals(amount, "TEN")) {
 				smelt = 10; 
-			} else {
-				smelt = c.getItems().freeSlots();
+				return smelt;
 			}
-			return smelt;
+			if (Objects.equals(amount, "ALL")) {
+				smelt = c.getItems().getItemCount(ore1);
+				return smelt;
+			}
+			return -1;
 		}
-		if (Objects.equals(amount, "ALL")) {
-			smelt = c.getItems().freeSlots();
-			return smelt;
-		}
-		return -1;
 	}
 
 }
