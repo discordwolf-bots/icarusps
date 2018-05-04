@@ -1406,8 +1406,8 @@ public class ShopAssistant {
 		}
 		if (c.myShopId != 115) {
 			if (itemID == 863 || itemID == 11230 || itemID == 869 || itemID == 868 || itemID == 867 || itemID == 866 || itemID == 4740 || itemID == 9244 || itemID == 11212
-					|| itemID == 892 || itemID == 9194 || itemID == 9243 || itemID == 9242 || itemID == 9241 || itemID == 9240 || itemID == 9239 || itemID == 882 || itemID == 884
-					|| itemID == 886 || itemID == 888 || itemID == 890 | itemID == 995) {
+					|| itemID == 892 || itemID == 9194 || itemID == 9243 || itemID == 9242 || itemID == 0 || itemID == 0 || itemID == 0 || itemID == 0 || itemID == 0
+					|| itemID == 0 || itemID == 0 || itemID == 0 | itemID == 0) {
 				c.sendMessage("You can't sell this item.");
 				return false;
 			}
