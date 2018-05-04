@@ -24,7 +24,7 @@ public class Yell extends Command {
 
 	private static final Right[] PERMITTED = { Right.CONTRIBUTOR, Right.SUPPORTER, Right.SPONSOR, Right.DONATOR, Right.SUPER_DONATOR, Right.EXTREME_DONATOR, 
 												Right.LEGENDARY, Right.HELPER, Right.MODERATOR, Right.ADMINISTRATOR,
-												Right.OWNER, Right.GAME_DEVELOPER, Right.YOUTUBER, Right.HITBOX };
+												Right.OWNER, Right.GAME_DEVELOPER, Right.YOUTUBER, Right.TESTER };
 
 	private static final String[] ILLEGAL_ARGUMENTS = { ":tradereq:", "<img", "@cr", "<tran", "#url#", ":duelreq:", ":chalreq:" };
 
@@ -114,7 +114,7 @@ public class Yell extends Command {
 		} else if (rights.contains(Right.SPONSOR)) {
 			return TimeUnit.SECONDS.toMillis(45);
 		} else if (rights.contains(Right.CONTRIBUTOR) || 
-					rights.contains(Right.HITBOX) || 
+					rights.contains(Right.TESTER) || 
 					rights.contains(Right.YOUTUBER)) {
 			return TimeUnit.SECONDS.toMillis(60);
 		} else {

@@ -15,9 +15,10 @@ public class Claim extends Command {
 		final String playerName = player.playerName;
 		//final String id = args[0];
 		final String id = "1";
-		final String amount = args.length == 2 ? args[0] : "1";
+		final String amount = args.length == 1 ? args[0] : "1";
+		System.out.println("0:" + args[0] + "l: " + args.length);
 		if(amount != "all") {
-			player.sendMessage("Did you know? You can do <col=ff0000>[::reward-all]</col> to redeem all votes at once");
+			player.sendMessage("Did you know? You can do <col=ff0000>[::claim-all]</col> to redeem all votes at once");
 		}
 
 		com.everythingrs.vote.Vote.service.execute(new Runnable() {
