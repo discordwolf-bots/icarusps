@@ -185,6 +185,7 @@ public class IronmanMode extends Mode {
 	@Override
 	public boolean isItemSellable(int shopId, int itemId) {
 		switch (shopId) {
+		case 2:
 		case 26:
 		case 29:
 		case 18:
