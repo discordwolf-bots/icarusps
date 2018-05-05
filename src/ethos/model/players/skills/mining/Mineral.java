@@ -65,7 +65,7 @@ public enum Mineral {
 					generateExclusive(440)	// mineral return
 				), 
 			COAL(
-					new int[] { 7489, 9717, 9718, 9719, 2096, 13714, 13706 }, // rock objects
+					new int[] { 7489, 9717, 9718, 9719, 2096, 13714, 13706, 7456 }, // rock objects
 					"none", // bar name
 					30, // level
 					50, // experience

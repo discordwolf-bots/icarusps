@@ -179,7 +179,7 @@ public class MiningEvent extends Event<Player> {
 		
 		if (Boundary.isIn(attachment, Boundary.RESOURCE_AREA)) {
 			if (Misc.random(20) == 5) {
-				int randomAmount = Misc.random(3) + 10000;
+				int randomAmount = 10000;
 				attachment.sendMessage("You received " + randomAmount + " coins while mining!");
 				attachment.getItems().addItem(995, randomAmount);
 			}
@@ -189,7 +189,7 @@ public class MiningEvent extends Event<Player> {
 		 * Experience calculation
 		 */
 		osrsExperience = mineral.getExperience() + mineral.getExperience() / 10 * pieces;
-		regExperience = mineral.getExperience() * Config.MINING_EXPERIENCE + mineral.getExperience() * Config.MINING_EXPERIENCE / 10 * pieces;
+		regExperience = (mineral.getExperience() + mineral.getExperience() / 10 * pieces) * Config.MINING_EXPERIENCE;
 		
 		attachment.getPA().addSkillXP((int) (attachment.getMode().getType().equals(ModeType.OSRS) ? osrsExperience : regExperience), Skill.MINING.getId(), true);
 		switch (mineral) {
@@ -262,20 +262,28 @@ public class MiningEvent extends Event<Player> {
 			}
 		}
 		
-		if (Misc.random(mineral.getPetChance() / 2) == 10) {
-			switch (Misc.random(1)) {
+		if (Misc.random(mineral.getPetChance() / 10) < 5) {
+			// 11500 / 10 = 1150    if 0 -> 1150 < 5
+			switch (Misc.random(10)) {
 			case 0:
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
 				attachment.getItems().addItem(20358, 1);
 				break;
 				
-			case 1:
+			case 6:
+			case 7:
+			case 8:
 				attachment.getItems().addItem(20360, 1);
 				break;
+				
+			default:
+				attachment.getItems().addItem(20362, 1);
+				break;
 			}
-			attachment.sendMessage("@blu@You appear to see a clue geode fall within the rock, and pick it up.");
-		}
-		if (Misc.random(mineral.getPetChance()) == 10) {
-			attachment.getItems().addItem(20362, 1);
 			attachment.sendMessage("@blu@You appear to see a clue geode fall within the rock, and pick it up.");
 		}
 
