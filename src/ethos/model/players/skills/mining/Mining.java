@@ -61,12 +61,14 @@ public class Mining {
 			return;
 		}
 		int pickId = pickaxe.getItemId();
+		
 		int levelReduction = (int) Math.floor(player.playerLevel[Skill.MINING.getId()] / 10);
 		int pickaxeReduction = pickaxe.getExtractionReduction();
 		int extractionTime = mineral.getExtractionRate() - (levelReduction + pickaxeReduction);
 		if (extractionTime < MINIMUM_EXTRACTION_TIME) {
 			extractionTime = MINIMUM_EXTRACTION_TIME;
 		}
+		
 		player.sendMessage("You swing your pickaxe.");
 		player.startAnimation(pickaxe.getAnimation());
 		player.turnPlayerTo(location.getX(), location.getY());
