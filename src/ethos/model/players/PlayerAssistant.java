@@ -3525,6 +3525,77 @@ public void sendFrame107() {
 		if (dropExperience) {
 			c.getPA().sendExperienceDrop(true, amount, skill);
 		}
+		
+		/**
+		 * Skilling Pets
+		 */
+		int petSummoned = c.summonId;
+		switch(skill)
+		{
+		case 0: //Attack
+		case 1: //Defence
+		case 2: //Strength
+		case 3: //Hitpoints
+		case 4: //Ranged
+		case 6: //Magic
+			break;
+		case 5: //Prayer
+			break;
+		case 7: //Cooking
+			break;
+		case 8: //Woodcutting
+			if(petSummoned == 13322)
+				amount *= 1.1;
+			break;
+		case 9: //Fletching
+			break;
+		case 10: //Fishing
+			if(petSummoned == 13320)
+				amount *= 1.1;
+			break;
+		case 11: //Firemaking
+			if(petSummoned == 20693)
+				amount *= 1.1;
+			break;
+		case 12: //Crafting
+			break;
+		case 13: //Smithing
+			break;
+		case 14: //Mining
+			if(petSummoned == 13321)
+				amount *= 1.1;
+			break;
+		case 15: //Herblore
+			break;
+		case 16: //Agility
+			if(petSummoned == 20659)
+				amount *= 1.1;
+			break;
+		case 17: //Thieving
+			if(petSummoned == 20663)
+				amount *= 1.1;
+			break;
+		case 18: //Slayer
+			break;
+		case 19: //Farming
+			if(petSummoned == 20661)
+				amount *= 1.1;
+			break;
+		case 20: //Runecrafting
+			if(petSummoned >= 20665 && petSummoned <= 20691)
+				amount *= 1.1;
+			break;
+		case 21: //Hunter
+			if(petSummoned == 13324)
+				amount *= 1.05;
+			if(petSummoned == 13323)
+				amount *= 1.07;
+			if(petSummoned == 13325)
+				amount *= 1.1;
+			if(petSummoned == 13326)
+				amount *= 1.15;
+			break;
+		}
 			
 		int oldLevel = getLevelForXP(c.playerXP[skill]);
 		int oldExperience = c.playerXP[skill];

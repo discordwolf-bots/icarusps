@@ -77,48 +77,48 @@ public class PetHandler {
 		DARK_CORE(12816, 388, "Corporeal beast", 500, "second"),
 		KALPHITE_PRINCESS(12647, 6637, "Kalphite Queen", 500, "third"),
 		KALPHITE_PRINCESS_TWO(12647, 6638, "", -1, "third"),
-		HERON(13320, 6715, "", -1, "second"),
-		ROCK_GOLEM(13321, 7439, "", -1, "second"),
-		ROCK_GOLEM_TIN(21187, 7440, "", -1, "second"),
-		ROCK_GOLEM_COPPER(21188, 7441, "", -1, "second"),
-		ROCK_GOLEM_IRON(21189, 7442, "", -1, "second"),
-		ROCK_GOLEM_COAL(21192, 7445, "", -1, "second"),
-		ROCK_GOLEM_GOLD(21193, 7446, "", -1, "second"),
-		ROCK_GOLEM_MITHRIL(21194, 7447, "", -1, "second"),
-		ROCK_GOLEM_ADAMANT(21196, 7449, "", -1, "second"),
-		ROCK_GOLEM_RUNE(21197, 7450, "", -1, "second"),
-		BEAVER(13322, 6717, "", -1, "second"),
+		HERON(13320, 6715, "", -1, "second"), // Fishing
+		ROCK_GOLEM(13321, 7439, "", -1, "second"), // Mining
+		ROCK_GOLEM_TIN(21187, 7440, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_COPPER(21188, 7441, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_IRON(21189, 7442, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_COAL(21192, 7445, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_GOLD(21193, 7446, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_MITHRIL(21194, 7447, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_ADAMANT(21196, 7449, "", -1, "second"), // Mining UNUSED
+		ROCK_GOLEM_RUNE(21197, 7450, "", -1, "second"), // Mining UNUSED
+		BEAVER(13322, 6717, "", -1, "second"), // Woodcutting
 		KITTEN(1555, 5591, "", -1, "first"),
 		KITTEN_ONE(1556, 5592, "", -1, "first"),
 		KITTEN_TWO(1557, 5593, "", -1, "first"),
 		KITTEN_THREE(1558, 5594, "", -1, "first"),
 		KITTEN_FOUR(1559, 5595, "", -1, "first"),
 		KITTEN_FIVE(1560, 5596, "", -1, "first"),
-		RED_CHINCHOMPA(13323, 6718, "", -1, "second"),
-		GRAY_CHINCHOMPA(13324, 6719, "", -1, "second"),
-		BLACK_CHINCHOMPA(13325, 6720, "", -1, "second"),
-		GOLD_CHINCHOMPA(13326, 6721, "", -1, "second"),
-		GIANT_SQUIRREL(20659, 7351, "", -1, "second"),
-		TANGLEROOT(20661, 7352, "", -1, "second"),
-		ROCKY(20663, 7353, "", -1, "second"),
-		RIFT_GUARDIAN_FIRE(20665, 7354, "", -1, "second"),
-		RIFT_GUARDIAN_AIR(20667, 7355, "", -1, "second"),
-		RIFT_GUARDIAN_MIND(20669, 7356, "", -1, "second"),
-		RIFT_GUARDIAN_WATER(20671, 7357, "", -1, "second"),
-		RIFT_GUARDIAN_EARTH(20673, 7358, "", -1, "second"),
-		RIFT_GUARDIAN_BODY(20675, 7359, "", -1, "second"),
-		RIFT_GUARDIAN_COSMIC(20677, 7360, "", -1, "second"),
-		RIFT_GUARDIAN_CHAOS(20679, 7361, "", -1, "second"),
-		RIFT_GUARDIAN_NATURE(20681, 7362, "", -1, "second"),
-		RIFT_GUARDIAN_LAW(20683, 7363, "", -1, "second"),
-		RIFT_GUARDIAN_DEATH(20685, 7364, "", -1, "second"),
-		RIFT_GUARDIAN_SOUL(20687, 7365, "", -1, "second"),
-		RIFT_GUARDIAN_ASTRAL(20689, 7366, "", -1, "second"),
-		RIFT_GUARDIAN_BLOOD(20691, 7367, "", -1, "second"),
+		RED_CHINCHOMPA(13323, 6718, "", -1, "second"), // Hunter 2
+		GRAY_CHINCHOMPA(13324, 6719, "", -1, "second"), // Hunter 1
+		BLACK_CHINCHOMPA(13325, 6720, "", -1, "second"), // Hunter 3
+		GOLD_CHINCHOMPA(13326, 6721, "", -1, "second"), // Hunter 4
+		GIANT_SQUIRREL(20659, 7351, "", -1, "second"), // Agility
+		TANGLEROOT(20661, 7352, "", -1, "second"), // Farming
+		ROCKY(20663, 7353, "", -1, "second"), // Thieving
+		RIFT_GUARDIAN_FIRE(20665, 7354, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_AIR(20667, 7355, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_MIND(20669, 7356, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_WATER(20671, 7357, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_EARTH(20673, 7358, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_BODY(20675, 7359, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_COSMIC(20677, 7360, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_CHAOS(20679, 7361, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_NATURE(20681, 7362, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_LAW(20683, 7363, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_DEATH(20685, 7364, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_SOUL(20687, 7365, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_ASTRAL(20689, 7366, "", -1, "second"), // Runecrafting
+		RIFT_GUARDIAN_BLOOD(20691, 7367, "", -1, "second"), // Runecrafting
 		ABYSSAL_ORPHAN(13262, 5883, "", -1, "second"),
 		BLOODHOUND(19730, 6296, "", -1, "second"),
 		OLMLET(20851, 7520, "", -1, "second"),
-		PHOENIX(20693, 7368, "", -1, "second");
+		PHOENIX(20693, 7368, "", -1, "second"); // Firemaking
 
 		private final int itemId;
 
