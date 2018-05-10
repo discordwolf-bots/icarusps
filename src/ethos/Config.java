@@ -5,7 +5,7 @@ public class Config {
 	public static int PLAYERMODIFIER = 0;
 	
 	//Make sure this matches client version
-	public static final int CLIENT_VERSION = 2;
+	public static final int CLIENT_VERSION = 3;
 	
 	public static final boolean ALPHA = true;
 	
