@@ -2322,8 +2322,8 @@ public class ShopAssistant {
 					if (c.getItems().playerHasItem(995, 12000000)) {
 						if (c.getLevelForXP(c.playerXP[j]) >= 120) {
 							c.getItems().deleteItem(995, c.getItems().getItemSlot(995), 12000000);
-							c.getItems().addItem(21359+j+1, 1);
 							c.getItems().addItem(skillCapes[j] + 2, 1);
+							c.getItems().addItem(21359+j+1, 1);
 							c.getItems().addItem(skillCapes[j] + nn, 1);
 							
 							
