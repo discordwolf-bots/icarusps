@@ -2272,10 +2272,21 @@ public class ShopAssistant {
 		c.getOutStream().writeWord(3900);
 		c.getOutStream().writeWord(TotalItems);
 		for (int i = 0; i < 22; i++) {
-			if (c.getLevelForXP(c.playerXP[i]) < 99)
+			System.out.println(c.getLevelForXP(c.playerXP[i]));
+			if(c.getLevelForXP(c.playerXP[i]) < 120) 
+			{
+				if (c.getLevelForXP(c.playerXP[i]) < 99)
+					continue;
+					c.getOutStream().writeByte(1);
+					c.getOutStream().writeWordBigEndianA(skillCapes[i]+2);
 				continue;
-			c.getOutStream().writeByte(1);
-			c.getOutStream().writeWordBigEndianA(skillCapes[i] + 2);
+			} 
+			else 
+			{
+				c.getOutStream().writeByte(1);
+				c.getOutStream().writeWordBigEndianA(21359+i+2);
+			}
+			
 		}
 		c.getOutStream().endFrameVarSizeWord();
 		c.flushOutStream();
@@ -2288,14 +2299,15 @@ public class ShopAssistant {
 			nn = 1;
 		else
 			nn = 0;
-		for (int j = 0; j < skillCapes.length; j++) {
+		for (int j = 0; j < 22; j++) {
 			if (skillCapes[j] == item || skillCapes[j] + 1 == item) {
-				if (c.getItems().freeSlots() > 1) {
+				if (c.getItems().freeSlots() > 2) {
 					if (c.getItems().playerHasItem(995, 99000)) {
 						if (c.getLevelForXP(c.playerXP[j]) >= 99) {
 							c.getItems().deleteItem(995, c.getItems().getItemSlot(995), 99000);
-							c.getItems().addItem(skillCapes[j] + nn, 1);
 							c.getItems().addItem(skillCapes[j] + 2, 1);
+							c.getItems().addItem(skillCapes[j] + nn, 1);
+							
 						} else {
 							c.sendMessage("You must have 99 in the skill of the cape you're trying to buy.");
 						}
@@ -2303,7 +2315,26 @@ public class ShopAssistant {
 						c.sendMessage("You need 99k to buy this item.");
 					}
 				} else {
-					c.sendMessage("You must have at least 1 inventory spaces to buy this item.");
+					c.sendMessage("You must have at least 2 inventory spaces to buy this item.");
+				}
+			} else if (21359+j+1 == item) {
+				if (c.getItems().freeSlots() > 3) {
+					if (c.getItems().playerHasItem(995, 12000000)) {
+						if (c.getLevelForXP(c.playerXP[j]) >= 120) {
+							c.getItems().deleteItem(995, c.getItems().getItemSlot(995), 12000000);
+							c.getItems().addItem(21359+j+1, 1);
+							c.getItems().addItem(skillCapes[j] + 2, 1);
+							c.getItems().addItem(skillCapes[j] + nn, 1);
+							
+							
+						} else {
+							c.sendMessage("You must have 120 in the skill of the cape you're trying to buy.");
+						}
+					} else {
+						c.sendMessage("You need 12m to buy this item.");
+					}
+				} else {
+					c.sendMessage("You must have at least 3 inventory spaces to buy this item.");
 				}
 			}
 		}
