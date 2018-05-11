@@ -216,7 +216,7 @@ public class WoodcuttingEvent extends Event<Player> {
 			}
 			attachment.sendMessage("@blu@You appear to see a clue nest fall from the tree, and pick it up.");
 		}
-		if (Misc.random(12000) == 5555) {
+		if (Misc.random(1200) == 5) {
 			attachment.getItems().addItemUnderAnyCircumstance(lumberjackOutfit[Misc.random(lumberjackOutfit.length - 1)], 1);
 			attachment.sendMessage("You notice a lumberjack piece falling from the tree and pick it up.");
 		}
@@ -224,7 +224,17 @@ public class WoodcuttingEvent extends Event<Player> {
 			attachment.getItems().addItemUnderAnyCircumstance(19716, 1);
 			attachment.sendMessage("@blu@You appear to see a clue nest fall from the tree, and pick it up.");
 		}
-		if (Misc.random(tree.getPetChance()) == 2 && attachment.getItems().getItemCount(13322, false) == 0 && attachment.summonId != 13322) {
+		
+		int petChance = tree.getPetChance();
+		petChance = petChance - (attachment.playerLevel[attachment.playerThieving] * 10);
+		int experience2 = attachment.getPlayerAssistant().getXPForLevel(attachment.playerLevel[attachment.playerThieving]);
+		if(experience2 >= 1500000000) {
+			petChance /= 20;
+		} else if(experience2 >= 500000000){
+			petChance /= 5;
+		}
+		
+		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13322, false) == 0 && attachment.summonId != 13322) {
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + attachment.playerName + "</col> chopped down the nest for <col=CC0000>Beaver</col> pet!");
 			attachment.getItems().addItemUnderAnyCircumstance(13322, 1);
 		}

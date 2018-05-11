@@ -88,7 +88,7 @@ public class GnomeAgility {
 		case PIPES1_OBJECT:
 			if (c.getAgilityHandler().hotSpot(c, 2484, 3430)) {
 				c.getAgilityHandler().move(c, 0, 7, c.getAgilityHandler().getAnimation(objectId), 748);
-				c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 87 : 6000, 10000);
+				c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 87 : 6000, 33005);
 				c.getDiaryManager().getWesternDiary().progress(WesternDiaryEntry.GNOME_AGILITY);
 			} else if (c.absY > 3430 && c.absY < 3436 && System.currentTimeMillis() - clickTimer > 1800) {
 				c.getPlayerAssistant().movePlayer(2484, 3437, 0);

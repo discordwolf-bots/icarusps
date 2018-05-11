@@ -149,7 +149,17 @@ public class Thieving {
 		}
 		GameItem item = stall.item;
 		ItemDefinition definition = ItemDefinition.forId(item.getId());
-		 if (Misc.random(stall.petChance) == 20 && player.getItems().getItemCount(20663, false) == 0 && player.summonId != 20663) {
+		
+		int petChance = stall.petChance;
+		petChance = petChance - (player.playerLevel[player.playerThieving] * 10);
+		int experience2 = player.getPlayerAssistant().getXPForLevel(player.playerLevel[player.playerThieving]);
+		if(experience2 >= 1500000000) {
+			petChance /= 20;
+		} else if(experience2 >= 500000000){
+			petChance /= 5;
+		}
+		
+		 if (Misc.random(petChance) == 20 && player.getItems().getItemCount(20663, false) == 0 && player.summonId != 20663) {
 			 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> now goes hand in hand with a <col=CC0000>Rocky</col> pet!");
 			 player.getItems().addItemUnderAnyCircumstance(20663, 1);
 		 }
@@ -249,7 +259,17 @@ public class Thieving {
 		} else {
 			player.sendMessage("You were unable to find anything useful.");
 		}
-		 if (Misc.random(pickpocket.petChance) == 20 && player.getItems().getItemCount(20663, false) == 0 && player.summonId != 20663) {
+		
+		int petChance = pickpocket.petChance;
+		petChance = petChance - (player.playerLevel[player.playerThieving] * 10);
+		int experience2 = player.getPlayerAssistant().getXPForLevel(player.playerLevel[player.playerThieving]);
+		if(experience2 >= 1500000000) {
+			petChance /= 20;
+		} else if(experience2 >= 500000000){
+			petChance /= 5;
+		}
+		
+		 if (Misc.random(petChance) == 20 && player.getItems().getItemCount(20663, false) == 0 && player.summonId != 20663) {
 			 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> now goes hand in hand with a <col=CC0000>Rocky</col> pet!");
 			 player.getItems().addItemUnderAnyCircumstance(20663, 1);
 		 }

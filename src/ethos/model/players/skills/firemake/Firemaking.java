@@ -137,7 +137,17 @@ public class Firemaking {
 			} else {
 				player.getPA().addSkillXP((int) (player.getMode().getType().equals(ModeType.OSRS) ? osrsExperience : regExperience), 11, true);
 			}
-			if (Misc.random(10000) == 2585) {
+			
+			int petChance = 10000;
+			petChance = petChance - (player.playerLevel[player.playerThieving] * 10);
+			int experience2 = player.getPlayerAssistant().getXPForLevel(player.playerLevel[player.playerThieving]);
+			if(experience2 >= 1500000000) {
+				petChance /= 20;
+			} else if(experience2 >= 500000000){
+				petChance /= 5;
+			}
+			
+			if (Misc.random(petChance) == 2585) {
 				if (player.getItems().getItemCount(20693, false) > 0 || player.summonId == 20693) {
 					return;
 				}

@@ -539,9 +539,20 @@ public class AgilityHandler {
 			c.sendMessage("You received some XP for completing the track!");
 			c.getPlayerAssistant().addSkillXP(experience, 16, true);
 			Achievements.increase(c, AchievementType.AGIL, 1);
+			petChance = petChance - (c.playerLevel[c.playerAgility] * 10);
+			
+			int experience2 = c.getPlayerAssistant().getXPForLevel(c.playerLevel[c.playerAgility]);
+			if(experience2 >= 1500000000) {
+				petChance /= 20;
+			} else if(experience2 >= 500000000){
+				petChance /= 15;
+			}
+			
 			 if (Misc.random(petChance) == 20 && c.getItems().getItemCount(20659, false) == 0 && c.summonId != 20659) {
 				 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + c.playerName + "</col> is apperantly agile like a <col=CC0000>Squirrel</col> pet!");
 				 c.getItems().addItemUnderAnyCircumstance(20659, 1);
+			 } else if(Misc.random(petChance) == 20 && (c.getItems().getItemCount(20659, false) > 0 || c.summonId == 20659)) {
+				 c.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 			 }
 		} else {
 			c.sendMessage("You must complete the full course to gain experience.");

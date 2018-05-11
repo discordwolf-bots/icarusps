@@ -286,12 +286,21 @@ public class MiningEvent extends Event<Player> {
 			}
 			attachment.sendMessage("@blu@You appear to see a clue geode fall within the rock, and pick it up.");
 		}
+		
+		int petChance = mineral.getPetChance() - (attachment.playerLevel[attachment.playerMining] * 10);
+		int experience = attachment.getPlayerAssistant().getXPForLevel(attachment.playerLevel[attachment.playerMining]);
+		if(experience >= 1500000000) {
+			petChance /= 20;
+		} else if(experience >= 500000000){
+			petChance /= 15;
+		}
 
-		if (Misc.random(mineral.getPetChance()) == 2 && attachment.getItems().getItemCount(13321, false) == 0
-				&& attachment.summonId != 7439) {
+		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13321, false) == 0 && attachment.summonId != 7439) {
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + attachment.playerName
 					+ "</col> mined a rock and formed the <col=CC0000>Rock golem</col> pet!");
 			attachment.getItems().addItemUnderAnyCircumstance(13321, 1);
+		} else if (Misc.random(petChance) == 2 && (attachment.getItems().getItemCount(13321, false) > 0 || attachment.summonId == 7439)) {
+			attachment.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 		}
 	}
 

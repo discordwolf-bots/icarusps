@@ -151,7 +151,15 @@ public class Runecrafting extends SkillHandler {
 						player.getItems().addItem(data.getPetId(), 1);
 					}
 					if (!hasGuardian) {
-					if (Misc.random(data.getPetChance()) == 18) {
+						int petChance = data.getPetChance();
+						petChance = petChance - (player.playerLevel[player.playerRunecrafting] * 10);
+						int experience = player.getPlayerAssistant().getXPForLevel(player.playerLevel[player.playerRunecrafting]);
+						if(experience >= 1500000000) {
+							petChance /= 20;
+						} else if(experience >= 500000000){
+							petChance /= 15;
+						}
+					if (Misc.random(petChance) == 18) {
 						PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> successfully crafted a <col=CC0000>Rift guardian</col> pet!");
 						player.getItems().addItemUnderAnyCircumstance(data.getPetId(), 1);
 					}

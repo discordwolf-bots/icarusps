@@ -360,9 +360,19 @@ public class Farming {
 							//if (perk)
 								//player.getItems().addItem(herb.getGrimyId()+1, 1);
 							//else
+							
+							int petChance = herb.getPetChance();
+							petChance = petChance - (player.playerLevel[player.playerThieving] * 10);
+							int experience2 = player.getPlayerAssistant().getXPForLevel(player.playerLevel[player.playerThieving]);
+							if(experience2 >= 1500000000) {
+								petChance /= 20;
+							} else if(experience2 >= 500000000){
+								petChance /= 5;
+							}
+							
 							player.getItems().addItem(herb.getGrimyId(), 1);
 							player.getPA().addSkillXP((int) (player.getMode().getType().equals(ModeType.OSRS) ? osrsHarvestExperience : regHarvestExperience), 19, true);
-							if (Misc.random(herb.getPetChance()) == 20 && player.getItems().getItemCount(20661, false) == 0 && player.summonId != 20661) {
+							if (Misc.random(petChance) == 20 && player.getItems().getItemCount(20661, false) == 0 && player.summonId != 20661) {
 								 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> harvested some crops and found <col=CC0000>Tangleroot</col> pet!");
 								 player.getItems().addItemUnderAnyCircumstance(20661, 1);
 							 }
