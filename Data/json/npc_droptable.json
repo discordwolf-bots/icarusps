@@ -16068,7 +16068,7 @@
       ]
     },
     "common": {
-      "accessibility": 6,
+      "accessibility": 1,
       "items": [
         {
           "item": 995,
@@ -16168,7 +16168,7 @@
       ]
     },
     "rare": {
-      "accessibility": 75,
+      "accessibility": 50,
       "items": [
         {
           "item": 452,
@@ -16267,7 +16267,7 @@
       ]
     },
     "common": {
-      "accessibility": 6,
+      "accessibility": 1,
       "items": [
         {
           "item": 995,
@@ -16460,7 +16460,7 @@
       ]
     },
     "common": {
-      "accessibility": 3,
+      "accessibility": 1,
       "items": [
       	{
           "item": 5292,
@@ -16625,7 +16625,7 @@
       ]
     },
     "common": {
-      "accessibility": 4,
+      "accessibility": 1,
       "items": [
         {
           "item": 995,
@@ -16824,7 +16824,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 444,
@@ -16859,7 +16859,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 10,
       "items": [
         {
           "item": 204,
@@ -17023,7 +17023,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 444,
@@ -17058,7 +17058,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 10,
       "items": [
         {
           "item": 204,
@@ -17222,7 +17222,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 1392,
@@ -17421,7 +17421,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 12791,
@@ -17620,7 +17620,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 444,
@@ -17790,7 +17790,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 200,
       "items": [
         {
           "item": 20703,
@@ -17819,7 +17819,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 444,
@@ -17854,7 +17854,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 10,
       "items": [
         {
           "item": 1333,
@@ -18017,7 +18017,7 @@
       ]
     },
     "common": {
-      "accessibility": 10,
+      "accessibility": 1,
       "items": [
         {
           "item": 444,
@@ -18052,7 +18052,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 10,
       "items": [
         {
           "item": 204,
