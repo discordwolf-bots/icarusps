@@ -1,0 +1,25 @@
+Priorities
+=========================================================================
+- Slayer 
+  - Fix up the tasks and the rewards
+  - 1 in 250 chance after task to get a random reward?
+- Slayer rewards
+  - needs to be appealing, make people actually want to do slayer
+- Agility
+  - pathing to shortcuts really needs fixing
+- NPC Drop Tables
+  - Dont want drops too similar to OSRS
+  - Dont want drops to be too OP
+  - Needs to be custom Drop Tables
+
+
+Ideas
+=========================================================================
+- Trade ups
+  - Items belong to a category: Everyday, Common, Uncommon, Rare, Very Rare, Legendary
+  - Can trade in items and get a ticket for it depending on the category it belongs to
+  - 100 Everyday tickets for 1 random Common / 20 random Everyday
+  - 20 Common tickets for 1 random Uncommon / 5 random Common
+  - 5 Rare tickets for 1 random Very Rare / 2 random Rare
+  - 5 Very Rare tickets for 1 random Legendary / 2 random Very Rare
+  - 3 Legendary tickets for 1 random Legendary
