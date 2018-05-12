@@ -152,7 +152,7 @@ public enum Mineral {
 					new int[] { 9030 }, // rock objects
 					"none", // bar name
 					40, // level
-					60, // experience
+					25, // experience
 					30, // depletion (1 in value+1)
 					25, // respawn rate (cycles to respawn)
 					20, // extraction rate
