@@ -9,7 +9,6 @@ import ethos.event.CycleEvent;
 import ethos.event.CycleEventContainer;
 import ethos.event.CycleEventHandler;
 import ethos.model.npcs.NPCHandler;
-import ethos.model.players.PlayerHandler;
 import ethos.util.Misc;
 
 /**

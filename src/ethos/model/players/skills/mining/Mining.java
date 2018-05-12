@@ -60,7 +60,7 @@ public class Mining {
 			player.nextChat = -1;
 			return;
 		}
-		int pickId = pickaxe.getItemId();
+		//int pickId = pickaxe.getItemId();
 		
 		int levelReduction = (int) Math.floor(player.playerLevel[Skill.MINING.getId()] / 10);
 		int pickaxeReduction = pickaxe.getExtractionReduction();

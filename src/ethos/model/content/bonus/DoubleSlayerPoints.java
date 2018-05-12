@@ -1,7 +1,5 @@
 package ethos.model.content.bonus;
 
-import java.util.Calendar;
-
 public class DoubleSlayerPoints {
 
 	public static boolean isDoubleSlayer() {

@@ -13,12 +13,12 @@ public class Vasa {
 	public static int respawnTimer = 0;
 	public static int deathCount = 0;
 	
-	private static Boundary MYSTICS1 = new Boundary(1, 1, 1, 1);
+	/*private static Boundary MYSTICS1 = new Boundary(1, 1, 1, 1);
 	private static Boundary MYSTICS2 = new Boundary(1, 1, 1, 1);
 	private static Boundary MYSTICS3 = new Boundary(1, 1, 1, 1);
 	private static Boundary MYSTICS4 = new Boundary(1, 1, 1, 1);
 	private static Boundary MYSTICS5 = new Boundary(1, 1, 1, 1);
-	private static Boundary MYSTICS6 = new Boundary(1, 1, 1, 1);
+	private static Boundary MYSTICS6 = new Boundary(1, 1, 1, 1);*/
 	
 	public static void rewardPlayers(Player player) {
 		PlayerHandler.nonNullStream().filter(p -> Boundary.isIn(p, Boundary.SKELETAL_MYSTICS))

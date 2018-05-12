@@ -1,7 +1,5 @@
 package ethos.model.content.bonus;
 
-import java.util.Calendar;
-
 import ethos.model.players.Player;
 
 public class DoubleExperience {
