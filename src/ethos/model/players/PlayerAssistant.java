@@ -3522,10 +3522,6 @@ public void sendFrame107() {
 			amount *= Config.SERVER_EXP_BONUS;
 		}
 		
-		if (dropExperience) {
-			c.getPA().sendExperienceDrop(true, amount, skill);
-		}
-		
 		/**
 		 * Skilling Pets
 		 */
@@ -3595,6 +3591,11 @@ public void sendFrame107() {
 			if(petSummoned == 13326)
 				amount *= 1.15;
 			break;
+		}
+		
+		
+		if (dropExperience) {
+			c.getPA().sendExperienceDrop(true, amount, skill);
 		}
 			
 		int oldLevel = getLevelForXP(c.playerXP[skill]);

@@ -159,7 +159,9 @@ public class Fishing extends SkillHandler {
 							 if (Misc.random(player.playerSkillProp[10][10]) == 2 && player.getItems().getItemCount(13320, true) == 0 && player.summonId != 13320) {
 								 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> caught a fish and a <col=CC0000>Heron</col> pet!");
 								 player.getItems().addItemUnderAnyCircumstance(13320, 1);
-							 }
+							 } else if(Misc.random(player.playerSkillProp[10][10]) == 2 && (player.getItems().getItemCount(13320, false) > 0 || player.summonId == 13320)) {
+								player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
+							}	
 						}
 						switch (player.playerSkillProp[10][1]) {
 						case 389:

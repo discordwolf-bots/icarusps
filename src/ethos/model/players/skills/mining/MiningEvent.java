@@ -295,11 +295,11 @@ public class MiningEvent extends Event<Player> {
 			petChance /= 15;
 		}
 
-		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13321, false) == 0 && attachment.summonId != 7439) {
+		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13321, false) == 0 && attachment.summonId != 13321) {
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + attachment.playerName
 					+ "</col> mined a rock and formed the <col=CC0000>Rock golem</col> pet!");
 			attachment.getItems().addItemUnderAnyCircumstance(13321, 1);
-		} else if (Misc.random(petChance) == 2 && (attachment.getItems().getItemCount(13321, false) > 0 || attachment.summonId == 7439)) {
+		} else if (Misc.random(petChance) == 2 && (attachment.getItems().getItemCount(13321, false) > 0 || attachment.summonId == 13321)) {
 			attachment.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 		}
 	}

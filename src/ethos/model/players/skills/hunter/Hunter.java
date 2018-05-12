@@ -237,12 +237,16 @@ public final class Hunter {
 		if (randomGold == 2 && player.getItems().getItemCount(13326, false) == 0 && player.summonId != 13326) {
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr18@ <col=255>" + player.playerName + "</col> caught a <col=CC0000>Golden Chinchompa</col> pet lucky enough!");
 			player.getItems().addItemUnderAnyCircumstance(13326, 1);
+		} else if(Misc.random(randomGold) == 2 && (player.getItems().getItemCount(13326, false) > 0 || player.summonId == 13326)) {
+			player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 		}
 		switch (trap.getType().getItemId()) {
 		case 10033:
 			if (randomGray == 25 && player.getItems().getItemCount(13324, false) == 0 && player.summonId != 13324) {
 				PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr18@ <col=255>" + player.playerName + "</col> caught a <col=CC0000>Gray Chinchompa</col> pet!");
 				player.getItems().addItemUnderAnyCircumstance(13324, 1);
+			} else if(Misc.random(randomGray) == 2 && (player.getItems().getItemCount(13324, false) > 0 || player.summonId == 13324)) {
+				player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 			}
 			break;
 			
@@ -250,6 +254,8 @@ public final class Hunter {
 			if (randomRed == 15 && player.getItems().getItemCount(13323, false) == 0 && player.summonId != 13323) {
 				PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr18@ <col=255>" + player.playerName + "</col> caught a <col=CC0000>Red Chinchompa</col> pet!");
 				player.getItems().addItemUnderAnyCircumstance(13323, 1);
+			} else if(Misc.random(randomRed) == 2 && (player.getItems().getItemCount(13323, false) > 0 || player.summonId == 13323)) {
+				player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 			}
 			DailyTasks.increase(player, PossibleTasks.RED_CHINCHOMPAS);
 			break;
@@ -258,6 +264,8 @@ public final class Hunter {
 			if (randomBlack == 8 && player.getItems().getItemCount(13325, false) == 0 && player.summonId != 13325) {
 				PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr18@ <col=255>" + player.playerName + "</col> caught a <col=CC0000>Black Chinchompa</col> pet!");
 				player.getItems().addItemUnderAnyCircumstance(13325, 1);
+			} else if(Misc.random(randomBlack) == 2 && (player.getItems().getItemCount(13325, false) > 0 || player.summonId == 13325)) {
+				player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 			}
 			break;
 		}

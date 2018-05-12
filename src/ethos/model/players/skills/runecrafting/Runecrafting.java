@@ -159,10 +159,12 @@ public class Runecrafting extends SkillHandler {
 						} else if(experience >= 500000000){
 							petChance /= 15;
 						}
-					if (Misc.random(petChance) == 18) {
+					if (Misc.random(petChance) == 18 && player.getItems().getItemCount(data.getPetId(), false) == 0 && player.summonId != data.getPetId()) {
 						PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> successfully crafted a <col=CC0000>Rift guardian</col> pet!");
 						player.getItems().addItemUnderAnyCircumstance(data.getPetId(), 1);
-					}
+					} else if(Misc.random(petChance) == 18 && (player.getItems().getItemCount(data.getPetId(), false) > 0 || player.summonId == data.getPetId())) {
+						player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
+					}	
 				}
 			}
 		}

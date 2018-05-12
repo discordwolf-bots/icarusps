@@ -237,6 +237,8 @@ public class WoodcuttingEvent extends Event<Player> {
 		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13322, false) == 0 && attachment.summonId != 13322) {
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + attachment.playerName + "</col> chopped down the nest for <col=CC0000>Beaver</col> pet!");
 			attachment.getItems().addItemUnderAnyCircumstance(13322, 1);
+		} else if(Misc.random(petChance) == 2 && (attachment.getItems().getItemCount(13322, false) > 0 || attachment.summonId == 13322)) {
+			attachment.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 		}
 	}
 

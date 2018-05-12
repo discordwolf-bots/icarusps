@@ -147,14 +147,13 @@ public class Firemaking {
 				petChance /= 5;
 			}
 			
-			if (Misc.random(petChance) == 2585) {
-				if (player.getItems().getItemCount(20693, false) > 0 || player.summonId == 20693) {
-					return;
-				}
+			if (Misc.random(petChance) == 2585 && player.getItems().getItemCount(20693, false) == 0 && player.summonId != 20693) {
 				int rights = player.getRights().getPrimary().getValue() - 1;
 				player.getItems().addItemUnderAnyCircumstance(20693, 1);
 				PlayerHandler.executeGlobalMessage("[@red@PET@bla@] @cr20@<col=255> <img="+rights+">" + player.playerName + "</col> received a Phoenix pet.");
-			}
+			} else if(Misc.random(petChance) == 2585 && (player.getItems().getItemCount(20693, false) > 0 || player.summonId == 20693)) {
+				player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
+			}	
 			player.sendMessage("You light the " + name + ".");
 		}
 	}
