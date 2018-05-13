@@ -3259,7 +3259,7 @@ public void sendFrame107() {
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has <col=255>MAXED</col> out all skills on " + gm + " Mode, congratulations.");
 		}
-		if (getLevelForXP(c.playerXP[skill]) == 99) {
+		if (getLevelForXP(c.playerXP[skill]) == 120) {
 			Skill s = Skill.forId(skill);
 			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {			
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
@@ -3268,7 +3268,7 @@ public void sendFrame107() {
 						+ s.toString() + "</col> on " + gm + " Mode, congratulations.");
 			}
 		}
-		if (getLevelForXP(c.playerXP[skill]) == 99) {
+		if (getLevelForXP(c.playerXP[skill]) == 120) {
 			Skill s = Skill.forId(skill);
 			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {			
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
@@ -3644,7 +3644,7 @@ public void sendFrame107() {
 			c.combatLevel = c.calculateCombatLevel();
 			c.getPA().sendFrame126("Combat Level: " + c.combatLevel + "", 3983);
 			levelUp(skill);
-			if (getLevelForXP(c.playerXP[skill]) == 99) {
+			if (getLevelForXP(c.playerXP[skill]) == 120) {
 				//TODO Skill Activity feed
 			}
 			c.gfx100(199);
