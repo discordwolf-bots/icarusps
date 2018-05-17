@@ -54,19 +54,19 @@ public class DailySkillBox extends CycleEvent {
 				new GameItem(1632, 150 + Misc.random(50)),
 				new GameItem(824, 1000 + Misc.random(300)),
 				new GameItem(454, 400 + Misc.random(200)),
-				new GameItem(13226, 2)),
-				new GameItem(314, 10000)),
-				new GameItem(1778, 3000)),
-				new GameItem(445, 250)),
+				new GameItem(13226, 2),
+				new GameItem(314, 10000),
+				new GameItem(1778, 3000),
+				new GameItem(445, 250),
 				new GameItem(1516, 100 + Misc.random(50)),
-				new GameItem(7409)),
+				new GameItem(7409),
 				new GameItem(5295, 50 + Misc.random(50)),
 				new GameItem(5300, 50 + Misc.random(50)),
 				new GameItem(5296, 50 + Misc.random(50)),
 				new GameItem(5304, 50 + Misc.random(50)),
 				new GameItem(384, 300 + Misc.random(150)),
 				new GameItem(7937, 1000 + Misc.random(350))
-		);
+		));
 		
 	items.put(Rarity.UNCOMMON,
 			Arrays.asList(
@@ -76,7 +76,7 @@ public class DailySkillBox extends CycleEvent {
 					new GameItem(2360, 150 + Misc.random(100)),
 					new GameItem(452, 100 + Misc.random(100)),
 					new GameItem(445, 500 + Misc.random(200)),
-					new GameItem(13226, 5)),
+					new GameItem(13226, 5),
 					new GameItem(11935, 250 + Misc.random(250)),
 					new GameItem(2364, 50 + Misc.random(50)),
 					new GameItem(100, 100 + Misc.random(50)),
@@ -91,8 +91,8 @@ public class DailySkillBox extends CycleEvent {
 					new GameItem(1632, 50 + Misc.random(50)),
 					new GameItem(1514, 150 + Misc.random(100)),
 					new GameItem(67, 150 + Misc.random(100)),
-					new GameItem(2801, 5))
-	);
+					new GameItem(2801, 5)
+	));
 		
 		items.put(Rarity.RARE,
 				Arrays.asList(
