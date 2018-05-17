@@ -3,7 +3,7 @@ package ethos.model.players.skills.fletching;
 public enum FletchableBolt {
 	SAPPHIRE(9142, 9189, 9337, 54, 47), 
 	EMERALD(9142, 9190, 9338, 61, 55), 
-	RUBY(9143, 9191, 9339, 63,63 ), 
+	RUBY(9143, 9191, 9339, 63, 63), 
 	DIAMOND(9143, 9192, 9340, 65, 70), 
 	DRAGON(9144, 9193, 9341, 71, 82), 
 	ONYX(9144, 9194, 9342, 73, 94),
