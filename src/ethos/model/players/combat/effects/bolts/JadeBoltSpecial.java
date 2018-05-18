@@ -20,7 +20,7 @@ public class JadeBoltSpecial implements DamageEffect {
 
 	@Override
 	public void execute(Player attacker, NPC defender, Damage damage) {
-		if (defender.getDefinition().getNpcName() == null) {
+		if (defender.getDefinition().getName() == null) {
 			return;
 		}
 		int change = Misc.random((int) (damage.getAmount()));

@@ -90,6 +90,14 @@ public class ItemOptionOne implements PacketType {
 			return;
 		}
 		switch (itemId) {
+		//Trade up tickets
+		case 5020:
+		case 5021:
+		case 5022:
+		case 5023:
+			c.sendMessage("Coming soon");
+			break;
+		
 		case 21347:
 			c.boltTips = true;
 			c.arrowTips = false;
@@ -445,6 +453,8 @@ public class ItemOptionOne implements PacketType {
 			c.sendMessage("You rub the lamp...");
 			c.getPA().showInterface(2808);
 		}
+		
+		
 		/*
 		 * if (itemId == 4447) { c.usingLamp = true; c.antiqueLamp = true; c.normalLamp = false; c.sendMessage("You rub the antique lamp of 13 million experience..." );
 		 * c.getPA().showInterface(2808); } if (itemId == 2528) { c.usingLamp = true; c.normalLamp = true; c.antiqueLamp = false; c.sendMessage(

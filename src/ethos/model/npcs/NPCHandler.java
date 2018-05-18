@@ -1,5 +1,18 @@
 package ethos.model.npcs;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 import ethos.Config;
 import ethos.Server;
 import ethos.clip.PathChecker;
@@ -39,17 +52,18 @@ import ethos.model.npcs.pets.PetHandler;
 import ethos.model.players.Boundary;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
-import ethos.model.players.combat.*;
+import ethos.model.players.combat.CombatType;
+import ethos.model.players.combat.Damage;
+import ethos.model.players.combat.DamageEffect;
+import ethos.model.players.combat.Hitmark;
+import ethos.model.players.combat.Special;
+import ethos.model.players.combat.Specials;
 import ethos.model.players.combat.effects.SerpentineHelmEffect;
 import ethos.model.players.combat.monsterhunt.MonsterHunt;
 import ethos.model.players.skills.hunter.impling.PuroPuro;
 import ethos.util.Location3D;
 import ethos.util.Misc;
 import ethos.world.objects.GlobalObject;
-
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class NPCHandler {
 	public static int maxNPCs = 20000;
@@ -138,8 +152,9 @@ public class NPCHandler {
 			System.out.println("Cannot find any available slots to spawn npc into + npchandler @spawnNpc3");
 			return;
 		}
-		NPCDefinitions definition = NPCDefinitions.get(npcType);
-		NPC newNPC = new NPC(slot, npcType, definition);
+		//NPCDefinitions definition = NPCDefinitions.get(npcType);
+		NPCDefinitions2 npcDef = NPCDefinitions2.get(npcType);
+		NPC newNPC = new NPC(slot, npcType, npcDef);
 		newNPC.absX = x;
 		newNPC.absY = y;
 		newNPC.makeX = x;
@@ -847,19 +862,20 @@ public class NPCHandler {
 			System.out.println("Cannot find any available slots to spawn npc into + npchandler @spawnNpc");
 			return null;
 		}
-		NPCDefinitions definition = NPCDefinitions.get(npcType);
-		final NPC newNPC = new NPC(slot, npcType, definition);
+		//NPCDefinitions definition = NPCDefinitions.get(npcType);
+		NPCDefinitions2 newDef = NPCDefinitions2.get(npcType);
+		final NPC newNPC = new NPC(slot, npcType, newDef);
 		newNPC.absX = x;
 		newNPC.absY = y;
 		newNPC.makeX = x;
 		newNPC.makeY = y;
 		newNPC.heightLevel = heightLevel;
 		newNPC.walkingType = WalkingType;
-		newNPC.getHealth().setMaximum(HP);
+		newNPC.getHealth().setMaximum(newDef == null ? HP : newDef.getHitpoints());
 		newNPC.getHealth().reset();
-		newNPC.maxHit = maxHit;
-		newNPC.attack = attack;
-		newNPC.defence = defence;
+		newNPC.maxHit = newDef == null ? maxHit : newDef.getMaxHit();
+		newNPC.stats = newDef.getSkills();
+		newNPC.bonuses = newDef.getBonuses();
 		newNPC.spawnedBy = c.getIndex();
 		if (headIcon)
 			c.getPA().drawHeadicon(1, slot, 0, 0);
@@ -1273,8 +1289,9 @@ public class NPCHandler {
 		if (slot == -1)
 			return;
 
-		NPCDefinitions definition = NPCDefinitions.get(npcType);
-		NPC newNPC = new NPC(slot, npcType, definition);
+		//NPCDefinitions definition = NPCDefinitions.get(npcType);
+		NPCDefinitions2 npcDef = NPCDefinitions2.get(npcType);
+		NPC newNPC = new NPC(slot, npcType, npcDef);
 		newNPC.absX = x;
 		newNPC.absY = y;
 		newNPC.makeX = x;
@@ -3094,7 +3111,8 @@ public class NPCHandler {
 		if (npc == null || player == null) {
 			return;
 		}
-		if (npc.getDefinition().getNpcCombat() >= 170) {
+		if(npc.getDefinition() == null) return;
+		if (npc.getDefinition().getCombatLevel() >= 170) {
 			Achievements.increase(player, AchievementType.SLAY_BOSSES, 1);
 		}
 	}
@@ -3120,8 +3138,9 @@ public class NPCHandler {
 			System.out.println("Cannot find any available slots to spawn npc into + npchandler @spawnNpc - line 2287");
 			return;
 		}
-		NPCDefinitions definition = NPCDefinitions.get(npcType);
-		NPC newNPC = new NPC(slot, npcType, definition);
+		//NPCDefinitions definition = NPCDefinitions.get(npcType);
+		NPCDefinitions2 npcDef = NPCDefinitions2.get(npcType);
+		NPC newNPC = new NPC(slot, npcType, npcDef);
 		newNPC.absX = x;
 		newNPC.absY = y;
 		newNPC.makeX = x;
@@ -3149,15 +3168,16 @@ public class NPCHandler {
 			System.out.println("Cannot find any available slots to spawn npc into + npchandler @spawnNpc - line 2287");
 			return null;
 		}
-		NPCDefinitions definition = NPCDefinitions.get(npcType);
-		NPC newNPC = new NPC(slot, npcType, definition);
+		//NPCDefinitions definition = NPCDefinitions.get(npcType);
+		NPCDefinitions2 npcDef = NPCDefinitions2.get(npcType);
+		NPC newNPC = new NPC(slot, npcType, npcDef);
 		newNPC.absX = x;
 		newNPC.absY = y;
 		newNPC.makeX = x;
 		newNPC.makeY = y;
 		newNPC.heightLevel = heightLevel;
 		newNPC.walkingType = WalkingType;
-		newNPC.getHealth().setMaximum(HP);
+		newNPC.getHealth().setMaximum(npcDef == null ? HP : npcDef.getHitpoints());
 		newNPC.getHealth().reset();
 		newNPC.maxHit = maxHit;
 		newNPC.attack = attack;
@@ -3337,7 +3357,12 @@ public class NPCHandler {
 	public void loadSpell(Player player, int i) {
 		int chance = 0;
 		switch (npcs[i].npcType) {
-		
+		case 955:
+		case 957: 
+		case 959:
+			npcs[i].attackType = CombatType.MELEE;
+			break;
+			
 		case 5890:
 
 			if (npcs[i].attackType != null) {
@@ -5177,87 +5202,90 @@ public class NPCHandler {
 		if (npcs[i] == null) {
 			return 0;
 		}
-		switch (npcs[i].npcType) {
-		case 3021: //KBD Spiders
-			return 7;
-		case Skotizo.SKOTIZO_ID:
-			return 38;
-		case Skotizo.AWAKENED_ALTAR_NORTH:
-		case Skotizo.AWAKENED_ALTAR_SOUTH:
-		case Skotizo.AWAKENED_ALTAR_WEST:
-		case Skotizo.AWAKENED_ALTAR_EAST:
-			return 15;
-		case Skotizo.REANIMATED_DEMON:
-		case Skotizo.DARK_ANKOU:
-			return 8;
-		case 6914: //Lizardman, Lizardman brute
-		case 6915:
-		case 6916:
-		case 6917:
-			return 7;
-		case 7617:
-			return 30;
-		case 6918:
-		case 6919:
-			return 11;
-		case 2042:
-		case 2043:
-		case 2044:
-			return 41;
-		case 5862:
-			return 23;
-		case 499:
-			return 21;
-		case 498:
-			return 12;
-		case 5867:
-		case 5868:
-		case 5869:
-			return 30;
-		case 239:
-			return npcs[i].attackType == CombatType.DRAGON_FIRE ? 50 : 20;
-		case 465:
-			return npcs[i].attackType == CombatType.DRAGON_FIRE ? 55 : 13;
-		case 2208:
-		case 2207:
-		case 2206:
-			return 16;
-		case 319:
-			return npcs[i].attackType == CombatType.MELEE ? 55 : npcs[i].attackType == CombatType.SPECIAL ? 35 : 49;
-		case 320:
-			return 10;
-		case 3129:
-			return npcs[i].attackType == CombatType.MELEE ? 60 : npcs[i].attackType == CombatType.SPECIAL ? 49 : 30;
-		case 6611:
-		case 6612:
-			return npcs[i].attackType == CombatType.MELEE ? 30 : npcs[i].attackType == CombatType.MAGE ? 34 : 46;
-		case 1046:
-			return npcs[i].attackType == CombatType.MAGE ? 40 : 50;
-		case 6610:
-		case 7144:
-		case 7145:
-		case 7146:
-			return 30;
-		case 6609:
-			return npcs[i].attackType == CombatType.SPECIAL ? 3 : npcs[i].attackType == CombatType.MAGE ? 60 : 40;
-		case 6618:
-			return npcs[i].attackType == CombatType.SPECIAL ? 23 : 15;
-		case 6619:
-			return npcs[i].attackType == CombatType.SPECIAL ? 31 : 25;
-		case 2558:
-			return npcs[i].attackType == CombatType.MAGE ? 38 : 68;
-		case 2562:
-			return 31;
-		case 2215:
-			return npcs[i].attackType == CombatType.MELEE ? 65 : 35;
-		case 3162:
-			return npcs[i].attackType == CombatType.RANGE ? 71 : npcs[i].attackType == CombatType.MAGE ? 21 : 15;
-		case 963:
-				return npcs[i].attackType == CombatType.MAGE ? 30 : 21;
-		case 965:
-				return npcs[i].attackType == CombatType.MAGE || npcs[i].attackType == CombatType.RANGE ? 30 : 21;
-		}
-		return npcs[i].maxHit == 0 ? 1 : npcs[i].maxHit;
+		NPCDefinitions2 npcTest = NPCDefinitions2.get(i);
+		int maxHit = npcTest.getMaxHit();
+		return maxHit;
+//		switch (npcs[i].npcType) {
+//		case 3021: //KBD Spiders
+//			return 7;
+//		case Skotizo.SKOTIZO_ID:
+//			return 38;
+//		case Skotizo.AWAKENED_ALTAR_NORTH:
+//		case Skotizo.AWAKENED_ALTAR_SOUTH:
+//		case Skotizo.AWAKENED_ALTAR_WEST:
+//		case Skotizo.AWAKENED_ALTAR_EAST:
+//			return 15;
+//		case Skotizo.REANIMATED_DEMON:
+//		case Skotizo.DARK_ANKOU:
+//			return 8;
+//		case 6914: //Lizardman, Lizardman brute
+//		case 6915:
+//		case 6916:
+//		case 6917:
+//			return 7;
+//		case 7617:
+//			return 30;
+//		case 6918:
+//		case 6919:
+//			return 11;
+//		case 2042:
+//		case 2043:
+//		case 2044:
+//			return 41;
+//		case 5862:
+//			return 23;
+//		case 499:
+//			return 21;
+//		case 498:
+//			return 12;
+//		case 5867:
+//		case 5868:
+//		case 5869:
+//			return 30;
+//		case 239:
+//			return npcs[i].attackType == CombatType.DRAGON_FIRE ? 50 : 20;
+//		case 465:
+//			return npcs[i].attackType == CombatType.DRAGON_FIRE ? 55 : 13;
+//		case 2208:
+//		case 2207:
+//		case 2206:
+//			return 16;
+//		case 319:
+//			return npcs[i].attackType == CombatType.MELEE ? 55 : npcs[i].attackType == CombatType.SPECIAL ? 35 : 49;
+//		case 320:
+//			return 10;
+//		case 3129:
+//			return npcs[i].attackType == CombatType.MELEE ? 60 : npcs[i].attackType == CombatType.SPECIAL ? 49 : 30;
+//		case 6611:
+//		case 6612:
+//			return npcs[i].attackType == CombatType.MELEE ? 30 : npcs[i].attackType == CombatType.MAGE ? 34 : 46;
+//		case 1046:
+//			return npcs[i].attackType == CombatType.MAGE ? 40 : 50;
+//		case 6610:
+//		case 7144:
+//		case 7145:
+//		case 7146:
+//			return 30;
+//		case 6609:
+//			return npcs[i].attackType == CombatType.SPECIAL ? 3 : npcs[i].attackType == CombatType.MAGE ? 60 : 40;
+//		case 6618:
+//			return npcs[i].attackType == CombatType.SPECIAL ? 23 : 15;
+//		case 6619:
+//			return npcs[i].attackType == CombatType.SPECIAL ? 31 : 25;
+//		case 2558:
+//			return npcs[i].attackType == CombatType.MAGE ? 38 : 68;
+//		case 2562:
+//			return 31;
+//		case 2215:
+//			return npcs[i].attackType == CombatType.MELEE ? 65 : 35;
+//		case 3162:
+//			return npcs[i].attackType == CombatType.RANGE ? 71 : npcs[i].attackType == CombatType.MAGE ? 21 : 15;
+//		case 963:
+//				return npcs[i].attackType == CombatType.MAGE ? 30 : 21;
+//		case 965:
+//				return npcs[i].attackType == CombatType.MAGE || npcs[i].attackType == CombatType.RANGE ? 30 : 21;
+//		}
+//		return npcs[i].maxHit == 0 ? 1 : npcs[i].maxHit;
 	}
 
 	@SuppressWarnings("resource")
@@ -5350,6 +5378,7 @@ public class NPCHandler {
 			break;
 		}
 		newNPC(7302, x, y, 0, 1, -1, -1, -1, -1);
+		
 	}
 
 	public int getNpcListHP(int npcId) {
@@ -5452,8 +5481,9 @@ public class NPCHandler {
 			// Misc.println("No Free Slot");
 			return; // no free slot found
 		}
-		NPCDefinitions definition = NPCDefinitions.get(npcType);
-		NPC newNPC = new NPC(slot, npcType, definition);
+		//NPCDefinitions definition = NPCDefinitions.get(npcType);
+		NPCDefinitions2 npcDef = NPCDefinitions2.get(npcType);
+		NPC newNPC = new NPC(slot, npcType, npcDef);
 		newNPC.absX = x;
 		newNPC.absY = y;
 		newNPC.makeX = x;

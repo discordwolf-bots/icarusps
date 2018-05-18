@@ -23,7 +23,7 @@ import ethos.event.impl.WheatPortalEvent;
 import ethos.model.content.wogw.Wogw;
 import ethos.model.content.godwars.GodwarsEquipment;
 import ethos.model.content.godwars.GodwarsNPCs;
-import ethos.model.players.combat.monsterhunt.MonsterHunt;
+//import ethos.model.players.combat.monsterhunt.MonsterHunt;
 import ethos.model.content.tradingpost.Listing;
 import ethos.model.content.trails.CasketRewards;
 import ethos.model.holiday.HolidayController;
@@ -222,7 +222,7 @@ public class Server {
 			globalObjects.loadGlobalObjectFile();
 			Region.load();
 			bindPorts();
-			MonsterHunt.spawnNPC();
+			//MonsterHunt.spawnNPC();
 			holidayController.initialize();
 			Runtime.getRuntime().addShutdownHook(new ShutdownHook());
 			Commands.initializeCommands();

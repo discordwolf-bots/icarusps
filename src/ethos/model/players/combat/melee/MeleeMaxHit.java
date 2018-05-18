@@ -36,7 +36,7 @@ public class MeleeMaxHit {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
 			if (npc != null) {
 				if (c.getSlayer().getTask().isPresent()) {
-					if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getNpcName()) || npc.npcType == 7413) {
+					if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
 						boolean SLAYER_HELM = IntStream.of(c.SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
 						if (!c.getItems().isWearingItem(4081) && SLAYER_HELM || c.getItems().isWearingItem(8901)) {
 							base *= 1.15;
@@ -200,7 +200,7 @@ public class MeleeMaxHit {
 		}
 		if (c.npcIndex > 0 && c.getSlayer().getTask().isPresent()) {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
-			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getNpcName()) || npc.npcType == 7413) {
+			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
 				boolean SLAYER_HELM = IntStream.of(c.SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
 				if (!c.getItems().isWearingItem(4081) && SLAYER_HELM || c.getItems().isWearingItem(8901)) {
 					attackLevel += c.getLevelForXP(c.playerXP[c.playerAttack]) * 0.15;
