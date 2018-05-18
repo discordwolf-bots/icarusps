@@ -6,6 +6,7 @@ import ethos.model.items.GameItem;
 import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
 import ethos.model.npcs.NPC;
+import ethos.model.npcs.NPCDeathTracker;
 import ethos.model.npcs.NPCDefinitions;
 import ethos.model.npcs.NPCDefinitions2;
 import ethos.model.npcs.NPCHandler;
@@ -19,6 +20,7 @@ import ethos.util.Location3D;
 import ethos.util.Misc;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -27,6 +29,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -517,13 +520,24 @@ public class DropManager {
 			//Loads the definition and maxhit/aggressiveness to display
 			NPCDefinitions2 npcDef = NPCDefinitions2.get(npcId);
 			
+			int kills = 0;
+			for (Entry<String, Integer> entry : player.getNpcDeathTracker().getTracker().entrySet()) {
+				if (entry == null) 
+					continue;
+				if(entry.getKey().equalsIgnoreCase(npcDef.getName()))
+					if (entry.getValue() > 0)
+						kills = entry.getValue();
+			}
+			
 			player.getPA().sendFrame126("Health: @whi@" + npcDef.getHitpoints(), 43110);
 			player.getPA().sendFrame126("Combat Level: @whi@" + npcDef.getCombatLevel(), 43111);
-			if(NPCHandler.getNpc(npcId) != null){
-				player.getPA().sendFrame126("Max Hit: @whi@" + NPCHandler.getNpc(npcId).maxHit, 43112);
-			} else {
-				player.getPA().sendFrame126("Max Hit: @whi@?", 43112);
-			}
+			player.getPA().sendFrame126("Total Kills: @whi@" + kills, 43112);
+			
+//			if(NPCHandler.getNpc(npcId) != null){
+//				player.getPA().sendFrame126("Max Hit: @whi@" + NPCHandler.getNpc(npcId).maxHit, 43112);
+//			} else {
+//				player.getPA().sendFrame126("Max Hit: @whi@?", 43112);
+//			}
 			player.getPA().sendFrame126("Aggressive: @whi@" + (npcDef.isAggressive() ? "true" : "false"), 43113);
 			
 			player.lastDropTableSelected = System.currentTimeMillis();
