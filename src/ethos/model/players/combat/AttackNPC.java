@@ -268,13 +268,7 @@ public class AttackNPC {
 					break;
 					
 				case 5890:
-					if (attacker.getSlayer().getTask().isPresent()) {
-						attacker.sendMessage("The sire does not seem interested.");
-						attacker.sendMessage("You need to have <col=ff0000><shad=000000>Abyssal Demons</shad></col> OR <col=ff0000><shad=000000>Abyssal Sire</shad></col> as your Slayer Task.");
-						attacker.getCombat().resetPlayerAttack();
-						return;
-					}
-					if (!attacker.getSlayer().getTask().isPresent() && !attacker.getSlayer().getTask().get().getPrimaryName().equals("abyssal demon") && !attacker.getSlayer().getTask().get().getPrimaryName().equals("abyssal sire")) {
+					if (!attacker.getSlayer().getTask().isPresent() || !(attacker.getSlayer().getTask().get().getPrimaryName().equals("abyssal demon") || attacker.getSlayer().getTask().get().getPrimaryName().equals("abyssal sire"))) {
 							attacker.sendMessage("The sire does not seem interested.");
 							attacker.sendMessage("You need to have <col=ff0000><shad=000000>Abyssal Demons</shad></col> OR <col=ff0000><shad=000000>Abyssal Sire</shad></col> as your Slayer Task.");
 							attacker.getCombat().resetPlayerAttack();
