@@ -598,43 +598,43 @@
       "items": [
         {
           "item": 995,
-          "minimum": 1000,
-          "maximum": 5000
+          "minimum": 10000,
+          "maximum": 25000
         },
         {
           "item": 557,
-          "minimum": 10,
-          "maximum": 50
+          "minimum": 400,
+          "maximum": 500
         },
         {
           "item": 554,
-          "minimum": 10,
-          "maximum": 44
+          "minimum": 400,
+          "maximum": 500
         },
         {
           "item": 560,
-          "minimum": 10,
-          "maximum": 70
+          "minimum": 200,
+          "maximum": 300
         },
         {
           "item": 565,
-          "minimum": 1,
-          "maximum": 70
+          "minimum": 200,
+          "maximum": 300
         },
         {
           "item": 555,
-          "minimum": 1,
-          "maximum": 70
+          "minimum": 400,
+          "maximum": 500
         },
         {
           "item": 556,
-          "minimum": 1,
-          "maximum": 200
+          "minimum": 400,
+          "maximum": 500
         },
         {
           "item": 558,
-          "minimum": 1,
-          "maximum": 200
+          "minimum": 400,
+          "maximum": 500
         },
         {
           "item": 559,
@@ -1364,7 +1364,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 200,
+      "accessibility": 150,
       "items": [
         {
           "item": 3140,
@@ -1670,31 +1670,31 @@
         },
         {
           "item": 554,
-          "minimum": 100,
-          "maximum": 150
+          "minimum": 400,
+          "maximum": 500
         },
         {
           "item": 562,
-          "minimum": 40,
-          "maximum": 80
+          "minimum": 200,
+          "maximum": 300
         },
         {
           "item": 560,
-          "minimum": 30,
-          "maximum": 60
+          "minimum": 200,
+          "maximum": 300
         },
         {
           "item": 2354,
-          "minimum": 3,
-          "maximum": 5
+          "minimum": 8,
+          "maximum": 12
         },
         {
           "item": 2360,
-          "minimum": 2,
-          "maximum": 4
+          "minimum": 5,
+          "maximum": 7
         },
         {
-          "item": 2358,
+          "item": 2362,
           "minimum": 4,
           "maximum": 5
         },
@@ -1729,7 +1729,7 @@
           "maximum": 1
         },
         {
-          "item": 1311,
+          "item": 1377,
           "minimum": 1,
           "maximum": 1
         },
@@ -1794,17 +1794,17 @@
       ]
     },
     "common": {
-      "accessibility": 3,
+      "accessibility": 2,
       "items": [
         {
           "item": 560,
-          "minimum": 50,
+          "minimum": 100,
           "maximum": 200
         },
         {
           "item": 565,
-          "minimum": 35,
-          "maximum": 100
+          "minimum": 100,
+          "maximum": 125
         },
         {
           "item": 562,
@@ -1817,27 +1817,27 @@
           "maximum": 1
         },
         {
-          "item": 379,
+          "item": 385,
           "minimum": 2,
           "maximum": 3
         },
         {
           "item": 995,
-          "minimum": 4000,
+          "minimum": 40000,
           "maximum": 118252
         }
       ]
     },
     "uncommon": {
-      "accessibility": 12,
+      "accessibility": 9,
       "items": [
         {
-          "item": 1199,
+          "item": 1201,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1073,
+          "item": 1079,
           "minimum": 1,
           "maximum": 1
         },
@@ -1859,7 +1859,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11840,
@@ -1882,21 +1882,21 @@
       ]
     },
     "common": {
-      "accessibility": 3,
+      "accessibility": 2,
       "items": [
         {
           "item": 560,
-          "minimum": 100,
+          "minimum": 150,
           "maximum": 200
         },
         {
           "item": 565,
-          "minimum": 55,
-          "maximum": 130
+          "minimum": 150,
+          "maximum": 180
         },
         {
           "item": 562,
-          "minimum": 125,
+          "minimum": 155,
           "maximum": 250
         },
         {
@@ -1905,27 +1905,27 @@
           "maximum": 1
         },
         {
-          "item": 379,
-          "minimum": 2,
+          "item": 385,
+          "minimum": 4,
           "maximum": 6
         },
         {
           "item": 995,
-          "minimum": 24000,
+          "minimum": 50000,
           "maximum": 118252
         }
       ]
     },
     "uncommon": {
-      "accessibility": 12,
+      "accessibility": 8,
       "items": [
         {
-          "item": 1199,
+          "item": 1201,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1073,
+          "item": 1079,
           "minimum": 1,
           "maximum": 1
         },
@@ -2090,7 +2090,7 @@
       ]
     },
     "rare": {
-      "accessibility": 195,
+      "accessibility": 150,
       "items": [
         {
           "item": 4151,
@@ -2105,7 +2105,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 5500,
+      "accessibility": 1400,
       "items": [
         {
           "item": 13265,
@@ -2225,30 +2225,10 @@
           "minimum": 10,
           "maximum": 50
         },
-        {
-          "item": 2398,
-          "minimum": 3,
-          "maximum": 6
-        },
-        {
-          "item": 222,
-          "minimum": 15,
-          "maximum": 25
-        },
-        {
-          "item": 232,
-          "minimum": 15,
-          "maximum": 25
-        },
-        {
-          "item": 240,
-          "minimum": 15,
-          "maximum": 25
-        }
       ]
     },
     "rare": {
-      "accessibility": 128,
+      "accessibility": 100,
       "items": [
         {
           "item": 11235,
@@ -3383,7 +3363,7 @@
       "items": [
         {
           "item": 995,
-          "minimum": 1500,
+          "minimum": 50000,
           "maximum": 65000
         },
         {
@@ -3544,7 +3524,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 15200,
+      "accessibility": 500,
       "items": [
         {
           "item": 13233,
@@ -3662,7 +3642,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 700,
+      "accessibility": 300,
       "items": [
         {
           "item": 11286,
@@ -4110,49 +4090,49 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 830,
-          "minimum": 15,
-          "maximum": 30
+          "item": 892,
+          "minimum": 150,
+          "maximum": 200
         },
         {
-          "item": 1371,
+          "item": 1373,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1357,
+          "item": 1359,
           "minimum": 1,
           "maximum": 1
         },
         {
           "item": 565,
-          "minimum": 30,
-          "maximum": 60
+          "minimum": 150,
+          "maximum": 200
         },
         {
-          "item": 157,
-          "minimum": 1,
-          "maximum": 1
+          "item": 2441,
+          "minimum": 10,
+          "maximum": 20
         }
       ]
     },
     "uncommon": {
-      "accessibility": 10,
+      "accessibility": 8,
       "items": [
         {
-          "item": 1317,
+          "item": 1319,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1183,
+          "item": 1201,
           "minimum": 1,
           "maximum": 1
         },
         {
           "item": 811,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 300
         },
         {
           "item": 1147,
@@ -4160,34 +4140,34 @@
           "maximum": 1
         },
         {
-          "item": 1269,
+          "item": 392,
+          "minimum": 50,
+          "maximum": 60
+        },
+        {
+          "item": 386,
+          "minimum": 50,
+          "maximum": 60
+        },
+        {
+          "item": 1305,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1271,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 1273,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 9143,
+          "item": 9244,
           "minimum": 10,
           "maximum": 30
         },
         {
           "item": 868,
-          "minimum": 15,
-          "maximum": 25
+          "minimum": 150,
+          "maximum": 250
         },
         {
           "item": 9144,
-          "minimum": 10,
-          "maximum": 20
+          "minimum": 150,
+          "maximum": 200
         },
         {
           "item": 9465,
@@ -4196,13 +4176,13 @@
         },
         {
           "item": 2362,
-          "minimum": 2,
-          "maximum": 4
+          "minimum": 15,
+          "maximum": 30
         }
       ]
     },
     "rare": {
-      "accessibility": 250,
+      "accessibility": 100,
       "items": [
         {
           "item": 4585,
@@ -4217,7 +4197,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 700,
+      "accessibility": 260,
       "items": [
         {
           "item": 11286,
@@ -4443,7 +4423,7 @@
       ]
     },
     "rare": {
-      "accessibility": 400,
+      "accessibility": 150,
       "items": [
         {
           "item": 4087,
@@ -4458,7 +4438,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 1024,
+      "accessibility": 280,
       "items": [
         {
           "item": 11286,
@@ -4516,7 +4496,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 20,
+      "accessibility": 15,
       "items": [
         {
           "item": 1197,
@@ -4591,7 +4571,7 @@
       ]
     },
     "rare": {
-      "accessibility": 40,
+      "accessibility": 25,
       "items": [
         {
           "item": 215,
@@ -4611,7 +4591,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 110,
+      "accessibility": 100,
       "items": [
         {
           "item": 8901,
@@ -5280,6 +5260,206 @@
       ]
     }
   },
+
+  {
+    "npc_id": 2918,
+    "constant": {
+      "accessibility": 0,
+      "items": [
+        {
+          "item": 536,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+    	  "item": 1751,
+    	  "minimum": 2,
+    	  "maximum": 2
+        }
+      ]
+    },
+    "common": {
+      "accessibility": 1,
+      "items": [
+        {
+          "item": 995,
+          "minimum": 370,
+          "maximum": 2200
+        },
+        {
+    	  "item": 13441,
+    	  "minimum": 2,
+    	  "maximum": 2
+        },
+        {
+          "item": 830,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
+          "item": 811,
+          "minimum": 20,
+          "maximum": 20
+        },
+        {
+          "item": 563,
+          "minimum": 75,
+          "maximum": 75
+        },
+        {
+          "item": 560,
+          "minimum": 75,
+          "maximum": 75
+        }
+      ]
+    },
+    "uncommon": {
+      "accessibility": 8,
+      "items": [
+        {
+          "item": 1079,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 1163,
+          "minimum": 2,
+          "maximum": 2
+        },
+        {
+          "item": 11377,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 565,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
+          "item": 566,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
+          "item": 892,
+          "minimum": 75,
+          "maximum": 75
+        },
+        {
+          "item": 868,
+          "minimum": 25,
+          "maximum": 25
+        },
+        {
+          "item": 805,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 11237,
+          "minimum": 40,
+          "maximum": 40
+        },
+        {
+          "item": 19582,
+          "minimum": 40,
+          "maximum": 40
+        },
+        {
+          "item": 11232,
+          "minimum": 120,
+          "maximum": 120
+        },
+        {
+          "item": 2722,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    "rare": {
+      "accessibility": 75,
+      "items": [
+        {
+          "item": 452,
+          "minimum": 20,
+          "maximum": 100
+        },
+        {
+          "item": 19679,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 19681,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 19683,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 2503,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 2497,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 2491,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 1127,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 1305,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 5698,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 4087,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 4585,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 1631,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    "very_rare": {
+      "accessibility": 320,
+      "items": [
+        {
+          "item": 11286,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    }
+  },
+
   {
     "npc_id": 2919,
     "constant": {
@@ -5292,8 +5472,8 @@
         },
         {
           "item": 2360,
-          "minimum": 3,
-          "maximum": 3
+          "minimum": 5,
+          "maximum": 5
         }
       ]
     },
@@ -5301,17 +5481,17 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 830,
-          "minimum": 25,
-          "maximum": 25
+          "item": 892,
+          "minimum": 100,
+          "maximum": 125
         },
         {
           "item": 811,
-          "minimum": 15,
-          "maximum": 15
+          "minimum": 100,
+          "maximum": 150
         },
         {
-          "item": 1432,
+          "item": 1319,
           "minimum": 1,
           "maximum": 1
         },
@@ -5322,8 +5502,8 @@
         },
         {
           "item": 565,
-          "minimum": 50,
-          "maximum": 50
+          "minimum": 75,
+          "maximum": 150
         },
         {
           "item": 9465,
@@ -5332,26 +5512,26 @@
         },
         {
           "item": 2362,
-          "minimum": 2,
-          "maximum": 2
+          "minimum": 6,
+          "maximum": 6
         },
         {
-          "item": 385,
-          "minimum": 3,
-          "maximum": 6
+          "item": 386,
+          "minimum": 30,
+          "maximum": 60
         }
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 10,
       "items": [
         {
           "item": 868,
-          "minimum": 20,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 150
         },
         {
-          "item": 1257,
+          "item": 1127,
           "minimum": 1,
           "maximum": 1
         },
@@ -5361,19 +5541,19 @@
           "maximum": 1
         },
         {
-          "item": 892,
+          "item": 9244,
           "minimum": 30,
           "maximum": 50
         },
         {
           "item": 9144,
-          "minimum": 30,
-          "maximum": 50
+          "minimum": 130,
+          "maximum": 150
         }
       ]
     },
     "rare": {
-      "accessibility": 300,
+      "accessibility": 200,
       "items": [
         {
           "item": 11335,
@@ -5383,7 +5563,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 700,
+      "accessibility": 240,
       "items": [
         {
           "item": 11286,
@@ -5404,7 +5584,7 @@
           "maximum": 1
         },
         {
-          "item": 1747,
+          "item": 1748,
           "minimum": 2,
           "maximum": 2
         }
@@ -5414,17 +5594,17 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 1303,
+          "item": 1305,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1123,
+          "item": 1127,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1199,
+          "item": 1201,
           "minimum": 1,
           "maximum": 1
         },
@@ -5440,28 +5620,28 @@
         },
         {
           "item": 565,
-          "minimum": 50,
+          "minimum": 200,
           "maximum": 400
         },
         {
-          "item": 884,
-          "minimum": 700,
-          "maximum": 900
+          "item": 9244,
+          "minimum": 50,
+          "maximum": 100
         },
         {
           "item": 563,
-          "minimum": 50,
-          "maximum": 350
+          "minimum": 500,
+          "maximum": 650
         },
         {
           "item": 1516,
-          "minimum": 175,
-          "maximum": 275
+          "minimum": 250,
+          "maximum": 375
         }
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
           "item": 1149,
@@ -5475,18 +5655,18 @@
         },
         {
           "item": 9144,
-          "minimum": 25,
-          "maximum": 50
+          "minimum": 200,
+          "maximum": 250
         },
         {
           "item": 11232,
-          "minimum": 15,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 150
         },
         {
           "item": 11237,
-          "minimum": 15,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 150
         },
         {
           "item": 385,
@@ -5495,8 +5675,8 @@
         },
         {
           "item": 445,
-          "minimum": 125,
-          "maximum": 125
+          "minimum": 300,
+          "maximum": 300
         },
         {
           "item": 9465,
@@ -5505,13 +5685,13 @@
         },
         {
           "item": 2362,
-          "minimum": 3,
-          "maximum": 3
+          "minimum": 30,
+          "maximum": 50
         }
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11920,
@@ -5526,7 +5706,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 350,
+      "accessibility": 200,
       "items": [
         {
           "item": 11286,
@@ -5542,9 +5722,14 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 809,
-          "minimum": 300,
-          "maximum": 500
+          "item": 811,
+          "minimum": 200,
+          "maximum": 300
+        },
+        {
+          "item": 13307,
+          "minimum": 50,
+          "maximum": 50
         },
         {
           "item": 556,
@@ -5615,11 +5800,16 @@
           "item": 7158,
           "minimum": 1,
           "maximum": 1
+        },
+        {
+          "item": 13307,
+          "minimum": 300,
+          "maximum": 500
         }
       ]
     },
     "very_rare": {
-      "accessibility": 150,
+      "accessibility": 125,
       "items": [
         {
           "item": 11920,
@@ -6436,7 +6626,7 @@
       ]
     },
     "rare": {
-      "accessibility": 250,
+      "accessibility": 200,
       "items": [
         {
           "item": 11907,
@@ -6446,7 +6636,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 500,
+      "accessibility": 300,
       "items": [
         {
           "item": 12004,
@@ -6493,8 +6683,13 @@
         },
         {
           "item": 995,
-          "minimum": 20000,
+          "minimum": 100000,
           "maximum": 300000
+        },
+        {
+          "item": 386,
+          "minimum": 50,
+          "maximum": 100
         },
         {
           "item": 385,
@@ -6522,29 +6717,29 @@
           "maximum": 150
         },
         {
-          "item": 7945,
+          "item": 390,
           "minimum": 100,
           "maximum": 300
         },
         {
           "item": 2364,
-          "minimum": 2,
-          "maximum": 2
+          "minimum": 20,
+          "maximum": 30
         },
         {
-          "item": 3051,
-          "minimum": 6,
-          "maximum": 6
+          "item": 3052,
+          "minimum": 20,
+          "maximum": 30
         },
         {
-          "item": 1602,
-          "minimum": 8,
-          "maximum": 8
+          "item": 1616,
+          "minimum": 15,
+          "maximum": 15
         }
       ]
     },
     "rare": {
-      "accessibility": 75,
+      "accessibility": 50,
       "items": [
         {
           "item": 405,
@@ -6554,15 +6749,10 @@
       ]
     },
     "very_rare": {
-      "accessibility": 300,
+      "accessibility": 150,
       "items": [
         {
           "item": 12004,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 12007,
           "minimum": 1,
           "maximum": 1
         },
@@ -6585,19 +6775,24 @@
           "maximum": 1
         },
         {
+          "item": 13307,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
           "item": 1620,
-          "minimum": 5,
+          "minimum": 10,
           "maximum": 25
         },
         {
           "item": 1618,
-          "minimum": 5,
+          "minimum": 10,
           "maximum": 25
         },
         {
-          "item": 11936,
-          "minimum": 8,
-          "maximum": 8
+          "item": 11937,
+          "minimum": 20,
+          "maximum": 30
         },
         {
           "item": 3024,
@@ -6607,7 +6802,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 5,
+      "accessibility": 4,
       "items": [
         {
           "item": 9243,
@@ -6620,19 +6815,19 @@
           "maximum": 1
         },
         {
-          "item": 226,
-          "minimum": 100,
-          "maximum": 100
-        },
-        {
-          "item": 224,
-          "minimum": 500,
-          "maximum": 500
-        },
-        {
           "item": 445,
-          "minimum": 350,
-          "maximum": 350
+          "minimum": 100,
+          "maximum": 200
+        },
+        {
+          "item": 1514,
+          "minimum": 100,
+          "maximum": 200
+        },
+        {
+          "item": 448,
+          "minimum": 100,
+          "maximum": 150
         },
         {
           "item": 3052,
@@ -6640,14 +6835,14 @@
           "maximum": 25
         },
         {
-          "item": 1514,
-          "minimum": 25,
-          "maximum": 25
+          "item": 2362,
+          "minimum": 30,
+          "maximum": 50
         },
         {
-          "item": 1631,
-          "minimum": 1,
-          "maximum": 1
+          "item": 1632,
+          "minimum": 10,
+          "maximum": 20
         },
         {
           "item": 9194,
@@ -6671,7 +6866,7 @@
         },
         {
           "item": 565,
-          "minimum": 215,
+          "minimum": 315,
           "maximum": 615
         }
       ]
@@ -6685,6 +6880,11 @@
           "maximum": 1
         },
         {
+          "item": 13307,
+          "minimum": 300,
+          "maximum": 500
+        },
+        {
           "item": 7158,
           "minimum": 1,
           "maximum": 1
@@ -6692,7 +6892,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 200,
+      "accessibility": 150,
       "items": [
         {
           "item": 12605,
@@ -6738,6 +6938,11 @@
           "maximum": 1
         },
         {
+          "item": 13307,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
           "item": 1620,
           "minimum": 5,
           "maximum": 20
@@ -6760,7 +6965,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 9,
       "items": [
         {
           "item": 560,
@@ -6810,12 +7015,17 @@
       ]
     },
     "rare": {
-      "accessibility": 200,
+      "accessibility": 130,
       "items": [
         {
           "item": 11920,
           "minimum": 1,
           "maximum": 1
+        },
+        {
+          "item": 13307,
+          "minimum": 300,
+          "maximum": 500
         },
         {
           "item": 7158,
@@ -6825,7 +7035,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 312,
+      "accessibility": 200,
       "items": [
         {
           "item": 12603,
@@ -6851,14 +7061,14 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 385,
-          "minimum": 1,
-          "maximum": 1
+          "item": 386,
+          "minimum": 50,
+          "maximum": 50
         },
         {
           "item": 2298,
-          "minimum": 8,
-          "maximum": 28
+          "minimum": 30,
+          "maximum": 50
         },
         {
           "item": 6705,
@@ -6867,8 +7077,8 @@
         },
         {
           "item": 2434,
-          "minimum": 1,
-          "maximum": 1
+          "minimum": 2,
+          "maximum": 4
         },
         {
           "item": 995,
@@ -6876,19 +7086,24 @@
           "maximum": 225000
         },
         {
-          "item": 443,
+          "item": 451,
           "minimum": 40,
           "maximum": 40
         },
         {
-          "item": 1624,
-          "minimum": 4,
-          "maximum": 4
+          "item": 445,
+          "minimum": 100,
+          "maximum": 100
         },
         {
-          "item": 1622,
-          "minimum": 6,
-          "maximum": 6
+          "item": 1620,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
+          "item": 1632,
+          "minimum": 15,
+          "maximum": 15
         }
       ]
     },
@@ -6902,18 +7117,18 @@
         },
         {
           "item": 9194,
-          "minimum": 12,
-          "maximum": 12
+          "minimum": 50,
+          "maximum": 50
         },
         {
           "item": 12746,
           "minimum": 1,
-          "maximum": 1
+          "maximum": 3
         }
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11990,
@@ -6923,7 +7138,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 225,
+      "accessibility": 125,
       "items": [
         {
           "item": 11924,
@@ -7046,7 +7261,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 150,
+      "accessibility": 125,
       "items": [
         {
           "item": 11924,
@@ -7080,7 +7295,17 @@
           "maximum": 1
         },
         {
-          "item": 11936,
+          "item": 13307,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
+          "item": 11937,
+          "minimum": 20,
+          "maximum": 30
+        },
+        {
+          "item": 385,
           "minimum": 8,
           "maximum": 8
         },
@@ -7091,28 +7316,28 @@
         },
         {
           "item": 995,
-          "minimum": 25000,
+          "minimum": 100000,
           "maximum": 500000
         },
         {
-          "item": 226,
+          "item": 9245,
           "minimum": 50,
           "maximum": 50
         },
         {
           "item": 1620,
-          "minimum": 5,
-          "maximum": 5
+          "minimum": 25,
+          "maximum": 40
         },
         {
           "item": 1618,
-          "minimum": 5,
-          "maximum": 5
+          "minimum": 25,
+          "maximum": 40
         }
       ]
     },
     "uncommon": {
-      "accessibility": 5,
+      "accessibility": 4,
       "items": [
         {
           "item": 4675,
@@ -7136,8 +7361,8 @@
         },
         {
           "item": 1514,
-          "minimum": 100,
-          "maximum": 100
+          "minimum": 200,
+          "maximum": 200
         },
         {
           "item": 445,
@@ -7151,8 +7376,8 @@
         },
         {
           "item": 1632,
-          "minimum": 3,
-          "maximum": 3
+          "minimum": 15,
+          "maximum": 15
         },
         {
           "item": 12746,
@@ -7166,8 +7391,8 @@
         },
         {
           "item": 2996,
-          "minimum": 5,
-          "maximum": 15
+          "minimum": 40,
+          "maximum": 40
         }
       ]
     },
@@ -7185,6 +7410,11 @@
           "maximum": 1
         },
         {
+          "item": 13307,
+          "minimum": 300,
+          "maximum": 500
+        },
+        {
           "item": 12601,
           "minimum": 1,
           "maximum": 1
@@ -7192,7 +7422,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 200,
       "items": [
         {
           "item": 2996,
@@ -7224,63 +7454,73 @@
         },
         {
           "item": 554,
-          "minimum": 200,
+          "minimum": 400,
           "maximum": 800
         },
         {
           "item": 565,
-          "minimum": 40,
-          "maximum": 140
+          "minimum": 150,
+          "maximum": 300
         },
         {
           "item": 560,
-          "minimum": 25,
-          "maximum": 125
+          "minimum": 200,
+          "maximum": 300
         },
         {
           "item": 563,
-          "minimum": 25,
-          "maximum": 125
+          "minimum": 200,
+          "maximum": 300
         },
         {
-          "item": 1301,
+          "item": 1305,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1147,
+          "item": 1149,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 385,
-          "minimum": 3,
-          "maximum": 5
+          "item": 386,
+          "minimum": 50,
+          "maximum": 100
         }
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
-          "item": 884,
+          "item": 892,
           "minimum": 700,
           "maximum": 1200
         },
         {
           "item": 441,
-          "minimum": 100,
+          "minimum": 200,
           "maximum": 400
         },
         {
           "item": 2360,
-          "minimum": 3,
-          "maximum": 7
+          "minimum": 40,
+          "maximum": 80
+        },
+        {
+          "item": 13442,
+          "minimum": 100,
+          "maximum": 150
         },
         {
           "item": 1516,
-          "minimum": 100,
+          "minimum": 200,
           "maximum": 300
+        }
+        {
+          "item": 1514,
+          "minimum": 100,
+          "maximum": 150
         }
       ]
     },
@@ -7288,7 +7528,12 @@
       "accessibility": 50,
       "items": [
         {
-          "item": 4153,
+          "item": 20703,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6199,
           "minimum": 1,
           "maximum": 1
         }
@@ -7966,7 +8211,7 @@
       ]
     },
     "rare": {
-      "accessibility": 100,
+      "accessibility": 75,
       "items": [
         {
           "item": 11818,
@@ -7996,7 +8241,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 300,
+      "accessibility": 150,
       "items": [
         {
           "item": 11785,
@@ -8125,54 +8370,54 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 808,
-          "minimum": 95,
-          "maximum": 100
+          "item": 811,
+          "minimum": 100,
+          "maximum": 200
         },
         {
-          "item": 563,
-          "minimum": 7,
-          "maximum": 10
+          "item": 565,
+          "minimum": 100,
+          "maximum": 200
         },
         {
-          "item": 886,
-          "minimum": 97,
-          "maximum": 100
+          "item": 9244,
+          "minimum": 30,
+          "maximum": 50
         },
         {
           "item": 995,
-          "minimum": 25685,
+          "minimum": 50000,
           "maximum": 754222
         },
         {
-          "item": 232,
-          "minimum": 5,
-          "maximum": 24
+          "item": 2434,
+          "minimum": 2,
+          "maximum": 4
         }
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
-          "item": 257,
-          "minimum": 1,
-          "maximum": 4
+          "item": 258,
+          "minimum": 20,
+          "maximum": 30
         },
         {
-          "item": 238,
-          "minimum": 6,
-          "maximum": 25
+          "item": 1632,
+          "minimum": 10,
+          "maximum": 15
         },
         {
-          "item": 7946,
-          "minimum": 3,
-          "maximum": 3
+          "item": 385,
+          "minimum": 5,
+          "maximum": 10
         }
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11818,
@@ -8192,7 +8437,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 150,
       "items": [
         {
           "item": 11838,
@@ -8265,7 +8510,7 @@
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11818,
@@ -8285,7 +8530,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 300,
+      "accessibility": 150,
       "items": [
         {
           "item": 11838,
@@ -8307,7 +8552,7 @@
         },
         {
           "item": 314,
-          "minimum": 150,
+          "minimum": 550,
           "maximum": 2000
         }
       ]
@@ -8321,8 +8566,8 @@
           "maximum": 1
         },
         {
-          "item": 563,
-          "minimum": 96,
+          "item": 560,
+          "minimum": 300,
           "maximum": 405
         },
         {
@@ -8337,41 +8582,41 @@
         },
         {
           "item": 9144,
-          "minimum": 18,
-          "maximum": 60
+          "minimum": 150,
+          "maximum": 200
         }
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
-          "item": 1123,
+          "item": 1127,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 558,
+          "item": 555,
           "minimum": 500,
           "maximum": 1201
         },
         {
           "item": 892,
-          "minimum": 100,
+          "minimum": 200,
           "maximum": 305
         },
         {
           "item": 9244,
-          "minimum": 5,
+          "minimum": 30,
           "maximum": 45
         },
         {
-          "item": 169,
+          "item": 2444,
           "minimum": 3,
           "maximum": 3
         },
         {
-          "item": 163,
+          "item": 2434,
           "minimum": 3,
           "maximum": 3
         }
@@ -8403,7 +8648,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 200,
+      "accessibility": 150,
       "items": [
         {
           "item": 11810,
@@ -8598,7 +8843,7 @@
         },
         {
           "item": 995,
-          "minimum": 18000,
+          "minimum": 180000,
           "maximum": 858000
         },
         {
@@ -8614,22 +8859,22 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
           "item": 392,
-          "minimum": 1,
-          "maximum": 2
+          "minimum": 30,
+          "maximum": 40
         },
         {
           "item": 7058,
-          "minimum": 1,
-          "maximum": 3
+          "minimum": 3,
+          "maximum": 5
         },
         {
-          "item": 558,
+          "item": 565,
           "minimum": 500,
-          "maximum": 601
+          "maximum": 1000
         },
         {
           "item": 892,
@@ -8638,23 +8883,23 @@
         },
         {
           "item": 9244,
-          "minimum": 5,
-          "maximum": 15
+          "minimum": 30,
+          "maximum": 50
         },
         {
-          "item": 169,
+          "item": 2444,
           "minimum": 3,
           "maximum": 3
         },
         {
-          "item": 163,
+          "item": 3024,
           "minimum": 3,
           "maximum": 3
         }
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11818,
@@ -8674,7 +8919,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 150,
       "items": [
         {
           "item": 11826,
@@ -8741,13 +8986,13 @@
         },
         {
           "item": 9144,
-          "minimum": 18,
+          "minimum": 50,
           "maximum": 125
         }
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
           "item": 392,
@@ -8756,11 +9001,11 @@
         },
         {
           "item": 7058,
-          "minimum": 1,
-          "maximum": 3
+          "minimum": 3,
+          "maximum": 5
         },
         {
-          "item": 558,
+          "item": 565,
           "minimum": 500,
           "maximum": 1250
         },
@@ -8771,23 +9016,23 @@
         },
         {
           "item": 9244,
-          "minimum": 5,
-          "maximum": 35
+          "minimum": 30,
+          "maximum": 50
         },
         {
-          "item": 169,
+          "item": 2444,
           "minimum": 3,
           "maximum": 3
         },
         {
-          "item": 163,
+          "item": 3024,
           "minimum": 3,
           "maximum": 3
         }
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 11818,
@@ -8807,7 +9052,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 150,
       "items": [
         {
           "item": 11826,
@@ -8843,7 +9088,7 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 5626,
+          "item": 892,
           "minimum": 295,
           "maximum": 300
         },
@@ -8853,12 +9098,12 @@
           "maximum": 1
         },
         {
-          "item": 1123,
+          "item": 1127,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 145,
+          "item": 2436,
           "minimum": 3,
           "maximum": 3
         },
@@ -8868,19 +9113,19 @@
           "maximum": 3
         },
         {
-          "item": 157,
+          "item": 2440,
           "minimum": 3,
           "maximum": 3
         },
         {
-          "item": 189,
+          "item": 6685,
           "minimum": 3,
           "maximum": 3
         },
         {
           "item": 560,
-          "minimum": 120,
-          "maximum": 124
+          "minimum": 250,
+          "maximum": 300
         },
         {
           "item": 995,
@@ -8890,17 +9135,17 @@
       ]
     },
     "uncommon": {
-      "accessibility": 15,
+      "accessibility": 8,
       "items": [
         {
           "item": 565,
-          "minimum": 80,
+          "minimum": 200,
           "maximum": 350
         },
         {
           "item": 2482,
-          "minimum": 7,
-          "maximum": 23
+          "minimum": 30,
+          "maximum": 50
         },
         {
           "item": 5698,
@@ -8910,7 +9155,7 @@
       ]
     },
     "rare": {
-      "accessibility": 200,
+      "accessibility": 100,
       "items": [
         {
           "item": 11818,
@@ -8945,7 +9190,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 200,
+      "accessibility": 150,
       "items": [
         {
           "item": 11816,
@@ -9224,7 +9469,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 150,
       "items": [
         {
           "item": 11824,
@@ -9534,8 +9779,8 @@
       "items": [
         {
           "item": 12934,
-          "minimum": 300,
-          "maximum": 500
+          "minimum": 500,
+          "maximum": 700
         }
       ]
     },
@@ -9543,19 +9788,19 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 6290,
+          "item": 9244,
           "minimum": 30,
           "maximum": 40
         },
         {
-          "item": 563,
+          "item": 560,
           "minimum": 300,
           "maximum": 500
         },
         {
           "item": 1754,
-          "minimum": 10,
-          "maximum": 50
+          "minimum": 50,
+          "maximum": 100
         },
         {
           "item": 1514,
@@ -9569,13 +9814,13 @@
         },
         {
           "item": 452,
-          "minimum": 20,
-          "maximum": 20
+          "minimum": 50,
+          "maximum": 50
         },
         {
           "item": 537,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 50,
+          "maximum": 50
         },
         {
           "item": 2362,
@@ -9585,7 +9830,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 5,
+      "accessibility": 3,
       "items": [
         {
           "item": 560,
@@ -9604,8 +9849,8 @@
         },
         {
           "item": 12934,
-          "minimum": 500,
-          "maximum": 750
+          "minimum": 1000,
+          "maximum": 1500
         },
         {
           "item": 384,
@@ -9614,8 +9859,8 @@
         },
         {
           "item": 6686,
-          "minimum": 15,
-          "maximum": 15
+          "minimum": 40,
+          "maximum": 50
         },
         {
           "item": 1149,
@@ -9624,28 +9869,28 @@
         },
         {
           "item": 3050,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 40,
+          "maximum": 40
         },
         {
           "item": 3052,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 40,
+          "maximum": 40
         },
         {
           "item": 218,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 40,
+          "maximum": 40
         },
         {
           "item": 220,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 40,
+          "maximum": 40
         }
       ]
     },
     "rare": {
-      "accessibility": 150,
+      "accessibility": 120,
       "items": [
         {
           "item": 12922,
@@ -10315,13 +10560,13 @@
         },
         {
           "item": 450,
-          "minimum": 15,
-          "maximum": 20
+          "minimum": 30,
+          "maximum": 50
         },
         {
           "item": 454,
-          "minimum": 115,
-          "maximum": 120
+          "minimum": 150,
+          "maximum": 200
         },
         {
           "item": 995,
@@ -10340,18 +10585,18 @@
         },
         {
           "item": 561,
-          "minimum": 60,
-          "maximum": 70
+          "minimum": 200,
+          "maximum": 300
         },
         {
           "item": 1514,
-          "minimum": 15,
-          "maximum": 20
+          "minimum": 80,
+          "maximum": 100
         },
         {
           "item": 3052,
-          "minimum": 3,
-          "maximum": 3
+          "minimum": 20,
+          "maximum": 20
         },
         {
           "item": 1275,
@@ -10361,7 +10606,7 @@
       ]
     },
     "rare": {
-      "accessibility": 100,
+      "accessibility": 80,
       "items": [
         {
           "item": 11818,
@@ -10386,7 +10631,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 150,
       "items": [
         {
           "item": 11812,
@@ -12740,8 +12985,8 @@
         },
         {
           "item": 995,
-          "minimum": 20,
-          "maximum": 427
+          "minimum": 50000,
+          "maximum": 150000
         }
       ]
     },
@@ -12749,29 +12994,19 @@
       "accessibility": 10,
       "items": [
         {
-          "item": 365,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 379,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
           "item": 385,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 203,
-          "minimum": 1,
-          "maximum": 1
+          "item": 208,
+          "minimum": 10,
+          "maximum": 20
         },
         {
-          "item": 449,
-          "minimum": 1,
-          "maximum": 2
+          "item": 450,
+          "minimum": 10,
+          "maximum": 20
         },
         {
           "item": 561,
@@ -12816,7 +13051,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 150,
+      "accessibility": 100,
       "items": [
         {
           "item": 4207,
@@ -13219,12 +13454,17 @@
       ]
     },
     "common": {
-      "accessibility": 3,
+      "accessibility": 1,
       "items": [
         {
           "item": 1247,
           "minimum": 1,
           "maximum": 1
+        },
+        {
+          "item": 13307,
+          "minimum": 50,
+          "maximum": 50
         },
         {
           "item": 1275,
@@ -13292,6 +13532,11 @@
           "maximum": 1
         },
         {
+          "item": 13307,
+          "minimum": 300,
+          "maximum": 500
+        },
+        {
           "item": 1149,
           "minimum": 1,
           "maximum": 1
@@ -13330,26 +13575,6 @@
           "maximum": 1500000
         },
         {
-          "item": 1624,
-          "minimum": 1,
-          "maximum": 30
-        },
-        {
-          "item": 1622,
-          "minimum": 1,
-          "maximum": 18
-        },
-        {
-          "item": 1620,
-          "minimum": 1,
-          "maximum": 16
-        },
-        {
-          "item": 1618,
-          "minimum": 1,
-          "maximum": 16
-        },
-        {
           "item": 890,
           "minimum": 750,
           "maximum": 1250
@@ -13376,18 +13601,18 @@
         },
         {
           "item": 7061,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 100
         },
         {
           "item": 2362,
-          "minimum": 35,
-          "maximum": 35
+          "minimum": 100,
+          "maximum": 100
         },
         {
           "item": 1754,
-          "minimum": 100,
-          "maximum": 100
+          "minimum": 200,
+          "maximum": 200
         },
         {
           "item": 384,
@@ -13406,8 +13631,8 @@
       "items": [
         {
           "item": 5295,
-          "minimum": 10,
-          "maximum": 10
+          "minimum": 40,
+          "maximum": 40
         },
         {
           "item": 7937,
@@ -13416,13 +13641,13 @@
         },
         {
           "item": 450,
-          "minimum": 125,
-          "maximum": 125
+          "minimum": 225,
+          "maximum": 225
         },
         {
           "item": 452,
-          "minimum": 20,
-          "maximum": 20
+          "minimum": 100,
+          "maximum": 100
         },
         {
           "item": 1249,
@@ -13447,7 +13672,7 @@
       ]
     },
     "rare": {
-      "accessibility": 300,
+      "accessibility": 100,
       "items": [
         {
           "item": 12823,
@@ -13462,7 +13687,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 450,
+      "accessibility": 101,
       "items": [
         {
           "item": 12819,
@@ -13661,21 +13886,6 @@
           "maximum": 1250000
         },
         {
-          "item": 1724,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 7218,
-          "minimum": 3,
-          "maximum": 3
-        },
-        {
-          "item": 593,
-          "minimum": 50,
-          "maximum": 100
-        },
-        {
           "item": 537,
           "minimum": 20,
           "maximum": 100
@@ -13828,7 +14038,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 150,
+      "accessibility": 125,
       "items": [
         {
           "item": 13231,
@@ -13870,38 +14080,38 @@
       "items": [
         {
           "item": 995,
-          "minimum": 14525,
+          "minimum": 50000,
           "maximum": 252363
         },
         {
-          "item": 556,
-          "minimum": 71,
-          "maximum": 800
+          "item": 560,
+          "minimum": 300,
+          "maximum": 400
         },
         {
           "item": 441,
-          "minimum": 24,
-          "maximum": 85
+          "minimum": 200,
+          "maximum": 200
         },
         {
           "item": 454,
-          "minimum": 20,
-          "maximum": 63
+          "minimum": 100,
+          "maximum": 150
         }
       ]
     },
     "uncommon": {
-      "accessibility": 35,
+      "accessibility": 15,
       "items": [
         {
-          "item": 2489,
+          "item": 2491,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 1407,
-          "minimum": 1,
-          "maximum": 1
+          "item": 2435,
+          "minimum": 3,
+          "maximum": 4
         },
         {
           "item": 1399,
@@ -13925,48 +14135,48 @@
         },
         {
           "item": 452,
-          "minimum": 3,
-          "maximum": 5
+          "minimum": 20,
+          "maximum": 40
         },
         {
           "item": 214,
-          "minimum": 1,
+          "minimum": 10,
           "maximum": 13
         },
         {
           "item": 216,
-          "minimum": 1,
+          "minimum": 8,
           "maximum": 13
         },
         {
           "item": 218,
-          "minimum": 1,
+          "minimum": 8,
           "maximum": 13
         },
         {
           "item": 2486,
-          "minimum": 1,
+          "minimum": 8,
           "maximum": 13
         },
         {
           "item": 562,
-          "minimum": 45,
-          "maximum": 175
+          "minimum": 250,
+          "maximum": 300
         },
         {
           "item": 554,
-          "minimum": 66,
-          "maximum": 205
+          "minimum": 500,
+          "maximum": 600
         },
         {
           "item": 560,
-          "minimum": 22,
-          "maximum": 100
+          "minimum": 250,
+          "maximum": 300
         },
         {
           "item": 7054,
-          "minimum": 2,
-          "maximum": 2
+          "minimum": 5,
+          "maximum": 5
         }
       ]
     },
@@ -13981,7 +14191,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 1000,
+      "accessibility": 500,
       "items": [
         {
           "item": 13576,
@@ -14733,29 +14943,29 @@
           "maximum": 1
         },
         {
-          "item": 12699,
-          "minimum": 1,
-          "maximum": 1
+          "item": 12696,
+          "minimum": 5,
+          "maximum": 10
         },
         {
-          "item": 2434,
-          "minimum": 2,
-          "maximum": 2
+          "item": 2435,
+          "minimum": 10,
+          "maximum": 15
         },
         {
-          "item": 5941,
+          "item": 2449,
           "minimum": 5,
           "maximum": 5
         },
         {
           "item": 385,
-          "minimum": 2,
-          "maximum": 2
+          "minimum": 5,
+          "maximum": 10
         },
         {
-          "item": 7946,
-          "minimum": 3,
-          "maximum": 3
+          "item": 386,
+          "minimum": 50,
+          "maximum": 100
         },
         {
           "item": 892,
@@ -14763,24 +14973,24 @@
           "maximum": 250
         },
         {
-          "item": 246,
-          "minimum": 30,
-          "maximum": 60
+          "item": 454,
+          "minimum": 80,
+          "maximum": 100
         },
         {
           "item": 1620,
-          "minimum": 25,
-          "maximum": 50
+          "minimum": 50,
+          "maximum": 100
         },
         {
-          "item": 1622,
+          "item": 1632,
           "minimum": 25,
           "maximum": 50
         },
         {
           "item": 1618,
-          "minimum": 25,
-          "maximum": 50
+          "minimum": 50,
+          "maximum": 100
         }
       ]
     },
@@ -14789,28 +14999,28 @@
       "items": [
         {
           "item": 2999,
-          "minimum": 25,
+          "minimum": 45,
           "maximum": 50
         },
         {
           "item": 258,
-          "minimum": 25,
+          "minimum": 45,
           "maximum": 50
         },
         {
           "item": 3052,
-          "minimum": 25,
+          "minimum": 45,
           "maximum": 50
         },
         {
           "item": 3050,
-          "minimum": 25,
+          "minimum": 45,
           "maximum": 50
         },
         {
           "item": 2364,
-          "minimum": 15,
-          "maximum": 35
+          "minimum": 45,
+          "maximum": 55
         },
         {
           "item": 1514,
@@ -14818,29 +15028,29 @@
           "maximum": 500
         },
         {
-          "item": 2501,
+          "item": 2503,
           "minimum": 1,
           "maximum": 1
         },
         {
           "item": 565,
-          "minimum": 100,
+          "minimum": 300,
           "maximum": 400
         },
         {
           "item": 560,
-          "minimum": 150,
+          "minimum": 350,
           "maximum": 450
         },
         {
-          "item": 224,
-          "minimum": 60,
-          "maximum": 120
+          "item": 6686,
+          "minimum": 20,
+          "maximum": 30
         },
         {
-          "item": 6694,
-          "minimum": 60,
-          "maximum": 120
+          "item": 3025,
+          "minimum": 20,
+          "maximum": 30
         }
       ]
     },
@@ -14870,7 +15080,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 120,
+      "accessibility": 100,
       "items": [
         {
           "item": 12885,
@@ -14895,7 +15105,7 @@
       "accessibility": 0,
       "items": [
         {
-          "item": 592,
+          "item": 4833,
           "minimum": 1,
           "maximum": 1
         }
@@ -14966,33 +15176,38 @@
         },
         {
           "item": 385,
-          "minimum": 2,
-          "maximum": 3
+          "minimum": 5,
+          "maximum": 10
         },
         {
-          "item": 1602,
-          "minimum": 4,
-          "maximum": 6
+          "item": 386,
+          "minimum": 50,
+          "maximum": 50
+        },
+        {
+          "item": 1616,
+          "minimum": 15,
+          "maximum": 20
         },
         {
           "item": 2362,
-          "minimum": 6,
-          "maximum": 6
+          "minimum": 30,
+          "maximum": 40
         },
         {
           "item": 2364,
-          "minimum": 3,
-          "maximum": 3
+          "minimum": 20,
+          "maximum": 20
         },
         {
           "item": 19582,
-          "minimum": 5,
-          "maximum": 43
+          "minimum": 20,
+          "maximum": 50
         },
         {
           "item": 218,
-          "minimum": 7,
-          "maximum": 12
+          "minimum": 30,
+          "maximum": 30
         }
       ]
     },
@@ -15022,7 +15237,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 250,
+      "accessibility": 150,
       "items": [
         {
           "item": 19589,
@@ -15048,7 +15263,7 @@
           "maximum": 1
         },
         {
-          "item": 1747,
+          "item": 1748,
           "minimum": 1,
           "maximum": 1
         }
@@ -15059,66 +15274,66 @@
       "items": [
         {
           "item": 811,
-          "minimum": 15,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 100
         },
         {
-          "item": 830,
-          "minimum": 20,
-          "maximum": 40
+          "item": 892,
+          "minimum": 100,
+          "maximum": 150
         },
         {
-          "item": 554,
-          "minimum": 15,
-          "maximum": 60
+          "item": 560,
+          "minimum": 300,
+          "maximum": 400
         },
         {
           "item": 995,
-          "minimum": 15855,
-          "maximum": 135685
+          "minimum": 158550,
+          "maximum": 235685
         }
       ]
     },
     "uncommon": {
-      "accessibility": 10,
+      "accessibility": 6,
       "items": [
         {
           "item": 868,
-          "minimum": 8,
-          "maximum": 8
+          "minimum": 100,
+          "maximum": 300
         },
         {
           "item": 9144,
-          "minimum": 30,
-          "maximum": 30
+          "minimum": 100,
+          "maximum": 200
         },
         {
           "item": 560,
-          "minimum": 20,
-          "maximum": 20
+          "minimum": 200,
+          "maximum": 400
         },
         {
           "item": 565,
-          "minimum": 20,
-          "maximum": 20
+          "minimum": 200,
+          "maximum": 400
         },
         {
           "item": 563,
-          "minimum": 20,
-          "maximum": 20
+          "minimum": 200,
+          "maximum": 400
         },
         {
           "item": 9194,
-          "minimum": 12,
-          "maximum": 12
+          "minimum": 40,
+          "maximum": 50
         },
         {
           "item": 19582,
-          "minimum": 15,
-          "maximum": 15
+          "minimum": 50,
+          "maximum": 50
         },
         {
-          "item": 1317,
+          "item": 1319,
           "minimum": 1,
           "maximum": 1
         },
@@ -15138,7 +15353,7 @@
           "maximum": 1
         },
         {
-          "item": 1123,
+          "item": 1127,
           "minimum": 1,
           "maximum": 1
         },
@@ -15158,64 +15373,64 @@
           "maximum": 1
         },
         {
-          "item": 199,
-          "minimum": 1,
-          "maximum": 3
+          "item": 200,
+          "minimum": 3,
+          "maximum": 10
         },
         {
-          "item": 201,
-          "minimum": 1,
-          "maximum": 3
+          "item": 202,
+          "minimum": 3,
+          "maximum": 10
         },
         {
-          "item": 203,
-          "minimum": 1,
-          "maximum": 3
-        },
-        {
-          "item": 205,
-          "minimum": 1,
-          "maximum": 3
-        },
-        {
-          "item": 207,
-          "minimum": 1,
-          "maximum": 3
-        },
-        {
-          "item": 209,
-          "minimum": 1,
-          "maximum": 3
-        },
-        {
-          "item": 211,
-          "minimum": 1,
-          "maximum": 3
-        },
-        {
-          "item": 213,
-          "minimum": 1,
-          "maximum": 3
-        },
-        {
-          "item": 1897,
+          "item": 204,
           "minimum": 3,
           "maximum": 3
+        },
+        {
+          "item": 206,
+          "minimum": 3,
+          "maximum": 10
+        },
+        {
+          "item": 208,
+          "minimum": 3,
+          "maximum": 10
+        },
+        {
+          "item": 210,
+          "minimum": 3,
+          "maximum": 10
+        },
+        {
+          "item": 212,
+          "minimum": 3,
+          "maximum": 10
+        },
+        {
+          "item": 214,
+          "minimum": 1,
+          "maximum": 3
+        },
+        {
+          "item": 385,
+          "minimum": 5,
+          "maximum": 5
         }
       ]
     },
     "rare": {
-      "accessibility": 75,
+      "accessibility": 40,
       "items": [
         {
-          "item": 215,
-          "minimum": 1,
-          "maximum": 4
+          "item": 216,
+          "minimum": 10,
+          "maximum": 20
         },
         {
-          "item": 217,
-          "minimum": 1,
-          "maximum": 4
+          "item": 218,
+          "minimum": 10,
+          "maximum": 20
         },
         {
           "item": 4587,
@@ -15223,14 +15438,14 @@
           "maximum": 1
         },
         {
-          "item": 2485,
-          "minimum": 1,
-          "maximum": 4
+          "item": 2486,
+          "minimum": 10,
+          "maximum": 20
         }
       ]
     },
     "very_rare": {
-      "accessibility": 500,
+      "accessibility": 200,
       "items": [
         {
           "item": 11286,
@@ -15496,10 +15711,10 @@
       ]
     },
     "uncommon": {
-      "accessibility": 135,
+      "accessibility": 40,
       "items": [
         {
-          "item": 4153,
+          "item": 20703,
           "minimum": 1,
           "maximum": 1
         },
@@ -15526,7 +15741,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 375,
+      "accessibility": 100,
       "items": [
         {
           "item": 20784,
@@ -15554,10 +15769,10 @@
       ]
     },
     "uncommon": {
-      "accessibility": 135,
+      "accessibility": 40,
       "items": [
         {
-          "item": 4153,
+          "item": 20703,
           "minimum": 1,
           "maximum": 1
         },
@@ -15584,7 +15799,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 375,
+      "accessibility": 100,
       "items": [
         {
           "item": 20784,
@@ -16238,7 +16453,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 500,
+      "accessibility": 260,
       "items": [
         {
           "item": 11286,
@@ -16437,7 +16652,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 500,
+      "accessibility": 280,
       "items": [
         {
           "item": 11286,
@@ -16795,7 +17010,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 500,
+      "accessibility": 300,
       "items": [
         {
           "item": 11286,
