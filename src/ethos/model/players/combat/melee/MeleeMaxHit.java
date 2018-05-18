@@ -202,12 +202,14 @@ public class MeleeMaxHit {
 		}
 		if (c.npcIndex > 0 && c.getSlayer().getTask().isPresent()) {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
-			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
-				boolean SLAYER_HELM = IntStream.of(c.SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
-				if (!c.getItems().isWearingItem(4081) && SLAYER_HELM || c.getItems().isWearingItem(8901)) {
-					attackLevel += c.getLevelForXP(c.playerXP[c.playerAttack]) * 0.15;
-				}
-			}
+			if(npc != null)
+				if(npc.getDefinition() != null)
+					if (c.getSlayer().getTask().get().matches(npc.getDefinition().getName().replace(" ", " ")) || npc.npcType == 7413) {
+						boolean SLAYER_HELM = IntStream.of(c.SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
+						if (!c.getItems().isWearingItem(4081) && SLAYER_HELM || c.getItems().isWearingItem(8901)) {
+							attackLevel += c.getLevelForXP(c.playerXP[c.playerAttack]) * 0.15;
+						}
+					}
 			if (c.getItems().isWearingItem(4081, c.playerAmulet)) {
 				if (Misc.linearSearch(Config.UNDEAD_IDS, npc.npcType) != -1) {
 					attackLevel += c.getLevelForXP(c.playerXP[c.playerAttack]) * 0.15;

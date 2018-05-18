@@ -206,36 +206,38 @@ public class DropManager {
 			Optional<Task> task = player.getSlayer().getTask();
 			Optional<SlayerMaster> myMaster = SlayerMaster.get(player.getSlayer().getMaster());
 			task.ifPresent(t -> {
-			String name = npc.getDefinition().getName().toLowerCase().replaceAll("_", " ");
-			
-				if (name.equals(t.getPrimaryName()) || ArrayUtils.contains(t.getNames(), name)) {
-					myMaster.ifPresent(m -> {
-						if (npc.inWild() && m.getId() == 7663) {
-							int slayerChance = 650;
-							int emblemChance = 100;
-							if (Misc.random(emblemChance) == 1) {
-								Server.itemHandler.createGroundItem(player, 12746, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
-								player.sendMessage("@red@A mysterious emblem has dropped from your foe!");
+				if(npc.getDefinition() != null){
+				String name = npc.getDefinition().getName().toLowerCase().replaceAll("_", " ");
+				
+					if (name.equals(t.getPrimaryName()) || ArrayUtils.contains(t.getNames(), name)) {
+						myMaster.ifPresent(m -> {
+							if (npc.inWild() && m.getId() == 7663) {
+								int slayerChance = 650;
+								int emblemChance = 100;
+								if (Misc.random(emblemChance) == 1) {
+									Server.itemHandler.createGroundItem(player, 12746, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
+									player.sendMessage("@red@A mysterious emblem has dropped from your foe!");
+								}
+								if (Misc.random(slayerChance) == 1) {
+									Server.itemHandler.createGroundItem(player, 21257, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
+									player.sendMessage("@red@A slayer's enchantment has dropped from your foe!");
+									PlayerHandler.executeGlobalMessage("<col=FF0000>[Lootations] @cr19@ </col><col=255>"+ Misc.capitalize(player.playerName) + "</col> received a <col=255>Slayer's Enchantment</col>.");
+								}
 							}
-							if (Misc.random(slayerChance) == 1) {
-								Server.itemHandler.createGroundItem(player, 21257, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
-								player.sendMessage("@red@A slayer's enchantment has dropped from your foe!");
-								PlayerHandler.executeGlobalMessage("<col=FF0000>[Lootations] @cr19@ </col><col=255>"+ Misc.capitalize(player.playerName) + "</col> received a <col=255>Slayer's Enchantment</col>.");
+							int mBoxChance = 350;
+							int rewardItem = 405;
+							if(Misc.random(mBoxChance) == 1) {
+								player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
+								if (player.getItems().freeSlots() > 1) {
+									player.getItems().addItem(rewardItem, 1);
+								} else {
+									player.getItems().addItemToBank(rewardItem, 1);
+									player.sendMessage("Your reward is in your bank");
+								}							
+								PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a PvM Casket from their Slayer Task!");
 							}
-						}
-						int mBoxChance = 350;
-						int rewardItem = 405;
-						if(Misc.random(mBoxChance) == 1) {
-							player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
-							if (player.getItems().freeSlots() > 1) {
-								player.getItems().addItem(rewardItem, 1);
-							} else {
-								player.getItems().addItemToBank(rewardItem, 1);
-								player.sendMessage("Your reward is in your bank");
-							}							
-							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a PvM Casket from their Slayer Task!");
-						}
-					});
+						});
+					}
 				}
 			});
 				

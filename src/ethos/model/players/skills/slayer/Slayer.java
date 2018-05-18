@@ -175,6 +175,7 @@ public class Slayer {
 		}
 		
 		task.ifPresent(task -> {
+			if(npc.getDefinition() != null) {
 			String name = npc.getDefinition().getName().toLowerCase().replaceAll("_", " ");
 			
 			if (name.equals(task.getPrimaryName()) || ArrayUtils.contains(task.getNames(), name)) {
@@ -248,6 +249,7 @@ public class Slayer {
 						Achievements.increase(player, AchievementType.SLAY, 1);
 					}
 				});
+			}
 			}
 		});
 	}
