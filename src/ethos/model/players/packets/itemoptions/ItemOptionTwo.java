@@ -66,14 +66,6 @@ public class ItemOptionTwo implements PacketType {
 		TeleportTablets.operate(player, itemId);
 		ItemDefinition def = ItemDefinition.forId(itemId);
 		switch (itemId) {
-		
-		case 5020:
-		case 5021:
-		case 5022:
-		case 5023:
-			player.sendMessage("Coming soon!");
-			break;
-			
 		case 21347:
 			player.boltTips = false;
 			player.arrowTips = true;

@@ -21,7 +21,7 @@ public class MagicMaxHit {
 		}
 		if (c.npcIndex > 0 && c.getSlayer().getTask().isPresent()) {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
-			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
+			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getNpcName()) || npc.npcType == 7413) {
 				if (!c.getItems().isWearingItem(4081) && c.getItems().isWearingItem(11865)) {
 					modifier *= 1.15;
 				}
@@ -73,7 +73,7 @@ public class MagicMaxHit {
 		}
 		if (c.npcIndex > 0 && c.getSlayer().getTask().isPresent()) {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
-			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
+			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getNpcName()) || npc.npcType == 7413) {
 				boolean SLAYER_HELM = IntStream.of(c.IMBUED_SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
 				if (SLAYER_HELM) {
 					damageMultiplier += .15;

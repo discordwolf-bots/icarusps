@@ -21,7 +21,7 @@ public class OnyxBoltSpecial implements DamageEffect {
 
 	@Override
 	public void execute(Player attacker, NPC defender, Damage damage) {
-		if (defender.getDefinition().getName() == null) {
+		if (defender.getDefinition().getNpcName() == null) {
 			return;
 		}
 		if (Misc.linearSearch(Config.UNDEAD_IDS, defender.npcType) != -1) {

@@ -175,8 +175,7 @@ public class Slayer {
 		}
 		
 		task.ifPresent(task -> {
-			if(npc.getDefinition() != null) {
-			String name = npc.getDefinition().getName().toLowerCase().replaceAll("_", " ");
+			String name = npc.getDefinition().getNpcName().toLowerCase().replaceAll("_", " ");
 			
 			if (name.equals(task.getPrimaryName()) || ArrayUtils.contains(task.getNames(), name)) {
 				Optional<SlayerMaster> master = SlayerMaster.get(this.master);
@@ -249,7 +248,6 @@ public class Slayer {
 						Achievements.increase(player, AchievementType.SLAY, 1);
 					}
 				});
-			}
 			}
 		});
 	}
@@ -386,7 +384,7 @@ public class Slayer {
 	
 	public void handleSuperiorExp(NPC npc) {
 		task.ifPresent(task -> {
-			String name = npc.getDefinition().getName().toLowerCase().replaceAll("_", " ");
+			String name = npc.getDefinition().getNpcName().toLowerCase().replaceAll("_", " ");
 			if (!name.equals(task.getPrimaryName())) {
 				if (!isSuperiorNpc()){
 					return;

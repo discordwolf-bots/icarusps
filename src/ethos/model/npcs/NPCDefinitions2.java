@@ -55,151 +55,82 @@ public class NPCDefinitions2 {
 	private int maxHit;
 	
 	private int[] skills;
-	private int[] bonusses;
+	private int[] bonuses;
 
 	
 	public NPCDefinitions2(int id) {
 		this.id = id;
 	}
+	
 
-	public int getId() {
+	
+	
+	public int getNpcID() {
 		return id;
 	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public String getName() {
 		return name;
 	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
+	
+	public String getDesc() {
 		return description;
 	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
+	
 	public int getSize() {
 		return size;
 	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
-
-	public boolean isAttackable() {
+	
+	public boolean getAttackable() {
 		return attackable;
 	}
-
-	public void setAttackable(boolean attackable) {
-		this.attackable = attackable;
-	}
-
+	
 	public int getCombatLevel() {
 		return combatLevel;
 	}
-
-	public void setCombatLevel(int combatLevel) {
-		this.combatLevel = combatLevel;
-	}
-
-	public boolean isAggressive() {
+	
+	public boolean getAggressive() {
 		return aggressive;
 	}
-
-	public void setAggressive(boolean aggressive) {
-		this.aggressive = aggressive;
-	}
-
-	public boolean isPoisonous() {
+	
+	public boolean getPoisonous() {
 		return poisonous;
 	}
-
-	public void setPoisonous(boolean poisonous) {
-		this.poisonous = poisonous;
-	}
-
-	public boolean isUndead() {
+	
+	public boolean getUndead() {
 		return undead;
 	}
-
-	public void setUndead(boolean undead) {
-		this.undead = undead;
-	}
-
-	public boolean isPoisonImmunity() {
+	
+	public boolean getPoisonImmunity() {
 		return poisonImmunity;
 	}
-
-	public void setPoisonImmunity(boolean poisonImmunity) {
-		this.poisonImmunity = poisonImmunity;
-	}
-
-	public boolean isVenomImmunity() {
+	
+	public boolean getVenomImmunity() {
 		return venomImmunity;
 	}
-
-	public void setVenomImmunity(boolean venomImmunity) {
-		this.venomImmunity = venomImmunity;
-	}
-
-	public int getSlayerLevel() {
+	
+	public int getSlayer() {
 		return slayerLevel;
 	}
-
-	public void setSlayerLevel(int slayerLevel) {
-		this.slayerLevel = slayerLevel;
-	}
-
+	
 	public int getHitpoints() {
 		return hitpoints;
 	}
-
-	public void setHitpoints(int hitpoints) {
-		this.hitpoints = hitpoints;
-	}
-
+	
 	public int getAttackSpeed() {
 		return attackSpeed;
 	}
-
-	public void setAttackSpeed(int attackSpeed) {
-		this.attackSpeed = attackSpeed;
-	}
-
+	
 	public int getMaxHit() {
 		return maxHit;
 	}
-
-	public void setMaxHit(int maxHit) {
-		this.maxHit = maxHit;
-	}
-
-	public int[] getSkills() {
+	
+	public int[] getSkill() {
 		return skills;
 	}
-
-	public void setSkills(int[] skills) {
-		this.skills = skills;
-	}
-
-	public int[] getBonuses() {
-		return bonusses;
-	}
-
-	public void setBonuses(int[] bonuses) {
-		this.bonusses = bonuses;
-	}
-
-	public static void setDefinitions(Map<Integer, NPCDefinitions2> definitions) {
-		NPCDefinitions2.definitions = definitions;
+	
+	public int[] getBonus() {
+		return bonuses;
 	}
 	
 }

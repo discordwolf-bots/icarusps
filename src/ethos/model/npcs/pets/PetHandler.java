@@ -126,7 +126,7 @@ public class PetHandler {
 
 		private final String parent;
 
-		private int droprate;
+		private final int droprate;
 		
 		private final String pickupOption;
 
@@ -303,16 +303,11 @@ public class PetHandler {
 			return;
 		}
 
-		if(npc.getName() == null) return;
-		Optional<Pets> pet = PETS.stream().filter(p -> p.parent.equalsIgnoreCase(npc.getDefinition().getName().replace(" ", "_"))).findFirst();
+		Optional<Pets> pet = PETS.stream().filter(p -> p.parent.equalsIgnoreCase(npc.getDefinition().getNpcName())).findFirst();
 
 		pet.ifPresent(p -> {
 			if (player.getItems().getItemCount(p.itemId, false) > 0 || player.summonId == p.itemId) {
 				return;
-			}
-			if(player.getName().equalsIgnoreCase("Wolf"))
-			{
-				p.droprate = 1;
 			}
 
 			int rights = player.getRights().getPrimary().getValue() - 1;

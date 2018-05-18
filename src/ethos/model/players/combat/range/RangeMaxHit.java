@@ -44,7 +44,7 @@ public class RangeMaxHit extends RangeData {
 		}
 		if (c.npcIndex > 0 && c.getSlayer().getTask().isPresent()) {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
-			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
+			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getNpcName()) || npc.npcType == 7413) {
 				boolean SLAYER_HELM = IntStream.of(c.IMBUED_SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
 				if (!c.getItems().isWearingItem(4081) && SLAYER_HELM) {
 					rangeLevel *= 1.15;
@@ -108,7 +108,7 @@ public class RangeMaxHit extends RangeData {
 		}
 		if (c.npcIndex > 0 && c.getSlayer().getTask().isPresent()) {
 			NPC npc = NPCHandler.npcs[c.npcIndex];
-			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getName()) || npc.npcType == 7413) {
+			if (npc != null && c.getSlayer().getTask().get().matches(npc.getDefinition().getNpcName()) || npc.npcType == 7413) {
 				boolean SLAYER_HELM = IntStream.of(c.IMBUED_SLAYER_HELMETS).anyMatch(i -> c.getItems().isWearingItem(i));
 				if (SLAYER_HELM) {
 					b *= 1.15;

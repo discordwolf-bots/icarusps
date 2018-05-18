@@ -21,7 +21,7 @@ public class DragonBoltSpecial implements DamageEffect {
 
 	@Override
 	public void execute(Player attacker, NPC defender, Damage damage) {
-		if (defender.getDefinition().getName() != null && defender.getDefinition().getName().toLowerCase().contains("dragon")) {
+		if (defender.getDefinition().getNpcName() != null && defender.getDefinition().getNpcName().toLowerCase().contains("dragon")) {
 			return;
 		}
 		int change = Misc.random((int) (damage.getAmount() * 1.45));

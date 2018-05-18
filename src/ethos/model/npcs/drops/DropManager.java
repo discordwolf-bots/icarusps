@@ -6,9 +6,7 @@ import ethos.model.items.GameItem;
 import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
 import ethos.model.npcs.NPC;
-import ethos.model.npcs.NPCDeathTracker;
 import ethos.model.npcs.NPCDefinitions;
-import ethos.model.npcs.NPCDefinitions2;
 import ethos.model.npcs.NPCHandler;
 import ethos.model.players.Boundary;
 import ethos.model.players.Player;
@@ -20,7 +18,6 @@ import ethos.util.Location3D;
 import ethos.util.Misc;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.text.WordUtils;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -29,7 +26,6 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -206,38 +202,36 @@ public class DropManager {
 			Optional<Task> task = player.getSlayer().getTask();
 			Optional<SlayerMaster> myMaster = SlayerMaster.get(player.getSlayer().getMaster());
 			task.ifPresent(t -> {
-				if(npc.getDefinition() != null){
-				String name = npc.getDefinition().getName().toLowerCase().replaceAll("_", " ");
-				
-					if (name.equals(t.getPrimaryName()) || ArrayUtils.contains(t.getNames(), name)) {
-						myMaster.ifPresent(m -> {
-							if (npc.inWild() && m.getId() == 7663) {
-								int slayerChance = 650;
-								int emblemChance = 100;
-								if (Misc.random(emblemChance) == 1) {
-									Server.itemHandler.createGroundItem(player, 12746, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
-									player.sendMessage("@red@A mysterious emblem has dropped from your foe!");
-								}
-								if (Misc.random(slayerChance) == 1) {
-									Server.itemHandler.createGroundItem(player, 21257, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
-									player.sendMessage("@red@A slayer's enchantment has dropped from your foe!");
-									PlayerHandler.executeGlobalMessage("<col=FF0000>[Lootations] @cr19@ </col><col=255>"+ Misc.capitalize(player.playerName) + "</col> received a <col=255>Slayer's Enchantment</col>.");
-								}
+			String name = npc.getDefinition().getNpcName().toLowerCase().replaceAll("_", " ");
+			
+				if (name.equals(t.getPrimaryName()) || ArrayUtils.contains(t.getNames(), name)) {
+					myMaster.ifPresent(m -> {
+						if (npc.inWild() && m.getId() == 7663) {
+							int slayerChance = 650;
+							int emblemChance = 100;
+							if (Misc.random(emblemChance) == 1) {
+								Server.itemHandler.createGroundItem(player, 12746, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
+								player.sendMessage("@red@A mysterious emblem has dropped from your foe!");
 							}
-							int mBoxChance = 350;
-							int rewardItem = 405;
-							if(Misc.random(mBoxChance) == 1) {
-								player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
-								if (player.getItems().freeSlots() > 1) {
-									player.getItems().addItem(rewardItem, 1);
-								} else {
-									player.getItems().addItemToBank(rewardItem, 1);
-									player.sendMessage("Your reward is in your bank");
-								}							
-								PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a PvM Casket from their Slayer Task!");
+							if (Misc.random(slayerChance) == 1) {
+								Server.itemHandler.createGroundItem(player, 21257, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
+								player.sendMessage("@red@A slayer's enchantment has dropped from your foe!");
+								PlayerHandler.executeGlobalMessage("<col=FF0000>[Lootations] @cr19@ </col><col=255>"+ Misc.capitalize(player.playerName) + "</col> received a <col=255>Slayer's Enchantment</col>.");
 							}
-						});
-					}
+						}
+						int mBoxChance = 350;
+						int rewardItem = 405;
+						if(Misc.random(mBoxChance) == 1) {
+							player.sendMessage("<col=0000ee><shad=000000>You feel like you have been rewarded by your Slayer Master!</shad></col>");
+							if (player.getItems().freeSlots() > 1) {
+								player.getItems().addItem(rewardItem, 1);
+							} else {
+								player.getItems().addItemToBank(rewardItem, 1);
+								player.sendMessage("Your reward is in your bank");
+							}							
+							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a PvM Casket from their Slayer Task!");
+						}
+					});
 				}
 			});
 				
@@ -247,13 +241,13 @@ public class DropManager {
 			int chance = player.getRechargeItems().hasItem(13118) ? 142 : player.getRechargeItems().hasItem(13119) ? 135 : player.getRechargeItems().hasItem(13120) ? 120 : 150;
 			if (Misc.random(chance) == 1) {
 				player.sendMessage("@pur@You sense a @red@clue scroll @pur@being dropped to the ground.");
-				if (npc.getDefinition().getCombatLevel() > 0 && npc.getDefinition().getCombatLevel() <= 70) {
+				if (npc.getDefinition().getNpcCombat() > 0 && npc.getDefinition().getNpcCombat() <= 70) {
 					Server.itemHandler.createGroundItem(player, 2677, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
 				} 
-				if (npc.getDefinition().getCombatLevel() > 70 && npc.getDefinition().getCombatLevel() <= 110) {
+				if (npc.getDefinition().getNpcCombat() > 70 && npc.getDefinition().getNpcCombat() <= 110) {
 					Server.itemHandler.createGroundItem(player, 2801, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
 				} 
-				if (npc.getDefinition().getCombatLevel() > 110) {
+				if (npc.getDefinition().getNpcCombat() > 110) {
 					Server.itemHandler.createGroundItem(player, 2722, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
 				}
 			}
@@ -262,21 +256,19 @@ public class DropManager {
 			 * Fractured Crystals
 			 */
 			if (Misc.random(5) == 0) {
-				if(npc.getDefinition() != null) {
-					if (npc.getDefinition().getCombatLevel() > 40) {
-						if (player.getFracturedCrystalToggle()) {
-							//Server.itemHandler.createGroundItem(player, 6646, location.getX(), location.getY(), location.getZ(), Misc.random(4) + 1, player.getIndex());
-							player.getItems().addItemUnderAnyCircumstance(6646, Misc.random(4) + 1);
-							player.sendMessage("You receive a fractured crystal drop. It has been sent to your inventory or bank.");
-							if (!player.crystalDrop) {
-								player.sendMessage("@blu@You have received a fractured crystal drop! Collect these crystals");
-								player.sendMessage("@blu@and take them to the Catacombs' dark altar to charge them. After charging,");
-								player.sendMessage("@blu@sell them to the general store located at home for 5k each!");
-								player.sendMessage("@blu@To disable this message, type '::toggle crystalinfo'");
-							}
-						} else {
-							player.sendMessage("Your fractured crystal toggle is off. Type '::toggle crystal' to enable it.");
+				if (npc.getDefinition().getNpcCombat() > 40) {
+					if (player.getFracturedCrystalToggle()) {
+						//Server.itemHandler.createGroundItem(player, 6646, location.getX(), location.getY(), location.getZ(), Misc.random(4) + 1, player.getIndex());
+						player.getItems().addItemUnderAnyCircumstance(6646, Misc.random(4) + 1);
+						player.sendMessage("You receive a fractured crystal drop. It has been sent to your inventory or bank.");
+						if (!player.crystalDrop) {
+							player.sendMessage("@blu@You have received a fractured crystal drop! Collect these crystals");
+							player.sendMessage("@blu@and take them to the Catacombs' dark altar to charge them. After charging,");
+							player.sendMessage("@blu@sell them to the general store located at home for 5k each!");
+							player.sendMessage("@blu@To disable this message, type '::toggle crystalinfo'");
 						}
+					} else {
+						player.sendMessage("Your fractured crystal toggle is off. Type '::toggle crystal' to enable it.");
 					}
 				}
 			}
@@ -284,10 +276,10 @@ public class DropManager {
 			 * Runecrafting pouches
 			 */
 			if (Misc.random(100) == 10) {
-				if (npc.getDefinition().getCombatLevel() >= 70 && npc.getDefinition().getCombatLevel() <= 100 && player.getItems().getItemCount(5509, true) == 1 && player.getItems().getItemCount(5510, true) != 1) {
+				if (npc.getDefinition().getNpcCombat() >= 70 && npc.getDefinition().getNpcCombat() <= 100 && player.getItems().getItemCount(5509, true) == 1 && player.getItems().getItemCount(5510, true) != 1) {
 					Server.itemHandler.createGroundItem(player, 5510, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
 					player.sendMessage("@pur@You sense an upgraded Runecrafting Pouch!");
-				} else if (npc.getDefinition().getCombatLevel() > 100 && player.getItems().getItemCount(5510, true) == 1 && player.getItems().getItemCount(5512, true) != 1) {
+				} else if (npc.getDefinition().getNpcCombat() > 100 && player.getItems().getItemCount(5510, true) == 1 && player.getItems().getItemCount(5512, true) != 1) {
 					Server.itemHandler.createGroundItem(player, 5512, location.getX(), location.getY(), location.getZ(), 1, player.getIndex());
 					player.sendMessage("@pur@You sense an upgraded Runecrafting Pouch!");
 				}
@@ -520,27 +512,16 @@ public class DropManager {
 			}
 
 			//Loads the definition and maxhit/aggressiveness to display
-			NPCDefinitions2 npcDef = NPCDefinitions2.get(npcId);
+			NPCDefinitions npcDef = NPCDefinitions.get(npcId);
 			
-			int kills = 0;
-			for (Entry<String, Integer> entry : player.getNpcDeathTracker().getTracker().entrySet()) {
-				if (entry == null) 
-					continue;
-				if(entry.getKey().equalsIgnoreCase(npcDef.getName()))
-					if (entry.getValue() > 0)
-						kills = entry.getValue();
+			player.getPA().sendFrame126("Health: @whi@" + npcDef.getNpcHealth(), 43110);
+			player.getPA().sendFrame126("Combat Level: @whi@" + npcDef.getNpcCombat(), 43111);
+			if(NPCHandler.getNpc(npcId) != null){
+				player.getPA().sendFrame126("Max Hit: @whi@" + NPCHandler.getNpc(npcId).maxHit, 43112);
+			} else {
+				player.getPA().sendFrame126("Max Hit: @whi@?", 43112);
 			}
-			
-			player.getPA().sendFrame126("Health: @whi@" + npcDef.getHitpoints(), 43110);
-			player.getPA().sendFrame126("Combat Level: @whi@" + npcDef.getCombatLevel(), 43111);
-			player.getPA().sendFrame126("Total Kills: @whi@" + kills, 43112);
-			
-//			if(NPCHandler.getNpc(npcId) != null){
-//				player.getPA().sendFrame126("Max Hit: @whi@" + NPCHandler.getNpc(npcId).maxHit, 43112);
-//			} else {
-//				player.getPA().sendFrame126("Max Hit: @whi@?", 43112);
-//			}
-			player.getPA().sendFrame126("Aggressive: @whi@" + (npcDef.isAggressive() ? "true" : "false"), 43113);
+			player.getPA().sendFrame126("Aggressive: @whi@" + (Server.npcHandler.isAggressive(npcId, true) ? "true" : "false"), 43113);
 			
 			player.lastDropTableSelected = System.currentTimeMillis();
 			

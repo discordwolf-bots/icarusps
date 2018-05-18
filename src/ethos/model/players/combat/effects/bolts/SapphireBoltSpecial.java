@@ -29,7 +29,7 @@ public class SapphireBoltSpecial implements DamageEffect {
 
 	@Override
 	public void execute(Player attacker, NPC defender, Damage damage) {
-		if (defender.getDefinition().getName() == null) {
+		if (defender.getDefinition().getNpcName() == null) {
 			return;
 		}
 		int change = Misc.random((int) (damage.getAmount()));

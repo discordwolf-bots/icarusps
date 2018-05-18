@@ -24,6 +24,7 @@ import ethos.model.minigames.raids.bosses.Tekton;
 import ethos.model.minigames.rfd.RecipeForDisaster;
 import ethos.model.minigames.warriors_guild.WarriorsGuild;
 import ethos.model.npcs.NPC;
+import ethos.model.npcs.NPCDefinitions2;
 import ethos.model.npcs.NPCHandler;
 import ethos.model.npcs.bosses.CorporealBeast;
 import ethos.model.npcs.bosses.Scorpia;
@@ -66,6 +67,7 @@ public class AttackNPC {
 				if (attacker.debugMessage)
 					attacker.sendMessage("Max Melee hit: "+maximumDamage);
 				if (special != null) {
+					maximumAccuracy *= special.getAccuracy();
 					maximumDamage *= special.getDamageModifier();
 				}
 				damage = Misc.random(maximumDamage);
@@ -192,9 +194,16 @@ public class AttackNPC {
 				maximumAccuracy = attacker.getCombat().calculateRangeAttack();
 				
 				if(attacker.playerEquipment[3] == 20997) {
+					NPCDefinitions2 def = NPCDefinitions2.get(attacker.npcIndex);
+					
 					int npcMagic;
-					if(defender.stats != null) {
-						npcMagic = defender.stats[4];
+					if(def != null) {
+						System.out.println(def.getBonus());
+						if(def.getBonus() != null) {
+							npcMagic= def.getBonus()[4];							
+						} else {
+							npcMagic = 1;
+						}
 					} else {
 						npcMagic = 1;
 					}
@@ -1169,7 +1178,7 @@ public class AttackNPC {
 			}
 		}
 		
-		Optional<Task> task = SlayerMaster.get(npc.getName() != null ? npc.getName().replaceAll("_", " ") : "None");
+		Optional<Task> task = SlayerMaster.get(npc.getName().replaceAll("_", " "));
 		if (task.isPresent()) {
 			int level = task.get().getLevel();
 			if (c.playerLevel[Skill.SLAYER.getId()] < task.get().getLevel()) {

@@ -26,10 +26,7 @@ public class NPC extends Entity {
 	public int absX, absY;
 	public int prevX, prevY;
 	public int heightLevel;
-	public int makeX, makeY, maxHit, moveX, moveY, direction, walkingType;
-	public int attack, strength, defence, ranged, magic;
-	public int[] stats;
-	public int[] bonuses;
+	public int makeX, makeY, maxHit, defence, attack, moveX, moveY, direction, walkingType;
 	public int spawnX, spawnY;
 	public int viewX, viewY;
 	public int hp;
@@ -72,7 +69,7 @@ public class NPC extends Entity {
 	private boolean facePlayer = true;
 	private int projectileDelay = 0;
 
-	private NPCDefinitions2 definition;
+	private NPCDefinitions definition;
 
 	private long lastRandomWalk;
 	private long lastRandomWalkHome;
@@ -80,10 +77,9 @@ public class NPC extends Entity {
 	private long randomWalkDelay;
 	private long randomStopDelay;
 
-	public NPC(int _npcId, int _npcType, NPCDefinitions2 newDef) {
-		//if(newDef == null) return;
-		super(_npcId, newDef == null ? null : newDef.getName());
-		this.definition = newDef;
+	public NPC(int _npcId, int _npcType, NPCDefinitions definition) {
+		super(_npcId, definition.getNpcName());
+		this.definition = definition;
 		npcType = _npcType;
 		direction = -1;
 		isDead = false;
@@ -658,7 +654,7 @@ public void followNPC() {
 	 * 
 	 * @return the {@link NPCDefintions} object associated with this NPC
 	 */
-	public NPCDefinitions2 getDefinition() {
+	public NPCDefinitions getDefinition() {
 		return definition;
 	}
 
