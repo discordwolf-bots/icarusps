@@ -26,6 +26,7 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -513,15 +514,23 @@ public class DropManager {
 
 			//Loads the definition and maxhit/aggressiveness to display
 			NPCDefinitions npcDef = NPCDefinitions.get(npcId);
-			
+			int kills = 0;
+			for (Entry<String, Integer> entry : player.getNpcDeathTracker().getTracker().entrySet()) {
+				if (entry == null) 
+					continue;
+				if(entry.getKey().equalsIgnoreCase(npcDef.getNpcName()))
+					if (entry.getValue() > 0)
+						kills = entry.getValue();
+			}
 			player.getPA().sendFrame126("Health: @whi@" + npcDef.getNpcHealth(), 43110);
 			player.getPA().sendFrame126("Combat Level: @whi@" + npcDef.getNpcCombat(), 43111);
+			player.getPA().sendFrame126("Total Kills: @whi@" + kills, 43112);
 			if(NPCHandler.getNpc(npcId) != null){
-				player.getPA().sendFrame126("Max Hit: @whi@" + NPCHandler.getNpc(npcId).maxHit, 43112);
+				player.getPA().sendFrame126("Max Hit: @whi@" + NPCHandler.getNpc(npcId).maxHit, 43113);
 			} else {
-				player.getPA().sendFrame126("Max Hit: @whi@?", 43112);
+				player.getPA().sendFrame126("Max Hit: @whi@?", 43113);
 			}
-			player.getPA().sendFrame126("Aggressive: @whi@" + (Server.npcHandler.isAggressive(npcId, true) ? "true" : "false"), 43113);
+//			player.getPA().sendFrame126("Aggressive: @whi@" + (Server.npcHandler.isAggressive(npcId, true) ? "true" : "false"), 43113);
 			
 			player.lastDropTableSelected = System.currentTimeMillis();
 			
