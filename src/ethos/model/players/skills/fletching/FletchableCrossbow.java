@@ -1,7 +1,7 @@
 package ethos.model.players.skills.fletching;
 
 public enum FletchableCrossbow {
-	ADAMANR_CROSSBOW(9445, 9185, 4442, 1, 92), RUNE_CROSSBOW(9465, 9185, 4442, 69, 92);
+	ADAMANR_CROSSBOW(9445, 9185, 4442, 1, 92), RUNE_CROSSBOW(9465, 9185, 4442, 69, 250);
 
 	/**
 	 * The unstrung bow

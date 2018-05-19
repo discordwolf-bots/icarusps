@@ -1,14 +1,14 @@
 package ethos.model.players.skills.fletching;
 
 public enum FletchableJavelin {
-	BRONZE(19570, 825, 1, 4.6), 
-	IRON(19572, 826, 17, 5.8), 
-	STEEL(19574, 827, 32, 8.3), 
-	MITHRIL(19576, 828, 47, 10.8), 
-	ADAMANT(19578, 829, 62, 14.3), 
-	RUNE(19580, 830, 77, 16.8),
-	AMETHYST(21352, 21318, 84, 17.9), 
-	DRAGON(19582, 19484, 92, 19);
+	BRONZE(19570, 825, 1, 46), 
+	IRON(19572, 826, 17, 58), 
+	STEEL(19574, 827, 32, 83), 
+	MITHRIL(19576, 828, 47, 108), 
+	ADAMANT(19578, 829, 62, 143), 
+	RUNE(19580, 830, 77, 168),
+	AMETHYST(21352, 21318, 84, 179), 
+	DRAGON(19582, 19484, 92, 189);
 
 	/**
 	 * The id

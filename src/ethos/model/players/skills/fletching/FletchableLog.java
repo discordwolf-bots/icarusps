@@ -13,12 +13,12 @@ public enum FletchableLog {
 	MAPLE_SHORTBOW(1517, 64, 50, 50, new int[] { 34185, 34184, 34183, 34182 }), 
 	MAPLE_LONGBOW(1517, 62, 55, 58, new int[] { 34189, 34188, 34187, 34186 }), 
 	MAPLE_SHAFT(1517, 52, 54, 32, new int[] { 34193, 34192, 34191, 34190 }), 
-	YEW_SHORTBOW(1515, 68, 65, 68, new int[] { 34185, 34184, 34183, 34182 }), 
-	YEW_LONGBOW(1515, 66, 70, 75, new int[] { 34189, 34188, 34187, 34186 }), 
-	YEW_SHAFT(1515, 52, 69, 50, new int[] { 34193, 34192, 34191, 34190 }), 
-	MAGIC_SHORTBOW(1513, 72, 80, 83, new int[] { 34185, 34184, 34183, 34182 }), 
-	MAGIC_LONGBOW(1513, 70, 85, 92, new int[] { 34189, 34188, 34187, 34186 }), 
-	MAGIC_SHAFT(1513, 52, 80, 83, new int[] { 34193, 34192, 34191, 34190 });
+	YEW_SHORTBOW(1515, 68, 65, 98, new int[] { 34185, 34184, 34183, 34182 }), 
+	YEW_LONGBOW(1515, 66, 70, 102, new int[] { 34189, 34188, 34187, 34186 }), 
+	YEW_SHAFT(1515, 52, 69, 75, new int[] { 34193, 34192, 34191, 34190 }), 
+	MAGIC_SHORTBOW(1513, 72, 80, 113, new int[] { 34185, 34184, 34183, 34182 }), 
+	MAGIC_LONGBOW(1513, 70, 85, 154, new int[] { 34189, 34188, 34187, 34186 }), 
+	MAGIC_SHAFT(1513, 52, 80, 85, new int[] { 34193, 34192, 34191, 34190 });
 
 	private final int[] buttonIds;
 	private final int item, product, level, experience;
