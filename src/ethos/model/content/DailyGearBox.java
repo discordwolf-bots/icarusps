@@ -39,101 +39,100 @@ public class DailyGearBox extends CycleEvent {
 	static {
 		items.put(Rarity.COMMON, //
 			Arrays.asList(
-                new GameItem(12696, 50),
-				new GameItem(13307, 200),  
-				new GameItem(565, 2000),  
-				new GameItem(560, 2500),  
-				new GameItem(6129),  
-				new GameItem(6130),  
-				new GameItem(2579),  
-				new GameItem(990, 5),  
-				new GameItem(20703, 2),
-				new GameItem(20791, 2),  
-				new GameItem(4109),  
-				new GameItem(4113),  
-				new GameItem(4111),  
-				new GameItem(1632, 20),  
-				new GameItem(7460),
-				new GameItem(6686, 50),   
-				new GameItem(4131),
-				new GameItem(386, 500),   
-				new GameItem(995, 500000),   
-				new GameItem(2801))
+                new GameItem(12696, 50),// super combat potion-noted
+				new GameItem(13307, 200),// blood money 
+				new GameItem(565, 2000),// blood rune
+				new GameItem(560, 2500),// death rune 
+				new GameItem(6129),// rockshell plate 
+				new GameItem(6130),// rockshell legs 
+				new GameItem(2579),// wizzard boots  
+				new GameItem(990, 5),// crystal key
+				new GameItem(20703, 2),// daily gear box
+				new GameItem(20791, 2),// daily skill box 
+				new GameItem(4109),// light mystic hat  
+				new GameItem(4113),// light mystic skirt  
+				new GameItem(4111),// light mystick robe top  
+				new GameItem(1632, 20),// uncut dragonstone
+				new GameItem(7460),// rune gloves
+				new GameItem(6686, 50),// saradomin brews-noted   
+				new GameItem(4131),// rune boots
+				new GameItem(386, 500),// cooked sharks-noted   
+				new GameItem(995, 500000),// gold-aka gp-  
+				new GameItem(2801))// medium clue scroll
 		);
 		
 	items.put(Rarity.UNCOMMON,
 			Arrays.asList(
-					new GameItem(13307, 500),
-					new GameItem(6199, 1),   
-					new GameItem(3025, 75),  
-					new GameItem(11944, 50),  
-					new GameItem(9244, 50),
-					new GameItem(3842),
-					new GameItem(12851),
-					new GameItem(11773),
-					new GameItem(12873),
-					new GameItem(990, 15),
-					new GameItem(20791, 3),
-					new GameItem(20703, 3),   
-					new GameItem(3840), 
-					new GameItem(3844),   
-					new GameItem(6524),  
-					new GameItem(6528),  
-					new GameItem(6522, 500),  
-					new GameItem(3204),  
-					new GameItem(20000),  
-					new GameItem(4214),  
-					new GameItem(9245, 50),  
-					new GameItem(1377),  
-					new GameItem(11230, 200),  
-					new GameItem(4153),  
-					new GameItem(995, 1000000),    
-					new GameItem(2801, 3))
+					new GameItem(13307, 500),// blood money
+					new GameItem(6199, 1),// mbox   
+					new GameItem(3025, 75),// super restore(4)-noted  
+					new GameItem(11944, 50),// lava dragon bones-noted  
+					new GameItem(9244, 50),// dragonbolts(e)
+					new GameItem(3842),// unholy book
+					new GameItem(12851),// amulet of the damned
+					new GameItem(11773),// berserker ring (i)
+					new GameItem(990, 15),// crystal key
+					new GameItem(20791, 3),// daily skill crate
+					new GameItem(20703, 3),// daily gear crate   
+					new GameItem(3840),// holy book 
+					new GameItem(3844),// book of balance   
+					new GameItem(6524),// obby shield  
+					new GameItem(6528),// obby maul  
+					new GameItem(6522, 500),// obby rings  
+					new GameItem(3204),// d hally  
+					new GameItem(20000),// d scim (or)  
+					new GameItem(4214),// crystal bow full  
+					new GameItem(9245, 50),// onyx bolts (e)  
+					new GameItem(1377),// dragon battle axe  
+					new GameItem(11230, 200),// dragon throwing darts  
+					new GameItem(4153),// g maul  
+					new GameItem(995, 1000000),// gold coins    
+					new GameItem(2801, 3))// medium clue scroll
 	);
 		
 		items.put(Rarity.RARE,
 				Arrays.asList(
-						new GameItem(11840),
-						new GameItem(13307, 1500),
-						new GameItem(10551),
-						new GameItem(1409),
-						new GameItem(13442, 500),
-						new GameItem(4675),
-						new GameItem(6199, 3),
-						new GameItem(990, 25),
-						new GameItem(6889),
-						new GameItem(11230, 250),
-						new GameItem(12696, 300),
-						new GameItem(4151),
-						new GameItem(6585),
-						new GameItem(20791, 5),
-						new GameItem(20703, 5),
-						new GameItem(4716),
-						new GameItem(4720),
-						new GameItem(4723),
-						new GameItem(4718),
-						new GameItem(4708),
-						new GameItem(4710),
-						new GameItem(4712),
-						new GameItem(4714),
-						new GameItem(4753),
-						new GameItem(4756),
-						new GameItem(4759),
-						new GameItem(4757),
-						new GameItem(4745),
-						new GameItem(4749),
-						new GameItem(4751),
-						new GameItem(4747),
-						new GameItem(4724),
-						new GameItem(4726),
-						new GameItem(4728),
-						new GameItem(4730),
-						new GameItem(4732),
-						new GameItem(4734),
-						new GameItem(4736),
-						new GameItem(4738),
-						new GameItem(995, 3000000),
-						new GameItem(2722, 3)));
+						new GameItem(11840),// dragon boots
+						new GameItem(13307, 1500),// blood money
+						new GameItem(10551),// fighter torso
+						new GameItem(1409),// ibans staff
+						new GameItem(13442, 500),// cooked angler fish-noted
+						new GameItem(4675),// ancient staff
+						new GameItem(6199, 3),// mbox
+						new GameItem(990, 25),// crystal keys
+						new GameItem(6889),// mages book  
+						new GameItem(11230, 250),// dragon darts
+						new GameItem(12696, 300),// super combat potions
+						new GameItem(4151),// abbysal whip
+						new GameItem(6585),// amulet of fury
+						new GameItem(20791, 5),// skill crate
+						new GameItem(20703, 5),//  gear box
+						new GameItem(4716),// dh helm
+						new GameItem(4720),// dh platebody
+						new GameItem(4722),// dh legs
+						new GameItem(4718),// dh great axe
+						new GameItem(4708),// ahrims hood
+						new GameItem(4710),// ahrims staff
+						new GameItem(4712),// ahrims robe top
+						new GameItem(4714),// ahrims robe bottom
+						new GameItem(4753),// v helm
+						new GameItem(4756),// v flail
+						new GameItem(4759),// v brassard
+						new GameItem(4757),// v skirt
+						new GameItem(4745),// torags helm
+						new GameItem(4749),// torags hammers
+						new GameItem(4751),// torags platebody
+						new GameItem(4747),// torags legs
+						new GameItem(4724),// guthans helm
+						new GameItem(4726),// guthans spear
+						new GameItem(4728),// guthans body
+						new GameItem(4730),// guthans chain legs
+						new GameItem(4732),// karls coif
+						new GameItem(4734),// karls crossbow
+						new GameItem(4736),// karls top
+						new GameItem(4738),// karls bottom
+						new GameItem(995, 3000000),// gp
+						new GameItem(2722, 3)));// hard clue scroll
 	}
 
 	/**

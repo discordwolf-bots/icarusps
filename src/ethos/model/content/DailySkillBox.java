@@ -39,80 +39,79 @@ public class DailySkillBox extends CycleEvent {
 	static {
 		items.put(Rarity.COMMON, 
 			Arrays.asList(
-				new GameItem(11849, 50 + Misc.random(30)), 
-				new GameItem(1518, 100 + Misc.random(50)),
-				new GameItem(450, 100 + Misc.random(50)),
-				new GameItem(2360, 100 + Misc.random(50)),
-				new GameItem(2362, 75 + Misc.random(50)),
-				new GameItem(264, 50 + Misc.random(50)),
-				new GameItem(3001, 50 + Misc.random(50)),
-				new GameItem(63, 150 + Misc.random(100)),
-				new GameItem(266, 50 + Misc.random(50)),
-				new GameItem(2506, 150 + Misc.random(100)),
-				new GameItem(2508, 100 + Misc.random(100)),
-				new GameItem(257, 75 + Misc.random(50)),
-				new GameItem(1632, 150 + Misc.random(50)),
-				new GameItem(824, 1000 + Misc.random(300)),
-				new GameItem(454, 400 + Misc.random(200)),
-				new GameItem(13226, 2),
-				new GameItem(314, 10000),
-				new GameItem(1778, 3000),
-				new GameItem(445, 250),
-				new GameItem(1516, 100 + Misc.random(50)),
-				new GameItem(7409),
-				new GameItem(5295, 50 + Misc.random(50)),
-				new GameItem(5300, 50 + Misc.random(50)),
-				new GameItem(5296, 50 + Misc.random(50)),
-				new GameItem(5304, 50 + Misc.random(50)),
-				new GameItem(384, 300 + Misc.random(150)),
-				new GameItem(7937, 1000 + Misc.random(350))
+				new GameItem(11849, 50 + Misc.random(30)),// mark of grace
+				new GameItem(1518, 100 + Misc.random(50)),// maple logs-noted
+				new GameItem(450, 100 + Misc.random(50)),// adamant ore-noted
+				new GameItem(2360, 100 + Misc.random(50)),// mithril bar-noted
+				new GameItem(2362, 75 + Misc.random(50)),// adamant bar-noted
+				new GameItem(264, 50 + Misc.random(50)),// whine of zammy-noted
+				new GameItem(3001, 50 + Misc.random(50)),// snapdragon-noted
+				new GameItem(63, 150 + Misc.random(100)),// maple longbow (u)-noted
+				new GameItem(266, 50 + Misc.random(50)),// cadantine-noted
+				new GameItem(2506, 150 + Misc.random(100)),// blue-dragonhide leather-noted
+				new GameItem(2508, 100 + Misc.random(100)),// red-dragonhide leather-noted
+				new GameItem(258, 75 + Misc.random(50)),// grimy rannarr-noted 
+				new GameItem(1632, 10 + Misc.random(50)),// uncut dragonstone-noted
+				new GameItem(824, 1000 + Misc.random(300)),// rune dart tip
+				new GameItem(454, 400 + Misc.random(200)),// coal noted
+				new GameItem(13226, 1),// herbsack
+				new GameItem(314, 10000),// feather
+				new GameItem(1778, 3000),// noted bow string
+				new GameItem(445, 250),// noted gold ore
+				new GameItem(1516, 100 + Misc.random(50)),// yew logs-noted
+				new GameItem(7409),// magic secatures
+				new GameItem(5295, 50 + Misc.random(50)),//rannar seed
+				new GameItem(5300, 50 + Misc.random(50)),// snapdragon seed
+				new GameItem(5296, 50 + Misc.random(50)),// toadflax seed
+				new GameItem(5304, 50 + Misc.random(50)),// torstol seed
+				new GameItem(384, 300 + Misc.random(150)),// raw sharks-noted
+				new GameItem(7937, 1000 + Misc.random(350))// pure essence noted
 		));
 		
 	items.put(Rarity.UNCOMMON,
 			Arrays.asList(
-					new GameItem(11849, 100 + Misc.random(50)), 
-					new GameItem(1516, 200 + Misc.random(100)),
-					new GameItem(450, 150 + Misc.random(100)),
-					new GameItem(2360, 150 + Misc.random(100)),
-					new GameItem(452, 100 + Misc.random(100)),
-					new GameItem(445, 500 + Misc.random(200)),
-					new GameItem(13226, 5),
-					new GameItem(11935, 250 + Misc.random(250)),
-					new GameItem(2364, 50 + Misc.random(50)),
-					new GameItem(100, 100 + Misc.random(50)),
-					new GameItem(112, 50 + Misc.random(50)),
-					new GameItem(3005, 75 + Misc.random(50)),
-					new GameItem(71, 100 + Misc.random(100)),
-					new GameItem(3003, 100 + Misc.random(50)),
-					new GameItem(2362, 100 + Misc.random(100)),
-					new GameItem(3001, 75 + Misc.random(50)),
-					new GameItem(2510, 150 + Misc.random(100)),
-					new GameItem(2508, 150 + Misc.random(100)),
-					new GameItem(1632, 50 + Misc.random(50)),
-					new GameItem(1514, 150 + Misc.random(100)),
-					new GameItem(67, 150 + Misc.random(100)),
-					new GameItem(2801, 5)
+					new GameItem(11849, 100 + Misc.random(50)),// mark of grace 
+					new GameItem(1518, 200 + Misc.random(100)),// noted uncut diamonds
+					new GameItem(450, 150 + Misc.random(100)),// adamant ore-noted
+					new GameItem(2360, 150 + Misc.random(100)),// mtihril bar-noted
+					new GameItem(452, 100 + Misc.random(100)),// runite ore-noted
+					new GameItem(441, 500 + Misc.random(200)),// iron ore-noted
+					new GameItem(11935, 250 + Misc.random(250)),// raw dark crab-noted
+					new GameItem(2364, 50 + Misc.random(50)),// rune bar-noted
+					new GameItem(100, 100 + Misc.random(50)),// unf-rannar-noted
+					new GameItem(112, 50 + Misc.random(50)),// unf torstol-noted
+					new GameItem(3005, 75 + Misc.random(50)),// unf snapdragon-noted
+					new GameItem(71, 100 + Misc.random(100)),// magic longbow(u)-noted
+					new GameItem(3003, 100 + Misc.random(50)),// unf-toadflax-noted
+					new GameItem(2362, 100 + Misc.random(100)),// adamant bar-noted
+					new GameItem(3001, 75 + Misc.random(50)),// snapdragon-noted
+					new GameItem(2510, 150 + Misc.random(100)),// black dragon leather-noted
+					new GameItem(2508, 150 + Misc.random(100)),// red-dragonhide-leather-noted
+					new GameItem(1632, 20 + Misc.random(50)),// uncut dragonstone-noted
+					new GameItem(1514, 150 + Misc.random(100)),// magic logs-noted
+					new GameItem(67, 150 + Misc.random(100)),// yew longbow(u)-noted
+					new GameItem(2801, 5)// medium clue scroll
 	));
 		
 		items.put(Rarity.RARE,
 				Arrays.asList(
-						new GameItem(1514, 250 + Misc.random(250)),
-						new GameItem(71, 300 + Misc.random(200)),
-						new GameItem(13440, 500 + Misc.random(300)),
-						new GameItem(11232, 1000 + Misc.random(1000)),
-						new GameItem(452, 150 + Misc.random(100)),
-						new GameItem(775),
-						new GameItem(5304, 50 + Misc.random(50)),
-						new GameItem(112, 250 + Misc.random(250)),
-						new GameItem(454, 500 + Misc.random(300)),
-						new GameItem(445, 1000 + Misc.random(500)),
-						new GameItem(2364, 100 + Misc.random(100)),
-						new GameItem(1624, 25 + Misc.random(100)),
-						new GameItem(2482, 25 + Misc.random(100)),
-						new GameItem(268, 25 + Misc.random(100)),
-						new GameItem(270, 25 + Misc.random(100)),
-						new GameItem(2510, 50 + Misc.random(100)),
-						new GameItem(2722, 5)));
+						new GameItem(1514, 250 + Misc.random(250)),// magic logs-noted
+						new GameItem(71, 300 + Misc.random(200)),// mgic longbow(u)-noted
+						new GameItem(13440, 500 + Misc.random(300)),// raw-anglerfish-noted
+						new GameItem(11232, 1000 + Misc.random(1000)), dragon dar tips
+						new GameItem(452, 150 + Misc.random(100)),// rune ore-noted
+						new GameItem(775),// cooking gauntlets
+						new GameItem(5304, 50 + Misc.random(50)),// torstol seed
+						new GameItem(112, 250 + Misc.random(250)),// unf torstol-noted
+						new GameItem(454, 500 + Misc.random(300)),// coal noted
+						new GameItem(445, 1000 + Misc.random(500)),// noted gold ore
+						new GameItem(2364, 100 + Misc.random(100)),// rune bars-noted
+						new GameItem(1624, 25 + Misc.random(100)),// uncut sapphire-noted
+						new GameItem(2482, 25 + Misc.random(100)),// noted lantadyme
+						new GameItem(268, 25 + Misc.random(100)),// dwarf-weed-noted
+						new GameItem(270, 25 + Misc.random(100)),// torstol-noted
+						new GameItem(2510, 50 + Misc.random(100)),// black dragonhide leather-leathr
+						new GameItem(2722, 5)));// hard clue scroll
 	}
 
 	/**
