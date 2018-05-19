@@ -98,7 +98,7 @@ public class DailySkillBox extends CycleEvent {
 						new GameItem(1514, 250 + Misc.random(250)),// magic logs-noted
 						new GameItem(71, 300 + Misc.random(200)),// mgic longbow(u)-noted
 						new GameItem(13440, 500 + Misc.random(300)),// raw-anglerfish-noted
-						new GameItem(11232, 1000 + Misc.random(1000)), dragon dar tips
+						new GameItem(11232, 1000 + Misc.random(1000)),// dragon dar tips
 						new GameItem(452, 150 + Misc.random(100)),// rune ore-noted
 						new GameItem(775),// cooking gauntlets
 						new GameItem(5304, 50 + Misc.random(50)),// torstol seed
