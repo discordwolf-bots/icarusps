@@ -37,6 +37,7 @@ public class WildernessAgility {
 			}
 			if (c.getAgilityHandler().hotSpot(c, 3004, 3937)) {
 				c.setForceMovement(3004, 3950, 0, 400, "NORTH", c.getAgilityHandler().getAnimation(objectId));
+				c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 13 : 13 * Config.AGILITY_EXPERIENCE, 16, true);
 			}
 			c.getAgilityHandler().resetAgilityProgress();
 			c.getAgilityHandler().agilityProgress[0] = true;
@@ -51,6 +52,7 @@ public class WildernessAgility {
 			}
 			c.startAnimation(751);
 			c.setForceMovement(3005, 3958, 0, 40, "NORTH", -1);
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 20 : 20 * Config.AGILITY_EXPERIENCE, 16, true);
 			if (c.getAgilityHandler().agilityProgress[0] == true) {
 				c.getAgilityHandler().agilityProgress[1] = true;
 			}
@@ -60,6 +62,7 @@ public class WildernessAgility {
 				return false;
 			}
 			c.setForceMovement(2996, 3960, 0, 255, "WEST", c.getAgilityHandler().getAnimation(objectId));
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 20 : 20 * Config.AGILITY_EXPERIENCE, 16, true);
 			if (c.getAgilityHandler().agilityProgress[1] == true) {
 				c.getAgilityHandler().agilityProgress[3] = true;
 			}
@@ -71,6 +74,7 @@ public class WildernessAgility {
 			}
 			if (c.getAgilityHandler().hotSpot(c, 3002, 3945)) {
 				c.setForceMovement(2994, 3945, 0, 200, "WEST", c.getAgilityHandler().getAnimation(objectId));
+				c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 20 : 20 * Config.AGILITY_EXPERIENCE, 16, true);
 			}
 			if (c.getAgilityHandler().agilityProgress[3] == true) {
 				c.getAgilityHandler().agilityProgress[5] = true;
@@ -82,7 +86,7 @@ public class WildernessAgility {
 				return false;
 			}
 			c.setForceMovement(c.absX, 3933, 0, 50, "SOUTH", c.getAgilityHandler().getAnimation(objectId));
-			c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 571 : 15600, 6000);
+			c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 500 : 500 * Config.AGILITY_EXPERIENCE, 6000);
 			c.getDiaryManager().getWildernessDiary().progress(WildernessDiaryEntry.WILDERNESS_AGILITY);
 			return true;
 		}
