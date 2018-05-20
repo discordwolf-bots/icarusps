@@ -1029,14 +1029,16 @@ public class ClickingButtons implements PacketType {
 			c.sendMessage("You select Thieving");
 			break;
 		case 11006:
-			c.sendMessage("Sorry, but you can not select Slayer.");
+			c.antiqueSelect = 18;
+			c.sendMessage("You select Slayer");
 			break;
 		case 11007:
 			c.antiqueSelect = 20;
 			c.sendMessage("You select Runecrafting");
 			break;
 		case 47002:
-			c.sendMessage("Sorry, but you can not select Slayer.");
+			c.antiqueSelect = 18;
+			c.sendMessage("You select Slayer");
 			break;
 		case 54090:
 			c.antiqueSelect = 19;
@@ -1074,7 +1076,7 @@ public class ClickingButtons implements PacketType {
 			if (c.usingLamp) {
 				if (c.antiqueLamp && !c.normalLamp) {
 					c.usingLamp = false;
-					c.getPA().addSkillXP(13100000, c.antiqueSelect, true);
+					c.getPA().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 25000 : 250000, c.antiqueSelect, true);
 					c.getItems().deleteItem2(4447, 1);
 					c.sendMessage("The lamp mysteriously vanishes...");
 					c.getPA().closeAllWindows();
