@@ -1154,6 +1154,9 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			for (int skillId = 0; skillId < ids.length; skillId++) {
 				ids[skillId] = skillId;
 			}
+			if(experienceCounter > getPA().getTotalXP()) {
+				experienceCounter = getPA().getTotalXP();
+			}
 			if (experienceCounter > 0L) {
 				playerAssistant.sendExperienceDrop(false, experienceCounter, ids);
 			}
