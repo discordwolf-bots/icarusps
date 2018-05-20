@@ -320,8 +320,6 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		return inferno;
 	}
 	
-	// Wolf
-	
 	/**
 	 * Integers
 	 */
