@@ -73,6 +73,7 @@ public class Prayer {
 		}
 		player.getSkilling().setSkill(Skill.PRAYER);
 		ItemDefinition definition = ItemDefinition.forId(bone.getItemId());
+		player.getPA().addSkillXP(bone.getExperience() * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.PRAYER_EXPERIENCE), Skill.PRAYER.getId(), true);
 		player.sendMessage("You bury the " + (definition == null ? "bone" : definition.getName()) + ".");
 		player.getItems().deleteItem2(bone.getItemId(), 1);
 		player.startAnimation(827);

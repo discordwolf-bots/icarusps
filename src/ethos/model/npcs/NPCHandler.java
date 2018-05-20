@@ -107,7 +107,7 @@ public class NPCHandler {
 	public boolean ringOfLife(Player c) {
 		boolean defenceCape = SkillcapePerks.DEFENCE.isWearing(c);
 		boolean maxCape = SkillcapePerks.isWearingMaxCape(c);
-		if (c.getItems().isWearingItem(2570) || defenceCape || (maxCape && c.getRingOfLifeEffect())) {
+		if (c.getItems().isWearingItem(2570) || defenceCape ) {
 				if (System.currentTimeMillis() - c.teleBlockDelay < c.teleBlockLength) {
 					c.sendMessage("The ring of life effect does not work as you are teleblocked.");
 					return false;

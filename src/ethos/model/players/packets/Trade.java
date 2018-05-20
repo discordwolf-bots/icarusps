@@ -30,6 +30,10 @@ public class Trade implements PacketType {
 			c.sendMessage("@cr10@You cannot trade from here.");
 			return;
 		}
+		if(c.inWild()) {
+			c.sendMessage("It's not a good idea to trade in the Wilderness");
+			return;
+		}
 		if (Boundary.isIn(c, Boundary.DUEL_ARENA)) {
 			c.sendMessage("You cannot trade whilst inside the duel arena.");
 			return;
