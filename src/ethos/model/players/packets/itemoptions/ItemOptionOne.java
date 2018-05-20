@@ -11,6 +11,7 @@ import ethos.model.content.barrows.Barrows;
 import ethos.model.content.teleportation.TeleportTablets;
 import ethos.model.content.trails.MasterClue;
 import ethos.model.content.trails.RewardLevel;
+import ethos.model.items.GameItem;
 import ethos.model.multiplayer_session.MultiplayerSessionType;
 import ethos.model.multiplayer_session.duel.DuelSession;
 import ethos.model.multiplayer_session.duel.DuelSessionRules.Rule;
@@ -124,6 +125,13 @@ public class ItemOptionOne implements PacketType {
 			}
 			AgilityHandler.delayFade(c, "", 1310, 1237, 0, "You teleport into the cave", "and end up at the main room.", 3);
 			c.getItems().deleteItem(13249, 1);
+			break;
+			
+		case 5020://Common Ticket
+		case 5021://Uncommon Ticket
+		case 5022://Rare Ticket
+		case 5023://Very Rare Ticket
+			c.getSacrifice().ExchangeTickets(new GameItem(itemId));
 			break;
 			
 		case 13226:

@@ -29,6 +29,9 @@ public class Sacrifice {
 
 	/**
 	 * Stores an array of items into each map with the corresponding rarity to the list
+	 * 
+	 * This is a list of all items allowed to be used on the Black Chest if item is not on the list then
+	 * it is defaulted to COMMON
 	 */
 	static {
 		items.put(Rarity.COMMON, 
@@ -213,6 +216,7 @@ public class Sacrifice {
 		GameItem item = new GameItem(itemID, 1);//TODO: CHANGE TO item.getAmount()
 		c.sendMessage("Exchanging your item (" + Item.getItemName(itemID) + ")...");
 		
+		//If the item used on the chest is a ticket then exchange the tickets
 		for(int i = 5020; i <= 5023; i++) {
 			if(itemID == i) {
 				ExchangeTickets(item);
@@ -220,25 +224,29 @@ public class Sacrifice {
 			}
 		}
 		
+		//If the item used on the chest is a ticket then return out of the method
 		if(itemID == 5020 || itemID == 5021 || itemID == 5022 || itemID == 5023)
 			return;
 		
+		//Delete the item used on the chest
 		c.getItems().deleteItem(itemID, 1);
+		
+		//Depending on the rarity of the item it will give you the equivalent in ticket
 		switch(GetRarity(item)) {
 			case COMMON:
-				c.getItems().addItemUnderAnyCircumstance(5020, 1);//TODO: CHANGE TO item.getAmount()
+				c.getItems().addItemUnderAnyCircumstance(5020, 1);//Common Ticket
 				break;
 				
 			case UNCOMMON:
-				c.getItems().addItemUnderAnyCircumstance(5021, 1);//TODO: CHANGE TO item.getAmount()
+				c.getItems().addItemUnderAnyCircumstance(5021, 1);//Uncommon Ticket
 				break;
 				
 			case RARE:
-				c.getItems().addItemUnderAnyCircumstance(5022, 1);//TODO: CHANGE TO item.getAmount()
+				c.getItems().addItemUnderAnyCircumstance(5022, 1);//Rare Ticket
 				break;
 				
 			case VERY_RARE:
-				c.getItems().addItemUnderAnyCircumstance(5023, 1);//TODO: CHANGE TO item.getAmount()
+				c.getItems().addItemUnderAnyCircumstance(5023, 1);//Very Rare Ticket
 				break;
 			
 			default:
@@ -271,11 +279,15 @@ public class Sacrifice {
 				case 5023:
 					c.sendMessage("You already have the highest rarity of items!");
 					break;
+					
+				default:
+					c.sendMessage("You cannot convert that item!");
+					break;
 			}
 		}
 	}
 	
-	public GameItem GetRandomItemFromRarity(Rarity rarity) {
+	public GameItem GetRandomItemFromRarity(Rarity rarity) { //Gets a random item from the given rarity
 		Random rand = new Random();
 		GameItem[] values = null;
 		for (Map.Entry<Rarity, List<GameItem>> _item : items.entrySet()) {
@@ -288,7 +300,7 @@ public class Sacrifice {
 		return values[rand.nextInt(values.length)];
 	}
 	
-	public Rarity GetRarity(GameItem item){
+	public Rarity GetRarity(GameItem item){ //Gets the rarity from the given item (If the item is not in the array it will be defaulted to COMMON)
 		for (Map.Entry<Rarity, List<GameItem>> _item : items.entrySet()) {
 			Rarity itemRarity = _item.getKey();
 			List<GameItem> itemList = _item.getValue();
