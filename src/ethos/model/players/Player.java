@@ -144,6 +144,8 @@ public class Player extends Entity {
 	 * New Daily Task Variables
 	 */
 	
+	//Chambo
+	
 	public PossibleTasks currentTask;
 	public TaskTypes playerChoice;
 	public boolean dailyEnabled = false, completedDailyTask;
