@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import ethos.model.items.GameItem;
 import ethos.model.items.Item;
@@ -209,9 +210,20 @@ public class Sacrifice {
 	}
 	
 	public void SacrificeItem(int itemID) {
-		c.sendMessage("Exchanging your item...");
 		GameItem item = new GameItem(itemID, 1);//TODO: CHANGE TO item.getAmount()
-		c.sendMessage(Item.getItemName(item.getId()));
+		c.sendMessage("Exchanging your item (" + Item.getItemName(itemID) + ")...");
+		
+		for(int i = 5020; i <= 5023; i++) {
+			if(itemID == i) {
+				ExchangeTickets(item);
+				break;
+			}
+		}
+		
+		if(itemID == 5020 || itemID == 5021 || itemID == 5022 || itemID == 5023)
+			return;
+		
+		c.getItems().deleteItem(itemID, 1);
 		switch(GetRarity(item)) {
 			case COMMON:
 				c.getItems().addItemUnderAnyCircumstance(5020, 1);//TODO: CHANGE TO item.getAmount()
@@ -236,7 +248,58 @@ public class Sacrifice {
 		}
 	}
 	
+	public void ExchangeTickets(GameItem item) {
+		if(!c.getItems().playerHasItem(item.getId(), 5)) {
+			c.sendMessage("You need atleast 5 tickets to get an item of the next rarity!");
+		} else {
+			switch(item.getId()) {
+				case 5020:
+					c.getItems().deleteItem(5020, 5);
+					c.getItems().addItemUnderAnyCircumstance(GetRandomItemFromRarity(Rarity.UNCOMMON).getId(), 1);
+					break;
+					
+				case 5021:
+					c.getItems().deleteItem(5021, 5);
+					c.getItems().addItemUnderAnyCircumstance(GetRandomItemFromRarity(Rarity.RARE).getId(), 1);
+					break;
+					
+				case 5022:
+					c.getItems().deleteItem(5022, 5);
+					c.getItems().addItemUnderAnyCircumstance(GetRandomItemFromRarity(Rarity.VERY_RARE).getId(), 1);
+					break;
+					
+				case 5023:
+					c.sendMessage("You already have the highest rarity of items!");
+					break;
+			}
+		}
+	}
+	
+	public GameItem GetRandomItemFromRarity(Rarity rarity) {
+		Random rand = new Random();
+		GameItem[] values = null;
+		for (Map.Entry<Rarity, List<GameItem>> _item : items.entrySet()) {
+			Rarity itemRarity = _item.getKey();
+			List<GameItem> itemList = _item.getValue();
+			if(itemRarity == rarity) {
+				values = (GameItem[])itemList.toArray();
+			}
+		}
+		return values[rand.nextInt(values.length)];
+	}
+	
 	public Rarity GetRarity(GameItem item){
+		for (Map.Entry<Rarity, List<GameItem>> _item : items.entrySet()) {
+			Rarity itemRarity = _item.getKey();
+			List<GameItem> itemList = _item.getValue();
+			
+			for(GameItem x : itemList) {
+				if(x.getId() == item.getId()) {
+					c.sendMessage("You have received a " + itemRarity.toString().toLowerCase() + " ticket!");
+					return itemRarity;
+				}
+			}
+		}
 		return Rarity.COMMON;
 	}
 	
