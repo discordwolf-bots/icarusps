@@ -285,6 +285,7 @@ public class Player extends Entity {
 	private SkotizoLostItems lostItemsSkotizo;
 	private List<God> equippedGodItems;
 	private Titles titles = new Titles(this);
+	private Sacrifice sacrifice = new Sacrifice(this);
 	protected RightGroup rights;
 	protected static Stream playerProps;
 	public static PlayerSave save;
@@ -1155,9 +1156,6 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			for (int skillId = 0; skillId < ids.length; skillId++) {
 				ids[skillId] = skillId;
 			}
-			if(experienceCounter > getPA().getTotalXP()) {
-				experienceCounter = getPA().getTotalXP();
-			}
 			if (experienceCounter > 0L) {
 				playerAssistant.sendExperienceDrop(false, experienceCounter, ids);
 			}
@@ -1650,6 +1648,10 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 
 	public PlayerAssistant getPA() {
 		return playerAssistant;
+	}
+
+	public Sacrifice getSacrifice() {
+		return sacrifice;
 	}
 
 	public DialogueHandler getDH() {

@@ -59,7 +59,7 @@ public class ItemOnObject implements PacketType {
 			duelSession.finish(MultiplayerSessionFinalizeType.WITHDRAW_ITEMS);
 			return;
 		}
-		UseItem.ItemonObject(c, objectId, objectX, objectY, itemId);
+		//UseItem.ItemonObject(c, objectId, objectX, objectY, itemId);
 
 		switch (c.objectId) {
 		
@@ -67,6 +67,10 @@ public class ItemOnObject implements PacketType {
 				c.objectDistance = 4;
 				c.objectXOffset = 3;
 				c.objectYOffset = 3;
+				break;
+
+			case 4125:
+				c.getSacrifice().SacrificeItem(itemId);
 				break;
 		
 		case 18818:
