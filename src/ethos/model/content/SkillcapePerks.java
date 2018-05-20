@@ -66,6 +66,16 @@ public enum SkillcapePerks {
 		return false;
 	}
 	
+	public boolean isWearingMaster(Player player) {
+		for (int[] set : skillcapes) {
+			if(set.length == 3) {
+				if(player.getItems().isWearingItem(set[2], player.playerCape))
+					return true;
+			}
+		}
+		return false;
+	}
+	
 	public static boolean isWearingMaxCape(Player player) {
 		if (MAX_CAPE.isWearing(player) || 
 			FIRE_MAX_CAPE.isWearing(player) || 
