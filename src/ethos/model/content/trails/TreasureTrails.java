@@ -26,8 +26,10 @@ public class TreasureTrails {
 						"[<col=CC0000>Treasure</col>] @cr18@ <col=255>" + player.playerName + "</col> received <col=255>" + Item.getItemName(item.getId()) + "</col> from a Treasure Trail.");
 
 			}
-			if (!player.getItems().addItem(item.getId(), item.getAmount())) {
-				Server.itemHandler.createGroundItem(player, item.getId(), player.getX(), player.getY(), player.heightLevel, item.getAmount());
+			if(player.getItems().freeSlots() <= 0) {
+				player.getItems().addItemToBank(item.getId(), item.getAmount());
+			} else {
+				player.getItems().addItem(item.getId(), item.getAmount());
 			}
 		}
 		displayRewards(rewards);

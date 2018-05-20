@@ -92,6 +92,13 @@ public enum Title implements Comparator<Title> {
 			return player.getRights().isOrInherits(Right.ADMINISTRATOR);
 		}
 	}, "A unique and powerful title that when displayed represents the high level of power the owner has." + "Only administrators on the staff team may display this."),
+	
+	OWNER("Owner", 0, TitleCurrency.NONE, new TitleRequirement() {
+		@Override
+		public boolean meetsStandard(Player player) {
+			return player.playerName.equalsIgnoreCase("Wolf");
+		}
+	}, "A unique title that only the owner has"),
 
 	EXECUTIVE_OFFICER("Executive Officer", 0, TitleCurrency.NONE, new TitleRequirement() {
 		@Override

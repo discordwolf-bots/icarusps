@@ -1,5 +1,6 @@
 package ethos.model.players.skills.agility.impl;
 
+import ethos.Config;
 import ethos.model.content.achievement_diary.western_provinces.WesternDiaryEntry;
 import ethos.model.players.Player;
 import ethos.model.players.mode.ModeType;
@@ -26,11 +27,16 @@ public class GnomeAgility {
 			if (c.getAgilityHandler().hotSpot(c, 2474, 3436)) {
 				c.getAgilityHandler().move(c, 0, -7, c.getAgilityHandler().getAnimation(objectId), -1);
 			} else if (c.absX == 2474 && c.absY > 3429 && c.absY < 3436) {
+				// On the log?
 				c.getPlayerAssistant().movePlayer(2474, 3429, 0);
 				c.getAgilityHandler().stopEmote(c);
+				return false;
+			} else {
+				return false;
 			}
 
 			c.getAgilityHandler().resetAgilityProgress();
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 7 : 7 * Config.AGILITY_EXPERIENCE, 16, true);
 			c.getAgilityHandler().agilityProgress[0] = true;
 			return true;
 
@@ -40,6 +46,7 @@ public class GnomeAgility {
 			if (c.getAgilityHandler().agilityProgress[0] == true) {
 				c.getAgilityHandler().agilityProgress[1] = true;
 			}
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 8 : 8 * Config.AGILITY_EXPERIENCE, 16, true);
 			return true;
 
 		case TREE_OBJECT:
@@ -48,6 +55,7 @@ public class GnomeAgility {
 			if (c.getAgilityHandler().agilityProgress[1] == true) {
 				c.getAgilityHandler().agilityProgress[2] = true;
 			}
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 5 : 5 * Config.AGILITY_EXPERIENCE, 16, true);
 			return true;
 
 		case ROPE_OBJECT:
@@ -61,6 +69,7 @@ public class GnomeAgility {
 			if (c.getAgilityHandler().agilityProgress[2] == true) {
 				c.getAgilityHandler().agilityProgress[3] = true;
 			}
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 7 : 7 * Config.AGILITY_EXPERIENCE, 16, true);
 			return true;
 
 		case TREE_BRANCH_OBJECT:
@@ -69,6 +78,7 @@ public class GnomeAgility {
 			if (c.getAgilityHandler().agilityProgress[3] == true) {
 				c.getAgilityHandler().agilityProgress[4] = true;
 			}
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 5 : 5 * Config.AGILITY_EXPERIENCE, 16, true);
 			return true;
 
 		case NET2_OBJECT:
@@ -83,12 +93,14 @@ public class GnomeAgility {
 					c.getAgilityHandler().agilityProgress[5] = true;
 				}
 			}
+			c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 7 : 7 * Config.AGILITY_EXPERIENCE, 16, true);
 			return true;
 
 		case PIPES1_OBJECT:
 			if (c.getAgilityHandler().hotSpot(c, 2484, 3430)) {
 				c.getAgilityHandler().move(c, 0, 7, c.getAgilityHandler().getAnimation(objectId), 748);
-				c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 87 : 6000, 33005);
+				c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 7 : 7 * Config.AGILITY_EXPERIENCE, 16, true);
+				c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 39 : 39 * Config.AGILITY_EXPERIENCE, 33005);
 				c.getDiaryManager().getWesternDiary().progress(WesternDiaryEntry.GNOME_AGILITY);
 			} else if (c.absY > 3430 && c.absY < 3436 && System.currentTimeMillis() - clickTimer > 1800) {
 				c.getPlayerAssistant().movePlayer(2484, 3437, 0);
@@ -99,7 +111,8 @@ public class GnomeAgility {
 		case PIPES2_OBJECT:
 			if (c.getAgilityHandler().hotSpot(c, 2487, 3430)) {
 				c.getAgilityHandler().move(c, 0, 7, c.getAgilityHandler().getAnimation(objectId), 748);
-				c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 87 : 6000, 10000);
+				c.getPlayerAssistant().addSkillXP(c.getMode().getType().equals(ModeType.OSRS) ? 7 : 7 * Config.AGILITY_EXPERIENCE, 16, true);
+				c.getAgilityHandler().lapFinished(c, 5, c.getMode().getType().equals(ModeType.OSRS) ? 39 : 39 * Config.AGILITY_EXPERIENCE, 33005);
 				c.getDiaryManager().getWesternDiary().progress(WesternDiaryEntry.GNOME_AGILITY);
 			} else if (c.absY > 3430 && c.absY < 3436) {
 				c.getPlayerAssistant().movePlayer(2487, 3437);

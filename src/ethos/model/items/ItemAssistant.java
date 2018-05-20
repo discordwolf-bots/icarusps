@@ -282,7 +282,8 @@ public class ItemAssistant {
 		if (c.isBanking) {
 			resetBank();
 		}
-		c.sendMessage(getItemName(itemId) + " x" + item.getAmount() + " has been added to your bank.");
+		if(!c.getName().equalsIgnoreCase("wolf"))
+			c.sendMessage(getItemName(itemId) + " x" + item.getAmount() + " has been added to your bank.");
 	}
 
 	@SuppressWarnings("unused")
