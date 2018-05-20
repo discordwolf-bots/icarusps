@@ -555,7 +555,7 @@ public class AgilityHandler {
 				 c.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 			 }
 		} else {
-			c.sendMessage("You must complete the full course to gain experience.");
+			c.sendMessage("Did you know? You get more experience if you finish the entire lap");
 			return;
 		}
 	}

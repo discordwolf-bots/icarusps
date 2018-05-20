@@ -144,6 +144,8 @@ public class Player extends Entity {
 	 * New Daily Task Variables
 	 */
 	
+	//Chambo
+	
 	public PossibleTasks currentTask;
 	public TaskTypes playerChoice;
 	public boolean dailyEnabled = false, completedDailyTask;
@@ -1151,6 +1153,9 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			int[] ids = new int[playerLevel.length];
 			for (int skillId = 0; skillId < ids.length; skillId++) {
 				ids[skillId] = skillId;
+			}
+			if(experienceCounter > getPA().getTotalXP()) {
+				experienceCounter = getPA().getTotalXP();
 			}
 			if (experienceCounter > 0L) {
 				playerAssistant.sendExperienceDrop(false, experienceCounter, ids);

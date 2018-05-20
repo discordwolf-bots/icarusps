@@ -3338,6 +3338,12 @@ public class NPCHandler {
 		int chance = 0;
 		switch (npcs[i].npcType) {
 		
+		case 955:
+		case 957: 
+		case 959:
+			npcs[i].attackType = CombatType.MELEE;
+			break;
+			
 		case 5890:
 
 			if (npcs[i].attackType != null) {

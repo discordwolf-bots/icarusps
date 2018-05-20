@@ -299,8 +299,14 @@ public class Titles {
 	 * 
 	 * @param currentTitle the title
 	 */
-	public void setCurrentTitle(String currentTitle) {
-		this.currentTitle = currentTitle;
+	public static void setCurrentTitle(Player c, Title currentTitle) {
+		c.playerTitle = currentTitle.name();
+	}
+
+
+	public void setCurrentTitle(String token2) {
+		this.currentTitle = token2;
+		
 	}
 
 }

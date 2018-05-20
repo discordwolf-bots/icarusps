@@ -28,6 +28,8 @@ public class CasketRewards {
 			rolls += 1;
 		} else if (difficulty == RewardLevel.HARD) {
 			rolls += 2;
+		} else if(difficulty == RewardLevel.MASTER) {
+			rolls += 3;
 		}
 
 		double random = Math.random();
