@@ -125,6 +125,9 @@ public class UseItem {
 		}
 
 		switch (objectID) {
+			case 4125:
+				c.getSacrifice().SacrificeItem(itemId);
+				break;
 		
 			case 16469:
 			case 2030: //Allows for ores to be used on the furnace instead of going though the interface.

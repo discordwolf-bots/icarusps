@@ -89,6 +89,7 @@ import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.melee.QuickPrayers;
 import ethos.model.players.mode.Mode;
 import ethos.model.players.mode.ModeType;
+import ethos.model.players.sacrifice.Sacrifice;
 import ethos.model.players.skills.*;
 import ethos.model.players.skills.agility.AgilityHandler;
 import ethos.model.players.skills.agility.impl.*;
