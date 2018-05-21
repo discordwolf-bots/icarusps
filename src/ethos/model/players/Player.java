@@ -370,11 +370,11 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	 * Arrays
 	 */
 	public ArrayList<int[]> coordinates;
-	private int[] farmingSeedId = new int[14];
-	private int[] farmingTime = new int[14];
-	private int[] originalFarmingTime = new int[14];
-	private int[] farmingState = new int[14];
-	private int[] farmingHarvest = new int[14];
+	private int[] farmingSeedId = new int[50];
+	private int[] farmingTime = new int[50];
+	private int[] originalFarmingTime = new int[50];
+	private int[] farmingState = new int[50];
+	private int[] farmingHarvest = new int[50];
 	public int[] halloweenRiddleGiven = new int[10], halloweenRiddleChosen = new int[10], masterClueRequirement = new int[4], waveInfo = new int[3], keepItems = new int[4],
 			keepItemsN = new int[4], voidStatus = new int[5], itemKeptId = new int[4], pouches = new int[4],
 			playerStats = new int[8], playerBonus = new int[12], death = new int[4], twoHundredMil = new int[21],
