@@ -280,7 +280,7 @@ public class DialogueHandler {
 				c.getItems().deleteItem(995, 500_000);
 				c.getItems().addItem(11283, 1);
 				c.votePoints -= 5;
-				c.refreshQuestTab(2);
+				c.refreshQuestTab(6);
 				sendItemStatement("Oziach successfully bound your dragonfire shield.", 11283);
 			} else {
 				sendNpcChat("You do not process the items I required! Go away!");

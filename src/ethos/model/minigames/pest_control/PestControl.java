@@ -182,8 +182,9 @@ public class PestControl {
 											   Config.BONUS_PC && !Config.BONUS_PC_WOGW ? 10 : POINT_REWARD;
 							
 							player.pcPoints += point_reward;
-							player.refreshQuestTab(3);
+							//player.refreshQuestTab(3);
 							player.sendMessage("You won! You obtain "+ point_reward +" commendation points and " + coins + " coins as a bonus.");
+							player.sendMessage("You now have @gre@" + player.pcPoints + " @bla@Pest Control points");
 							player.getItems().addItem(995, coins);
 						} else {
 							player.sendMessage("You won but you didn't deal enough damage on the portals.");

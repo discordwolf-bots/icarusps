@@ -370,11 +370,11 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	 * Arrays
 	 */
 	public ArrayList<int[]> coordinates;
-	private int[] farmingSeedId = new int[14];
-	private int[] farmingTime = new int[14];
-	private int[] originalFarmingTime = new int[14];
-	private int[] farmingState = new int[14];
-	private int[] farmingHarvest = new int[14];
+	private int[] farmingSeedId = new int[50];
+	private int[] farmingTime = new int[50];
+	private int[] originalFarmingTime = new int[50];
+	private int[] farmingState = new int[50];
+	private int[] farmingHarvest = new int[50];
 	public int[] halloweenRiddleGiven = new int[10], halloweenRiddleChosen = new int[10], masterClueRequirement = new int[4], waveInfo = new int[3], keepItems = new int[4],
 			keepItemsN = new int[4], voidStatus = new int[5], itemKeptId = new int[4], pouches = new int[4],
 			playerStats = new int[8], playerBonus = new int[12], death = new int[4], twoHundredMil = new int[21],
@@ -800,6 +800,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		CycleEventHandler.getSingleton().stopEvents(this);
 		getFriends().notifyFriendsOfUpdate();
 		PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000>[-] </shad></col>" + getName());
+		refreshQuestTab(5);
 		Misc.println("[Logged out]: " + playerName);
 		disconnected = true;
 		//logoutDelay = Long.MAX_VALUE;
@@ -867,14 +868,16 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	
 	public void refreshQuestTab(int i) {
 		Task task = this.getSlayer().getTask().orElse(null);
+		int offset = 0;
+		if(task != null) offset++;
+		int staff = PlayerHandler.getStaffCount();
+		
 		switch (i) {
 			case 0: // Gained a Slayer Task
 			case 1: // Finished a Slayer Task
-				int offset = 0;
 				if (task == null) {
 					this.getPA().sendFrame126("@or2@- Slayer Task: @red@None", 29169);			
 				} else {
-					offset++;
 					this.getPA().sendFrame126("@or2@- Slayer Task: @gre@" + this.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169);
 					this.getPA().sendFrame126("@or1@Teleport to Task?", 29170);
 				}
@@ -885,6 +888,27 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
 				this.getPA().sendFrame126("@or2@- Kill/Death: @or1@" + this.killcount + "@or2@/@or1@" + this.deathcount, 29175+offset);
 				break;
+			case 2: // Slayer Points increase
+				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
+				break;
+			case 3: // Donor Points
+				this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
+				break;
+			case 4: // PK Points
+				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
+				break;
+			case 5: // Players
+				this.getPA().sendFrame126("@or1@- Players Online: @gre@" + PlayerHandler.getPlayerCount(), 29162);
+				if(staff == 0) {
+					this.getPA().sendFrame126("@or1@- Staff Online: @red@" + PlayerHandler.getStaffCount(), 29163);
+				} else {
+					this.getPA().sendFrame126("@or1@- Staff Online: @gre@" + PlayerHandler.getStaffCount(), 29163);			
+				}
+				break;
+			case 6: // Vote Points
+				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
+				break;
+				
 		}
 	}
 	
@@ -969,6 +993,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 				PlayerHandler.executeGlobalMessage("<col=00ff00><shad=000000>[+] </shad></col>" + "<col=cccccc><shad=000000> " + nameIdentifier + getName() + "</shad></col>");
 			} else {
 				PlayerHandler.executeGlobalMessage("<col=00ff00><shad=000000>[+] </shad></col>" + nameIdentifier + getName());
+				refreshQuestTab(5);
 			}
 			
 		//	checkWellOfGoodwillTimers();

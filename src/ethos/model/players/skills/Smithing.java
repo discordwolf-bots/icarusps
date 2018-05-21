@@ -1196,17 +1196,15 @@ public class Smithing {
 				 * Chance of saving a bar while wearing herblore or max cape
 				 */
 				if(SkillcapePerks.SMITHING.isWearingMaster(c)) {
-					c.sendMessage("Master cape is on!");
+					//TODO: Need a better perk for Master Cape (makes noted items?)
 				}
 				if (SkillcapePerks.SMITHING.isWearing(c) || SkillcapePerks.isWearingMaxCape(c)) {
 					if (Misc.random(4) == 2) {
 						c.sendMessage("You manage to save your bars.");
 					} else {
-						c.sendMessage("oops");
 						c.getItems().deleteItem2(toremove, toremove2);
 					}
 				} else {
-					c.sendMessage("Nope");
 					c.getItems().deleteItem2(toremove, toremove2);
 				}
 				
@@ -1336,7 +1334,6 @@ public class Smithing {
 
 	public void smelt(final int barType) {
 		if (c.smeltAmount > 0) {
-			if(c.getName().equalsIgnoreCase("Wolf")) c.sendMessage("SmeltAmount: " + c.smeltAmount);
 			c.getPA().closeAllWindows();
 			if (hasOres(barType)) {
 				c.getItems().deleteItem(oreId, c.getItems().getItemSlot(oreId), 1);

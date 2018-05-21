@@ -148,7 +148,7 @@ public class Wogw {
 		player.getPA().sendFrame126("" + Misc.getValueWithoutRepresentation(Wogw.MONEY_TOWARDS_EXPERIENCE) + "/50M", 38012);
 		player.getPA().sendFrame126("" + Misc.getValueWithoutRepresentation(Wogw.MONEY_TOWARDS_PC_POINTS) + "/50M", 38013);
 		player.getPA().sendFrame126("" + Misc.getValueWithoutRepresentation(Wogw.MONEY_TOWARDS_DOUBLE_DROPS) + "/100M", 38014);
-		player.refreshQuestTab(8);
+		//player.refreshQuestTab(8);
 		Wogw.slot++;
 		if (Wogw.slot == 5) {
 			Wogw.slot = 0;
@@ -205,7 +205,7 @@ public class Wogw {
 			break;
 		}
 		player.getPA().sendFrame126("" + Misc.getValueWithoutRepresentation(Wogw.MONEY_TOWARDS_EXPERIENCE) + "/50M", 38012);
-		player.refreshQuestTab(8);
+		//player.refreshQuestTab(8);
 		Wogw.slot++;
 		if (Wogw.slot == 5) {
 			Wogw.slot = 0;
