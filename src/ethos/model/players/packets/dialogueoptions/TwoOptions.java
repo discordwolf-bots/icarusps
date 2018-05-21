@@ -258,7 +258,6 @@ public class TwoOptions {
 				return;
 			}
 			c.pcPoints -= 200;
-			c.refreshQuestTab(3);
 			c.getItems().replaceItem(c, 8839, 13072);
 			c.getDH().sendDialogues(81, -1);
 			c.getDiaryManager().getWesternDiary().progress(WesternDiaryEntry.UPGRADE_VOID);
@@ -277,7 +276,6 @@ public class TwoOptions {
 				return;
 			}
 			c.pcPoints -= 200;
-			c.refreshQuestTab(3);
 			c.getItems().replaceItem(c, 8840, 13073);
 			c.getDH().sendDialogues(82, -1);
 			c.getDiaryManager().getWesternDiary().progress(WesternDiaryEntry.UPGRADE_VOID);

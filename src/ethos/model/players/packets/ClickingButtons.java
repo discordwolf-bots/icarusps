@@ -48,6 +48,7 @@ import ethos.model.players.skills.crafting.GlassBlowing;
 import ethos.model.players.skills.crafting.LeatherMaking;
 import ethos.model.players.skills.crafting.Tanning;
 import ethos.model.players.skills.crafting.CraftingData.tanningData;
+import ethos.model.players.skills.slayer.Task;
 import ethos.model.shops.ShopAssistant;
 import ethos.util.Misc;
 
@@ -209,26 +210,135 @@ public class ClickingButtons implements PacketType {
 	//	}
 		QuickPrayers.clickButton(c, actionButtonId);
 		LunarSpells.lunarButton(c, actionButtonId);
+		Task task = c.getSlayer().getTask().orElse(null);
 		switch (actionButtonId) {
-			
-		case 113238:
-			if (Config.BONUS_XP_WOGW == true) {
-				c.sendMessage("@cr10@ <col=6666FF>Wogw is granting double experience for another " + TimeUnit.MILLISECONDS.toMinutes(Wogw.EXPERIENCE_TIMER * 600) + " minutes.");
-			} else if (Config.BONUS_PC_WOGW == true) {
-				c.sendMessage("@cr10@ <col=6666FF>Wogw is granting +5 bonus pc points for another " + TimeUnit.MILLISECONDS.toMinutes(Wogw.PC_POINTS_TIMER * 600) + " minutes.");
-			} else if (Config.DOUBLE_DROPS == true) {
-				c.sendMessage("@cr10@ <col=6666FF>Wogw is granting double drop rate for another " + TimeUnit.MILLISECONDS.toMinutes(Wogw.DOUBLE_DROPS_TIMER * 600) + " minutes.");
+		/**
+		 * Quest Tab
+		 */
+		// Players Online
+		case 113234:
+			if(PlayerHandler.getPlayerCount() > 1) {
+				c.sendMessage("@cr10@There are currently: [ @gre@" + PlayerHandler.getPlayerCount() + " @bla@] Players Online. ");				
 			} else {
-				c.sendMessage("@cr10@ <col=6666FF>Wogw is currently inactive.");
+				c.sendMessage("@cr10@There is currently: [ @gre@" + PlayerHandler.getPlayerCount() + " @bla@] Player Online. ");
 			}
 			break;
+		// Staff online
+		case 113235:
+			if(PlayerHandler.getStaffCount() > 1) {
+				c.sendMessage("@cr10@There are currently: [ @gre@" + PlayerHandler.getStaffCount() + " @bla@] Staff Online. ");				
+			} else if(PlayerHandler.getStaffCount() == 1) {
+				c.sendMessage("@cr10@There is currently: [ @gre@" + PlayerHandler.getStaffCount() + " @bla@] Staff Online. ");
+			} else {
+				c.sendMessage("@cr10@There is currently: [ @red@" + PlayerHandler.getStaffCount() + " @bla@] Staff Online. ");
+			}
+			break;	
+		// Discord Link
+		case 113236:
+			c.sendMessage("<col=00ff00><shad=000000>Loading Discord</shad></col>");
+			c.getPA().sendFrame126("https://discord.gg/4yTnb4s", 12000);
+			break;
+		// Forums Link
+		case 113237:
+			c.sendMessage("<col=00ff00><shad=000000>Loading Discord</shad></col>");
+			c.getPA().sendFrame126("https://icarusps.co.uk/forum", 12000);
+			break;
+		// Player Rank
+		case 113239:
+			c.forcedChat("My rank is: " + c.getRights().getPrimary().name());
+			break;
+		// Player playtime
+		case 113240:
+			long milliseconds = (long) c.playTime * 600;
+			long days = TimeUnit.MILLISECONDS.toDays(milliseconds);
+			long hours = TimeUnit.MILLISECONDS.toHours(milliseconds - TimeUnit.DAYS.toMillis(days));
+			String time = days + " days, " + hours + " hours.";
+			c.forcedChat("I have played Icarus for a total of : " + time);
+			break;
+		// Slayer Task
+		case 113241:
+			if (task != null) {
+				c.forcedChat("I currently have to kill " + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName());				
+			} else {
+				c.forcedChat("I dont have a Slayer Task.");
+			}
+			break;
+		// Slayer Task Teleport -> Slayer Points
+		case 113242:
+			if(task != null) {
+				if (c.inWild()) {
+					c.sendMessage("You cannot use this from the wilderness.");
+					break;
+				}
+				int x = task.getTeleportLocation()[0];
+				int y = task.getTeleportLocation()[1];
+				int z = task.getTeleportLocation()[2];
+				if (x == -1 && y == -1 && z == -1) {
+					c.sendMessage("This task cannot be easily teleported to.");
+					break;
+				}
+				c.sendMessage("You are teleporting to your task of " + task.getPrimaryName() + ".");
+				c.getPA().startTeleport(x, y, z, "modern");
+			} else {
+				c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+			}
+			break;
+		// Slayer Points -> Consecutive Tasks
+		case 113243:
+			if(task != null) {
+				c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+			} else {
+				c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+			}
+			break;
+		// Consecutive Tasks -> Vote Points
+		case 113244:
+			if(task != null) {
+				c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+			} else {
+				c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+			}
+			break;
+		// Vote Points -> Donator Points
+		case 113245:
+			if(task != null) {
+				c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+			} else {
+				c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+			}
+			break;
+		// Donator Points -> PK Points
+		case 113246:
+			if(task != null) {
+				c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+			} else {
+				c.forcedChat("I currently have " + c.pkp + " PK Points.");
+			}
+			break;
+		// PK Points -> KDR
+		case 113247:
+			if(task != null) {
+				c.forcedChat("I currently have " + c.pkp + " PK Points.");
+			} else {
+				DecimalFormat df = new DecimalFormat("#.##");
+				double ratio = ((double) c.killcount) / ((double) c.deathcount);
+				c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");
+			}
+			break;
+		// KDR -> ??
+		case 113248:
+			if(task != null) {
+				DecimalFormat df = new DecimalFormat("#.##");
+				double ratio = ((double) c.killcount) / ((double) c.deathcount);
+				c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");				
+			}			
+			break;
+			
+			
+			
 		
 		case 90077:
 			c.getPA().showInterface(37700);
-			break;
-		
-		case 113234://Players online
-			c.sendMessage("@cr10@There are currently: [ @gre@" + PlayerHandler.getPlayerCount() + " @bla@] Players Online. ");
 			break;
 		
 		case 226158:
@@ -241,36 +351,36 @@ public class ClickingButtons implements PacketType {
 			c.getPA().removeAllWindows();
 			break;
 			
-		case 113248:
-			if (Server.getMultiplayerSessionListener().inAnySession(c)) {
-				return;
-			}
-//			c.getDH().sendDialogues(12000, -1);
-				for (int i = 8144; i < 8195; i++) {
-					c.getPA().sendFrame126("", i);
-				}
-				int[] frames = { 8149, 8150, 8151, 8152, 8153, 8154, 8155, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8163, 8164, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8172, 8173,
-						8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194 };
-				c.getPA().sendFrame126("@dre@Kill Tracker for @blu@" + c.playerName + "", 8144);
-				c.getPA().sendFrame126("", 8145);
-				c.getPA().sendFrame126("@blu@Total kills@bla@ - " + c.getNpcDeathTracker().getTotal() + "", 8147);
-				c.getPA().sendFrame126("", 8148);
-				int frameIndex = 0;
-				for (Entry<String, Integer> entry : c.getNpcDeathTracker().getTracker().entrySet()) {
-					if (entry == null) {
-						continue;
-					}
-					if (frameIndex > frames.length - 1) {
-						break;
-					}
-					if (entry.getValue() > 0) {
-						c.getPA().sendFrame126("@blu@" + WordUtils.capitalize(entry.getKey().toLowerCase()) + ": @red@" + entry.getValue(), frames[frameIndex]);
-						frameIndex++;
-					}
-				}
-				c.getPA().showInterface(8134);
-			//c.checkWellOfGoodwillTimers();
-			break;
+//		case 113248:
+//			if (Server.getMultiplayerSessionListener().inAnySession(c)) {
+//				return;
+//			}
+////			c.getDH().sendDialogues(12000, -1);
+//				for (int i = 8144; i < 8195; i++) {
+//					c.getPA().sendFrame126("", i);
+//				}
+//				int[] frames = { 8149, 8150, 8151, 8152, 8153, 8154, 8155, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8163, 8164, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8172, 8173,
+//						8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194 };
+//				c.getPA().sendFrame126("@dre@Kill Tracker for @blu@" + c.playerName + "", 8144);
+//				c.getPA().sendFrame126("", 8145);
+//				c.getPA().sendFrame126("@blu@Total kills@bla@ - " + c.getNpcDeathTracker().getTotal() + "", 8147);
+//				c.getPA().sendFrame126("", 8148);
+//				int frameIndex = 0;
+//				for (Entry<String, Integer> entry : c.getNpcDeathTracker().getTracker().entrySet()) {
+//					if (entry == null) {
+//						continue;
+//					}
+//					if (frameIndex > frames.length - 1) {
+//						break;
+//					}
+//					if (entry.getValue() > 0) {
+//						c.getPA().sendFrame126("@blu@" + WordUtils.capitalize(entry.getKey().toLowerCase()) + ": @red@" + entry.getValue(), frames[frameIndex]);
+//						frameIndex++;
+//					}
+//				}
+//				c.getPA().showInterface(8134);
+//			//c.checkWellOfGoodwillTimers();
+//			break;
 		
 		case 148118: //Exp
 //			if (Wogw.EXPERIENCE_TIMER > 0) {
@@ -869,45 +979,6 @@ public class ClickingButtons implements PacketType {
 				c.getPA().itemOnInterface(-1, -1, 64503, i);
 			}
 			break;
-		case 113236: //double drop
-			break;
-		case 113237: //double pkp
-		//	c.forcedChat("My Hunter killstreak is: " + c.getKillstreak().getAmount(Killstreak.Type.HUNTER) + " and my Rogue killstreak is: "
-		//			+ c.getKillstreak().getAmount(Killstreak.Type.ROGUE) + " ");
-			break;
-		case 113235: //double xp
-			break;
-		//case 113238:
-	/*		if (Server.getMultiplayerSessionListener().inAnySession(c)) {
-				return;
-			}
-//			c.getDH().sendDialogues(12000, -1);
-				for (int i = 8144; i < 8195; i++) {
-					c.getPA().sendFrame126("", i);
-				}
-				int[] frames = { 8149, 8150, 8151, 8152, 8153, 8154, 8155, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8163, 8164, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8172, 8173,
-						8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194 };
-				c.getPA().sendFrame126("@dre@Kill Tracker for @blu@" + c.playerName + "", 8144);
-				c.getPA().sendFrame126("", 8145);
-				c.getPA().sendFrame126("@blu@Total kills@bla@ - " + c.getNpcDeathTracker().getTotal() + "", 8147);
-				c.getPA().sendFrame126("", 8148);
-				int frameIndex = 0;
-				for (Entry<String, Integer> entry : c.getNpcDeathTracker().getTracker().entrySet()) {
-					if (entry == null) {
-						continue;
-					}
-					if (frameIndex > frames.length - 1) {
-						break;
-					}
-					if (entry.getValue() > 0) {
-						c.getPA().sendFrame126("@blu@" + WordUtils.capitalize(entry.getKey().toLowerCase()) + ": @red@" + entry.getValue(), frames[frameIndex]);
-						frameIndex++;
-					}
-				}
-				c.getPA().showInterface(8134);
-			break; */
-			//break;
-			
 		case 114121:
 			c.getDiaryManager().getVarrockDiary().display();
 			break;
@@ -942,54 +1013,6 @@ public class ClickingButtons implements PacketType {
 			c.getDiaryManager().getWildernessDiary().display();
 			break;
 			
-		case 113239:
-			long milliseconds = (long) c.playTime * 600;
-			long days = TimeUnit.MILLISECONDS.toDays(milliseconds);
-			long hours = TimeUnit.MILLISECONDS.toHours(milliseconds - TimeUnit.DAYS.toMillis(days));
-			String time = days + " days, " + hours + " hours.";
-			c.forcedChat("I've played Icarus for a total of : " + time);
-			break;
-		case 113240:
-			c.forcedChat("I currently have: " + c.pkp + " PK Points.");
-			break;
-		case 113241:
-			c.forcedChat("I currently have: " + c.donatorPoints + " Donator Points.");
-			break;
-		case 113242:
-			c.forcedChat("I currently have: " + c.votePoints + " Vote Points.");
-			break;
-		case 113243:
-			c.forcedChat("I currently have: " + c.pcPoints + " PC Points.");
-			break;
-		case 113250: //yt
-			//c.getPA().sendFrame126("www.youtube.com/", 12000);
-			//https://www.youtube.com/user/DopeRsps/videos
-			break;
-			case 113251: //Discord
-				c.sendMessage("<col=00ff00><shad=000000>Loading Discord</shad></col>");
-				c.getPA().sendFrame126("https://discord.gg/QWzRp6c", 12000);
-				//https://www.youtube.com/user/DopeRsps/videos
-				break;
-			case 113252: //Store
-				c.sendMessage("<col=0000ff><shad=000000>Store coming soon!</shad></col>");
-				//c.getPA().sendFrame126("https://icarusps.com/store", 12000);
-				//https://www.youtube.com/user/DopeRsps/videos
-				break;
-				
-		case 113244:
-			c.forcedChat("I currently have: " + c.getArenaPoints() + " Mage Arena Points.");
-			break;
-		case 113246:
-			c.forcedChat("I currently have: " + c.getSlayer().getConsecutiveTasks() + " consecutive slayer tasks.");
-			break;
-		case 113245:
-			c.forcedChat("I currently have: " + c.getSlayer().getPoints() + " Slayer Points.");
-			break;
-		case 113247:
-			DecimalFormat df = new DecimalFormat("#.##");
-			double ratio = ((double) c.killcount) / ((double) c.deathcount);
-			c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + "");
-			break;
 		case 113249:
 			break;
 		case 10253:

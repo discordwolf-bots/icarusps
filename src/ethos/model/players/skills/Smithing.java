@@ -1195,13 +1195,18 @@ public class Smithing {
 				/**
 				 * Chance of saving a bar while wearing herblore or max cape
 				 */
+				if(SkillcapePerks.SMITHING.isWearingMaster(c)) {
+					c.sendMessage("Master cape is on!");
+				}
 				if (SkillcapePerks.SMITHING.isWearing(c) || SkillcapePerks.isWearingMaxCape(c)) {
 					if (Misc.random(4) == 2) {
 						c.sendMessage("You manage to save your bars.");
 					} else {
+						c.sendMessage("oops");
 						c.getItems().deleteItem2(toremove, toremove2);
 					}
 				} else {
+					c.sendMessage("Nope");
 					c.getItems().deleteItem2(toremove, toremove2);
 				}
 				

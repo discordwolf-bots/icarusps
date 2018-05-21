@@ -221,7 +221,7 @@ public class PestControlRewards {
 			}
 			player.buyPestControlTimer = System.currentTimeMillis();
 			player.pcPoints -= cost;
-			player.refreshQuestTab(3);
+			//player.refreshQuestTab(3);
 			player.getPA().addSkillXP((player.getMode().isOsrs() ? experience / 26 : experience) * cost, skillId, true);
 			player.sendMessage("You have received " + ((player.getMode().isOsrs() ? experience / 26 : experience) * cost) + " experience in exchange for " + cost + " points.");
 		}
@@ -268,7 +268,7 @@ public class PestControlRewards {
 				return;
 			}
 			player.pcPoints -= cost;
-			player.refreshQuestTab(3);
+			//player.refreshQuestTab(3);
 			player.buyPestControlTimer = System.currentTimeMillis();
 			switch (item.getId()) {
 			case 10551:
@@ -348,7 +348,7 @@ public class PestControlRewards {
 				return;
 			}
 			player.pcPoints -= cost;
-			player.refreshQuestTab(3);
+			//player.refreshQuestTab(3);
 			player.buyPestControlTimer = System.currentTimeMillis();
 			int amount = 4 + Misc.random(1);
 			List<GameItem> list = new ArrayList<>(Arrays.asList(pack));

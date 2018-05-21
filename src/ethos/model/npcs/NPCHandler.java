@@ -3003,24 +3003,24 @@ public class NPCHandler {
 			PetHandler.receive(c, npcs[i]);
 			if (npcs[i].npcType >= 1610 && npcs[i].npcType <= 1612) {
 				c.setArenaPoints(c.getArenaPoints() + 1);
-				c.refreshQuestTab(4);
 				c.sendMessage("You gain @red@1 @bla@point for killing the Mage! You now have @red@"+ c.getArenaPoints() +" @bla@Arena Points.");
 			}
 			if (npcs[i].npcType == 5744 || npcs[i].npcType == 5762) {
 				c.setShayPoints(c.getShayPoints() + 3);
 				c.sendMessage("You gain @red@3 @bla@points for killing the Penance! You now have @red@"+ c.getShayPoints() +" @bla@Assault Points.");
 			}
-			for(MonsterHunt.Npcs hunt : MonsterHunt.Npcs.values()) {
-				if(npcs[i].npcType == hunt.getNpcId() && npcs[i].getHealth().getAmount() <= 0) {
-					//Player p = PlayerHandler.players[npcs[i].killedBy];
-					int randomPkp = Misc.random(15)+ 10;
-					c.pkp += randomPkp;
-					c.refreshQuestTab(0);
-					MonsterHunt.setCurrentLocation(null);
-					c.sendMessage("Well done! You killed the monster currently being hunted.");
-					c.sendMessage("You received: " + randomPkp + " PK Points for killing the monster being hunted.");
-				}
-			}
+			// TODO: Old pursuit boss
+//			for(MonsterHunt.Npcs hunt : MonsterHunt.Npcs.values()) {
+//				if(npcs[i].npcType == hunt.getNpcId() && npcs[i].getHealth().getAmount() <= 0) {
+//					//Player p = PlayerHandler.players[npcs[i].killedBy];
+//					int randomPkp = Misc.random(15)+ 10;
+//					c.pkp += randomPkp;
+//					c.refreshQuestTab(0);
+//					MonsterHunt.setCurrentLocation(null);
+//					c.sendMessage("Well done! You killed the monster currently being hunted.");
+//					c.sendMessage("You received: " + randomPkp + " PK Points for killing the monster being hunted.");
+//				}
+//			}
 			int dropX = npcs[i].absX;
 			int dropY = npcs[i].absY;
 			int dropHeight = npcs[i].heightLevel;

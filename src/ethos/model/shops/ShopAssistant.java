@@ -1497,7 +1497,7 @@ public class ShopAssistant {
 									return false;
 								} else {
 									c.getSlayer().setPoints(c.getSlayer().getPoints() + TotPrice2);
-									c.refreshQuestTab(5);
+									c.refreshQuestTab(0);
 								}
 							}
 							//addShopItem(itemID, amount);
@@ -1525,7 +1525,7 @@ public class ShopAssistant {
 									return false;
 								} else {
 									c.getSlayer().setPoints(c.getSlayer().getPoints() + TotPrice2);
-									c.refreshQuestTab(5);
+									c.refreshQuestTab(0);
 								}
 							}
 						
@@ -1938,7 +1938,6 @@ public class ShopAssistant {
 				return;
 			}
 			c.setArenaPoints(c.getArenaPoints() - itemValue);
-			c.refreshQuestTab(4);
 			c.getItems().addItem(itemID, amount);
 			c.getItems().resetItems(3823);
 			return;
@@ -2136,7 +2135,7 @@ public class ShopAssistant {
 					c.getSlayer().setPoints(c.getSlayer().getPoints() - (getSpecialItemValue(itemID) * amount));
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
-					c.refreshQuestTab(5);
+					c.refreshQuestTab(0);
 				}
 			} else {
 				c.sendMessage("You do not have enough slayer points to buy this item.");
@@ -2145,7 +2144,7 @@ public class ShopAssistant {
 			if (c.donatorPoints >= getSpecialItemValue(itemID) * amount) {
 				if (c.getItems().freeSlots() > 0) {
 					c.donatorPoints -= getSpecialItemValue(itemID) * amount;
-					c.refreshQuestTab(1);
+					c.refreshQuestTab(3);
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
 				}
@@ -2170,7 +2169,7 @@ public class ShopAssistant {
 					c.getSlayer().setPoints(c.getSlayer().getPoints() - (getSpecialItemValue(itemID) * amount));
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
-					c.refreshQuestTab(5);
+					c.refreshQuestTab(0);
 				}
 			} else {
 				c.sendMessage("You do not have enough slayer points to buy this item.");
@@ -2189,7 +2188,6 @@ public class ShopAssistant {
 			if (c.pcPoints >= getSpecialItemValue(itemID) * amount) {
 				if (c.getItems().freeSlots() > 0) {
 					c.pcPoints -= getSpecialItemValue(itemID) * amount;
-					c.refreshQuestTab(3);
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
 				}
@@ -2200,7 +2198,7 @@ public class ShopAssistant {
 			if (c.votePoints >= getSpecialItemValue(itemID) * amount) {
 				if (c.getItems().freeSlots() > 0) {
 					c.votePoints -= getSpecialItemValue(itemID) * amount;
-					c.refreshQuestTab(1);
+					c.refreshQuestTab(6);
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
 				}

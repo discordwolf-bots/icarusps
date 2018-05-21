@@ -100,6 +100,20 @@ public class PlayerHandler {
 		}
 		return (count + Config.PLAYERMODIFIER);
 	}
+	
+	public static int getStaffCount() {
+		int count = 0;
+		for (int i = 0; i < PlayerHandler.players.length; i++) {
+			if (PlayerHandler.players[i] != null) {
+				Player c2 = PlayerHandler.players[i];
+				if (c2.getRights().isOrInherits(Right.HELPER) || c2.getRights().isOrInherits(Right.MODERATOR) || c2.getRights().isOrInherits(Right.ADMINISTRATOR)
+						|| c2.getRights().isOrInherits(Right.OWNER)) {
+					count++;
+				}
+			}
+		}
+		return count;
+	}
 
 	public static boolean isPlayerOn(String playerName) {
 		for (int i = 0; i < Config.MAX_PLAYERS; i++) {
