@@ -636,72 +636,45 @@ public class PlayerAssistant {
 		long milliseconds = (long) c.playTime * 600;
 		long days = TimeUnit.MILLISECONDS.toDays(milliseconds);
 		long hours = TimeUnit.MILLISECONDS.toHours(milliseconds - TimeUnit.DAYS.toMillis(days));
-		String time = days + " days, " + hours + " hours."; 
-		sendFrame126(" @or1@Icarus", 29155);
-		sendFrame126("<img=1> @whi@Server Information", 29161);
-		if (!DoubleExperience.isDoubleExperience(c)) {
-			sendFrame126("@or2@- Double XP Active : @red@NO", 29163);
-		} else {
-			sendFrame126("@or2@- Double XP Active : @gre@YES", 29163);
+		String time = days + " days, " + hours + " hours.";
+		int staff = PlayerHandler.getStaffCount();
+		Task task = c.getSlayer().getTask().orElse(null);
+		
+		for (int i=29155; i<=29264; i++) {
+			sendFrame126("", i);
 		}
-		if (!Config.DOUBLE_DROPS) {
-			sendFrame126("@or2@- Double Drop Active : @red@NO", 29164);
+		
+		sendFrame126("IcarusPS", 29155);
+		
+		sendFrame126("<img=1> Server Info", 29161);
+		sendFrame126("@or1@- Players Online: @gre@" + PlayerHandler.getPlayerCount(), 29162);
+		if(staff == 0) {
+			sendFrame126("@or1@- Staff Online: @red@" + PlayerHandler.getStaffCount(), 29163);
 		} else {
-			sendFrame126("@or2@- Double Drop Active : @gre@YES", 29164);
+			sendFrame126("@or1@- Staff Online: @gre@" + PlayerHandler.getStaffCount(), 29163);			
 		}
-		if (!Config.DOUBLE_PKP) {
-			sendFrame126("@or2@- Double PKP Active : @red@NO", 29165);
+		sendFrame126("@or1@- <img=11> <col=697ec7>Discord</col>", 29164);
+		sendFrame126("@or1@- <img=17> <col=e58888>Forums</col>", 29165);
+		sendFrame126("", 29166);
+		
+		sendFrame126("<img=0> Character Info", 663);
+		sendFrame126("@or2@- Rank: @or1@" + c.getRights().getPrimary().name(), 29167);
+		sendFrame126("@or2@- Play time: @or1@" + time, 29168);
+		int offset = 0;
+		if (task == null) {
+			sendFrame126("@or2@- Slayer Task: @red@None", 29169);			
 		} else {
-			sendFrame126("@or2@- Double PKP Active : @gre@YES", 29165);
+			offset++;
+			sendFrame126("@or2@- Slayer Task: @gre@" + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169);
+			sendFrame126("@or1@Teleport to Task?", 29170);
 		}
-		if (Config.BONUS_XP_WOGW) {
-			sendFrame126("@or2@- Well : @gre@Double XP", 29166);
-		} else if (Config.BONUS_PC_WOGW) {
-			sendFrame126("@or2@- Well : @gre@Double PC Points", 29166);
-		} else if (Config.DOUBLE_DROPS) {
-			sendFrame126("@or2@- Well : @gre@Double Drop Rate", 29166);
-		} else {
-			sendFrame126("@or2@- Well : @red@Inactive", 29166);
-		}
-		//sendFrame126("@or2@- Server Event Active : @red@NO", 29166);
-		sendFrame126("<img=0> @whi@Account Information", 663);
-		sendFrame126("@or2@- Play Time: @or1@" + time, 29167);
-		sendFrame126("@or2@- PK Points: @or1@" + c.pkp, 29168);
-		sendFrame126("@or2@- Donator Points: @or1@" + c.donatorPoints, 29169);
-		sendFrame126("@or2@- Vote Points: @or1@" + c.votePoints, 29170);
-		sendFrame126("@or2@- PC Points: @or1@" + c.pcPoints, 29171);
-		sendFrame126("@or2@- Mage Arena Points: @or1@" + c.getArenaPoints(), 29172);
-		sendFrame126("@or2@- Slayer Points: @or1@" + c.getSlayer().getPoints() , 29173);
-		sendFrame126("@or2@- Consecutive Tasks: @or1@" + c.getSlayer().getConsecutiveTasks(), 29174);
-		sendFrame126("@or2@- Kills/Deaths: @or1@" + c.killcount + "@or2@/@or1@" + c.deathcount, 29175);
-		sendFrame126("@or1@- NPC Kills Table", 29176);
-		sendFrame126("<img=17> @whi@Quick Links", 29177);
-		//sendFrame126("@or2@<img=14> Icarus Channel: @or1@Click Here", 29178);
-		sendFrame126("@or2@<img=11> Icarus Discord: @or1@Click Here", 29179);
-		sendFrame126("@or2@<img=19> Icarus Store: @or1@Click Here", 29180);
-		/*		sendFrame126("Online: @gre@" + PlayerHandler.getPlayerCount() + "", 29155);
-		sendFrame126("@or2@@cr10@ Statistics", 29161);
-		Right primary = c.getRights().getPrimary();
-		sendFrame126("@or1@- Rank: <col=" + primary.getColor() + ">" + primary.toString() + "</col>", 29162);
-		sendFrame126("@or1@- PK Points: @whi@" + c.pkp, 29163);
-		sendFrame126("@or1@- Kills/Deaths: @whi@" + c.killcount + "@or1@/@whi@" + c.deathcount, 29164);
-		sendFrame126("@or1@- Current Killstreak: @whi@" + c.killStreak, 29165);
-		sendFrame126("@or1@- Monster Kill Tracker", 29166);
-		sendFrame126("@or2@@cr10@ Information", 663);
-		sendFrame126("@or1@- Played: @whi@" + time, 29167);
-		sendFrame126("@or1@- Amount Donated: @whi@" + c.amDonated, 29168);
-		sendFrame126("@or1@- Donator Points: @whi@" + c.donatorPoints, 29169);
-		sendFrame126("@or1@- Vote Points: @whi@" + c.votePoints, 29170);
-		sendFrame126("@or1@- PC Points: @whi@" + c.pcPoints, 29171);
-		sendFrame126("@or1@- Mage Arena Points: @whi@" + c.getArenaPoints(), 29172);
-		sendFrame126("@or1@- Slayer Points: @whi@" + c.getSlayer().getPoints() , 29173);
-		sendFrame126("@or1@- Consecutive Tasks: @whi@" + c.getSlayer().getConsecutiveTasks(), 29174);
-		sendFrame126("@or1@- Did you know? @whi@" + (c.didYouKnow ? "Enabled" : "Disabled"), 29175);
-		sendFrame126("@or1@- Is WOGW active? - (@whi@Click@or1@)", 29176);
-		sendFrame126("@or2@@cr10@ Minigames", 29177);
-		sendFrame126("@or1@- PK District: @whi@" + (Boundary.entitiesInArea(Boundary.CLAN_WARS) + Boundary.entitiesInArea(Boundary.CLAN_WARS_SAFE)), 29178);
-		sendFrame126("@or1@- Wilderness: @whi@" + (Boundary.entitiesInArea(Boundary.WILDERNESS) + Boundary.entitiesInArea(Boundary.WILDERNESS_UNDERGROUND) + Boundary.entitiesInArea(Boundary.WILDERNESS_GOD_WARS_BOUNDARY)), 29179);
-		sendFrame126("@or1@- Pest Control: @whi@" + Boundary.entitiesInArea(Boundary.PEST_CONTROL_AREA), 29180); */
+		sendFrame126("@or2@- Slayer Points: @or1@" + c.getSlayer().getPoints(), 29170+offset);
+		sendFrame126("@or2@- Consecutive Tasks: @or1@" + c.getSlayer().getConsecutiveTasks(), 29171+offset);
+		sendFrame126("@or2@- Vote Points: @or1@" + c.votePoints, 29172+offset);
+		sendFrame126("@or2@- Donator Points: @or1@<img=18> " + c.donatorPoints, 29173+offset);
+		sendFrame126("@or2@- PK Points: @or1@" + c.pkp, 29174+offset);
+		sendFrame126("@or2@- Kill/Death: @or1@" + c.killcount + "@or2@/@or1@" + c.deathcount, 29175+offset);
+		
 	}
 
 	public void sendFrame126(String s, int id) {

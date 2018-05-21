@@ -106,6 +106,7 @@ import ethos.model.players.skills.mining.Mining;
 import ethos.model.players.skills.prayer.Prayer;
 import ethos.model.players.skills.runecrafting.Runecrafting;
 import ethos.model.players.skills.slayer.Slayer;
+import ethos.model.players.skills.slayer.Task;
 import ethos.model.players.skills.thieving.Thieving;
 import ethos.model.shops.ShopAssistant;
 import ethos.net.Packet;
@@ -865,41 +866,24 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	}
 	
 	public void refreshQuestTab(int i) {
+		Task task = this.getSlayer().getTask().orElse(null);
 		switch (i) {
-			case 0:
-				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + pkp, 29168);
-				break;
-			case 1:
-				this.getPA().sendFrame126("@or2@- Donator Points: @or1@" + donatorPoints, 29169);
-				break;
-			case 2:
-				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + votePoints, 29170);
-				break;
-			case 3:
-				this.getPA().sendFrame126("@or2@- PC Points: @or1@" + pcPoints, 29171);
-				break;
-			case 4:
-				this.getPA().sendFrame126("@or2@- Mage Arena Points: @or1@" + getArenaPoints(), 29172);
-				break;
-			case 5:
-				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + getSlayer().getPoints() , 29173);
-				break;
-			case 6:
-				this.getPA().sendFrame126("@or2@- Consecutive Tasks: @or1@" + getSlayer().getConsecutiveTasks(), 29174);
-				break;
-			case 7:
-				this.getPA().sendFrame126("@or2@- Kills/Deaths: @or1@" + killcount + "@or2@/@or1@" + deathcount, 29175);
-				break;
-			case 8:
-				if (Config.BONUS_XP_WOGW == true) {
-					this.getPA().sendFrame126("@or2@- Well : @gre@Double XP", 29166);
-				} else if (Config.BONUS_PC_WOGW == true) {
-					this.getPA().sendFrame126("@or2@- Well : @gre@Double PC Points", 29166);
-				} else if (Config.DOUBLE_DROPS == true) {
-					this.getPA().sendFrame126("@or2@- Well : @gre@Double Drops", 29166);
+			case 0: // Gained a Slayer Task
+			case 1: // Finished a Slayer Task
+				int offset = 0;
+				if (task == null) {
+					this.getPA().sendFrame126("@or2@- Slayer Task: @red@None", 29169);			
 				} else {
-					this.getPA().sendFrame126("@or2@- Well : @red@Inactive", 29166);
+					offset++;
+					this.getPA().sendFrame126("@or2@- Slayer Task: @gre@" + this.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169);
+					this.getPA().sendFrame126("@or1@Teleport to Task?", 29170);
 				}
+				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
+				this.getPA().sendFrame126("@or2@- Consecutive Tasks: @or1@" + this.getSlayer().getConsecutiveTasks(), 29171+offset);
+				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
+				this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
+				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
+				this.getPA().sendFrame126("@or2@- Kill/Death: @or1@" + this.killcount + "@or2@/@or1@" + this.deathcount, 29175+offset);
 				break;
 		}
 	}
@@ -1381,8 +1365,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		if (playTime < Integer.MAX_VALUE && !isIdle) {
 			playTime++;
 		}
-
-		getPA().sendFrame126("@or2@- Players Online: @gre@" + PlayerHandler.getPlayerCount() + "", 29162);
+		
 		if (System.currentTimeMillis() - specDelay > Config.INCREASE_SPECIAL_AMOUNT) {
 			specDelay = System.currentTimeMillis();
 			if (specAmount < 10) {

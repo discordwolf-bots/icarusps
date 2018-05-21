@@ -90,6 +90,7 @@ public class ItemOptionOne implements PacketType {
 			return;
 		}
 		switch (itemId) {
+		
 		case 21347:
 			c.boltTips = true;
 			c.arrowTips = false;
