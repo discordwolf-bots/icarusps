@@ -37,7 +37,7 @@ public class Farming {
 	
 	public static int[] farmersOutfit = { 13640, 13642, 13644, 13646 };
 	
-	public static final int MAX_PATCHES = 8;
+	public static final int MAX_PATCHES = 30;
 	private Player player;
 	private int weeds;
 	
@@ -525,14 +525,26 @@ public class Farming {
 	}
 	
 	enum Patch {
-		ENTRANA1(0, 3003, 3372),
-		ENTRANA2(1, 3003, 3374),
-		ENTRANA3(2, 3005, 3372),
-		ENTRANA4(3, 3005, 3374);
-/*		DONATOR1(4, 2810, 3338),
-		DONATOR2(5, 2811, 3338),
-		DONATOR3(6, 2810, 3335),
-		DONATOR4(7, 2811, 3335);*/
+		DONATOR1(0, 2579, 3866),
+		DONATOR2(1, 2579, 3867),
+		DONATOR3(2, 2580, 3866),
+		DONATOR4(3, 2580, 3867),
+		DONATOR5(4, 2581, 3866),
+		DONATOR6(5, 2581, 3867),
+		DONATOR7(6, 2582, 3866),
+		DONATOR8(7, 2582, 3867),
+		DONATOR9(8, 2583, 3866),
+	    DONATOR10(9, 2583, 3867),
+		DONATOR11(10, 2584, 3866),
+	    DONATOR12(11, 2584, 3867),
+		DONATOR13(12, 2585, 3867),
+  	    DONATOR14(13, 2585, 3866),
+	    DONATOR15(14, 2586, 3866),
+		DONATOR16(15, 2586, 3867),
+		DONATOR17(16, 2585, 3865),
+		DONATOR18(17, 2586, 3865),
+		DONATOR19(18, 2586, 3864),
+		DONATOR20(19, 2585, 3864);
 		
 		
 		int id, x, y;
