@@ -341,7 +341,7 @@ public class TwoOptions {
 			
 		case 6570:
 			c.getSacrifice().SacrificeAll();
-			c.sendMessage("Its working");
+			c.getPA().closeAllWindows();
 			break;
 		}
 		if (c.dialogueAction == 7286) {
