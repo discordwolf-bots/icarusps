@@ -69,7 +69,7 @@ public class ItemOnObject implements PacketType {
 				c.objectYOffset = 3;
 				break;
 
-			case 4125:
+			case 21355:
 				c.getSacrifice().SacrificeItem(itemId);
 				break;
 		

@@ -150,6 +150,11 @@ public class ObjectOptionOne {
 		}
 		
 		switch (objectType) {
+		
+		case 21355:
+			//TODO: Sacrifice all items c.getSacrifice().SacrificeAll() include warning message before sacrificing
+			break;
+		
 		case 29777:
 			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				c.sendMessage("Raids are currently <col=ff0000><shad=000000>DISABLED</shad></col>)");
