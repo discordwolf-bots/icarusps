@@ -870,6 +870,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		Task task = this.getSlayer().getTask().orElse(null);
 		int offset = 0;
 		if(task != null) offset++;
+		int staff = PlayerHandler.getStaffCount();
 		
 		switch (i) {
 			case 0: // Gained a Slayer Task
@@ -898,6 +899,11 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 				break;
 			case 5: // Players
 				this.getPA().sendFrame126("@or1@- Players Online: @gre@" + PlayerHandler.getPlayerCount(), 29162);
+				if(staff == 0) {
+					this.getPA().sendFrame126("@or1@- Staff Online: @red@" + PlayerHandler.getStaffCount(), 29163);
+				} else {
+					this.getPA().sendFrame126("@or1@- Staff Online: @gre@" + PlayerHandler.getStaffCount(), 29163);			
+				}
 				break;
 			case 6: // Vote Points
 				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
