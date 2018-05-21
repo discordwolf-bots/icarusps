@@ -1726,7 +1726,7 @@ public void sendFrame107() {
 								c.deathcount++;
 								playerKiller.killcount++;
 								playerKiller.refreshQuestTab(0);
-								playerKiller.refreshQuestTab(7);
+								playerKiller.refreshQuestTab(0);
 								playerKiller.getPA().sendFrame126(
 										"@or1@Hunter KS: @gre@" + playerKiller.getKillstreak().getAmount(Killstreak.Type.HUNTER) + "@or1@, " + "Rogue KS: @gre@"
 												+ playerKiller.getKillstreak().getAmount(Killstreak.Type.ROGUE), 29165);
@@ -1904,7 +1904,7 @@ public void sendFrame107() {
 		c.setSkeletalMysticDamageCounter(0);
 		c.setGlodDamageCounter(0);
 		c.setIceQueenDamageCounter(0);
-		c.refreshQuestTab(7);
+		c.refreshQuestTab(0);
 		
 		//If a player is in any of these areas, their items will not be dropped to themselves nor others
 		if (!c.inDuelArena() && !Boundary.isIn(c, Boundary.DUEL_ARENA) 
@@ -4369,12 +4369,12 @@ public void sendFrame107() {
 			switch (pointVar) {
 			case PK_POINTS:
 				c.pkp += exchange;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				break;
 
 			case VOTE_POINTS:
 				c.votePoints += exchange;
-				c.refreshQuestTab(2);
+				c.refreshQuestTab(6);
 				break;
 			case BLOOD_POINTS:
 				c.bloodPoints += amount;

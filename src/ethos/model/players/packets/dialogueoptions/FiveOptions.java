@@ -165,7 +165,7 @@ public class FiveOptions {
 			if (c.getItems().playerHasItem(6737, 1) && c.pkp >= 250) {
 				c.getItems().deleteItem(6737, 1);
 				c.pkp -= 250;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				c.getItems().addItem(11773, 1);
 				c.sendMessage("You imbue your berserker ring for the cost of @blu@250 PKP@bla@.");
 				c.getPA().removeAllWindows();
@@ -181,7 +181,7 @@ public class FiveOptions {
 			if (c.getItems().playerHasItem(12605, 1) && c.pkp >= 250) {
 				c.getItems().deleteItem(12605, 1);
 				c.pkp -= 250;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				c.getItems().addItem(12692, 1);
 				c.sendMessage("You imbue your treasonous ring for the cost of @blu@250 PKP@bla@.");
 				c.getPA().removeAllWindows();
@@ -431,7 +431,7 @@ public class FiveOptions {
 			if (c.getItems().playerHasItem(6733, 1) && c.pkp >= 250) {
 				c.getItems().deleteItem(6733, 1);
 				c.pkp -= 250;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				c.getItems().addItem(11771, 1);
 				c.sendMessage("You imbue your archer ring for the cost of @blu@250 PKP@bla@.");
 				c.getPA().removeAllWindows();
@@ -447,7 +447,7 @@ public class FiveOptions {
 			if (c.getItems().playerHasItem(12603, 1) && c.pkp >= 250) {
 				c.getItems().deleteItem(12603, 1);
 				c.pkp -= 250;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				c.getItems().addItem(12691, 1);
 				c.sendMessage("You imbue your treasonous ring for the cost of @blu@250 PKP@bla@.");
 				c.getPA().removeAllWindows();
@@ -684,7 +684,7 @@ public class FiveOptions {
 			if (c.getItems().playerHasItem(6731, 1) && c.pkp >= 250) {
 				c.getItems().deleteItem(6731, 1);
 				c.pkp -= 250;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				c.getItems().addItem(11770, 1);
 				c.sendMessage("You imbue your seers ring for the cost of @blu@250 PKP@bla@.");
 				c.getPA().removeAllWindows();
@@ -900,7 +900,7 @@ public class FiveOptions {
 			if (c.getItems().playerHasItem(6735, 1) && c.pkp >= 250) {
 				c.getItems().deleteItem(6735, 1);
 				c.pkp -= 250;
-				c.refreshQuestTab(0);
+				c.refreshQuestTab(4);
 				c.getItems().addItem(11772, 1);
 				c.sendMessage("You imbue your warrior ring for the cost of @blu@250 PKP@bla@.");
 				c.getPA().removeAllWindows();
