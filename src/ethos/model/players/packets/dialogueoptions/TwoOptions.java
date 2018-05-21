@@ -340,6 +340,11 @@ public class TwoOptions {
 			Server.getDropManager().open2(c);
 			c.sendMessage("Now viewing drop-rates in 1/kills form");
 			break;
+			
+		case 6570:
+			c.getSacrifice().SacrificeAll();
+			c.sendMessage("Its working");
+			break;
 		}
 		if (c.dialogueAction == 7286) {
 			
@@ -914,6 +919,10 @@ public class TwoOptions {
 			break;
 			
 		case 70300: //Attempt for pet
+			c.getPA().closeAllWindows();
+			break;
+			
+		case 6570:
 			c.getPA().closeAllWindows();
 			break;
 			

@@ -153,6 +153,7 @@ public class ObjectOptionOne {
 		
 		case 21355:
 			//TODO: Sacrifice all items c.getSacrifice().SacrificeAll() include warning message before sacrificing
+			c.getDH().sendDialogues(6571, 0);
 			break;
 		
 		case 29777:

@@ -345,6 +345,16 @@ public class DialogueHandler {
 			}
 			c.nextChat = -1;
 			break;
+			
+		case 6570:
+			sendOption2("Sacrifice all possible items in my inventory", "Cancel Item Sacrifice");
+			c.dialogueAction = 6570;
+			break;
+			
+		case 6571:
+			sendNpcChat("@red@!WARNING!@bla@", "You are about to sacrifice all possible items", "from your inventory! This cannot be undone!", "Are you sure you want to continue?");
+			c.nextChat = 6570;
+			break;
 		
 		case 64:
 			sendOption2("Buy a kitten for 15.000gp", "Do nothing..");
