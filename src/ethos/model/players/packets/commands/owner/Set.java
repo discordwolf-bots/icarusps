@@ -42,7 +42,7 @@ public class Set extends Command {
 		case "players":
 			Config.PLAYERMODIFIER = Integer.parseInt(args[1]);
 			c.sendMessage("Player Count Modifier: +"+ Integer.parseInt(args[1]));
-			c.refreshQuestTab(5);
+		
 			break;
 		
 		}
