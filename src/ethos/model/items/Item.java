@@ -307,6 +307,7 @@ public class Item {
 				boolean stackable = Boolean.parseBoolean(data.split("\t")[1]);
 				itemStackable[id] = stackable;
 				itemStackable[6646] = true;
+				itemStackable[989] = true;
 				itemStackable[6651] = true;
 			}
 		} catch (IOException e) {

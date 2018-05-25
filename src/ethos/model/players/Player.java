@@ -297,6 +297,7 @@ public class Player extends Entity {
 	public byte buffer[] = null;
 	public Stream inStream = null, outStream = null;
 	public SimpleTimer potionTimer = new SimpleTimer();
+	public SimpleTimer agilityTimer = new SimpleTimer();
 	public int[] degradableItem = new int[Degrade.MAXIMUM_ITEMS];
 	public boolean[] claimDegradableItem = new boolean[Degrade.MAXIMUM_ITEMS];
 	private Entity targeted;
