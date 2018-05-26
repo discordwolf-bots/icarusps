@@ -340,7 +340,7 @@ public class TwoOptions {
 			break;
 			
 		case 6570:
-			c.getSacrifice().SacrificeAll();
+			//c.getSacrifice().SacrificeAll();
 			c.getPA().closeAllWindows();
 			break;
 		}

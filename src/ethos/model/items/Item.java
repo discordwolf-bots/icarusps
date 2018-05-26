@@ -306,6 +306,9 @@ public class Item {
 				int id = Integer.parseInt(data.split("\t")[0]);
 				boolean stackable = Boolean.parseBoolean(data.split("\t")[1]);
 				itemStackable[id] = stackable;
+				GameItem item = new GameItem(id);
+				if(item.toString().contains("Grimy"))
+					itemStackable[id] = true;
 				itemStackable[6646] = true;
 				itemStackable[989] = true;
 				itemStackable[6651] = true;

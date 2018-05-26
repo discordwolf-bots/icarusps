@@ -126,7 +126,7 @@ public class UseItem {
 
 		switch (objectID) {
 			case 4125: //use item on large geyser to start sacrifice
-				c.getSacrifice().SacrificeItem(itemId);
+				//c.getSacrifice().SacrificeItem(itemId);
 				break;
 		
 			case 16469:

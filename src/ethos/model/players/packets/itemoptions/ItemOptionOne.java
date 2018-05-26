@@ -132,7 +132,7 @@ public class ItemOptionOne implements PacketType {
 		case 5021://Uncommon Ticket
 		case 5022://Rare Ticket
 		case 5023://Very Rare Ticket
-			c.getSacrifice().ExchangeTickets(new GameItem(itemId));
+			//c.getSacrifice().ExchangeTickets(new GameItem(itemId));
 			break;
 			
 		case 13226:

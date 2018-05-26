@@ -5,7 +5,7 @@ import ethos.Server;
 import ethos.model.content.LootingBag.LootingBag;
 import ethos.model.content.barrows.Barrows;
 import ethos.model.content.teleportation.TeleportTablets;
-import ethos.model.items.GameItem;
+//import ethos.model.items.GameItem;
 import ethos.model.items.ItemDefinition;
 import ethos.model.items.item_combinations.Godswords;
 import ethos.model.multiplayer_session.MultiplayerSessionFinalizeType;
@@ -17,7 +17,7 @@ import ethos.model.players.PacketType;
 import ethos.model.players.Player;
 import ethos.model.players.Right;
 import ethos.model.players.combat.Degrade;
-import ethos.model.players.sacrifice.Sacrifice.Rarity;
+//import ethos.model.players.sacrifice.Sacrifice.Rarity;
 import ethos.model.players.skills.hunter.impling.Impling;
 import ethos.model.players.skills.runecrafting.Pouches;
 import ethos.model.players.skills.runecrafting.Pouches.Pouch;
@@ -93,7 +93,7 @@ public class ItemOptionTwo implements PacketType {
 		case 5021://Uncommon Ticket
 		case 5022://Rare Ticket
 		case 5023://Very Rare Ticket
-			player.getSacrifice().ExchangeTickets(new GameItem(itemId));
+			//player.getSacrifice().ExchangeTickets(new GameItem(itemId));
 			break;
 			
 		case 20164: //Spade

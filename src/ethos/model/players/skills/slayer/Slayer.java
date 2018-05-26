@@ -207,6 +207,7 @@ public class Slayer {
 						handleSuperiorSpawn(npc);
 						handleSuperiorExp(npc);
 					}
+					player.refreshQuestTab(0);
 					if ((taskAmount%10 == 0 || taskAmount < 10) && taskAmount != 0) {
 						player.sendMessage("Only <col=ff0000><shad=000000>" + taskAmount + "</shad></col> " + name + " left!");
 					}

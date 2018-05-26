@@ -63,10 +63,17 @@ public class CorporealBeast {
 	 */
 	public static void attack(Player attacker, Damage damage) {
 		NPC corp = NPCHandler.getNpc(319);
+<<<<<<< HEAD
 		//int change = Misc.random((int) (damage.getAmount() / 2));
 		
 		if (corp.getHealth().getAmount() > 1)
 		if (!attacker.getItems().isWearingItem(11824)) {
+=======
+		//int change = Misc.random((int) (damage.getAmount() / 1));
+		
+		if (corp.getHealth().getAmount() > 50)
+		if (!attacker.getItems().isWearingItem(11824,11889)) {
+>>>>>>> dbd1675dc61b4a1764cc529e74e259b1bd2fc73e
 			//damage.setAmount(change);
 		}
 	}
