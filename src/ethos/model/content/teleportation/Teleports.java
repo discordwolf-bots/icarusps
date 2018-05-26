@@ -13,7 +13,7 @@ public class Teleports {
 				new TeleportOption("Piscarilius House", 1802, 3778, 0),
 				new TeleportOption("Shayzien House", 1504, 3620, 0),
 				new TeleportOption("@cr22@Lovakengj House", 1498, 3809, 0),
-				new TeleportOption("Catacombs of Kourend", 1629, 3672, 0),
+				new TeleportOption("Catacombs of Kourend", 1664, 10050, 0),
 				new TeleportOption("Mount Quidamortem", 1254, 3567, 0),
 				new TeleportOption("Shayzien's Wall", 1402, 3536, 0),
 				new TeleportOption("", 0, 0, 0),
