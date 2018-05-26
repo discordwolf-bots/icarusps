@@ -84,7 +84,7 @@
         "pointRewards": [ 20, 50, 100, 250, 500, 800, 1000 ],
         "available": [
             {
-                "names": [ "banshee", "screaming banshee" ],
+                "names": [ "banshee",  ],
                 "level": 15,
                 "experience": 22,
                 "minimum": 15,
@@ -198,7 +198,7 @@
                 "minimum": 15,
                 "maximum": 110,
 				"locations": [ "Edgeville Dungeon" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3119, 9972, 0]
             },
             {
                 "names": [ "green dragon" ],
@@ -269,8 +269,8 @@
                 "experience": 60,
                 "minimum": 10,
                 "maximum": 60,
-				"locations": [ "Varrock Sewer" ],
-				"teleport": [3157, 9903, 0]
+				"locations": [ "catacombs" ],
+				"teleport": [1689, 10046, 0]
             },
             {
                 "names": [ "pyrefiend", "flaming pyrelord" ],
@@ -385,7 +385,7 @@
                 "minimum": 50,
                 "maximum": 129,
                 "locations": [ "Stronghold slayer dungeon" ],
-                "teleport": [2461, 9814, 0]
+                "teleport": [2290, 10007, 0]
             },
             {
                 "names": [ "dagannoth", "dagannoth rex", "dagannoth prime", "dagannoth supreme", "dagannoth mother" ],
@@ -457,7 +457,7 @@
 				"minimum": 30,
 				"maximum": 80,
                 "locations": [ "Lletya" ],
-                "teleport": [2341, 3172, 0]
+                "teleport": [2897, 2725, 0]
 			},
             {
                 "names": [ "iron dragon" ],
@@ -502,7 +502,7 @@
                 "minimum": 40,
                 "maximum": 100,
                 "locations": [ "around home area" ],
-                "teleport": [1507, 3598, 1]
+                "teleport": [1507, 3598, 0]
             },
 			{
                 "names": [ "skeleton brute" ],
@@ -511,7 +511,7 @@
                 "minimum": 40,
                 "maximum": 100,
                 "locations": [ "around home area" ],
-                "teleport": [1546, 3613, 1]
+                "teleport": [1546, 3613, 0]
             },
 	        {
                 "names": [ "skeleton hero" ],
@@ -520,7 +520,7 @@
                 "minimum": 40,
                 "maximum": 100,
                 "locations": [ "around home area" ],
-                "teleport": [1537, 3642, 1]
+                "teleport": [1537, 3642, 0]
             },
 			{
                 "names": [ "skeleton thug" ],
@@ -529,7 +529,7 @@
                 "minimum": 40,
                 "maximum": 100,
                 "locations": [ "around home area" ],
-                "teleport": [1463, 3643, 1]
+                "teleport": [1463, 3643, 0]
             },
 						{
                 "names": [ "skeleton heavy" ],
@@ -538,7 +538,7 @@
                 "minimum": 40,
                 "maximum": 100,
                 "locations": [ "around home area" ],
-                "teleport": [1467, 3610, 1]
+                "teleport": [1467, 3610, 0]
             },
             {
                 "names": [ "smoke devil", "thermonuclear smoke devil", "nuclear smoke devil" ],
@@ -583,7 +583,7 @@
                 "minimum": 75,
                 "maximum": 90,
 				"locations": [ "Catacombs" ],
-				"teleport": [3438, 3560, 0]
+				"teleport": [1622, 9993, 0]
             },
 			{
                 "names": [ "warped jelly", "vitreous warped jelly" ],
@@ -592,7 +592,7 @@
                 "minimum": 65,
                 "maximum": 90,
 				"locations": [ "Catacombs" ],
-				"teleport": [2704, 10025, 0]
+				"teleport": [1723, 10049, 0]
 		    },
             {
                 "names": [ "brutal black dragon"],
@@ -637,7 +637,7 @@
                "minimum": 5,
                "maximum": 90,
                "locations": [ "catacombs" ],
-               "teleport": [-1, -1, -1]
+               "teleport": [1607, 10013, 0]
             }
         ]
     },
