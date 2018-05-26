@@ -320,7 +320,7 @@
                 "level": 1,
                 "experience": 139,
                 "minimum": 90,
-                "maximum": 160,
+                "maximum": 90,
                 "locations": [ "god wars dungeon" ],
                 "teleport": [2865, 5313, 2]
             },
@@ -329,7 +329,7 @@
                 "level": 1,
                 "experience": 175,
                 "minimum": 75,
-                "maximum": 135,
+                "maximum": 80,
                 "locations": [ "taverley dungeon", "edgeville dungeon", "brimhaven dungeon" ],
                 "teleport": [2707, 9484, 0]
             },
@@ -356,7 +356,7 @@
                 "level": 50,
                 "experience": 134,
                 "minimum": 80,
-                "maximum": 140,
+                "maximum": 80,
                 "locations": [ "slayer tower", "god wars dungeon", "stronghold slayer cave" ],
                 "teleport": [3422, 3572, 1]
             },
@@ -500,7 +500,7 @@
                 "level": 50,
                 "experience": 105,
                 "minimum": 40,
-                "maximum": 100,
+                "maximum": 60,
                 "locations": [ "around home area" ],
                 "teleport": [1507, 3598, 0]
             },
@@ -509,7 +509,7 @@
                 "level": 50,
                 "experience": 105,
                 "minimum": 40,
-                "maximum": 100,
+                "maximum": 60,
                 "locations": [ "around home area" ],
                 "teleport": [1546, 3613, 0]
             },
@@ -518,7 +518,7 @@
                 "level": 50,
                 "experience": 105,
                 "minimum": 40,
-                "maximum": 100,
+                "maximum": 60,
                 "locations": [ "around home area" ],
                 "teleport": [1537, 3642, 0]
             },
@@ -527,7 +527,7 @@
                 "level": 50,
                 "experience": 105,
                 "minimum": 40,
-                "maximum": 100,
+                "maximum": 60,
                 "locations": [ "around home area" ],
                 "teleport": [1463, 3643, 0]
             },
@@ -536,7 +536,7 @@
                 "level": 50,
                 "experience": 105,
                 "minimum": 40,
-                "maximum": 100,
+                "maximum": 60,
                 "locations": [ "around home area" ],
                 "teleport": [1467, 3610, 0]
             },
@@ -694,7 +694,7 @@
 			{
                 "names": [ "thermonuclear smoke devil" ],
                 "level": 93,
-                "experience": 240,
+                "experience": 320,
                 "minimum": 5,
                 "maximum": 10,
                 "locations": [ "Smoke Devil Teleport[Bosses]" ],
@@ -712,7 +712,7 @@
             {
                 "names": [ "chaos elemental" ],
                 "level": 1,
-                "experience": 300,
+                "experience": 1000,
                 "minimum": 5,
                 "maximum": 10,
                 "locations": [ "wilderness" ],
@@ -739,7 +739,7 @@
             {
                 "names": [ "giant mole" ],
                 "level": 1,
-                "experience": 200,
+                "experience": 1200,
                 "minimum": 5,
                 "maximum": 10,
                 "locations": [ "wilderness" ],
@@ -775,7 +775,7 @@
             {
                 "names": [ "giant mole" ],
                 "level": 1,
-                "experience": 200,
+                "experience": 1200,
                 "minimum": 5,
                 "maximum": 15,
                 "locations": [ "wilderness" ],
@@ -784,7 +784,7 @@
             {
                 "names": [ "scorpia" ],
                 "level": 1,
-                "experience": 335,
+                "experience": 500,
                 "minimum": 5,
                 "maximum": 10,
                 "locations": [ "wilderness" ],
@@ -881,7 +881,7 @@
             {
                 "names": [ "skeletal wyvern" ],
                 "level": 72,
-                "experience": 190,
+                "experience": 200,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "West of Wildy Agility" ],
@@ -890,7 +890,7 @@
 			{
                 "names": [ "abyssal demon" ],
                 "level": 85,
-                "experience": 130,
+                "experience": 150,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "South of Wildy Resource" ],
@@ -917,7 +917,7 @@
 			{
                 "names": [ "skeleton" ],
                 "level": 1,
-                "experience": 67,
+                "experience": 70,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "South of Dark Warriors Castle" ],
@@ -926,7 +926,7 @@
 			{
                 "names": [ "chaos druid" ],
                 "level": 1,
-                "experience": 67,
+                "experience": 66,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "edgevill dungeon" ],
@@ -962,7 +962,7 @@
 			{
                 "names": [ "ankou" ],
                 "level": 1,
-                "experience": 50,
+                "experience": 75,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "Forgotten Cemetary" ],
