@@ -84,7 +84,7 @@
         "pointRewards": [ 20, 50, 100, 250, 500, 800, 1000 ],
         "available": [
             {
-                "names": [ "banshee",  ],
+                "names": [ "banshee"  ],
                 "level": 15,
                 "experience": 22,
                 "minimum": 15,
@@ -216,7 +216,7 @@
                 "minimum": 20,
                 "maximum": 80,
 				"locations": [ "Lletya" ],
-				"teleport": [2334, 3171, 0]
+				"teleport": [2897, 2725, 0]
             },
             {
                 "names": [ "hellhound", "cerberus" ],
