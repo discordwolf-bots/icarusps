@@ -53,7 +53,7 @@ public class RaidRewards {
 					
 					if (raidLeader.getIndex() == p.getIndex()) {
 						Server.getGlobalObjects().add(new GlobalObject(-1, 3232, 5749, p.getRaids().raidHeight, 3, 10, 200, 30018)); // removes crystal for 120 seconds
-						Server.getGlobalObjects().add(new GlobalObject(26273, 3235, 5749, p.getRaids().raidHeight, 1, 10, 200, -1)); // spawns rewards chest for 120 seconds
+						Server.getGlobalObjects().add(new GlobalObject(30028, 3233, 5751, p.getRaids().raidHeight, 1, 10, 200, -1)); // spawns rewards chest for 120 seconds
 					}
 					
 					p.getPA().resetCamera();
