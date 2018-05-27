@@ -633,7 +633,7 @@ public void followNPC() {
 				|| (absX >= 1889 && absX <= 1912 && absY >= 4396 && absY <= 4413) || (absX >= 3717 && absX <= 3772 && absY >= 5765 && absY <= 5820)) {
 			return true;
 		}
-		return false;
+		return true; // TODO: make this "false" this if not agreed (everywhere multi)
 	}
 
 	public boolean inWild() {

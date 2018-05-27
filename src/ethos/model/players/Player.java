@@ -1639,7 +1639,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	}
 
 	public boolean isTargetableBy(NPC npc) {
-		return !npc.isDead && Server.npcHandler.isAggressive(npc.getIndex(),false) && !npc.underAttack && npc.killerId <= 0 && npc.getHeight() == heightLevel;
+		return !npc.isDead && Server.npcHandler.isAggressive(npc.getIndex(),false, null) && !npc.underAttack && npc.killerId <= 0 && npc.getHeight() == heightLevel;
 	}
 
 	public Stream getInStream() {
@@ -2956,7 +2956,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 				(absX >= 3341 && absX <= 3378 && absY >= 4760 && absY <= 4853)) {
 			return true;
 		}
-		return false;
+		return true; // TODO: make this "false" this if not agreed (everywhere multi)
 	}
 
 

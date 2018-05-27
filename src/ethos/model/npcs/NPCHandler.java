@@ -326,8 +326,24 @@ public class NPCHandler {
 	 * @param searching
 	 * @return
 	 */
-	public boolean isAggressive(int i, boolean searching) {
+	public boolean isAggressive(int i, boolean searching, Player c) {
+		if(c == null) 
+			return false;
+		int playerLevel = c.combatLevel;
 		NPC npc = npcs[i];
+		if(npc == null)
+			return false;
+		
+		int npcLevel = npc.getDefinition().getNpcCombat();
+		if(npcLevel > (int) ((playerLevel-1) / 2)) {
+			System.out.println("npcLevel: " + npcLevel + " > " + (int) (Math.floor((playerLevel/2))));
+			return true;
+		} else {
+			//System.out.println("npcLevel: " + npcLevel + " > " + (int) (Math.floor((playerLevel/2))));
+		}
+		return false;
+		// TODO: remove the comment out if not agreed (everywhere aggro if within certain combat range)
+		/*NPC npc = npcs[i];
 		
 		if (Boundary.isWithRaids(npc) && npc.getHealth().getAmount() > 0) {
 			return true;
@@ -767,7 +783,7 @@ public class NPCHandler {
 				return true;
 			return isFightCaveNpc(i);
 		}
-		return false;
+		return false;*/
 	}
 
 	public static boolean isDagannothMother(int i) {
@@ -1489,7 +1505,8 @@ public class NPCHandler {
 				/**
 				 * Attacking player
 				 **/
-				if (isAggressive(i, false) && !npc.underAttack && npc.killerId <= 0 && !npc.isDead && !switchesAttackers(i) && npc.inMulti()
+				int player2 = getCloseRandomPlayer(i);
+				if (isAggressive(i, false, PlayerHandler.players[player2]) && !npc.underAttack && npc.killerId <= 0 && !npc.isDead && !switchesAttackers(i) && npc.inMulti()
 						&& !Boundary.isIn(npc, Boundary.GODWARS_BOSSROOMS) && !Boundary.isIn(npcs[i], Boundary.CORPOREAL_BEAST_LAIR)) {
 					Player closestPlayer = null;
 					int closestDistance = Integer.MAX_VALUE;
@@ -1523,7 +1540,7 @@ public class NPCHandler {
 						closestPlayer.underAttackBy = npc.getIndex();
 						closestPlayer.underAttackBy2 = npc.getIndex();
 					}
-				} else if (isAggressive(i, false) && !npcs[i].underAttack && !npcs[i].isDead
+				} else if (isAggressive(i, false, PlayerHandler.players[player2]) && !npcs[i].underAttack && !npcs[i].isDead
 						&& (switchesAttackers(i) || Boundary.isIn(npc, Boundary.GODWARS_BOSSROOMS))) {
 					
 					if (System.currentTimeMillis() - npcs[i].lastRandomlySelectedPlayer > 10000) {
