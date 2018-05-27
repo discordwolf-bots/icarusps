@@ -1,17 +1,19 @@
 package ethos.model.players.packets.itemoptions;
 
+import java.util.Objects;
+import java.util.Optional;
+
 import ethos.Server;
 import ethos.model.content.DiceHandler;
-import ethos.model.content.LootingBag.LootingBag;
 import ethos.model.content.Packs;
 import ethos.model.content.RunePouch;
+import ethos.model.content.LootingBag.LootingBag;
 import ethos.model.content.achievement.AchievementType;
 import ethos.model.content.achievement.Achievements;
 import ethos.model.content.barrows.Barrows;
 import ethos.model.content.teleportation.TeleportTablets;
 import ethos.model.content.trails.MasterClue;
 import ethos.model.content.trails.RewardLevel;
-import ethos.model.items.GameItem;
 import ethos.model.multiplayer_session.MultiplayerSessionType;
 import ethos.model.multiplayer_session.duel.DuelSession;
 import ethos.model.multiplayer_session.duel.DuelSessionRules.Rule;
@@ -30,9 +32,6 @@ import ethos.model.players.skills.prayer.Prayer;
 import ethos.model.players.skills.runecrafting.Pouches;
 import ethos.model.players.skills.runecrafting.Pouches.Pouch;
 import ethos.util.Misc;
-
-import java.util.Objects;
-import java.util.Optional;
 
 /**
  * Clicking an item, bury bone, eat food etc

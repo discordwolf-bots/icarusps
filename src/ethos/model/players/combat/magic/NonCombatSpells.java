@@ -81,7 +81,7 @@ public class NonCombatSpells extends MagicRequirements {
 						c.sendMessage("You haven't got enough " + ItemAssistant.getItemName(data[i][2]).toLowerCase() + " to cast this spell!");
 						return;
 					}
-					if (c.playerLevel[Player.playerSmithing] < data[i][6]) {
+					if (c.playerLevel[c.playerSmithing] < data[i][6]) {
 						c.sendMessage("You need a smithing level of " + data[i][6] + " to heat this ore.");
 						return;
 					}
@@ -91,7 +91,7 @@ public class NonCombatSpells extends MagicRequirements {
 					}
 					c.getItems().addItem(data[i][4], 1);
 					c.alchDelay = System.currentTimeMillis();
-					c.getPA().addSkillXP(data[i][5] * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE), Player.playerSmithing, true);
+					c.getPA().addSkillXP(data[i][5] * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE), c.playerSmithing, true);
 					c.getPA().addSkillXP(53 * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.MAGIC_EXP_RATE), 6, true);
 					c.startAnimation(MagicData.MAGIC_SPELLS[54][2]);
 					c.gfx100(MagicData.MAGIC_SPELLS[54][3]);

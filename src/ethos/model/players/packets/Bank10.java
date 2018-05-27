@@ -75,7 +75,7 @@ public class Bank10 implements PacketType {
 		case 1121:
 		case 1122:
 		case 1123:
-			Smithing.readInput(c.playerLevel[Player.playerSmithing], Integer.toString(removeId), c, 10);
+			Smithing.readInput(c.playerLevel[c.playerSmithing], Integer.toString(removeId), c, 10);
 			break;
 		case 1688:
 			c.getPA().useOperate(removeId);

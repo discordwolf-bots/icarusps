@@ -176,7 +176,7 @@ public class PlayerAssistant {
 			c.sendMessage("You don't have the knowledge to do this. You must learn how to first.");
 			return;
 		}
-		if (c.playerLevel[Player.playerCrafting] < 55) {
+		if (c.playerLevel[c.playerCrafting] < 55) {
 			c.sendMessage("@blu@You need a crafting level of 55 to assemble a slayer helmet.");
 			return;
 		}

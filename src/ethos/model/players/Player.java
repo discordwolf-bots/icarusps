@@ -5,6 +5,7 @@ import ethos.model.content.dailytasks.TaskTypes;
 import ethos.model.content.dailytasks.DailyTasks;
 import ethos.Config;
 import ethos.Server;
+import ethos.database.impl.Highscores;
 import ethos.event.CycleEventHandler;
 import ethos.event.Event;
 import ethos.event.impl.IronmanRevertEvent;
@@ -363,7 +364,8 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			tridentCharge, toxicTridentCharge, arcLightCharge, runningDistanceTravelled, interfaceOpen;
 
 	public final int walkingQueueSize = 50;
-	public static int playerCrafting = 12, playerSmithing = 13;
+	public int playerCrafting = 12;
+	public int playerSmithing = 13;
 	protected int numTravelBackSteps = 0, packetsReceived;
 	public int caughtFish = 0;
 	
@@ -803,6 +805,11 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000>[-] </shad></col>" + getName());
 		refreshQuestTab(5);
 		Misc.println("[Logged out]: " + playerName);
+		// FIXME: Need to call 1and1 to get this fixed
+		/**
+		 * Caused by: java.net.UnknownHostException: db729453455.db.1and1.com
+		 */
+		//new Thread(new Highscores(this)).start();
 		disconnected = true;
 		//logoutDelay = Long.MAX_VALUE;
 		session.close();

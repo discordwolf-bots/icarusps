@@ -13,6 +13,8 @@ public class SkillInterfaces {
 	public SkillInterfaces(Player client) {
 		this.c = client;
 	}
+	
+	// FIXME: New requirements for stuff? Add it to here
 
 	/*
 	 * @param screen
@@ -1390,7 +1392,7 @@ public class SkillInterfaces {
 		else if (screen == 8) {
 			clearMenu();
 			menuLine("40", "Crafting Guild", 1757, 0);
-			menuLine("99", "Skill Mastery", c.getItems().skillcapes[Player.playerCrafting][0], 1);
+			menuLine("99", "Skill Mastery", c.getItems().skillcapes[c.playerCrafting][0], 1);
 			optionTab("Crafting", "Milestones", "Weaving", "Armour", "Spinning", "Pottery", "Glass", "Jewellery", "Weaponry", "Milestones", "", "", "", "", "");
 		}
 	}
@@ -1794,7 +1796,7 @@ public class SkillInterfaces {
 			optionTab("Smithing", "Other", "Smelting", "Bronze", "Iron", "Steel", "Mithril", "Adamantite", "Runite", "Gold", "Elemental", "Other", "Milestones", "", "");
 		} else if (screen == 11) {
 			clearMenu();
-			menuLine("99", "Skill Mastery", c.getItems().skillcapes[Player.playerSmithing][0], 0);
+			menuLine("99", "Skill Mastery", c.getItems().skillcapes[c.playerSmithing][0], 0);
 			optionTab("Smithing", "Milestones", "Smelting", "Bronze", "Iron", "Steel", "Mithril", "Adamantite", "Runite", "Gold", "Elemental", "Other", "Milestones", "", "");
 		}
 	}

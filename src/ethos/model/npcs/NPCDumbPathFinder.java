@@ -306,7 +306,6 @@ private static final int NORTH = 0, EAST = 1,  SOUTH = 2, WEST = 3;
 		/*try {
 			throw new Exception();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
 		npc.moveX = NPCClipping.DIR[direction][0];

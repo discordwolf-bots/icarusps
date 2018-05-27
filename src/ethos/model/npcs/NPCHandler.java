@@ -1,5 +1,18 @@
 package ethos.model.npcs;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 import ethos.Config;
 import ethos.Server;
 import ethos.clip.PathChecker;
@@ -39,17 +52,17 @@ import ethos.model.npcs.pets.PetHandler;
 import ethos.model.players.Boundary;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
-import ethos.model.players.combat.*;
+import ethos.model.players.combat.CombatType;
+import ethos.model.players.combat.Damage;
+import ethos.model.players.combat.DamageEffect;
+import ethos.model.players.combat.Hitmark;
+import ethos.model.players.combat.Special;
+import ethos.model.players.combat.Specials;
 import ethos.model.players.combat.effects.SerpentineHelmEffect;
-import ethos.model.players.combat.monsterhunt.MonsterHunt;
 import ethos.model.players.skills.hunter.impling.PuroPuro;
 import ethos.util.Location3D;
 import ethos.util.Misc;
 import ethos.world.objects.GlobalObject;
-
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class NPCHandler {
 	public static int maxNPCs = 20000;

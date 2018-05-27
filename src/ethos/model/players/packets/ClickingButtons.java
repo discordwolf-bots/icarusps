@@ -11,11 +11,11 @@ import java.util.concurrent.TimeUnit;
 import ethos.Config;
 import ethos.Server;
 import ethos.model.content.PlayerEmotes;
-import ethos.model.content.wogw.Wogw;
 import ethos.model.content.help.HelpDatabase;
 import ethos.model.content.staff.StaffControl;
 import ethos.model.content.teleportation.Teleports;
 import ethos.model.content.tradingpost.Listing;
+import ethos.model.content.wogw.Wogw;
 import ethos.model.items.GameItem;
 import ethos.model.items.ItemAssistant;
 import ethos.model.items.bank.BankItem;
@@ -29,7 +29,6 @@ import ethos.model.players.PacketType;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.Right;
-import ethos.model.players.RightGroup;
 import ethos.model.players.combat.Special;
 import ethos.model.players.combat.Specials;
 import ethos.model.players.combat.magic.LunarSpells;
@@ -45,10 +44,10 @@ import ethos.model.players.skills.Cooking;
 import ethos.model.players.skills.Smelting;
 import ethos.model.players.skills.crafting.BattlestaveMaking;
 import ethos.model.players.skills.crafting.BraceletMaking;
+import ethos.model.players.skills.crafting.CraftingData.tanningData;
 import ethos.model.players.skills.crafting.GlassBlowing;
 import ethos.model.players.skills.crafting.LeatherMaking;
 import ethos.model.players.skills.crafting.Tanning;
-import ethos.model.players.skills.crafting.CraftingData.tanningData;
 import ethos.model.players.skills.slayer.Task;
 import ethos.model.shops.ShopAssistant;
 import ethos.util.Misc;
@@ -233,7 +232,7 @@ public class ClickingButtons implements PacketType {
 				if(pframeIndex > pframes.length - 1) 
 					break; 
 					
-					c.getPA().sendFrame126("[@blu@"+ Server.playerHandler.getPlayers().get(i).getRights().getPrimary().toString() + "@bla@] - " + Server.playerHandler.getPlayers().get(i).getName() , pframes[pframeIndex]);
+					c.getPA().sendFrame126("[@blu@"+ PlayerHandler.getPlayers().get(i).getRights().getPrimary().toString() + "@bla@] - " + PlayerHandler.getPlayers().get(i).getName() , pframes[pframeIndex]);
 					
 					pframeIndex++;
 					
@@ -255,7 +254,7 @@ public class ClickingButtons implements PacketType {
 			// The frames that it can see
 			int[] frames = { 8147, 8148, 8149, 8150, 8151, 8152, 8153, 8154, 8155, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8163, 8164, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8172, 8173,
 					8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194 };
-			c.getPA().sendFrame126("Staff Members - (@blu@" + Server.playerHandler.getStaffCount() + "@bla@) Online", 8144);
+			c.getPA().sendFrame126("Staff Members - (@blu@" + PlayerHandler.getStaffCount() + "@bla@) Online", 8144);
 			c.getPA().sendFrame126("", 8145);
 			
 			int frameIndex = 0;
@@ -265,8 +264,8 @@ public class ClickingButtons implements PacketType {
 					break; 
 
 				if(PlayerHandler.getStaffCount() > 0) {
-					if(Server.playerHandler.getPlayers().get(i).getRights().isOrInherits(Right.ADMINISTRATOR) || Server.playerHandler.getPlayers().get(i).getRights().isOrInherits(Right.ADMINISTRATOR) || Server.playerHandler.getPlayers().get(i).getRights().isOrInherits(Right.MODERATOR) || Server.playerHandler.getPlayers().get(i).getRights().isOrInherits(Right.HELPER) || Server.playerHandler.getPlayers().get(i).getRights().isOrInherits(Right.GAME_DEVELOPER)) {
-						c.getPA().sendFrame126("[@blu@"+ Server.playerHandler.getPlayers().get(i).getRights().getPrimary().toString() + "@bla@] - " + Server.playerHandler.getPlayers().get(i).getName() , frames[frameIndex]);
+					if(PlayerHandler.getPlayers().get(i).getRights().isOrInherits(Right.ADMINISTRATOR) || PlayerHandler.getPlayers().get(i).getRights().isOrInherits(Right.ADMINISTRATOR) || PlayerHandler.getPlayers().get(i).getRights().isOrInherits(Right.MODERATOR) || PlayerHandler.getPlayers().get(i).getRights().isOrInherits(Right.HELPER) || PlayerHandler.getPlayers().get(i).getRights().isOrInherits(Right.GAME_DEVELOPER)) {
+						c.getPA().sendFrame126("[@blu@"+ PlayerHandler.getPlayers().get(i).getRights().getPrimary().toString() + "@bla@] - " + PlayerHandler.getPlayers().get(i).getName() , frames[frameIndex]);
 						
 						frameIndex++;
 					}

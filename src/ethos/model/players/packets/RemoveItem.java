@@ -198,7 +198,7 @@ public class RemoveItem implements PacketType {
 		case 1121:
 		case 1122:
 		case 1123:
-			Smithing.readInput(c.playerLevel[Player.playerSmithing], Integer.toString(removeId), c, -1);
+			Smithing.readInput(c.playerLevel[c.playerSmithing], Integer.toString(removeId), c, -1);
 			break;
 
 		}

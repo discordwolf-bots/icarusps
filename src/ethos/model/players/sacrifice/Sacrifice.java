@@ -50,23 +50,23 @@ public class Sacrifice {
 	);
 		
 		items.put(Rarity.RARE,
-				Arrays.asList(
-						new GameItem(995),
-						new GameItem(1046)
-				)
+			Arrays.asList(
+					new GameItem(995),
+					new GameItem(1046)
+			)
 		);
 		
 		items.put(Rarity.VERY_RARE,
-				Arrays.asList(
-						new GameItem(4151),
-						new GameItem(4153)
-				)
+			Arrays.asList(
+					new GameItem(4151),
+					new GameItem(4153)
+			)
 		);
 		
 		items.put(Rarity.LEGENDARY,
-				Arrays.asList(
-						new GameItem(11802)
-				)
+			Arrays.asList(
+					new GameItem(11802)
+			)
 		);
 	}
 	

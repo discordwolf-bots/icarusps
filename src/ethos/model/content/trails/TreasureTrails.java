@@ -2,7 +2,6 @@ package ethos.model.content.trails;
 
 import java.util.List;
 
-import ethos.Server;
 import ethos.model.items.Item;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;

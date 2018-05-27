@@ -78,7 +78,7 @@ public final class BirdSnare extends Trap {
 		if (System.currentTimeMillis() - player.lastPickup < 2500)
 			return false;	
 		
-		if(player.playerLevel[21] < data.get().requirement) {//(player.playerLevel[player.playerHunter] < data.get().requirement)FIXME
+		if(player.playerLevel[21] < data.get().requirement) {
 			player.lastPickup = System.currentTimeMillis();
 			player.sendMessage("You do not have the required level to catch these.");
 			setState(TrapState.FALLEN);

@@ -170,7 +170,7 @@ public class Smelting {
 					c.getItems().deleteItem(c.bar.getOre1(), 1);
 					c.getItems().deleteItem(c.bar.getOre2(), 1);
 					c.getItems().addItem(c.bar.getBar(), 1);
-					c.getPA().addSkillXP((int) (Objects.equals(usage, "INFERNAL") ? c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE / 2) : c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE) + (goldSmithGaunts ? percentOfXp : 0)), Player.playerSmithing, true);
+					c.getPA().addSkillXP((int) (Objects.equals(usage, "INFERNAL") ? c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE / 2) : c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE) + (goldSmithGaunts ? percentOfXp : 0)), c.playerSmithing, true);
 				} else {
 					if (!Objects.equals(usage, "INFERNAL")) {
 						c.startAnimation(899);
@@ -180,7 +180,7 @@ public class Smelting {
 						c.sendMessage("The ore is too impure and you fail to refine it.");
 					else {
 						c.getItems().addItem(c.bar.getBar(), 1);
-						c.getPA().addSkillXP((int) (usage == "INFERNAL" ? c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE / 2) : c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE) + (goldSmithGaunts ? percentOfXp : 0)), Player.playerSmithing, true);
+						c.getPA().addSkillXP((int) (usage == "INFERNAL" ? c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE / 2) : c.bar.getExp() * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE) + (goldSmithGaunts ? percentOfXp : 0)), c.playerSmithing, true);
 					}
 				}
 			}
@@ -210,7 +210,7 @@ public class Smelting {
 	 * Checks if the player has the required level
 	 */
 	private static boolean hasReqLvl(Player c, int req, int bar) {
-		int level = c.getPA().getLevelForXP(c.playerXP[Player.playerSmithing]);
+		int level = c.getPA().getLevelForXP(c.playerXP[c.playerSmithing]);
 		if (level >= req)
 			return true;
 		else

@@ -241,7 +241,7 @@ public class UseItem {
 			
 			case 11286:
 			case 1540:
-					if (c.playerLevel[Player.playerSmithing] >= 90) {
+					if (c.playerLevel[c.playerSmithing] >= 90) {
 						if (!c.getItems().playerHasItem(1540) || !c.getItems().playerHasItem(11286) || !c.getItems().playerHasItem(2347)) {
 							c.sendMessage("You must have a draconic visage, dragonfire shield and a hammer in order to do this.");
 							return;
@@ -251,7 +251,7 @@ public class UseItem {
 						c.getItems().deleteItem(11286, c.getItems().getItemSlot(11286), 1);
 						c.getItems().addItem(11284, 1);
 						c.getDH().sendItemStatement("You combine the two materials to create a dragonfire shield.", 11284);
-						c.getPA().addSkillXP(500 * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE), Player.playerSmithing, true);
+						c.getPA().addSkillXP(500 * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE), c.playerSmithing, true);
 					} else {
 						c.sendMessage("You need a smithing level of 90 to create a dragonfire shield.");
 					}

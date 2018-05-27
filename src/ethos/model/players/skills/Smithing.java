@@ -44,7 +44,7 @@ public class Smithing {
 		for (int j = 0; j < SMELT_BARS.length; j++) {
 			if (barType == SMELT_BARS[j]) {
 				// c.sendMessage("" + c.playerLevel + " bar: " + BAR_REQS[j]);
-				return c.playerLevel[Player.playerSmithing] >= BAR_REQS[j];
+				return c.playerLevel[c.playerSmithing] >= BAR_REQS[j];
 			}
 		}
 		return false;
@@ -1164,16 +1164,16 @@ public class Smithing {
 			return;
 		}
 		c.startAnimation(898);
-		if (c.playerSkilling[Player.playerSmithing]) {
+		if (c.playerSkilling[c.playerSmithing]) {
 			return;
 		}
 		c.getSkilling().stop();
 		c.getSkilling().setSkill(Skill.SMITHING);
-		c.playerSkilling[Player.playerSmithing] = true;
+		c.playerSkilling[c.playerSmithing] = true;
 		Server.getEventHandler().submit(new Event<Player>("skilling", c, 3) {
 			@Override
 			public void execute() {
-				if (!c.playerSkilling[Player.playerSmithing]) {
+				if (!c.playerSkilling[c.playerSmithing]) {
 					stop();
 					return;
 				}
@@ -1252,7 +1252,7 @@ public class Smithing {
 			public void stop() {
 				super.stop();
 				if (!c.disconnected&&c.getSession()!=null) {
-					c.playerSkilling[Player.playerSmithing] = false;
+					c.playerSkilling[c.playerSmithing] = false;
 					c.makeTimes = 0;
 				}
 			}
@@ -1341,8 +1341,8 @@ public class Smithing {
 					c.getItems().deleteItem(oreId2, c.getItems().getItemSlot(oreId2), 1);
 				}
 				c.getItems().addItem(barId, 1);
-				c.getPA().addSkillXP(exp * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE), Player.playerSmithing, true);
-				c.getPA().refreshSkill(Player.playerSmithing);
+				c.getPA().addSkillXP(exp * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.SMITHING_EXPERIENCE), c.playerSmithing, true);
+				c.getPA().refreshSkill(c.playerSmithing);
 				c.smeltAmount--;
 				c.smeltTimer = 1;
 				if(c.getItems().freeSlots() == 0 ) {

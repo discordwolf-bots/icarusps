@@ -135,7 +135,7 @@ public class JewelryMaking extends CraftingData {
 		if (!isRing && !isNeck && !isAmulet) {
 			return;
 		}
-		if (c.playerLevel[Player.playerCrafting] >= lvl) {
+		if (c.playerLevel[c.playerCrafting] >= lvl) {
 			if (ItemAssistant.getItemName(itemAdd).toLowerCase().contains("gold") && !c.getItems().playerHasItem(GOLD_BAR, 1) || !c.getItems().playerHasItem(GOLD_BAR, 1)) {
 				c.sendMessage("You need a Gold bar to make this.");
 				return;
@@ -149,8 +149,8 @@ public class JewelryMaking extends CraftingData {
 				c.getItems().deleteItem(gem, 1);
 				c.getItems().deleteItem(GOLD_BAR, 1);
 				c.getItems().addItem(itemAdd, 1);
-				c.getPA().addSkillXP(xp * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), Player.playerCrafting, true);
-				c.getPA().refreshSkill(Player.playerCrafting);
+				c.getPA().addSkillXP(xp * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), c.playerCrafting, true);
+				c.getPA().refreshSkill(c.playerCrafting);
 				done++;
 			}
 			if (done == 1) {

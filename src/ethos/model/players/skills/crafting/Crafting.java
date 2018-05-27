@@ -50,10 +50,10 @@ public class Crafting {
 	public void cutGem(int id) {
 		for (int j = 0; j < gems.length; j++) {
 			if (gems[j][0] == id) {
-				if (c.playerLevel[Player.playerCrafting] >= gems[j][2]) {
+				if (c.playerLevel[c.playerCrafting] >= gems[j][2]) {
 					c.getItems().deleteItem(id, c.getItems().getItemSlot(id), 1);
 					c.getItems().addItem(gems[j][1], 1);
-					c.getPA().addSkillXP(gems[j][3] * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), Player.playerCrafting, true);
+					c.getPA().addSkillXP(gems[j][3] * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), c.playerCrafting, true);
 					if (gems[j][0] == 1631)
 						DailyTasks.increase(c, PossibleTasks.DRAGONSTONES);
 					break;
@@ -76,7 +76,7 @@ public class Crafting {
 	public void checkRequirements() {
 		for (int j = 0; j < expsAndLevels.length; j++) {
 			if (expsAndLevels[j][0] == hideType) {
-				if (c.playerLevel[Player.playerCrafting] >= expsAndLevels[j][1]) {
+				if (c.playerLevel[c.playerCrafting] >= expsAndLevels[j][1]) {
 					if (c.getItems().playerHasItem(hideType, 1)) {
 						c.getPA().closeAllWindows();
 						exp = expsAndLevels[j][2];
@@ -98,7 +98,7 @@ public class Crafting {
 			if (getItemToAdd() <= 0)
 				break;
 			c.getItems().addItem(getItemToAdd(), 1);
-			c.getPA().addSkillXP(exp * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), Player.playerCrafting, true);
+			c.getPA().addSkillXP(exp * (c.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), c.playerCrafting, true);
 		}
 		resetCrafting();
 	}

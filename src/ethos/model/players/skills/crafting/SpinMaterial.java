@@ -22,7 +22,7 @@ public class SpinMaterial {
 		if (mat == null) {
 			return;
 		}
-		if (player.playerLevel[Player.playerCrafting] < mat.level) {
+		if (player.playerLevel[player.playerCrafting] < mat.level) {
 			player.sendMessage("You need a crafting level of " + mat.level + " to do this.");
 			return;
 		}
@@ -66,7 +66,7 @@ public class SpinMaterial {
 		public void execute() {
 			attachment.getItems().deleteItem2(material.required, 1);
 			attachment.getItems().addItem(material.result, 1);
-			attachment.getPA().addSkillXP(material.experience * (attachment.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), Player.playerCrafting, true);
+			attachment.getPA().addSkillXP(material.experience * (attachment.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.CRAFTING_EXPERIENCE), attachment.playerCrafting, true);
 			attachment.startAnimation(894);
 		}
 
