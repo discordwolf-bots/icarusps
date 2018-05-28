@@ -32,7 +32,7 @@ public class Vasa {
 				DailyTasks.increase(p, PossibleTasks.SKELETAL_MYSTICS_RAID);
 				if (Misc.random(20) == 0) {
 					p.getItems().addItemUnderAnyCircumstance(405, 1);
-					p.sendMessage("@pur@You noticed a PvM Casket has dropped and picked it up right away.");
+					p.sendMessage("@pur@You noticed a Slayer Casket has dropped and picked it up right away.");
 				}
 				p.setSkeletalMysticDamageCounter(0);
 			} else {

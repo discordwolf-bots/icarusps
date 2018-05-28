@@ -166,8 +166,8 @@ public class DailySkillBox extends CycleEvent {
 		GameItem itemDouble = Misc.getRandomItem(itemList);
 		
 		if (Misc.random(200) == 1) {
-			PlayerHandler.executeGlobalMessage("[<col=CC0000>Daily Box</col>] @cr20@ <col=255>" + player.playerName
-					+ "</col> hit the jackpot on a Daily Skill Box!");
+			PlayerHandler.executeGlobalMessage("[<col=CC0000>Skill Box</col>] @cr18@ <col=255>" + player.playerName
+					+ "</col> hit the jackpot on a Skill Box!");
 			switch(Misc.random(21)) {
 			case 0:
 				player.getItems().addItemUnderAnyCircumstance(1632, 500);

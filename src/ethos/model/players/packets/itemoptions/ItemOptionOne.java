@@ -361,7 +361,7 @@ public class ItemOptionOne implements PacketType {
 				c.getHourlyRewardBox().open();
 				return;
 			}
-		if (itemId == 405) //Pvm Casket
+		if (itemId == 405) //Slayer Casket
 			if (c.getItems().playerHasItem(405)) {
 				c.getPvmCasket().open();
 				return;
@@ -371,12 +371,12 @@ public class ItemOptionOne implements PacketType {
 				c.getWildyCrate().open();
 				return;
 			}
-		if (itemId == 20703) //Daily Gear Box
+		if (itemId == 20703) //Gear Box
 			if (c.getItems().playerHasItem(20703)) {
 				c.getDailyGearBox().open();
 				return;
 			}
-		if (itemId == 20791) //Daily Skilling Box
+		if (itemId == 20791) //Skilling Box
 			if (c.getItems().playerHasItem(20791)) {
 				c.getDailySkillBox().open();
 				return;

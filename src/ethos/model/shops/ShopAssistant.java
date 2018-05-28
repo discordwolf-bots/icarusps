@@ -38,6 +38,7 @@ public class ShopAssistant {
 	 **/
 
 	public void openShop(int ShopID) {
+		c.sendMessage("" + ShopID);
 		if (Server.getMultiplayerSessionListener().inAnySession(c)) {
 			return;
 		}
@@ -1310,6 +1311,10 @@ public class ShopAssistant {
 	 * Sell item to shop (Shop Price)
 	 **/
 	public void sellToShopPrice(int removeId, int removeSlot) {
+		if(removeId == 995) {
+			c.sendMessage("Why would you want to sell coins?");
+			return;
+		}
 		boolean CANNOT_SELL = IntStream.of(Config.ITEM_SELLABLE).anyMatch(sellable -> sellable == removeId);
 		if (c.myShopId != 116 && c.myShopId != 115) {
 			if (CANNOT_SELL) {
@@ -1350,6 +1355,9 @@ public class ShopAssistant {
 				}
 			} else {
 				ShopValue = (int) Math.floor(getItemShopValue(removeId, 1, removeSlot));
+				if (c.myShopId != 26)
+					if(removeId != 13204)
+						ShopValue *= 0.667;
 			}
 			if (ShopValue >= 1000 && ShopValue < 1000000) {
 				ShopAdd = " (" + (ShopValue / 1000) + "K)";
@@ -1471,9 +1479,10 @@ public class ShopAssistant {
 						return false;
 					}
 				}
-				if (c.myShopId != 26) {
-					TotPrice2 *= 0.667;
-				}
+				if (c.myShopId != 26)
+					if(itemID != 13204)
+						TotPrice2 *= 0.667;
+				
 				TotPrice2 = TotPrice2 * amount;
 				TotPrice4 = TotPrice4 * amount;
 				if (c.getItems().freeSlots() > 0 || c.getItems().playerHasItem(995)) {

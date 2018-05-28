@@ -162,11 +162,11 @@ public class PvmCasket extends CycleEvent {
 			return;
 		}
 		if (player.getItems().freeSlots() < 2) {
-			player.sendMessage("You need atleast two free slots to open a PvM Casket.");
+			player.sendMessage("You need atleast two free slots to open a Slayer Casket.");
 			return;
 		}
 		if (!player.getItems().playerHasItem(MYSTERY_BOX)) {
-			player.sendMessage("You need PvM Casket to do this.");
+			player.sendMessage("You need Slayer Casket to do this.");
 			return;
 		}
 		player.getItems().deleteItem(MYSTERY_BOX, 1);
@@ -201,7 +201,7 @@ public class PvmCasket extends CycleEvent {
 					+ Misc.insertCommas(Integer.toString(coins)) + "</col>GP.");
 			PlayerHandler.executeGlobalMessage("<img=10>" + Misc.formatPlayerName(player.playerName) + " just got very lucky and hit the double!");
 			PlayerHandler.executeGlobalMessage("<img=10>" + Misc.formatPlayerName(player.playerName) + " has received <col=255>" + item.getAmount() + " x " + ItemAssistant.getItemName(item.getId())
-					+ "</col> and <col=255>" + itemDouble.getAmount() + " x " + ItemAssistant.getItemName(itemDouble.getId()) + "</col> from a PvM Casket.");
+					+ "</col> and <col=255>" + itemDouble.getAmount() + " x " + ItemAssistant.getItemName(itemDouble.getId()) + "</col> from a Slayer Casket.");
 		} else {
 			player.getItems().addItem(995, coins);
 			player.getItems().addItem(item.getId(), item.getAmount());

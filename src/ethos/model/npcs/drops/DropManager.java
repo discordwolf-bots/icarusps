@@ -230,7 +230,7 @@ public class DropManager {
 								player.getItems().addItemToBank(rewardItem, 1);
 								player.sendMessage("Your reward is in your bank");
 							}							
-							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a PvM Casket from their Slayer Task!");
+							PlayerHandler.executeGlobalMessage("<col=0000ee><shad=000000>[RARE]</col> @cr19@ <col=ff0000>" + Misc.capitalize(player.playerName) + "</col></shad> has just received a Slayer Casket from their Slayer Task!");
 						}
 					});
 				}

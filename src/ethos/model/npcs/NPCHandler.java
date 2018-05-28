@@ -336,10 +336,7 @@ public class NPCHandler {
 		
 		int npcLevel = npc.getDefinition().getNpcCombat();
 		if(npcLevel > (int) ((playerLevel-1) / 2)) {
-			System.out.println("npcLevel: " + npcLevel + " > " + (int) (Math.floor((playerLevel/2))));
 			return true;
-		} else {
-			//System.out.println("npcLevel: " + npcLevel + " > " + (int) (Math.floor((playerLevel/2))));
 		}
 		return false;
 		// TODO: remove the comment out if not agreed (everywhere aggro if within certain combat range)

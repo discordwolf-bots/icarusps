@@ -100,7 +100,7 @@ public class Tekton {
 				DailyTasks.increase(p, PossibleTasks.TEKTON_RAID);
 				if (Misc.random(20) == 0) {
 					p.getItems().addItemUnderAnyCircumstance(405, 1);
-					p.sendMessage("@pur@You noticed a PvM Casket has dropped and picked it up right away.");
+					p.sendMessage("@pur@You noticed a Slayer Casket has dropped and picked it up right away.");
 				}
 				p.setTektonDamageCounter(0);
 		});
