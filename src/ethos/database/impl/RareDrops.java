@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import ethos.model.items.GameItem;
-import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
 import ethos.model.players.Player;
 import ethos.model.players.Right;
