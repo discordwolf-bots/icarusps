@@ -809,7 +809,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		/**
 		 * Caused by: java.net.UnknownHostException: db729453455.db.1and1.com
 		 */
-		//new Thread(new Highscores(this)).start();
+		new Thread(new Highscores(this)).start();
 		disconnected = true;
 		//logoutDelay = Long.MAX_VALUE;
 		session.close();

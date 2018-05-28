@@ -12,10 +12,10 @@ import ethos.model.players.Right;
  
 public class Highscores implements Runnable {
 
-	public static final String HOST = "db729453455.db.1and1.com"; // website ip address
-	public static final String USER = "dbo729453455";
+	public static final String HOST = "198.71.55.34";
+	public static final String USER = "wolf";
 	public static final String PASS = "52637_Md3108"; 
-	public static final String DATABASE = "db729453455";
+	public static final String DATABASE = "icarus";
 	public static final String TABLE = "icarus_hs";
 	
 	private Player player;
@@ -70,7 +70,7 @@ public class Highscores implements Runnable {
 						+ "username, "
 						+ "mode, "
 						+ "rights) "
-						+ "VALUES (?,?)");
+						+ "VALUES (?,?,?)");
 				stmtInsertRow.setString(1, name);
 				stmtInsertRow.setInt(2, mode);
 				stmtInsertRow.setInt(3, rights);
@@ -97,91 +97,91 @@ public class Highscores implements Runnable {
 				if(oTExp != nTExp) updateRequired = true;
 				
 				double oAttack = rsFetch.getInt("attack_xp");
-				double nAttack = Double.valueOf(player.playerLevel[player.playerAttack]).longValue();
+				double nAttack = Double.valueOf(player.playerXP[player.playerAttack]).longValue();
 				if(oAttack != nAttack) updateRequired = true;
 				
 				double oDefence = rsFetch.getInt("defence_xp");
-				double nDefence = Double.valueOf(player.playerLevel[player.playerDefence]).longValue();
+				double nDefence = Double.valueOf(player.playerXP[player.playerDefence]).longValue();
 				if(oDefence != nDefence) updateRequired = true;
 				
 				double oStrength = rsFetch.getInt("strength_xp");
-				double nStrength = Double.valueOf(player.playerLevel[player.playerStrength]).longValue();
+				double nStrength = Double.valueOf(player.playerXP[player.playerStrength]).longValue();
 				if(oStrength != nStrength) updateRequired = true;
 				
 				double oConstitution = rsFetch.getInt("constitution_xp");
-				double nConstitution = Double.valueOf(player.playerLevel[player.playerHitpoints]).longValue();
+				double nConstitution = Double.valueOf(player.playerXP[player.playerHitpoints]).longValue();
 				if(oConstitution != nConstitution) updateRequired = true;
 				
 				double oRanged = rsFetch.getInt("ranged_xp");
-				double nRanged = Double.valueOf(player.playerLevel[player.playerRanged]).longValue();
+				double nRanged = Double.valueOf(player.playerXP[player.playerRanged]).longValue();
 				if(oRanged != nRanged) updateRequired = true;
 				
 				double oPrayer = rsFetch.getInt("prayer_xp");
-				double nPrayer = Double.valueOf(player.playerLevel[player.playerPrayer]).longValue();
+				double nPrayer = Double.valueOf(player.playerXP[player.playerPrayer]).longValue();
 				if(oPrayer != nPrayer) updateRequired = true;
 				
 				double oMagic = rsFetch.getInt("magic_xp");
-				double nMagic = Double.valueOf(player.playerLevel[player.playerMagic]).longValue();
+				double nMagic = Double.valueOf(player.playerXP[player.playerMagic]).longValue();
 				if(oMagic != nMagic) updateRequired = true;
 				
 				double oCooking = rsFetch.getInt("cooking_xp");
-				double nCooking = Double.valueOf(player.playerLevel[player.playerCooking]).longValue();
+				double nCooking = Double.valueOf(player.playerXP[player.playerCooking]).longValue();
 				if(oCooking != nCooking) updateRequired = true;
 				
 				double oWoodcutting = rsFetch.getInt("woodcutting_xp");
-				double nWoodcutting = Double.valueOf(player.playerLevel[player.playerWoodcutting]).longValue();
+				double nWoodcutting = Double.valueOf(player.playerXP[player.playerWoodcutting]).longValue();
 				if(oWoodcutting != nWoodcutting) updateRequired = true;
 				
 				double oFletching = rsFetch.getInt("fletching_xp");
-				double nFletching = Double.valueOf(player.playerLevel[player.playerFletching]).longValue();
+				double nFletching = Double.valueOf(player.playerXP[player.playerFletching]).longValue();
 				if(oFletching != nFletching) updateRequired = true;
 				
 				double oFishing = rsFetch.getInt("fishing_xp");
-				double nFishing = Double.valueOf(player.playerLevel[player.playerFishing]).longValue();
+				double nFishing = Double.valueOf(player.playerXP[player.playerFishing]).longValue();
 				if(oFishing != nFishing) updateRequired = true;
 				
 				double oFiremaking = rsFetch.getInt("firemaking_xp");
-				double nFiremaking = Double.valueOf(player.playerLevel[player.playerFiremaking]).longValue();
+				double nFiremaking = Double.valueOf(player.playerXP[player.playerFiremaking]).longValue();
 				if(oFiremaking != nFiremaking) updateRequired = true;
 				
 				double oCrafting = rsFetch.getInt("crafting_xp");
-				double nCrafting = Double.valueOf(player.playerLevel[player.playerCrafting]).longValue();
+				double nCrafting = Double.valueOf(player.playerXP[player.playerCrafting]).longValue();
 				if(oCrafting != nCrafting) updateRequired = true;
 				
 				double oSmithing = rsFetch.getInt("smithing_xp");
-				double nSmithing = Double.valueOf(player.playerLevel[player.playerSmithing]).longValue();
+				double nSmithing = Double.valueOf(player.playerXP[player.playerSmithing]).longValue();
 				if(oSmithing != nSmithing) updateRequired = true;
 				
 				double oMining = rsFetch.getInt("mining_xp");
-				double nMining = Double.valueOf(player.playerLevel[player.playerMining]).longValue();
+				double nMining = Double.valueOf(player.playerXP[player.playerMining]).longValue();
 				if(oMining != nMining) updateRequired = true;
 				
 				double oHerblore = rsFetch.getInt("herblore_xp");
-				double nHerblore = Double.valueOf(player.playerLevel[player.playerHerblore]).longValue();
+				double nHerblore = Double.valueOf(player.playerXP[player.playerHerblore]).longValue();
 				if(oHerblore != nHerblore) updateRequired = true;
 				
 				double oAgility = rsFetch.getInt("agility_xp");
-				double nAgility = Double.valueOf(player.playerLevel[player.playerAgility]).longValue();
+				double nAgility = Double.valueOf(player.playerXP[player.playerAgility]).longValue();
 				if(oAgility != nAgility) updateRequired = true;
 				
 				double oThieving = rsFetch.getInt("thieving_xp");
-				double nThieving = Double.valueOf(player.playerLevel[player.playerThieving]).longValue();
+				double nThieving = Double.valueOf(player.playerXP[player.playerThieving]).longValue();
 				if(oThieving != nThieving) updateRequired = true;
 				
 				double oSlayer = rsFetch.getInt("slayer_xp");
-				double nSlayer = Double.valueOf(player.playerLevel[player.playerSlayer]).longValue();
+				double nSlayer = Double.valueOf(player.playerXP[player.playerSlayer]).longValue();
 				if(oSlayer != nSlayer) updateRequired = true;
 				
 				double oFarming = rsFetch.getInt("farming_xp");
-				double nFarming = Double.valueOf(player.playerLevel[player.playerFarming]).longValue();
+				double nFarming = Double.valueOf(player.playerXP[player.playerFarming]).longValue();
 				if(oFarming != nFarming) updateRequired = true;
 				
 				double oRunecraft = rsFetch.getInt("runecrafting_xp");
-				double nRunecraft = Double.valueOf(player.playerLevel[player.playerRunecrafting]).longValue();
+				double nRunecraft = Double.valueOf(player.playerXP[player.playerRunecrafting]).longValue();
 				if(oRunecraft != nRunecraft) updateRequired = true;
 				
 				double oHunter = rsFetch.getInt("hunter_xp");
-				double nHunter = Double.valueOf(player.playerLevel[21]).longValue();
+				double nHunter = Double.valueOf(player.playerXP[21]).longValue();
 				if(oHunter != nHunter) updateRequired = true;				
 				
 				if(updateRequired) {
