@@ -38,7 +38,6 @@ public class ShopAssistant {
 	 **/
 
 	public void openShop(int ShopID) {
-		c.sendMessage("" + ShopID);
 		if (Server.getMultiplayerSessionListener().inAnySession(c)) {
 			return;
 		}
