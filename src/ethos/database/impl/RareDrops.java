@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import ethos.model.items.GameItem;
+import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
 import ethos.model.players.Player;
 import ethos.model.players.Right;
@@ -54,6 +55,10 @@ public class RareDrops implements Runnable {
 			if(player.getMode().isIronman()) mode = 2;
 			if(player.getMode().isUltimateIronman()) mode = 3;
 			int rights = player.getRights().getPrimary().getValue();
+			int itemId = drop.getId();
+			if(Item.itemIsNote[drop.getId()]) {
+				player.getItems().getUnnotedItem(itemId);
+			}
 			
 			if(player.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				return;
@@ -70,8 +75,8 @@ public class RareDrops implements Runnable {
 			stmt.setString(1, name);
 			stmt.setInt(2, mode);
 			stmt.setInt(3, rights);
-			stmt.setInt(4, drop.getId());
-			stmt.setString(5, ItemAssistant.getItemName(drop.getId()));
+			stmt.setInt(4, itemId);
+			stmt.setString(5, ItemAssistant.getItemName(itemId));
 			stmt.setInt(6, drop.getAmount());
 			stmt.execute();
 			

@@ -2,6 +2,7 @@ package ethos.model.content.trails;
 
 import java.util.List;
 
+import ethos.database.impl.RareDrops;
 import ethos.model.items.Item;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
@@ -23,6 +24,7 @@ public class TreasureTrails {
 				Item.getItemName(item.getId()).contains("mage's")) {
 				PlayerHandler.executeGlobalMessage(
 						"[<col=CC0000>Treasure</col>] @cr18@ <col=255>" + player.playerName + "</col> received <col=255>" + Item.getItemName(item.getId()) + "</col> from a Treasure Trail.");
+				new Thread(new RareDrops(player, item)).start();
 
 			}
 			if(player.getItems().freeSlots() <= 0) {
