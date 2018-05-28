@@ -1355,7 +1355,7 @@ public class ShopAssistant {
 			} else {
 				ShopValue = (int) Math.floor(getItemShopValue(removeId, 1, removeSlot));
 				if (c.myShopId != 26)
-					if(removeId != 13204)
+					if(removeId != 13204 && removeId != 6651 && removeId != 6652)
 						ShopValue *= 0.667;
 			}
 			if (ShopValue >= 1000 && ShopValue < 1000000) {
@@ -1479,7 +1479,7 @@ public class ShopAssistant {
 					}
 				}
 				if (c.myShopId != 26)
-					if(itemID != 13204)
+					if(itemID != 13204 && itemID != 6651 && itemID != 6652)
 						TotPrice2 *= 0.667;
 				
 				TotPrice2 = TotPrice2 * amount;
