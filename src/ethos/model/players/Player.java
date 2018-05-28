@@ -805,10 +805,6 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000>[-] </shad></col>" + getName());
 		refreshQuestTab(5);
 		Misc.println("[Logged out]: " + playerName);
-		// FIXME: Need to call 1and1 to get this fixed
-		/**
-		 * Caused by: java.net.UnknownHostException: db729453455.db.1and1.com
-		 */
 		new Thread(new Highscores(this)).start();
 		disconnected = true;
 		//logoutDelay = Long.MAX_VALUE;

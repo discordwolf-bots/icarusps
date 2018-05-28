@@ -1,14 +1,29 @@
 package ethos.model.players;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.text.WordUtils;
+
 import ethos.Config;
 import ethos.Server;
 import ethos.clip.PathChecker;
 import ethos.clip.Region;
+import ethos.database.impl.LevelUp;
 import ethos.event.CycleEventHandler;
 import ethos.event.DelayEvent;
 import ethos.event.impl.WheatPortalEvent;
-import ethos.model.content.LootingBag.LootingBag;
 import ethos.model.content.RunePouch;
+import ethos.model.content.LootingBag.LootingBag;
 import ethos.model.content.achievement_diary.wilderness.WildernessDiaryEntry;
 import ethos.model.content.bonus.DoubleExperience;
 import ethos.model.content.instances.InstancedArea;
@@ -17,7 +32,11 @@ import ethos.model.content.kill_streaks.Killstreak;
 import ethos.model.entity.Entity;
 import ethos.model.holiday.HolidayController;
 import ethos.model.holiday.halloween.HalloweenDeathCycleEvent;
-import ethos.model.items.*;
+import ethos.model.items.EquipmentSet;
+import ethos.model.items.GameItem;
+import ethos.model.items.Item;
+import ethos.model.items.ItemAssistant;
+import ethos.model.items.ItemDefinition;
 import ethos.model.items.bank.BankTab;
 import ethos.model.minigames.bounty_hunter.TargetState;
 import ethos.model.minigames.lighthouse.DisposeType;
@@ -42,7 +61,11 @@ import ethos.model.players.combat.effects.DragonfireShieldEffect;
 import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.magic.NonCombatSpells;
 import ethos.model.players.mode.ModeType;
-import ethos.model.players.skills.*;
+import ethos.model.players.skills.Cooking;
+import ethos.model.players.skills.Fishing;
+import ethos.model.players.skills.Skill;
+import ethos.model.players.skills.SkillHandler;
+import ethos.model.players.skills.Smelting;
 import ethos.model.players.skills.Smelting.Bars;
 import ethos.model.players.skills.crafting.CraftingData;
 import ethos.model.players.skills.crafting.Enchantment;
@@ -54,14 +77,6 @@ import ethos.net.outgoing.messages.ComponentVisibility;
 import ethos.util.Misc;
 import ethos.util.Stream;
 import ethos.world.Clan;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.text.WordUtils;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class PlayerAssistant {
 
@@ -3227,10 +3242,12 @@ public void sendFrame107() {
 		if(c.getRights().isOrInherits(Right.IRONMAN)) gm = "Ironman";
 		if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gm = "Ultimate Ironman";
 		if (c.maxRequirements(c)) {
-			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR))
+			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has <col=255>MAXED</col> out all skills on " + gm + " Mode, congratulations.");
+				new Thread(new LevelUp(c, 99, "99a")).start();
+			}
 		}
 		if (getLevelForXP(c.playerXP[skill]) == 99) {
 			Skill s = Skill.forId(skill);
@@ -3239,6 +3256,7 @@ public void sendFrame107() {
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has reached level 99 <col=CC0000>"
 						+ s.toString() + "</col> on " + gm + " Mode, congratulations.");
+				new Thread(new LevelUp(c, skill, "99")).start();
 			}
 		}
 		if (getLevelForXP(c.playerXP[skill]) == 120) {
@@ -3248,6 +3266,7 @@ public void sendFrame107() {
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has reached level 120 <col=CC0000>"
 						+ s.toString() + "</col> on " + gm + " Mode, congratulations.");
+				new Thread(new LevelUp(c, skill, "120")).start();
 			}
 		}
 		
@@ -3594,14 +3613,19 @@ public void sendFrame107() {
 			String colClose = "</shad></col>";
 			String expAlert = "";
 			String gameMode = "Normal";
-			if(newExperience != Config.MAX_STACK)
+			if(newExperience != Config.MAX_STACK) {
 				expAlert += colOpen + (newMult * 200) + "M" + colClose;
-			if(newExperience == Config.MAX_STACK)
+				new Thread(new LevelUp(c, skill, ""+(newMult*200)+"M")).start();
+			}
+			if(newExperience == Config.MAX_STACK) {
 				expAlert += colOpen2 + "MAX" + colClose;
+				new Thread(new LevelUp(c, skill, "max")).start();
+			}
 			if(c.getRights().isOrInherits(Right.OSRS)) gameMode = colOpen + "OSRS" + colClose;
 			if(c.getRights().isOrInherits(Right.IRONMAN)) gameMode = "Ironman";
 			if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gameMode = "Ultimate Ironman";
 			PlayerHandler.executeGlobalMessage(colOpen3 +"[@cr10@" + "ALERT" + "] " + colClose + colOpen + name + colClose + " has just achieved " + expAlert + " Experience in " + colOpen + skillName + colClose + " on " + gameMode + " Mode!");
+			
 		}
 		
 		// SET EXPERIENCE

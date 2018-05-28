@@ -52,12 +52,10 @@ public class Highscores implements Runnable {
 			int rights = player.getRights().getPrimary().getValue();
 			
 			if(player.getRights().isOrInherits(Right.ADMINISTRATOR)) {
-				System.out.println("Admin tried to save to highscores!");
 				return;
 			}
 			
 			String name = player.getName();
-			//System.out.println("Saving Highscores: " + name);
 			String queryFetch = "SELECT * FROM "+TABLE+" WHERE username='"+name+"'";
 			Statement stmtFetch = conn.createStatement();
 			ResultSet rsFetchI = stmtFetch.executeQuery(queryFetch);
@@ -304,28 +302,12 @@ public class Highscores implements Runnable {
 					stmtUpdateTime.execute();
 					stmtUpdateTime.close();
 					
-				} else {
-					System.out.println(name + " doesnt need updating.");
 				}
 			}
 				
 			conn.close();
 			destroy();
 				
-			/*PreparedStatement stmt1 = prepare("DELETE FROM "+TABLE+" WHERE username=?");
-			stmt1.setString(1, player.getUsername());
-			stmt1.execute();
-				
-			PreparedStatement stmt2 = prepare(generateQuery());
-			stmt2.setString(1, player.getUsername());
-			stmt2.setInt(2, player.getRights());
-			stmt2.setLong(3, player.getSkill().getTotalXp());
-			
-			for (int i = 0; i < 25; i++)
-				stmt2.setInt(4 + i, (int)player.getSkill().getExperience()[i]);
-			stmt2.execute();
-			
-			destroy();*/
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
