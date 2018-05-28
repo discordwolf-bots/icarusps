@@ -56,9 +56,6 @@ public class RareDrops implements Runnable {
 			if(player.getMode().isUltimateIronman()) mode = 3;
 			int rights = player.getRights().getPrimary().getValue();
 			int itemId = drop.getId();
-			if(Item.itemIsNote[drop.getId()]) {
-				player.getItems().getUnnotedItem(itemId);
-			}
 			
 			if(player.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				return;
