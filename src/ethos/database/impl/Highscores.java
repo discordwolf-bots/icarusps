@@ -301,7 +301,7 @@ public class Highscores implements Runnable {
 					
 					stmtUpdateTime.execute();
 					stmtUpdateTime.close();
-					
+					System.out.println("Updated highscores: " + name);
 				}
 			}
 				
