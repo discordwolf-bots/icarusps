@@ -52,7 +52,7 @@
 			{
 				"names": [ "ghost" ],
 				"level": 1,
-				"experience": 8,
+				"experience":16,
 				"minimum": 15,
 				"maximum": 50,
 				"locations": [ "Taverly Dungeon" ],
@@ -61,7 +61,7 @@
 			{
 				"names": [ "skeleton" ],
 				"level": 1,
-				"experience": 20,
+				"experience": 30,
 				"minimum": 15,
 				"maximum": 50,
 				"locations": [ "Taverly Dungeon" ],
@@ -70,7 +70,7 @@
 			{
 				"names": [ "chaos druid" ],
 				"level": 1,
-				"experience": 13,
+				"experience": 25,
 				"minimum": 15,
 				"maximum": 50,
 				"locations": [ "Taverly Dungeon, Edgeville Dungeon (Dangerous)" ],
@@ -176,7 +176,7 @@
             {
                 "names": [ "cockatrice", "cockathrice" ],
                 "level": 25,
-                "experience": 37,
+                "experience": 68,
                 "minimum": 10,
                 "maximum": 100,
 				"locations": [ "Rellekka Slayer Dungeon" ],
@@ -194,7 +194,7 @@
             {
                 "names": [ "earth warrior" ],
                 "level": 1,
-                "experience": 54,
+                "experience": 60,
                 "minimum": 15,
                 "maximum": 110,
 				"locations": [ "Edgeville Dungeon" ],
@@ -372,7 +372,7 @@
             {
                 "names": [ "cave horror", "cave abomination" ],
                 "level": 58,
-                "experience": 55,
+                "experience": 115,
                 "minimum": 70,
                 "maximum": 100,
                 "locations": [ "Rellekka slayer dungeon", "donator zone" ],
@@ -471,7 +471,7 @@
             {
                 "names": [ "kurask", "king kurask" ],
                 "level": 70,
-                "experience": 97,
+                "experience": 137,
                 "minimum": 55,
                 "maximum": 90,
                 "locations": [ "freminnik slayer dungeon", "donator zone" ],
@@ -489,7 +489,7 @@
             {
                 "names": [ "nechryael", "nechryarch" ],
                 "level": 80,
-                "experience": 105,
+                "experience": 145,
                 "minimum": 40,
                 "maximum": 100,
                 "locations": [ "slayer tower", "stronghold slayer cave", "donator zone" ],
@@ -498,7 +498,7 @@
 			{
                 "names": [ "skeleton warlord" ],
                 "level": 50,
-                "experience": 105,
+                "experience": 320,
                 "minimum": 40,
                 "maximum": 60,
                 "locations": [ "around home area" ],
@@ -507,7 +507,7 @@
 			{
                 "names": [ "skeleton brute" ],
                 "level": 50,
-                "experience": 105,
+                "experience": 320,
                 "minimum": 40,
                 "maximum": 60,
                 "locations": [ "around home area" ],
@@ -516,7 +516,7 @@
 	        {
                 "names": [ "skeleton hero" ],
                 "level": 50,
-                "experience": 105,
+                "experience": 320,
                 "minimum": 40,
                 "maximum": 60,
                 "locations": [ "around home area" ],
@@ -525,7 +525,7 @@
 			{
                 "names": [ "skeleton thug" ],
                 "level": 50,
-                "experience": 105,
+                "experience": 320,
                 "minimum": 40,
                 "maximum": 60,
                 "locations": [ "around home area" ],
@@ -534,7 +534,7 @@
 						{
                 "names": [ "skeleton heavy" ],
                 "level": 50,
-                "experience": 105,
+                "experience": 320,
                 "minimum": 40,
                 "maximum": 60,
                 "locations": [ "around home area" ],
@@ -561,7 +561,7 @@
             {
                 "names": [ "spiritual mage", "spiritual ranger", "spiritual warrior" ],
                 "level": 83,
-                "experience": 106,
+                "experience": 300,
                 "minimum": 60,
                 "maximum": 90,
                 "locations": [ "god wars dungeon" ],
@@ -739,7 +739,7 @@
             {
                 "names": [ "giant mole" ],
                 "level": 1,
-                "experience": 1200,
+                "experience": 550,
                 "minimum": 5,
                 "maximum": 10,
                 "locations": [ "wilderness" ],
@@ -766,7 +766,7 @@
             {
                 "names": [ "zulrah" ],
                 "level": 1,
-                "experience": 500,
+                "experience": 600,
                 "minimum": 5,
                 "maximum": 10,
                 "locations": [ "Zul-Areth" ],
@@ -775,7 +775,7 @@
             {
                 "names": [ "giant mole" ],
                 "level": 1,
-                "experience": 1200,
+                "experience": 550,
                 "minimum": 5,
                 "maximum": 15,
                 "locations": [ "wilderness" ],
@@ -881,7 +881,7 @@
             {
                 "names": [ "skeletal wyvern" ],
                 "level": 72,
-                "experience": 200,
+                "experience": 250,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "West of Wildy Agility" ],
