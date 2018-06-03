@@ -204,7 +204,7 @@ public class WoodcuttingEvent extends Event<Player> {
 	}
 
 	private void handleRewards() {
-		if (Misc.random(tree.getPetChance() / 40) == 10) {
+		if(Misc.random(250) == 25) { 
 			switch (Misc.random(1)) {
 			case 0:
 				attachment.getItems().addItemUnderAnyCircumstance(19712, 1);
@@ -214,6 +214,7 @@ public class WoodcuttingEvent extends Event<Player> {
 				attachment.getItems().addItemUnderAnyCircumstance(19714, 1);
 				break;
 			}
+			if(Misc.random(25) == 25) 
 			attachment.sendMessage("@blu@You appear to see a clue nest fall from the tree, and pick it up.");
 		}
 		if (Misc.random(1200) == 5) {

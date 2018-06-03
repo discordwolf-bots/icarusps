@@ -612,7 +612,7 @@ public class TeleportHandler {
 			if (!teleportCheck(player))
 				return;
 			if (player.teleSelected == 0) { // Monsters - Catacombs
-				player.getPA().startTeleport(1630, 3673, 0, "modern");
+				player.getPA().startTeleport(1664, 10050, 0, "modern");
 				player.sendMessage("Teleporting to " + monsterNames[16] + ".");
 				player.sendMessage("Click on the statue to enter the Catacombs!");
 			} else if (player.teleSelected == 3) { // Wilderness - Chaos Altar
