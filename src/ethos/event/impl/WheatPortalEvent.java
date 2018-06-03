@@ -66,11 +66,11 @@ public class WheatPortalEvent extends Event<Object> {
 		Server.getGlobalObjects().add(wheat_three = new GlobalObject(WHEAT, xLocation, yLocation +1, 0, 2, 10, -1, Integer.MAX_VALUE));
 		Server.getGlobalObjects().add(wheat_four = new GlobalObject(WHEAT, xLocation -1, yLocation +1, 0, 2, 10, -1, Integer.MAX_VALUE));
 		
-		PlayerHandler.nonNullStream().forEach(player -> {
-			if (Boundary.isIn(player, Boundary.HUNTER_JUNGLE)) {
-				player.sendMessage("@red@[Hunter] @bla@A new puro-puro teleport has spawned!");
-			}
-		});
+//		PlayerHandler.nonNullStream().forEach(player -> {
+//			if (Boundary.isIn(player, Boundary.HUNTER_JUNGLE)) {
+//				player.sendMessage("@red@[Hunter] @bla@A new puro-puro teleport has spawned!");
+//			}
+//		});
 		
 //		int index = 0;
 //		for (int i = 0; i < PORTAL_LOCATIONS.length; i++) {
