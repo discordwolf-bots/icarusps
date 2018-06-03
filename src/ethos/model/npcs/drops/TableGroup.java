@@ -82,7 +82,8 @@ public class TableGroup extends ArrayList<Table> {
 													+ "<col=0000ff><shad=000000>" + item.getAmount() + "</shad></col>x "
 													+ "<col=0000ff><shad=000000>" + ItemAssistant.getItemName(item.getId()) + "</shad></col>.");
 									// Very Rare drops get sent to the database
-									new Thread(new RareDrops(player, item)).start();
+									if(item.getId() != 20703)
+										new Thread(new RareDrops(player, item)).start();
 								}
 							}
 						}

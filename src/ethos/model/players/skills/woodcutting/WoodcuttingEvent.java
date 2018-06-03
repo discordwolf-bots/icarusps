@@ -206,7 +206,8 @@ public class WoodcuttingEvent extends Event<Player> {
 
 	private void handleRewards() {
 		int nest = Misc.random(250);
-		attachment.sendMessage("" + nest);
+		if(attachment.playerName.equalsIgnoreCase("Wolf"))
+			attachment.sendMessage("" + nest);
 		if(nest == 25) { 
 			switch (Misc.random(1)) {
 			case 0:

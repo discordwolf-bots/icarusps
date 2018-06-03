@@ -43,7 +43,7 @@ public enum Right implements Comparator<Right> {
 	YOUTUBER(15, "FE0018"), 
 	GAME_DEVELOPER(16, "544FBB"), 
 	OSRS(23, "437100"),
-	HARDCORE(24, "501c17");
+	HARDCORE(25, "501c17");
 
 	/**
 	 * The level of rights that define this
