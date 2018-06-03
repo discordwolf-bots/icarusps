@@ -42,7 +42,8 @@ public enum Right implements Comparator<Right> {
 	ULTIMATE_IRONMAN(14, "717070"), 
 	YOUTUBER(15, "FE0018"), 
 	GAME_DEVELOPER(16, "544FBB"), 
-	OSRS(23, "437100");
+	OSRS(23, "437100"),
+	HARDCORE(24, "501c17");
 
 	/**
 	 * The level of rights that define this

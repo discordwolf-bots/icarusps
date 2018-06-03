@@ -97,6 +97,7 @@ public class WoodcuttingEvent extends Event<Player> {
 					Firemaking.lightFire(attachment, tree.getWood(), "infernal_axe");
 					return;
 				}
+				handleRewards();
 				handleDiary(tree);
 				handleWildernessRewards();
 				attachment.getItems().addItem(tree.getWood(), SkillcapePerks.WOODCUTTING.isWearing(attachment) || (SkillcapePerks.isWearingMaxCape(attachment) && attachment.getWoodcuttingEffect()) && Misc.random(2) == 1 ? 2 : 1);
@@ -204,7 +205,9 @@ public class WoodcuttingEvent extends Event<Player> {
 	}
 
 	private void handleRewards() {
-		if(Misc.random(250) == 25) { 
+		int nest = Misc.random(250);
+		attachment.sendMessage("" + nest);
+		if(nest == 25) { 
 			switch (Misc.random(1)) {
 			case 0:
 				attachment.getItems().addItemUnderAnyCircumstance(19712, 1);
