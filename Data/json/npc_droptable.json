@@ -6111,12 +6111,8 @@
     }
   },
   {
-    "npc_id": [
-      1798,
-      1799,
-      1800
-    ],
-    "constant": {
+     "npc_id": 1798
+      "constant": {
       "accessibility": 0,
       "items": [
         {
@@ -6177,7 +6173,7 @@
       ]
     },
     "rare": {
-      "accessibility": 50,
+      "accessibility": 200,
       "items": [
         {
           "item": 5574,
@@ -6216,6 +6212,117 @@
         },
         {
           "item": 9678,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    }
+  },
+  {
+	"npc_id":  [ 
+      1799,
+      1800
+    ],
+    "constant": {
+      "accessibility": 0,
+      "items": [
+        {
+          "item": 526,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    "common": {
+      "accessibility": 5,
+      "items": [
+        {
+          "item": 995,
+          "minimum": 1,
+          "maximum": 10000
+        },
+        {
+          "item": 6607,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    "uncommon": {
+      "accessibility": 10,
+      "items": [
+        {
+          "item": 3049,
+          "minimum": 1,
+          "maximum": 20
+        },
+        {
+          "item": 3051,
+          "minimum": 1,
+          "maximum": 30
+        },
+        {
+          "item": 1147,
+          "minimum": 1,
+          "maximum": 2
+        },
+        {
+          "item": 1333,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6589,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6609,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    "rare": {
+      "accessibility": 75,
+      "items": [
+        {
+          "item": 6611,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6619,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6629,
+          "minimum": 1,
+          "maximum": 1
+        }
+      ]
+    },
+    "very_rare": {
+      "accessibility": 100,
+      "items": [
+        {
+          "item": 6625,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6617,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6623,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 6633,
           "minimum": 1,
           "maximum": 1
         }

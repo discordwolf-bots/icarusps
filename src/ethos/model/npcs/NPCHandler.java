@@ -5236,6 +5236,8 @@ public class NPCHandler {
 		case 2042:
 		case 2043:
 		case 2044:
+		case 1799:
+		case 1800:
 			return 41;
 		case 5862:
 			return 23;
