@@ -6138,7 +6138,7 @@
       ]
     },
     "uncommon": {
-      "accessibility": 10,
+      "accessibility": 15,
       "items": [
         {
           "item": 1141,
@@ -6173,7 +6173,7 @@
       ]
     },
     "rare": {
-      "accessibility": 200,
+      "accessibility": 50,
       "items": [
         {
           "item": 5574,
@@ -6193,7 +6193,7 @@
       ]
     },
     "very_rare": {
-      "accessibility": 150,
+      "accessibility": 70,
       "items": [
         {
           "item": 9672,
