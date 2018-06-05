@@ -87,7 +87,7 @@ public class JewelryMaking extends CraftingData {
 			c.getPA().sendFrame126("", 4242);
 		} else {
 			c.getPA().sendFrame246(4241, 120, 1595);
-			c.getPA().sendFrame126("You need a amulet mould to craft necklaces", 4242);
+			c.getPA().sendFrame126("You need a amulet mould to craft amulets", 4242);
 			for (int i = 0; i < MOULD_INTERFACE_IDS[2].length; i++) {
 				c.getPA().sendFrame34(-1, i, 4245, 1);
 			}

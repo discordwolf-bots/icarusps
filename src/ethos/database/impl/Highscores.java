@@ -87,11 +87,11 @@ public class Highscores implements Runnable {
 				if(oRights != nRights) updateRequired = true;
 				
 				int oTLevel = rsFetch.getInt("overall_level");
-				int nTLevel = player.totalLevel;
+				int nTLevel = player.getPA().totalLevel();
 				if(oTLevel != nTLevel) updateRequired = true;
 				
 				long oTExp = rsFetch.getInt("overall_xp");
-				long nTExp = player.xpTotal;
+				long nTExp = player.getPA().getTotalXP();
 				if(oTExp != nTExp) updateRequired = true;
 				
 				double oAttack = rsFetch.getInt("attack_xp");

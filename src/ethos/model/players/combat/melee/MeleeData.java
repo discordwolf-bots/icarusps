@@ -312,7 +312,8 @@ public class MeleeData {
 		case 9703:
 			return 412;
 			
-		case 13263:
+		case 13263: // Abyssal Blugeon
+		case 21384: // Barb axe
 			return 3298;
 
 		case 6522:
