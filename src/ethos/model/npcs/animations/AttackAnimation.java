@@ -622,7 +622,7 @@ public class AttackAnimation extends NPCHandler {
 
 			return 1341;
 
-		case 19: // white knight
+		case 19: // King White Knight
 			return 406;
 		case 7538:
 			if (npcs[i].attackType == CombatType.MAGE)
