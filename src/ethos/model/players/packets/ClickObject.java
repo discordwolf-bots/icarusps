@@ -99,6 +99,15 @@ public class ClickObject implements PacketType {
 					break;
 				}
 				switch (c.objectId) {
+				case 24059:
+					if(c.getPosition().getX() == 2965 && (c.getPosition().getY() == 3338 || c.getPosition().getY() == 3339)) {
+						c.getPA().movePlayer(2964, c.getPosition().getY());
+						c.sendMessage("<col=ff0000><shad=000000>Get ready to fight the King White Knight!</col></shad>");
+					} else if(c.getPosition().getX() == 2964 && (c.getPosition().getY() == 3338 || c.getPosition().getY() == 3339)) {
+						c.getPA().movePlayer(2965, c.getPosition().getY());
+						c.sendMessage("<col=ff0000><shad=000000>You have now left the arena</col></shad>");
+					}
+					break;
 				case 30283:
 					c.getInfernoMinigame().leaveGame();
 					break;
