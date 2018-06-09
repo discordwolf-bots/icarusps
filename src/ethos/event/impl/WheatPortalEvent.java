@@ -4,8 +4,8 @@ import java.util.concurrent.TimeUnit;
 
 import ethos.Server;
 import ethos.event.Event;
-import ethos.model.players.Boundary;
-import ethos.model.players.PlayerHandler;
+//import ethos.model.players.Boundary;
+//import ethos.model.players.PlayerHandler;
 import ethos.util.Misc;
 import ethos.world.objects.GlobalObject;
 
