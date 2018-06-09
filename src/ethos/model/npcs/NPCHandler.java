@@ -112,7 +112,7 @@ public class NPCHandler {
 			NPCDefinitions.getDefinitions()[i] = null;
 		}
 		loadNPCList("./Data/CFG/npc_config.cfg");
-		//loadAutoSpawn("./Data/CFG/spawn_config.cfg");
+		loadAutoSpawn("./Data/CFG/spawn_config.cfg");
 		loadNPCSizes("./Data/cfg/npc_sizes.txt");
 		startGame();
 	}
