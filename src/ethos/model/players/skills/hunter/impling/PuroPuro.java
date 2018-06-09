@@ -10,7 +10,7 @@ public class PuroPuro {
 	 * x -> The x coordinate of the impling
 	 * y -> The y coordinate of the impling
 	 */
-	public static final int[][] IMPLINGS = {
+	public static final int[][] IMPLINGS = { // new impling area 3040, 4535
 			/**
 			 * Baby imps
 			 */
