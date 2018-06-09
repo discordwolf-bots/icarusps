@@ -5236,8 +5236,6 @@ public class NPCHandler {
 		case 2042:
 		case 2043:
 		case 2044:
-		case 1799:
-		case 1800:
 			return 41;
 		case 5862:
 			return 23;
@@ -5249,6 +5247,9 @@ public class NPCHandler {
 		case 5868:
 		case 5869:
 			return 30;
+		case 1799:  // king white knight
+		case 1800:  // king white knight
+			return 50;
 		case 239:
 			return npcs[i].attackType == CombatType.DRAGON_FIRE ? 50 : 20;
 		case 465:

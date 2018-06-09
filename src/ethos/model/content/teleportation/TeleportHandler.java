@@ -270,7 +270,7 @@ public class TeleportHandler {
 					return;
 				}
 			} else if (player.teleSelected == 6) { // Other - Imp hunting
-				player.getPA().startTeleport(2612, 4318, 0, "modern"); // change
+				player.getPA().startTeleport(3041, 4534, 0, "modern"); // change
 				player.sendMessage("Teleporting to " + otherNames[1] + ".");
 			}
 			break;
@@ -422,7 +422,7 @@ public class TeleportHandler {
 			} else if (player.teleSelected == 4) { // City - Karamja
 				player.getPA().startTeleport(2948, 3147, 0, "modern");
 				player.sendMessage("Teleporting to " + cityNames[7] + ".");
-			} else if (player.teleSelected == 6) { // Other - Hunter
+			} else if (player.teleSelected == 6) { // Other - beginner Hunter
 				player.getPA().startTeleport(1580, 3437, 0, "modern");
 				player.sendMessage("Teleporting to " + otherNames[7] + ".");
 			} else {
@@ -448,7 +448,7 @@ public class TeleportHandler {
 				player.getPA().startTeleport(2964, 3378, 0, "modern");
 				player.sendMessage("Teleporting to " + cityNames[8] + ".");
 				c.getDiaryManager().getFaladorDiary().progress(FaladorDiaryEntry.TELEPORT_TO_FALADOR);
-			} else if (player.teleSelected == 6) { // Other - Puro Puro
+			//} else if (player.teleSelected == 6) { // Other - Gnome Theving
 				if (WheatPortalEvent.xLocation > 0 && WheatPortalEvent.yLocation > 0) {
 					player.getPA().spellTeleport(WheatPortalEvent.xLocation + 1, WheatPortalEvent.yLocation + 1, 0);
 				} else {
