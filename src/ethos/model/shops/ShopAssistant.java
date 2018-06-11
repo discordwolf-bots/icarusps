@@ -2271,7 +2271,6 @@ public class ShopAssistant {
 		c.getOutStream().writeWord(3900);
 		c.getOutStream().writeWord(TotalItems);
 		for (int i = 0; i < 22; i++) {
-			System.out.println(c.getLevelForXP(c.playerXP[i]));
 			if(c.getLevelForXP(c.playerXP[i]) < 120) 
 			{
 				if (c.getLevelForXP(c.playerXP[i]) < 99)
