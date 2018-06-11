@@ -5,7 +5,7 @@ public class Config {
 	public static int PLAYERMODIFIER = 0;
 	
 	//Make sure this matches client version
-	public static final int CLIENT_VERSION = 3;
+	public static final int CLIENT_VERSION = 4;
 	
 	public static final boolean ALPHA = true;
 	
@@ -31,7 +31,7 @@ public class Config {
 	public static boolean sendServerPackets = false;
 	
 	public static final int[] CHEATPACKETS =
-	/** P1****P2***P3***P4****P5***P6**P7**P8 ***/
+	/** P1****P2***P3****P4****P5****P6****P7****P8 ***/
 	{ 7376, 7575, 7227, 8904, 5096, 9002, 2330, 7826 };
 	
 	/**

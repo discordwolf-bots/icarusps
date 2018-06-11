@@ -1496,7 +1496,7 @@ public void sendFrame107() {
 	public void alchemy(int itemId, String alch) {
 		
 		if (c.inClanWars() || c.inClanWarsSafe()) {
-			c.sendMessage("@cr10@There is no need to do this here.");
+			c.sendMessage("<img=10@There is no need to do this here.");
 			return;
 		}
 		
@@ -2119,7 +2119,7 @@ public void sendFrame107() {
 			return;
 		}
 		if (c.inClanWars() || c.inClanWarsSafe()) {
-			c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+			c.sendMessage("<img=10@You can not teleport from here, speak to the doomsayer to leave.");
 			return;
 		}
 		if (Boundary.isIn(c, Boundary.ICE_PATH) || Boundary.isIn(c, Boundary.ICE_PATH_TOP) && c.heightLevel > 0) {
@@ -2219,7 +2219,7 @@ public void sendFrame107() {
 			return false;
 		}
 		if (c.inClanWars() || c.inClanWarsSafe()) {
-			c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+			c.sendMessage("<img=10@You can not teleport from here, speak to the doomsayer to leave.");
 			return false;
 		}
 		if (System.currentTimeMillis() - c.lastSpear < 3000) {
@@ -2294,7 +2294,7 @@ public void sendFrame107() {
 			return;
 		}
 		if (c.inClanWars() || c.inClanWarsSafe()) {
-			c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+			c.sendMessage("<img=10@You can not teleport from here, speak to the doomsayer to leave.");
 			return;
 		}
 		if (c.stopPlayerSkill) {
@@ -2425,7 +2425,7 @@ public void sendFrame107() {
 			return;
 		}
 		if (c.inClanWars() || c.inClanWarsSafe()) {
-			c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+			c.sendMessage("<img=10>You can not teleport from here, speak to the doomsayer to leave.");
 			return;
 		}
 		if (c.inWild() && c.wildLevel > Config.NO_TELEPORT_WILD_LEVEL) {
@@ -2507,7 +2507,7 @@ public void sendFrame107() {
 			return;
 		}
 		if (c.inClanWars() || c.inClanWarsSafe()) {
-			c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+			c.sendMessage("<img=10>You can not teleport from here, speak to the doomsayer to leave.");
 			return;
 		}
 		if (System.currentTimeMillis() - c.lastSpear < 3000) {
@@ -3094,21 +3094,21 @@ public void sendFrame107() {
 		case 0:
 			sendFrame126("Congratulations, you just advanced an attack level!", 6248);
 			sendFrame126("Your attack level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6249);
-			c.sendMessage("Congratulations, you just advanced an attack level.");
+			c.sendMessage("<img=45> Congratulations, you just advanced an attack level.");
 			sendFrame164(6247);
 			break;
 
 		case 1:
 			sendFrame126("Congratulations, you just advanced a defence level!", 6254);
 			sendFrame126("Your defence level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6255);
-			c.sendMessage("Congratulations, you just advanced a defence level.");
+			c.sendMessage("<img=46> Congratulations, you just advanced a defence level.");
 			sendFrame164(6253);
 			break;
 
 		case 2:
 			sendFrame126("Congratulations, you just advanced a strength level!", 6207);
 			sendFrame126("Your strength level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6208);
-			c.sendMessage("Congratulations, you just advanced a strength level.");
+			c.sendMessage("<img=47> Congratulations, you just advanced a strength level.");
 			sendFrame164(6206);
 			break;
 
@@ -3116,125 +3116,124 @@ public void sendFrame107() {
 			c.getHealth().setMaximum(c.getLevelForXP(c.playerXP[c.playerHitpoints]));
 			sendFrame126("Congratulations, you just advanced a hitpoints level!", 6217);
 			sendFrame126("Your hitpoints level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6218);
-			c.sendMessage("Congratulations, you just advanced a hitpoints level.");
+			c.sendMessage("<img=48> Congratulations, you just advanced a hitpoints level.");
 			sendFrame164(6216);
 			break;
 
 		case 4:
-			c.sendMessage("Congratulations, you just advanced a ranging level.");
+			c.sendMessage("<img=49> Congratulations, you just advanced a ranging level.");
 			break;
 
 		case 5:
 			sendFrame126("Congratulations, you just advanced a prayer level!", 6243);
 			sendFrame126("Your prayer level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6244);
-			c.sendMessage("Congratulations, you just advanced a prayer level.");
+			c.sendMessage("<img=50> Congratulations, you just advanced a prayer level.");
 			sendFrame164(6242);
 			break;
 
 		case 6:
 			sendFrame126("Congratulations, you just advanced a magic level!", 6212);
 			sendFrame126("Your magic level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6213);
-			c.sendMessage("Congratulations, you just advanced a magic level.");
+			c.sendMessage("<img=51> Congratulations, you just advanced a magic level.");
 			sendFrame164(6211);
 			break;
 
 		case 7:
 			sendFrame126("Congratulations, you just advanced a cooking level!", 6227);
 			sendFrame126("Your cooking level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6228);
-			c.sendMessage("Congratulations, you just advanced a cooking level.");
+			c.sendMessage("<img=52> Congratulations, you just advanced a cooking level.");
 			sendFrame164(6226);
 			break;
 
 		case 8:
 			sendFrame126("Congratulations, you just advanced a woodcutting level!", 4273);
 			sendFrame126("Your woodcutting level is now " + getLevelForXP(c.playerXP[skill]) + ".", 4274);
-			c.sendMessage("Congratulations, you just advanced a woodcutting level.");
+			c.sendMessage("<img=53> Congratulations, you just advanced a woodcutting level.");
 			sendFrame164(4272);
 			break;
 
 		case 9:
 			sendFrame126("Congratulations, you just advanced a fletching level!", 6232);
 			sendFrame126("Your fletching level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6233);
-			c.sendMessage("Congratulations, you just advanced a fletching level.");
+			c.sendMessage("<img=54> Congratulations, you just advanced a fletching level.");
 			sendFrame164(6231);
 			break;
 
 		case 10:
 			sendFrame126("Congratulations, you just advanced a fishing level!", 6259);
 			sendFrame126("Your fishing level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6260);
-			c.sendMessage("Congratulations, you just advanced a fishing level.");
+			c.sendMessage("<img=55> Congratulations, you just advanced a fishing level.");
 			sendFrame164(6258);
 			break;
 
 		case 11:
 			sendFrame126("Congratulations, you just advanced a fire making level!", 4283);
 			sendFrame126("Your firemaking level is now " + getLevelForXP(c.playerXP[skill]) + ".", 4284);
-			c.sendMessage("Congratulations, you just advanced a fire making level.");
+			c.sendMessage("<img=56> Congratulations, you just advanced a fire making level.");
 			sendFrame164(4282);
 			break;
 
 		case 12:
 			sendFrame126("Congratulations, you just advanced a crafting level!", 6264);
 			sendFrame126("Your crafting level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6265);
-			c.sendMessage("Congratulations, you just advanced a crafting level.");
+			c.sendMessage("<img=57> Congratulations, you just advanced a crafting level.");
 			sendFrame164(6263);
 			break;
 
 		case 13:
 			sendFrame126("Congratulations, you just advanced a smithing level!", 6222);
 			sendFrame126("Your smithing level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6223);
-			c.sendMessage("Congratulations, you just advanced a smithing level.");
+			c.sendMessage("<img=58> Congratulations, you just advanced a smithing level.");
 			sendFrame164(6221);
 			break;
 
 		case 14:
 			sendFrame126("Congratulations, you just advanced a mining level!", 4417);
 			sendFrame126("Your mining level is now " + getLevelForXP(c.playerXP[skill]) + ".", 4438);
-			c.sendMessage("Congratulations, you just advanced a mining level.");
+			c.sendMessage("<img=59> Congratulations, you just advanced a mining level.");
 			sendFrame164(4416);
 			break;
 
 		case 15:
 			sendFrame126("Congratulations, you just advanced a herblore level!", 6238);
 			sendFrame126("Your herblore level is now " + getLevelForXP(c.playerXP[skill]) + ".", 6239);
-			c.sendMessage("Congratulations, you just advanced a herblore level.");
+			c.sendMessage("<img=60> Congratulations, you just advanced a herblore level.");
 			sendFrame164(6237);
 			break;
 
 		case 16:
 			sendFrame126("Congratulations, you just advanced a agility level!", 4278);
-			sendFrame126("Your agility level is now " + getLevelForXP(c.playerXP[skill]) + ".", 4279);
-			c.sendMessage("Congratulations, you just advanced an agility level.");
+			c.sendMessage("<img=61> Congratulations, you just advanced an agility level.");
 			sendFrame164(4277);
 			break;
 
 		case 17:
 			sendFrame126("Congratulations, you just advanced a thieving level!", 4263);
 			sendFrame126("Your theiving level is now " + getLevelForXP(c.playerXP[skill]) + ".", 4264);
-			c.sendMessage("Congratulations, you just advanced a thieving level.");
+			c.sendMessage("<img=62> Congratulations, you just advanced a thieving level.");
 			sendFrame164(4261);
 			break;
 
 		case 18:
 			sendFrame126("Congratulations, you just advanced a slayer level!", 12123);
 			sendFrame126("Your slayer level is now " + getLevelForXP(c.playerXP[skill]) + ".", 12124);
-			c.sendMessage("Congratulations, you just advanced a slayer level.");
+			c.sendMessage("<img=63> Congratulations, you just advanced a slayer level.");
 			sendFrame164(12122);
 			break;
 
 		case 19:
-			c.sendMessage("Congratulations! You've just advanced a Farming level.");
+			c.sendMessage("<img=64> Congratulations! You've just advanced a Farming level.");
 			break;
 
 		case 20:
 			sendFrame126("Congratulations, you just advanced a runecrafting level!", 4268);
 			sendFrame126("Your runecrafting level is now " + getLevelForXP(c.playerXP[skill]) + ".", 4269);
-			c.sendMessage("Congratulations, you just advanced a runecrafting level.");
+			c.sendMessage("<img=65> Congratulations, you just advanced a runecrafting level.");
 			sendFrame164(4267);
 			break;
 			
 		case 21:
-			c.sendMessage("Congratulations! You've just advanced a Hunter level.");
+			c.sendMessage("<img=66> Congratulations! You've just advanced a Hunter level.");
 			break;
 		}
 		String gm = "Normal";
@@ -3604,7 +3603,7 @@ public void sendFrame107() {
 			Skill s = Skill.forId(skill);
 			int rights = c.rights.getPrimary().getValue();
 			String crown = "";
-			if(rights != 0) crown = "@cr" + rights + "@";
+			if(rights != 0) crown = "<img=" + rights + ">";
 			String name = crown + Misc.capitalize(c.playerName);
 			String skillName = s.toString();
 			String colOpen = "<col=ff0000><shad=000000>";
@@ -3624,7 +3623,7 @@ public void sendFrame107() {
 			if(c.getRights().isOrInherits(Right.OSRS)) gameMode = colOpen + "OSRS" + colClose;
 			if(c.getRights().isOrInherits(Right.IRONMAN)) gameMode = "Ironman";
 			if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gameMode = "Ultimate Ironman";
-			PlayerHandler.executeGlobalMessage(colOpen3 +"[@cr10@" + "ALERT" + "] " + colClose + colOpen + name + colClose + " has just achieved " + expAlert + " Experience in " + colOpen + skillName + colClose + " on " + gameMode + " Mode!");
+			PlayerHandler.executeGlobalMessage(colOpen3 +"[<img=10>" + "ALERT" + "] " + colClose + colOpen + name + colClose + " has just achieved " + expAlert + " Experience in " + colOpen + skillName + colClose + " on " + gameMode + " Mode!");
 			
 		}
 		
@@ -3977,7 +3976,7 @@ public void sendFrame107() {
 		
 		case 13136:
 			if (c.inClanWars() || c.inClanWarsSafe()) {
-				c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+				c.sendMessage("<img=10>You can not teleport from here, speak to the doomsayer to leave.");
 				return;
 			}
 			if (Server.getMultiplayerSessionListener().inAnySession(c)) {
@@ -4143,7 +4142,7 @@ public void sendFrame107() {
 		case 1708:
 		case 1706:
 			if (c.inClanWars() || c.inClanWarsSafe()) {
-				c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+				c.sendMessage("<img=10>You can not teleport from here, speak to the doomsayer to leave.");
 				return;
 			}
 			c.getPA().handleGlory(itemId);
@@ -4157,7 +4156,7 @@ public void sendFrame107() {
 		case 11109:
 		case 11111:
 			if (c.inClanWars() || c.inClanWarsSafe()) {
-				c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+				c.sendMessage("<img=10>You can not teleport from here, speak to the doomsayer to leave.");
 				return;
 			}
 			c.getPA().handleSkills(itemId);

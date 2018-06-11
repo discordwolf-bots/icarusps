@@ -201,6 +201,7 @@ public class Item {
 		switch (itemId) {
 		case 11899:
 		case 11896:
+		case 21386: // Sirenic Body
 			return true;
 		}
 		for (int i = 0; i < fullbody.length; i++) {
@@ -250,6 +251,7 @@ public class Item {
 		case 10507:
 		case 12887:
 		case 20095:
+		case 21385: // Sirenic Helm
 			return true;
 			
 		case 12516:
