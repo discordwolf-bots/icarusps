@@ -1666,7 +1666,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	}
 
 	public boolean isTargetableBy(NPC npc) {
-		return !npc.isDead && Server.npcHandler.isAggressive(npc.getIndex(),false, null) && !npc.underAttack && npc.killerId <= 0 && npc.getHeight() == heightLevel;
+		return !npc.isDead && Server.npcHandler.isAggressive(npc.getIndex(),false) && !npc.underAttack && npc.killerId <= 0 && npc.getHeight() == heightLevel;
 	}
 
 	public Stream getInStream() {
