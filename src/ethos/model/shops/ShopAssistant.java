@@ -2031,19 +2031,7 @@ public class ShopAssistant {
 			c.getItems().resetItems(3823);
 			return;
 		}
-
-		if (c.myShopId == 117 && itemID == 12695) {
-			int itemValue = getSpecialItemValue(itemID) * amount;
-			if (!c.getItems().playerHasItem(13307, itemValue)) {
-				c.sendMessage("You do not have enough blood money to purchase this.");
-				return;
-			}
-			c.getItems().deleteItem(13307, itemValue);
-			c.getItems().addItem(itemID + 1, amount * 2);
-			c.getItems().resetItems(3823);
-			return;
-		}
-		if (c.myShopId == 116/* || c.myShopId == 117*/) {
+		if (c.myShopId == 116 || c.myShopId == 117) {
 			int itemValue = getSpecialItemValue(itemID) * amount;
 			if (!c.getItems().playerHasItem(13307, itemValue)) {
 				c.sendMessage("You do not have enough blood money to purchase this.");
