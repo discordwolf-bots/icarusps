@@ -6208,6 +6208,31 @@
           "maximum": 1
         },
         {
+				  "item": 232,
+          "minimum": 1,
+          "maximum": 1000
+		},
+		{
+		  "item": 224,
+          "minimum": 1,
+          "maximum": 600
+        },
+        {
+		  "item":  6694, 
+		  "minimum": 1,
+		  "maximum": 400
+		},
+		{
+		  "item": 3139,
+          "minimum": 1,
+          "maximum": 200
+        },
+        {
+		  "item":  224, 
+		  "minimum": 1,
+		  "maximum": 100
+		},
+		{
           "item": 5575,
           "minimum": 1,
           "maximum": 1
@@ -6309,6 +6334,31 @@
           "maximum": 20
         },
         {
+		  "item": 232,
+          "minimum": 1,
+          "maximum": 1000
+		},
+		{
+		  "item": 224,
+          "minimum": 1,
+          "maximum": 600
+        },
+        {
+		  "item":  6694, 
+		  "minimum": 1,
+		  "maximum": 400
+		},
+		{
+		  "item": 3139,
+          "minimum": 1,
+          "maximum": 200
+        },
+        {
+		  "item":  224, 
+		  "minimum": 1,
+		  "maximum": 100
+		},
+		{
 		  "item": 9676,
           "minimum": 1,
           "maximum": 1
