@@ -13595,19 +13595,19 @@
           "maximum": 1
         },
         {
-          "item": 892,
+          "item": 10033,
           "minimum": 42,
-          "maximum": 42
+          "maximum": 400
         },
         {
-          "item": 443,
+          "item": 10034,
           "minimum": 10,
-          "maximum": 100
+          "maximum": 200
         },
         {
-          "item": 1185,
+          "item": 11959,
           "minimum": 1,
-          "maximum": 1
+          "maximum": 100
         }
       ]
     }
