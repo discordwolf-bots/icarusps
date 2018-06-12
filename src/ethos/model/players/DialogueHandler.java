@@ -2516,8 +2516,8 @@ public class DialogueHandler {
 			break;
 
 		case 645:
-			sendNpcChat("You've made it through!", "You have the option to play as an <col=" + Right.IRONMAN.getColor() + "><img=12></img>Iron Man</col>,",
-					"<col=" + Right.ULTIMATE_IRONMAN.getColor() + "><img=13></img>Ultimate Iron Man</col>, or neither.", "Choose from the following interface.");
+			sendNpcChat("You've made it through!", "You have the option to play as an <col=" + Right.IRONMAN.getColor() + "><img=12>Iron Man</col>,",
+					"<col=" + Right.ULTIMATE_IRONMAN.getColor() + "><img=13></img>Ultimate Iron Man</col>, <col=" + Right.HARDCORE.getColor() + "><img=23> Hardcore Ironman</col> or regular.", "Choose from the following interface.");
 			c.nextChat = 646;
 			break;
 
@@ -2531,6 +2531,10 @@ public class DialogueHandler {
 				sendNpcChat("You have chosen to play without a particular mode.", "You can always create a new account in the future", "if you want to try something new.");
 			} else if (c.getMode().getType().equals(ModeType.OSRS)) {
 				sendNpcChat("You have chosen the OSRS mode, with x1 experience rates.");
+			} else if (c.getMode().getType().equals(ModeType.HARDCORE)) {
+				sendNpcChat("You have chosen the Hardcore Ironman mode.",
+							"Take this set of armour to help you on your way.",
+							"<col=ff0000>Remember! If you die, you go back to Ironman mode!</col>");
 			} else {
 				sendNpcChat("You have chosen the mode " + c.getMode().getType().toString() + ".", "Take this set of armour to help you on your way.");
 			}

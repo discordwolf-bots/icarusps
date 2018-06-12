@@ -4,7 +4,7 @@ import org.apache.commons.lang3.text.WordUtils;
 
 public enum ModeType {
 
-	REGULAR, IRON_MAN, ULTIMATE_IRON_MAN, OSRS;
+	REGULAR, IRON_MAN, ULTIMATE_IRON_MAN, OSRS, HARDCORE;
 
 	@Override
 	public String toString() {

@@ -50,7 +50,7 @@ public class LevelUp implements Runnable {
 			
 			String name = player.getName();
 			int mode = 0;
-			if(player.getMode().isOsrs()) mode = 1;
+			if(player.getMode().isHardcore()) mode = 1;
 			if(player.getMode().isIronman()) mode = 2;
 			if(player.getMode().isUltimateIronman()) mode = 3;
 			int rights = player.getRights().getPrimary().getValue();

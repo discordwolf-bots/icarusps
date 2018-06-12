@@ -50,7 +50,8 @@ public class NonCombatSpells extends MagicRequirements {
 		c.getItems().replaceItem(c, item[0], item[1]);
 		c.gfx100(141);
 		c.startAnimation(722);
-		c.getPA().addSkillXP(c.getMode().isOsrs() ? 35 : 214, 6, true);
+		//c.getPA().addSkillXP(c.getMode().isOsrs() ? 35 : 214, 6, true);
+		c.getPA().addSkillXP(214, 6, true);
 		c.sendMessage("You use your magic power to convert bones into " + ItemAssistant.getItemName(item[1]).toLowerCase() + (item[1] != 526 ? ("e") : ("")) + "s!");
 		c.getDiaryManager().getLumbridgeDraynorDiary().progress(LumbridgeDraynorDiaryEntry.BONES_TO_PEACHES);
 		c.getCombat().resetPlayerAttack();

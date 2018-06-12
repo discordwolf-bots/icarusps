@@ -1482,7 +1482,8 @@ public void sendFrame107() {
 			c.getPA().sendGameTimer(ClientGameTimer.VENGEANCE, TimeUnit.SECONDS, 30);
 			c.startAnimation(4410);
 			c.gfx100(726);
-			addSkillXP(c.getMode().isOsrs() ? 112 : 10000, 6, true);
+			//addSkillXP(c.getMode().isOsrs() ? 112 : 10000, 6, true);
+			addSkillXP(10000, 6, true);
 			refreshSkill(6);
 			c.vengOn = true;
 			c.usingMagic = false;
@@ -3240,6 +3241,7 @@ public void sendFrame107() {
 		if(c.getRights().isOrInherits(Right.OSRS)) gm = "OSRS";
 		if(c.getRights().isOrInherits(Right.IRONMAN)) gm = "Ironman";
 		if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gm = "Ultimate Ironman";
+		if(c.getRights().isOrInherits(Right.HARDCORE)) gm = "Hardcore Ironman";
 		if (c.maxRequirements(c)) {
 			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
@@ -3601,7 +3603,7 @@ public void sendFrame107() {
 		int newMult = (int) Math.floor(((double) newExperience)/200000000);
 		if((oldMult < newMult) || (newExperience == Config.MAX_STACK && oldExperience != Config.MAX_STACK) ) {
 			Skill s = Skill.forId(skill);
-			int rights = c.rights.getPrimary().getValue();
+			int rights = c.rights.getPrimary().getValue() - 1;
 			String crown = "";
 			if(rights != 0) crown = "<img=" + rights + ">";
 			String name = crown + Misc.capitalize(c.playerName);
@@ -3623,6 +3625,7 @@ public void sendFrame107() {
 			if(c.getRights().isOrInherits(Right.OSRS)) gameMode = colOpen + "OSRS" + colClose;
 			if(c.getRights().isOrInherits(Right.IRONMAN)) gameMode = "Ironman";
 			if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gameMode = "Ultimate Ironman";
+			if(c.getRights().isOrInherits(Right.HARDCORE)) gameMode = "Hardcore Ironman";
 			PlayerHandler.executeGlobalMessage(colOpen3 +"[<img=10>" + "ALERT" + "] " + colClose + colOpen + name + colClose + " has just achieved " + expAlert + " Experience in " + colOpen + skillName + colClose + " on " + gameMode + " Mode!");
 			
 		}

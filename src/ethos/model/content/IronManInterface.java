@@ -63,7 +63,7 @@ public class IronManInterface {
 		actions.put(Action.NONE, SELECTED);
 		actions.put(Action.STANDARD_IRON_MAN, UNSELECTED);
 		actions.put(Action.ULTIMATE_IRON_MAN, UNSELECTED);
-		actions.put(Action.OSRS, UNSELECTED);
+		actions.put(Action.HARDCORE_IRON_MAN, UNSELECTED);
 		actions.put(Action.NPC, UNSELECTABLE);
 		actions.put(Action.PERMANENT, UNSELECTABLE);
 	}
@@ -127,7 +127,7 @@ public class IronManInterface {
 		List<Entry<Action, Byte>> selected = actions.entrySet().stream().filter(e -> e.getValue() == SELECTED).collect(Collectors.toList());
 		if (selected.stream().noneMatch(entry -> entry.getKey() == Action.NONE)) {
 			Optional<Entry<Action, Byte>> revert = selected.stream().filter(e -> e.getKey() == Action.NPC || e.getKey() == Action.PERMANENT).findFirst();
-			Optional<Entry<Action, Byte>> mode = selected.stream().filter(e -> e.getKey() == Action.STANDARD_IRON_MAN || e.getKey() == Action.ULTIMATE_IRON_MAN || e.getKey() == Action.OSRS).findFirst();
+			Optional<Entry<Action, Byte>> mode = selected.stream().filter(e -> e.getKey() == Action.STANDARD_IRON_MAN || e.getKey() == Action.ULTIMATE_IRON_MAN || e.getKey() == Action.HARDCORE_IRON_MAN).findFirst();
 
 			if (!mode.isPresent()) {
 				player.sendMessage("You must select a mode.");
@@ -152,9 +152,9 @@ public class IronManInterface {
 				player.setRevertOption(revertAction.name());
 				break;
 				
-			case OSRS:
-				player.setMode(Mode.forType(ModeType.OSRS));
-				player.getRights().setPrimary(Right.OSRS);
+			case HARDCORE_IRON_MAN:
+				player.setMode(Mode.forType(ModeType.HARDCORE));
+				player.getRights().setPrimary(Right.HARDCORE);
 				break;
 				
 			default:
@@ -173,7 +173,7 @@ public class IronManInterface {
 		NONE(165164, 42404), 
 		NPC(165165, 42405), 
 		PERMANENT(165166, 42406), 
-		OSRS(165183, 42423);
+		HARDCORE_IRON_MAN(165183, 42423);
 
 		/**
 		 * The button clicked to perform the action
@@ -201,7 +201,7 @@ public class IronManInterface {
 		STANDARD_IRON_MAN(Action.STANDARD_IRON_MAN, new Action[] { 
 				Action.ULTIMATE_IRON_MAN, 
 				Action.NONE, 
-				Action.OSRS, 
+				Action.HARDCORE_IRON_MAN, 
 				Action.NPC, 
 				Action.PERMANENT 
 		}, new Action[] {
@@ -210,7 +210,7 @@ public class IronManInterface {
 		ULTIMATE_IRON_MAN(Action.ULTIMATE_IRON_MAN, new Action[] { 
 				Action.STANDARD_IRON_MAN, 
 				Action.NONE, 
-				Action.OSRS, 
+				Action.HARDCORE_IRON_MAN, 
 				Action.NPC, 
 				Action.PERMANENT 
 		},new Action[] {
@@ -219,7 +219,7 @@ public class IronManInterface {
 		NONE(Action.NONE, new Action[] { 
 				Action.ULTIMATE_IRON_MAN, 
 				Action.STANDARD_IRON_MAN,
-				Action.OSRS
+				Action.HARDCORE_IRON_MAN
 		}, new Action[] { 
 				Action.NPC, 
 				Action.PERMANENT 
@@ -234,13 +234,14 @@ public class IronManInterface {
 		}, new Action[] {
 				
 		}), 
-		OSRS(Action.OSRS, new Action[] { 
+		HARDCORE_IRON_MAN(Action.HARDCORE_IRON_MAN, new Action[] { 
 				Action.ULTIMATE_IRON_MAN, 
 				Action.STANDARD_IRON_MAN, 
 				Action.NONE,
+				Action.NPC,
 				Action.PERMANENT 
 		}, new Action[] {
-				Action.NPC
+				
 		});
 
 		/**

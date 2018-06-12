@@ -1502,7 +1502,6 @@ public class NPCHandler {
 				/**
 				 * Attacking player
 				 **/
-				int player2 = getCloseRandomPlayer(i);
 				if (isAggressive(i, false) && !npc.underAttack && npc.killerId <= 0 && !npc.isDead && !switchesAttackers(i) && npc.inMulti()
 						&& !Boundary.isIn(npc, Boundary.GODWARS_BOSSROOMS) && !Boundary.isIn(npcs[i], Boundary.CORPOREAL_BEAST_LAIR)) {
 					Player closestPlayer = null;
@@ -1810,9 +1809,11 @@ public class NPCHandler {
 							break;
 						case 6368:
 							RecipeForDisaster rfdd = player.getrecipeForDisaster();
-							if (rfdd != null) {
+							if (player.rfdWave != 6)
+								player.sendMessage("You need to defeat all the bosses for that to have counted ;)");
+							if (rfdd != null) 
 								rfdd.end(DisposeTypes.COMPLETE);
-							}
+							
 							break;
 							
 						case 5862:
@@ -5140,6 +5141,11 @@ public class NPCHandler {
 	}
 
 	public boolean retaliates(int npcType) {
+		
+		// Culinamancer wont retaliate if not on last wave
+		Player player = PlayerHandler.players[npcs[npcType].spawnedBy];
+		if(npcType == 6368 && player.rfdWave != 6)
+			return false;
 		return npcType<3777||npcType>3780;
 	}
 

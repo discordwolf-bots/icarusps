@@ -13,7 +13,7 @@ public abstract class Mode {
 	 * A list of all {@link Mode}'s that exist in the game.
 	 */
 	private static final List<Mode> MODES = ImmutableList
-			.copyOf(Arrays.asList(new RegularMode(ModeType.REGULAR), new IronmanMode(ModeType.IRON_MAN), new UltimateIronmanMode(ModeType.ULTIMATE_IRON_MAN), new OsrsMode(ModeType.OSRS)));
+			.copyOf(Arrays.asList(new RegularMode(ModeType.REGULAR), new IronmanMode(ModeType.IRON_MAN), new UltimateIronmanMode(ModeType.ULTIMATE_IRON_MAN), new IronmanMode(ModeType.HARDCORE), new OsrsMode(ModeType.OSRS)));
 
 	/**
 	 * The type of mode
@@ -160,14 +160,14 @@ public abstract class Mode {
 	public boolean isRegular() {
 		return type == ModeType.REGULAR;
 	}
-
+	
 	/**
-	 * Determines if the {@link #type} is equal to {@link ModeType#OSRS}
+	 * Determines if the {@link #type} is equal to {@link ModeType#HARDCORE}
 	 * 
 	 * @return {@code true} if the player is of this type, otherwise {@code false}
 	 */
-	public boolean isOsrs() {
-		return type == ModeType.OSRS;
+	public boolean isHardcore() {
+		return type == ModeType.HARDCORE;
 	}
 
 	/**
@@ -179,5 +179,7 @@ public abstract class Mode {
 	public static Mode forType(ModeType type) {
 		return MODES.stream().filter(mode -> mode.getType().equals(type)).findFirst().orElse(null);
 	}
+
+	
 
 }

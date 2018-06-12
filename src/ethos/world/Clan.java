@@ -309,18 +309,6 @@ public class Clan {
 		return false;
 	}
 	
-	/**
-	 * Returns whether or not the specified name is part of the gfx team.
-	 * 
-	 * @param name
-	 * @return
-	 */
-	public boolean isGFX(String name) {
-		Player p = PlayerHandler.getPlayer(name);
-		if(p.getRights().isOrInherits(Right.GFX))
-			return true;
-		return false;
-	}
 
 	/**
 	 * Returns whether or not the specified name is a ranked user.

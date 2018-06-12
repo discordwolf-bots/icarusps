@@ -532,7 +532,8 @@ public class Slayer {
 		switch (actionId) {
 
 		case 160052:
-			int amount = player.getMode().isOsrs() ? 10_000 : 60_000;
+			//int amount = player.getMode().isOsrs() ? 10_000 : 60_000;
+			int amount = 60_000;
 			if (System.currentTimeMillis() - player.buySlayerTimer < 500) {
 				return true;
 			}

@@ -222,8 +222,10 @@ public class PestControlRewards {
 			player.buyPestControlTimer = System.currentTimeMillis();
 			player.pcPoints -= cost;
 			//player.refreshQuestTab(3);
-			player.getPA().addSkillXP((player.getMode().isOsrs() ? experience / 26 : experience) * cost, skillId, true);
-			player.sendMessage("You have received " + ((player.getMode().isOsrs() ? experience / 26 : experience) * cost) + " experience in exchange for " + cost + " points.");
+			//player.getPA().addSkillXP((player.getMode().isOsrs() ? experience / 26 : experience) * cost, skillId, true);
+			player.getPA().addSkillXP(experience * cost, skillId, true);
+			//player.sendMessage("You have received " + ((player.getMode().isOsrs() ? experience / 26 : experience) * cost) + " experience in exchange for " + cost + " points.");
+			player.sendMessage("You have received " + (experience * cost) + " experience in exchange for " + cost + " points.");
 		}
 	}
 

@@ -85,6 +85,7 @@ public class AttackNPC {
 						if (!attacker.getSlayer().getTask().isPresent()) {
 							attacker.sendMessage("You must have an active kraken task in order to do this.");
 							attacker.getCombat().resetPlayerAttack();
+							return;
 						}
 							
 						if (!attacker.getSlayer().getTask().get().getPrimaryName().contains("kraken")) {
@@ -98,6 +99,14 @@ public class AttackNPC {
 				case 7413:
 					accuracy = maximumAccuracy;
 					damage = maximumDamage;
+					break;
+					
+				case 6368:
+					if(attacker.rfdWave != 6) {
+						attacker.sendMessage("You must defeat all other bosses before attacking " + defender.getName());
+						attacker.getCombat().resetPlayerAttack();
+						return;
+					}
 					break;
 					
 				case 5890:
