@@ -61,7 +61,15 @@ public class CrystalChest {
 				new GameItem(3027, 10), 
 				new GameItem(3145, 15), 
 				new GameItem(4587, 1), 
-				new GameItem(6688, 10), 
+				new GameItem(6688, 10),
+				new GameItem(222, 100), 
+				new GameItem(226, 100),
+				new GameItem(224, 100), 
+				new GameItem(240, 100), 
+				new GameItem(664, 100), 
+				new GameItem(3139, 150), 
+				new GameItem(246, 100), 
+				new GameItem(232, 100), 
 				new GameItem(11840, 1)));
 	}
 
