@@ -142,7 +142,7 @@ public class NpcOptionTwo {
 			long days = TimeUnit.MILLISECONDS.toDays(milliseconds);
 			long hours = TimeUnit.MILLISECONDS.toHours(milliseconds - TimeUnit.DAYS.toMillis(days));
 			String time = days + " days and " + hours + " hours."; 
-			player.getDH().sendNpcChat1("You've been playing Ethos for " + time, 3077, "Hans");
+			player.getDH().sendNpcChat1("You've been playing Icarus for " + time, 3077, "Hans");
 			player.getDiaryManager().getLumbridgeDraynorDiary().progress(LumbridgeDraynorDiaryEntry.HANS);
 			break;
 			

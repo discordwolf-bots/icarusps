@@ -201,7 +201,7 @@ public class NpcOptionOne {
 			break;
 		case 3254:
 		case 5314:
-			player.getDH().sendNpcChat1("Right-click on me and I can get you around the world \\n of Ethos.", 5314, "Wizard Cromperty");
+			player.getDH().sendNpcChat1("Right-click on me and I can get you around the world \\n of Icarus.", 5314, "Wizard Cromperty");
 			break;
 		
 		case 17: //Rug merchant - Pollnivneach
@@ -215,13 +215,13 @@ public class NpcOptionOne {
 			break;
 		case 276:
 			if (Config.BONUS_XP_WOGW) {
-				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@active@bla@! \\n It is granting 1 hour of @red@Double XP@bla@!", 276, "Ethos Crier");
+				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@active@bla@! \\n It is granting 1 hour of @red@Double XP@bla@!", 276, "Icarus Crier");
 			} else if (Config.BONUS_PC_WOGW) {
-				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@active@bla@! \\n It is granting 1 hour of @red@Double Pc Points@bla@!", 276, "Ethos Crier");
+				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@active@bla@! \\n It is granting 1 hour of @red@Double Pc Points@bla@!", 276, "Icarus Crier");
 			} else if (Config.DOUBLE_DROPS) {
-				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@active@bla@! \\n It is granting 1 hour of @red@Double Drops@bla@!", 276, "Ethos Crier");
+				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@active@bla@! \\n It is granting 1 hour of @red@Double Drops@bla@!", 276, "Icarus Crier");
 			} else {
-				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@inactive@bla@!", 276, "Ethos Crier");
+				player.getDH().sendNpcChat1("Well of Goodwill is currently @red@inactive@bla@!", 276, "Icarus Crier");
 			}
 			break;
 		case 5520:
