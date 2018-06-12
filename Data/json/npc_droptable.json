@@ -6131,8 +6131,6 @@
           "maximum": 200
         },
         {
-				},
-		{
 		  "item": 820,
           "minimum": 1,
           "maximum": 1000
@@ -6143,7 +6141,7 @@
           "maximum": 600
         },
         {
-		  "item":  822, 
+		  "item": 822, 
 		  "minimum": 1,
 		  "maximum": 400
 		},
@@ -6208,7 +6206,7 @@
           "maximum": 1
         },
         {
-				  "item": 232,
+	      "item": 232,
           "minimum": 1,
           "maximum": 1000
 		},
@@ -6218,7 +6216,7 @@
           "maximum": 600
         },
         {
-		  "item":  6694, 
+		  "item": 6694, 
 		  "minimum": 1,
 		  "maximum": 400
 		},
@@ -6228,7 +6226,7 @@
           "maximum": 200
         },
         {
-		  "item":  224, 
+		  "item": 224, 
 		  "minimum": 1,
 		  "maximum": 100
 		},
@@ -6309,7 +6307,7 @@
           "maximum": 600
         },
         {
-		  "item":  822, 
+		  "item": 822, 
 		  "minimum": 1,
 		  "maximum": 400
 		},

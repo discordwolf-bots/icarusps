@@ -42,7 +42,7 @@ public class PestControl {
 
 	private static final int PLAYERS_REQUIRED = 1;
 
-	private static final int POINT_REWARD = 5;
+	private static final int POINT_REWARD = 15;
 
 	private static final int COIN_REWARD = 15000;
 
