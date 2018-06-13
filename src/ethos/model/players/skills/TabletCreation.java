@@ -43,7 +43,7 @@ public class TabletCreation {
 			tabDelay = System.currentTimeMillis();
 			player.getPA().closeAllWindows();
 			//player.getPA().addSkillXP((player.getMode().isOsrs() ? 1 : 5) * level(i), player.playerRunecrafting, true);
-			player.getPA().addSkillXP(5 * level(i), player.playerRunecrafting, true);
+			player.getPA().addSkillXP((5 * level(i)) * amount, player.playerRunecrafting, true);
 			player.sendMessage("You use your magic powers to convert runes into tablets!");
 		}
 	}
