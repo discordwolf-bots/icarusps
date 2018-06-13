@@ -3637,7 +3637,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		int points = 0;
 		int output = 0;
 
-		for (int lvl = 1; lvl <= 200; lvl++) {
+		for (int lvl = 1; lvl <= 120; lvl++) {
 			points += Math.floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
 			output = (int) Math.floor(points / 4);
 			if (output >= exp)
