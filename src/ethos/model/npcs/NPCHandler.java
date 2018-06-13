@@ -5141,11 +5141,6 @@ public class NPCHandler {
 	}
 
 	public boolean retaliates(int npcType) {
-		
-		// Culinamancer wont retaliate if not on last wave
-		Player player = PlayerHandler.players[npcs[npcType].spawnedBy];
-		if(npcType == 6368 && player.rfdWave != 6)
-			return false;
 		return npcType<3777||npcType>3780;
 	}
 

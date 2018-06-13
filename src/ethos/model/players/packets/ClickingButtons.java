@@ -211,6 +211,8 @@ public class ClickingButtons implements PacketType {
 		QuickPrayers.clickButton(c, actionButtonId);
 		LunarSpells.lunarButton(c, actionButtonId);
 		Task task = c.getSlayer().getTask().orElse(null);
+		boolean hcim = false;
+		if(c.getMode().isHardcoreIronman()) hcim = true;
 		switch (actionButtonId) {
 		/**
 		 * Quest Tab
@@ -295,7 +297,7 @@ public class ClickingButtons implements PacketType {
 			break;
 		// Player Rank
 		case 113239:
-			c.forcedChat("My rank is: " + c.getRights().getPrimary().name());
+			c.forcedChat("My rank is: " + c.getRights().getPrimary().toString()); // FIXME: Formatting
 			break;
 		// Player playtime
 		case 113240:
@@ -307,82 +309,174 @@ public class ClickingButtons implements PacketType {
 			break;
 		// Slayer Task
 		case 113241:
-			if (task != null) {
-				c.forcedChat("I currently have to kill " + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName());				
+			if(hcim) {
+				c.forcedChat("I currently have " + c.getLives() + " lives remaining");
 			} else {
-				c.forcedChat("I dont have a Slayer Task.");
+				if (task != null) {
+					c.forcedChat("I currently have to kill " + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName());				
+				} else {
+					c.forcedChat("I dont have a Slayer Task.");
+				}
+						
 			}
-			break;
+			break;		
+			
 		// Slayer Task Teleport -> Slayer Points
 		case 113242:
-			if(task != null) {
-				if (c.inWild()) {
-					c.sendMessage("You cannot use this from the wilderness.");
-					break;
+			if(hcim) {
+				if (task != null) {
+					c.forcedChat("I currently have to kill " + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName());				
+				} else {
+					c.forcedChat("I dont have a Slayer Task.");
 				}
-				int x = task.getTeleportLocation()[0];
-				int y = task.getTeleportLocation()[1];
-				int z = task.getTeleportLocation()[2];
-				if (x == -1 && y == -1 && z == -1) {
-					c.sendMessage("This task cannot be easily teleported to.");
-					break;
-				}
-				c.sendMessage("You are teleporting to your task of " + task.getPrimaryName() + ".");
-				c.getPA().startTeleport(x, y, z, "modern");
 			} else {
-				c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+				if(task != null) {
+					if (c.inWild()) {
+						c.sendMessage("You cannot use this from the wilderness.");
+						break;
+					}
+					int x = task.getTeleportLocation()[0];
+					int y = task.getTeleportLocation()[1];
+					int z = task.getTeleportLocation()[2];
+					if (x == -1 && y == -1 && z == -1) {
+						c.sendMessage("This task cannot be easily teleported to.");
+						break;
+					}
+					c.sendMessage("You are teleporting to your task of " + task.getPrimaryName() + ".");
+					c.getPA().startTeleport(x, y, z, "modern");
+				} else {
+					c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+				}
 			}
 			break;
 		// Slayer Points -> Consecutive Tasks
 		case 113243:
-			if(task != null) {
-				c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+			if(hcim) {
+				if(task != null) {
+					if (c.inWild()) {
+						c.sendMessage("You cannot use this from the wilderness.");
+						break;
+					}
+					int x = task.getTeleportLocation()[0];
+					int y = task.getTeleportLocation()[1];
+					int z = task.getTeleportLocation()[2];
+					if (x == -1 && y == -1 && z == -1) {
+						c.sendMessage("This task cannot be easily teleported to.");
+						break;
+					}
+					c.sendMessage("You are teleporting to your task of " + task.getPrimaryName() + ".");
+					c.getPA().startTeleport(x, y, z, "modern");
+				} else {
+					c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+				}
 			} else {
-				c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+				if(task != null) {
+					c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+				} else {
+					c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+				}				
 			}
+			
 			break;
 		// Consecutive Tasks -> Vote Points
 		case 113244:
-			if(task != null) {
-				c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+			if(hcim) {
+				if(task != null) {
+					c.forcedChat("I currently have " + c.getSlayer().getPoints() + " Slayer Points");
+				} else {
+					c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+				}	
 			} else {
-				c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+				if(task != null) {
+					c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+				} else {
+					c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+				}				
 			}
+			
 			break;
 		// Vote Points -> Donator Points
 		case 113245:
-			if(task != null) {
-				c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+			if(hcim) {
+				if(task != null) {
+					c.forcedChat("I have completed " + c.getSlayer().getConsecutiveTasks() + " Slayer Tasks in a row");
+				} else {
+					c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+				}	
 			} else {
-				c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+				if(task != null) {
+					c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+				} else {
+					c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+				}				
 			}
+			
 			break;
 		// Donator Points -> PK Points
 		case 113246:
-			if(task != null) {
-				c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+			if(hcim) {
+				if(task != null) {
+					c.forcedChat("I currently have " + c.votePoints + " Vote Points.");
+				} else {
+					c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+				}
 			} else {
-				c.forcedChat("I currently have " + c.pkp + " PK Points.");
+				if(task != null) {
+					c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+				} else {
+					c.forcedChat("I currently have " + c.pkp + " PK Points.");
+				}				
 			}
+			
 			break;
 		// PK Points -> KDR
 		case 113247:
-			if(task != null) {
-				c.forcedChat("I currently have " + c.pkp + " PK Points.");
+			if(hcim) {
+				if(task != null) {
+					c.forcedChat("I currently have " + c.donatorPoints + " Donator Points.");
+				} else {
+					c.forcedChat("I currently have " + c.pkp + " PK Points.");
+				}	
 			} else {
-				DecimalFormat df = new DecimalFormat("#.##");
-				double ratio = ((double) c.killcount) / ((double) c.deathcount);
-				c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");
+				if(task != null) {
+					c.forcedChat("I currently have " + c.pkp + " PK Points.");
+				} else {
+					DecimalFormat df = new DecimalFormat("#.##");
+					double ratio = ((double) c.killcount) / ((double) c.deathcount);
+					c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");
+				}				
 			}
+			
 			break;
 		// KDR -> ??
 		case 113248:
-			if(task != null) {
-				DecimalFormat df = new DecimalFormat("#.##");
-				double ratio = ((double) c.killcount) / ((double) c.deathcount);
-				c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");				
-			}			
+			if(hcim) {
+				if(task != null) {
+					c.forcedChat("I currently have " + c.pkp + " PK Points.");
+				} else {
+					DecimalFormat df = new DecimalFormat("#.##");
+					double ratio = ((double) c.killcount) / ((double) c.deathcount);
+					c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");
+				}	
+			} else {
+				if(task != null) {
+					DecimalFormat df = new DecimalFormat("#.##");
+					double ratio = ((double) c.killcount) / ((double) c.deathcount);
+					c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");				
+				}	
+			}		
 			break;
+			
+		case 113249:
+			if(hcim) {
+				if(task != null) {
+					DecimalFormat df = new DecimalFormat("#.##");
+					double ratio = ((double) c.killcount) / ((double) c.deathcount);
+					c.forcedChat("My Kill/Death ratio is: " + df.format(ratio) + " (" + c.killcount + "/" + c.deathcount + ")");				
+				}
+			}
+			break;
+			
 			
 			
 			
@@ -1063,8 +1157,6 @@ public class ClickingButtons implements PacketType {
 			c.getDiaryManager().getWildernessDiary().display();
 			break;
 			
-		case 113249:
-			break;
 		case 10253:
 			c.antiqueSelect = 2;
 			c.sendMessage("You select Strength");

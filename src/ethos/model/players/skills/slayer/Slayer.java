@@ -147,7 +147,7 @@ public class Slayer {
 			
 			player.talkingNpc = m.getId();
 			player.getDH().sendNpcChat("You have been assigned " + taskAmount + " " + task.get().getPrimaryName() + ".", "Come talk to me when you finish this task.");
-			player.refreshQuestTab(0);
+			player.refreshQuestTab(1);
 			player.nextChat = -1;
 			master = m.getId();
 		});
@@ -207,7 +207,7 @@ public class Slayer {
 						handleSuperiorSpawn(npc);
 						handleSuperiorExp(npc);
 					}
-					player.refreshQuestTab(0);
+					player.refreshQuestTab(1);
 					if ((taskAmount%10 == 0 || taskAmount < 10) && taskAmount != 0) {
 						player.sendMessage("Only <col=ff0000><shad=000000>" + taskAmount + "</shad></col> " + name + " left!");
 					}
@@ -230,7 +230,7 @@ public class Slayer {
 							points += bonusPoints;
 							player.sendMessage("<col=255>You have completed " + consecutive + " tasks in a row and receive " + bonusPoints + " additional points.</col>");
 						}
-						player.refreshQuestTab(0);
+						player.refreshQuestTab(1);
 						if (consecutive == 10) {
 							player.getDiaryManager().getMorytaniaDiary().progress(MorytaniaDiaryEntry.TEN_CONSECUTIVE);
 						}

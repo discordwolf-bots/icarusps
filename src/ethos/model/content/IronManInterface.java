@@ -139,7 +139,9 @@ public class IronManInterface {
 			}
 			Action modeAction = mode.get().getKey();
 			Action revertAction = revert.get().getKey();
+			System.out.println("modeAction: " + modeAction);
 			switch (modeAction) {
+			
 			case STANDARD_IRON_MAN:
 				player.setMode(Mode.forType(ModeType.IRON_MAN));
 				player.getRights().setPrimary(Right.IRONMAN);
@@ -154,7 +156,7 @@ public class IronManInterface {
 				
 			case HARDCORE_IRON_MAN:
 				player.setMode(Mode.forType(ModeType.HARDCORE));
-				player.getRights().setPrimary(Right.HARDCORE);
+				player.getRights().setPrimary(Right.HARDCORE_IRONMAN);
 				break;
 				
 			default:

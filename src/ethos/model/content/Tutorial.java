@@ -10,6 +10,7 @@ import com.google.common.collect.Ordering;
 
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
+import ethos.model.players.Right;
 import ethos.util.Misc;
 
 public class Tutorial {
@@ -162,7 +163,7 @@ public class Tutorial {
 			@Override
 			public void display(Player player) {
 				if (player.getMode().isIronman()) {
-					PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=12> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
+					PlayerHandler.executeGlobalMessage("<col=" + Right.IRONMAN.getColor() + "><shad=000000><img=12> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
 					player.getItems().wearItem(12810, 1, player.playerHat);
 					player.getItems().wearItem(12811, 1, player.playerChest);
 					player.getItems().wearItem(12812, 1, player.playerLegs);
@@ -179,7 +180,7 @@ public class Tutorial {
 					player.getItems().addItem(563, 100);
 					player.getItems().addItem(1381, 1);
 				} else if (player.getMode().isUltimateIronman()) {
-					PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=13> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
+					PlayerHandler.executeGlobalMessage("<col=" + Right.ULTIMATE_IRONMAN.getColor() + "><shad=000000><img=13> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
 					player.getItems().wearItem(12813, 1, player.playerHat);
 					player.getItems().wearItem(12814, 1, player.playerChest);
 					player.getItems().wearItem(12815, 1, player.playerLegs);
@@ -195,7 +196,26 @@ public class Tutorial {
 					player.getItems().addItem(554, 100);
 					player.getItems().addItem(563, 100);
 					player.getItems().addItem(1381, 1);
+				} else if(player.getMode().isHardcoreIronman()) {
+					PlayerHandler.executeGlobalMessage("<col=" + Right.HARDCORE_IRONMAN.getColor() + "><shad=000000><img=23> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
+					player.getItems().wearItem(20792, 1, player.playerHat);
+					player.getItems().wearItem(20794, 1, player.playerChest);
+					player.getItems().wearItem(20796, 1, player.playerLegs);
+					player.getItems().wearItem(1323, 1, player.playerWeapon);
+					player.getItems().addItem(1171, 1);
+					player.getItems().addItem(841, 1);
+					player.getItems().addItem(882, 100);
+					player.getItems().addItem(556, 100);
+					player.getItems().addItem(558, 100);
+					player.getItems().addItem(555, 100);
+					player.getItems().addItem(557, 100);
+					player.getItems().addItem(559, 100);
+					player.getItems().addItem(554, 100);
+					player.getItems().addItem(563, 100);
+					player.getItems().addItem(1381, 1);
+					player.setLives(0);
 				} else {
+				
 					PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000>" + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
 					player.getPA().addStarter();
 				}
@@ -206,6 +226,7 @@ public class Tutorial {
 
 			@Override
 			public void display(Player player) {
+				
 				player.sendMessage("@red@Goodluck on your adventure!");
 				player.getDH().sendDialogues(649, 311);
 			}
@@ -214,6 +235,7 @@ public class Tutorial {
 
 			@Override
 			public void display(Player player) {
+				PlayerHandler.refreshQuestTab(1, true);
 				player.getPA().showInterface(3559);
 				player.canChangeAppearance = true;
 			}

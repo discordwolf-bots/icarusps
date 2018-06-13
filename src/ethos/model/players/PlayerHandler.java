@@ -351,6 +351,25 @@ public class PlayerHandler {
 		System.arraycopy(players, 0, clients, 0, players.length);
 		Arrays.asList(clients).stream().filter(Objects::nonNull).forEach(player -> player.sendMessage(message));
 	}
+	
+	public static void refreshQuestTab(int i, boolean loggedin) {
+		
+		List<Player> players = getPlayers();
+		for( Player player : players) {
+			if(Objects.isNull(player)) {
+				continue;
+			}
+			
+			if(loggedin) {
+				System.out.println("In");
+				player.refreshQuestTab(1);				
+			} else {
+				System.out.println("Out");
+				player.refreshQuestTab(0);				
+			}
+			
+		}
+	}
 
 	public static void sendMessage(String message, List<Player> players) {
 		for (Player player : players) {

@@ -280,7 +280,7 @@ public class DialogueHandler {
 				c.getItems().deleteItem(995, 500_000);
 				c.getItems().addItem(11283, 1);
 				c.votePoints -= 5;
-				c.refreshQuestTab(6);
+				c.refreshQuestTab(1);
 				sendItemStatement("Oziach successfully bound your dragonfire shield.", 11283);
 			} else {
 				sendNpcChat("You do not process the items I required! Go away!");
@@ -2517,7 +2517,7 @@ public class DialogueHandler {
 
 		case 645:
 			sendNpcChat("You've made it through!", "You have the option to play as an <col=" + Right.IRONMAN.getColor() + "><img=12>Iron Man</col>,",
-					"<col=" + Right.ULTIMATE_IRONMAN.getColor() + "><img=13></img>Ultimate Iron Man</col>, <col=" + Right.HARDCORE.getColor() + "><img=23> Hardcore Ironman</col> or regular.", "Choose from the following interface.");
+					"<col=" + Right.ULTIMATE_IRONMAN.getColor() + "><img=13></img>Ultimate Iron Man</col>, <col=" + Right.HARDCORE_IRONMAN.getColor() + "><img=23> Hardcore Ironman</col> or regular.", "Choose from the following interface.");
 			c.nextChat = 646;
 			break;
 

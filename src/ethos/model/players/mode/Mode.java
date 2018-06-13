@@ -166,7 +166,7 @@ public abstract class Mode {
 	 * 
 	 * @return {@code true} if the player is of this type, otherwise {@code false}
 	 */
-	public boolean isHardcore() {
+	public boolean isHardcoreIronman() {
 		return type == ModeType.HARDCORE;
 	}
 

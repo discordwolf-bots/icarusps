@@ -23,19 +23,19 @@ public class Set extends Command {
 			
 		case "slayer":
 			c.getSlayer().setPoints(Integer.parseInt(args[1]));
-			c.refreshQuestTab(2);
+			c.refreshQuestTab(1);
 			c.sendMessage("Slayer points set to: "+ Integer.parseInt(args[1]));
 			break;
 			
 		case "dp":
 			c.donatorPoints += Integer.parseInt(args[1]);
 			c.sendMessage("Amount of donator points added: "+ Integer.parseInt(args[1]));
-			c.refreshQuestTab(3);
+			c.refreshQuestTab(1);
 			break;
 			
 		case "pkp":
 			c.pkp += Integer.parseInt(args[1]);
-			c.refreshQuestTab(4);
+			c.refreshQuestTab(1);
 			c.sendMessage("Amount of pk points added: "+ Integer.parseInt(args[1]));
 			break;
 			
