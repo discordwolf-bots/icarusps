@@ -2140,7 +2140,7 @@ public class ShopAssistant {
 			if (c.donatorPoints >= getSpecialItemValue(itemID) * amount) {
 				if (c.getItems().freeSlots() > 0) {
 					c.donatorPoints -= getSpecialItemValue(itemID) * amount;
-					c.refreshQuestTab(3);
+					c.refreshQuestTab(0);
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
 				}
@@ -2194,7 +2194,7 @@ public class ShopAssistant {
 			if (c.votePoints >= getSpecialItemValue(itemID) * amount) {
 				if (c.getItems().freeSlots() > 0) {
 					c.votePoints -= getSpecialItemValue(itemID) * amount;
-					c.refreshQuestTab(6);
+					c.refreshQuestTab(0);
 					c.getItems().addItem(itemID, amount);
 					c.getItems().resetItems(3823);
 				}

@@ -319,6 +319,8 @@ public class PlayerSave {
 						p.getRights().setPrimary(Right.get(Integer.parseInt(token2)));
 					} else if (token.equals("character-rights-secondary")) { // sound like an activist group
 						Arrays.stream(token3).forEach(right -> p.getRights().add(Right.get(Integer.parseInt(right))));
+					} else if (token.equals("hcim-lives")) {
+						p.setLives(Integer.parseInt(token2));
 					} else if (token.equals("revert-option")) {
 						p.setRevertOption(token2);
 					} else if (token.equals("revert-delay")) {
@@ -1208,6 +1210,10 @@ public class PlayerSave {
 			p.getRights().getSet().stream().forEach(r -> sb.append(r.getValue() + "\t"));
 			characterfile.write("character-rights-secondary = " + sb.substring(0, sb.length() - 1));
 			characterfile.newLine();
+			if(p.getMode().isHardcoreIronman()) {
+				characterfile.write("hcim-lives = " + p.getLives());
+				characterfile.newLine();
+			}
 			characterfile.write("character-mac-address = " + p.getMacAddress());
 			characterfile.newLine();
 			characterfile.write("character-ip-address = " + p.getIpAddress());

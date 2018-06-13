@@ -18,6 +18,7 @@ import ethos.Config;
 import ethos.Server;
 import ethos.clip.PathChecker;
 import ethos.clip.Region;
+import ethos.database.impl.Highscores;
 import ethos.database.impl.LevelUp;
 import ethos.event.CycleEventHandler;
 import ethos.event.DelayEvent;
@@ -60,6 +61,7 @@ import ethos.model.players.combat.Hitmark;
 import ethos.model.players.combat.effects.DragonfireShieldEffect;
 import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.magic.NonCombatSpells;
+import ethos.model.players.mode.Mode;
 import ethos.model.players.mode.ModeType;
 import ethos.model.players.skills.Cooking;
 import ethos.model.players.skills.Fishing;
@@ -653,6 +655,8 @@ public class PlayerAssistant {
 		long hours = TimeUnit.MILLISECONDS.toHours(milliseconds - TimeUnit.DAYS.toMillis(days));
 		String time = days + " days, " + hours + " hours.";
 		int staff = PlayerHandler.getStaffCount();
+		int offset = 0;
+		
 		Task task = c.getSlayer().getTask().orElse(null);
 		
 		for (int i=29155; i<=29264; i++) {
@@ -673,15 +677,28 @@ public class PlayerAssistant {
 		sendFrame126("", 29166);
 		
 		sendFrame126("<img=0> Character Info", 663);
-		sendFrame126("@or2@- Rank: @or1@" + c.getRights().getPrimary().name(), 29167);
-		sendFrame126("@or2@- Play time: @or1@" + time, 29168);
-		int offset = 0;
-		if (task == null) {
-			sendFrame126("@or2@- Slayer Task: @red@None", 29169);			
+		if(c.getRights().getPrimary().getValue() != 0) {
+			sendFrame126("@or2@- Rank: @or1@<img=" + (c.getRights().getPrimary().getValue()-1) + "> " + c.getRights().getPrimary().toString(), 29167);
 		} else {
+			sendFrame126("@or2@- Rank: @or1@" + c.getRights().getPrimary().toString(), 29167);				
+		}
+		sendFrame126("@or2@- Play time: @or1@" + time, 29168);
+		
+		if(c != null) {
+			if(!c.getTutorial().isActive()) {
+				if(c.getMode().isHardcoreIronman()) {
+					sendFrame126("@or2@- Lives Remaining: @or1@" + c.getLives(), 29169);
+					offset++;
+				}
+			}
+		}
+		
+		if (task == null) {
+			sendFrame126("@or2@- Slayer Task: @red@None", 29169+offset);			
+		} else {
+			sendFrame126("@or2@- Slayer Task: @gre@" + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169+offset);
+			sendFrame126("@or1@Teleport to Task?", 29170+offset);
 			offset++;
-			sendFrame126("@or2@- Slayer Task: @gre@" + c.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169);
-			sendFrame126("@or1@Teleport to Task?", 29170);
 		}
 		sendFrame126("@or2@- Slayer Points: @or1@" + c.getSlayer().getPoints(), 29170+offset);
 		sendFrame126("@or2@- Consecutive Tasks: @or1@" + c.getSlayer().getConsecutiveTasks(), 29171+offset);
@@ -1687,6 +1704,24 @@ public void sendFrame107() {
 	}
 
 	public void applyDead() {
+		if(c.getMode().isHardcoreIronman()) {
+			if(c.getLives() == 0) {
+				c.setMode(Mode.forType(ModeType.IRON_MAN));
+				c.getRights().remove(Right.HARDCORE_IRONMAN);
+				c.getRights().setPrimary(Right.HCIM_DEAD);
+				c.sendMessage("<img=25> <col=ff0000><shad=000000>Bwahahahaha! That was your last life!</col>");
+				new Thread(new Highscores(c)).start();
+				
+				if(c.getPA().totalLevel() >= 150) {
+					PlayerHandler.executeGlobalMessage("<img=25><col=" + Right.HARDCORE_IRONMAN.getColor() + "><shad=000000> " + c.getName() + "</shad></col> has just died with a total level of " + c.getPA().totalLevel() + " on Hardcore Ironman Mode!");	
+				}
+				c.logout();
+			} else {
+				c.setLives(c.getLives()-1);
+				c.sendMessage("<img=25> <col=ff0000><shad=000000>You got lucky this time! You only have @gre@" + c.getLives() + "<col=ff0000> lives remaining!</col>");
+				c.refreshQuestTab(1);
+			}
+		}
 		c.getPA().sendFrame126(":quicks:off", -1);
 		c.isFullHelm = Item.isFullHat(c.playerEquipment[c.playerHat]);
 		c.isFullMask = Item.isFullMask(c.playerEquipment[c.playerHat]);
@@ -1741,8 +1776,8 @@ public void sendFrame107() {
 								playerKiller.getPlayerKills().add(c.connectedFrom);
 								c.deathcount++;
 								playerKiller.killcount++;
-								playerKiller.refreshQuestTab(0);
-								playerKiller.refreshQuestTab(0);
+								playerKiller.refreshQuestTab(1);
+								playerKiller.refreshQuestTab(1);
 								playerKiller.getPA().sendFrame126(
 										"@or1@Hunter KS: @gre@" + playerKiller.getKillstreak().getAmount(Killstreak.Type.HUNTER) + "@or1@, " + "Rogue KS: @gre@"
 												+ playerKiller.getKillstreak().getAmount(Killstreak.Type.ROGUE), 29165);
@@ -1782,7 +1817,7 @@ public void sendFrame107() {
 								
 								if (Boundary.isIn(c, Boundary.SAFEPK)) {
 									playerKiller.pkp += Config.BONUS_WEEKEND && !Config.DOUBLE_PKP ? 3 : Config.DOUBLE_PKP ? 4 : 2;
-									playerKiller.refreshQuestTab(0);
+									playerKiller.refreshQuestTab(1);
 								} else {
 									if (opponentKillstreak > 1) {
 										playerKiller.sendMessage("You receive an additional 5 PK tickets, your opponent had a killstreak of " + opponentKillstreak + ".");
@@ -1795,7 +1830,7 @@ public void sendFrame107() {
 										}
 									} else {
 										playerKiller.pkp += Config.BONUS_WEEKEND && !Config.DOUBLE_PKP ? 6 : Config.DOUBLE_PKP ? 8 : 4;
-										playerKiller.refreshQuestTab(0);
+										playerKiller.refreshQuestTab(1);
 									}
 								}
 								c.getKillstreak().resetAll();
@@ -1920,7 +1955,7 @@ public void sendFrame107() {
 		c.setSkeletalMysticDamageCounter(0);
 		c.setGlodDamageCounter(0);
 		c.setIceQueenDamageCounter(0);
-		c.refreshQuestTab(0);
+		c.refreshQuestTab(1);
 		
 		//If a player is in any of these areas, their items will not be dropped to themselves nor others
 		if (!c.inDuelArena() && !Boundary.isIn(c, Boundary.DUEL_ARENA) 
@@ -3085,6 +3120,7 @@ public void sendFrame107() {
 	 */
 
 	public void levelUp(int skill) {
+		int oldTotal = c.getPA().totalLevel();
 		int totalLevel = (getLevelForXP(c.playerXP[0]) + getLevelForXP(c.playerXP[1]) + getLevelForXP(c.playerXP[2]) + getLevelForXP(c.playerXP[3]) + getLevelForXP(c.playerXP[4])
 				+ getLevelForXP(c.playerXP[5]) + getLevelForXP(c.playerXP[6]) + getLevelForXP(c.playerXP[7]) + getLevelForXP(c.playerXP[8]) + getLevelForXP(c.playerXP[9])
 				+ getLevelForXP(c.playerXP[10]) + getLevelForXP(c.playerXP[11]) + getLevelForXP(c.playerXP[12]) + getLevelForXP(c.playerXP[13]) + getLevelForXP(c.playerXP[14])
@@ -3241,7 +3277,7 @@ public void sendFrame107() {
 		if(c.getRights().isOrInherits(Right.OSRS)) gm = "OSRS";
 		if(c.getRights().isOrInherits(Right.IRONMAN)) gm = "Ironman";
 		if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gm = "Ultimate Ironman";
-		if(c.getRights().isOrInherits(Right.HARDCORE)) gm = "Hardcore Ironman";
+		if(c.getRights().isOrInherits(Right.HARDCORE_IRONMAN)) gm = "Hardcore Ironman";
 		if (c.maxRequirements(c)) {
 			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
@@ -3270,6 +3306,7 @@ public void sendFrame107() {
 				new Thread(new LevelUp(c, skill, "120")).start();
 			}
 		}
+		
 		
 		c.dialogueAction = 0;
 		c.nextChat = 0;
@@ -3459,6 +3496,13 @@ public void sendFrame107() {
 	}
 
 	public boolean addSkillXP(int amount, int skill, boolean dropExperience) {
+		
+		int oldTotal = (getLevelForXP(c.playerXP[0]) + getLevelForXP(c.playerXP[1]) + getLevelForXP(c.playerXP[2]) + getLevelForXP(c.playerXP[3]) + getLevelForXP(c.playerXP[4])
+		+ getLevelForXP(c.playerXP[5]) + getLevelForXP(c.playerXP[6]) + getLevelForXP(c.playerXP[7]) + getLevelForXP(c.playerXP[8]) + getLevelForXP(c.playerXP[9])
+		+ getLevelForXP(c.playerXP[10]) + getLevelForXP(c.playerXP[11]) + getLevelForXP(c.playerXP[12]) + getLevelForXP(c.playerXP[13]) + getLevelForXP(c.playerXP[14])
+		+ getLevelForXP(c.playerXP[15]) + getLevelForXP(c.playerXP[16]) + getLevelForXP(c.playerXP[17]) + getLevelForXP(c.playerXP[18]) + getLevelForXP(c.playerXP[19])
+		+ getLevelForXP(c.playerXP[20]) + getLevelForXP(c.playerXP[21]));
+		
 		if (c.skillLock[skill]) {
 			return false;
 		}
@@ -3625,7 +3669,7 @@ public void sendFrame107() {
 			if(c.getRights().isOrInherits(Right.OSRS)) gameMode = colOpen + "OSRS" + colClose;
 			if(c.getRights().isOrInherits(Right.IRONMAN)) gameMode = "Ironman";
 			if(c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN)) gameMode = "Ultimate Ironman";
-			if(c.getRights().isOrInherits(Right.HARDCORE)) gameMode = "Hardcore Ironman";
+			if(c.getRights().isOrInherits(Right.HARDCORE_IRONMAN)) gameMode = "Hardcore Ironman";
 			PlayerHandler.executeGlobalMessage(colOpen3 +"[<img=10>" + "ALERT" + "] " + colClose + colOpen + name + colClose + " has just achieved " + expAlert + " Experience in " + colOpen + skillName + colClose + " on " + gameMode + " Mode!");
 			
 		}
@@ -3635,6 +3679,30 @@ public void sendFrame107() {
 			c.playerXP[skill] = Config.MAX_STACK;
 		} else {
 			c.playerXP[skill] += amount;			
+		}
+		
+		int newTotal = (getLevelForXP(c.playerXP[0]) + getLevelForXP(c.playerXP[1]) + getLevelForXP(c.playerXP[2]) + getLevelForXP(c.playerXP[3]) + getLevelForXP(c.playerXP[4])
+		+ getLevelForXP(c.playerXP[5]) + getLevelForXP(c.playerXP[6]) + getLevelForXP(c.playerXP[7]) + getLevelForXP(c.playerXP[8]) + getLevelForXP(c.playerXP[9])
+		+ getLevelForXP(c.playerXP[10]) + getLevelForXP(c.playerXP[11]) + getLevelForXP(c.playerXP[12]) + getLevelForXP(c.playerXP[13]) + getLevelForXP(c.playerXP[14])
+		+ getLevelForXP(c.playerXP[15]) + getLevelForXP(c.playerXP[16]) + getLevelForXP(c.playerXP[17]) + getLevelForXP(c.playerXP[18]) + getLevelForXP(c.playerXP[19])
+		+ getLevelForXP(c.playerXP[20]) + getLevelForXP(c.playerXP[21]));
+		
+		// FIXME: Total Level
+		
+		if(c.getMode().isHardcoreIronman() && newTotal > oldTotal && ( (oldTotal < 750 && newTotal >= 750) || (oldTotal < 1500 && newTotal >= 1500) || (oldTotal < 2000 && newTotal >= 2000) || (oldTotal < 2640 && newTotal >= 2640))) {
+			c.setLives(c.getLives()+1);
+			if(newTotal >= 750 && newTotal <= 1500) {
+				c.sendMessage("<img=23><shad=000000> For reaching 750 Total Level, you have been granted an extra life!");
+			} else if(newTotal >= 1500 && newTotal <= 2000) {
+				c.sendMessage("<img=23><shad=000000> For reaching 1500 Total Level, you have been granted an extra life!");
+			} else if(newTotal >= 2000 && newTotal <= 2640) {
+				c.sendMessage("<img=23><shad=000000> For reaching 2000 Total Level, you have been granted an extra life!");
+			} else if(newTotal == 2640) {
+				c.sendMessage("<img=23><shad=000000> For reaching 2640 Total Level, you have been granted an extra life!");				
+			}
+			
+			c.sendMessage("<img=23><shad=000000> You now have <col=ff0000>" + c.getLives() + "</col> lives remaining");
+			c.refreshQuestTab(1);
 		}
 		
 		if (oldLevel < getLevelForXP(c.playerXP[skill])) {
@@ -4395,12 +4463,12 @@ public void sendFrame107() {
 			switch (pointVar) {
 			case PK_POINTS:
 				c.pkp += exchange;
-				c.refreshQuestTab(4);
+				c.refreshQuestTab(1);
 				break;
 
 			case VOTE_POINTS:
 				c.votePoints += exchange;
-				c.refreshQuestTab(6);
+				c.refreshQuestTab(1);
 				break;
 			case BLOOD_POINTS:
 				c.bloodPoints += amount;

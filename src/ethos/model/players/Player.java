@@ -10,6 +10,7 @@ import java.util.Optional;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 //import ethos.model.content.cannon.CannonCredentials;
+import java.util.concurrent.TimeUnit;
 
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
@@ -834,7 +835,8 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		CycleEventHandler.getSingleton().stopEvents(this);
 		getFriends().notifyFriendsOfUpdate();
 		PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000>[-] </shad></col>" + getName());
-		refreshQuestTab(5);
+		// FIXME: refresh for all players
+		PlayerHandler.refreshQuestTab(1, false);
 		Misc.println("[Logged out]: " + playerName);
 		new Thread(new Highscores(this)).start();
 		disconnected = true;
@@ -903,48 +905,157 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	
 	public void refreshQuestTab(int i) {
 		Task task = this.getSlayer().getTask().orElse(null);
-		int offset = 0;
-		if(task != null) offset++;
+		long milliseconds = (long) this.playTime * 600;
+		long days = TimeUnit.MILLISECONDS.toDays(milliseconds);
+		long hours = TimeUnit.MILLISECONDS.toHours(milliseconds - TimeUnit.DAYS.toMillis(days));
+		String time = days + " days, " + hours + " hours.";
+//		if(!this.getTutorial().isActive()) {
+//			if(this.getMode().isHardcoreIronman()) offset++;
+//		}
+//		if(task != null) offset++;
 		int staff = PlayerHandler.getStaffCount();
-		
+		int offset = 0;
 		switch (i) {
-			case 0: // Gained a Slayer Task
-			case 1: // Finished a Slayer Task
-				if (task == null) {
-					this.getPA().sendFrame126("@or2@- Slayer Task: @red@None", 29169);			
+		case 0:
+			
+			this.getPA().sendFrame126("@or1@- Players Online: @gre@" + (PlayerHandler.getPlayerCount()-1), 29162);
+			if(staff == 0) {
+				this.getPA().sendFrame126("@or1@- Staff Online: @red@" + (staff-1), 29163);
+			
+			} else {
+				this.getPA().sendFrame126("@or1@- Staff Online: @gre@" + (staff-1), 29163);			
+			}
+			this.getPA().sendFrame126("@or1@- <img=11> <col=697ec7>Discord</col>", 29164);
+			this.getPA().sendFrame126("@or1@- <img=17> <col=e58888>Forums</col>", 29165);
+			this.getPA().sendFrame126("", 29166);
+			
+			this.getPA().sendFrame126("<img=0> Character Info", 663);
+			if(this.getRights().getPrimary().getValue() != 0) {
+				this.getPA().sendFrame126("@or2@- Rank: @or1@<img=" + (this.getRights().getPrimary().getValue()-1) + "> " + this.getRights().getPrimary().toString(), 29167);
+			} else {
+				this.getPA().sendFrame126("@or2@- Rank: @or1@" + this.getRights().getPrimary().toString(), 29167);				
+			}
+			
+			this.getPA().sendFrame126("@or2@- Play time: @or1@" + time, 29168);
+			
+			if(this != null) {
+				if(!this.getTutorial().isActive()) {
+					if(this.getMode().isHardcoreIronman()) {
+						this.getPA().sendFrame126("@or2@- Lives Remaining: @or1@" + this.getLives(), 29169);
+						offset++;
+					}
 				} else {
-					this.getPA().sendFrame126("@or2@- Slayer Task: @gre@" + this.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169);
-					this.getPA().sendFrame126("@or1@Teleport to Task?", 29170);
+					if(this.getTutorial().getStage() == Stage.END) {
+						if(this.getMode().isHardcoreIronman()) {
+							this.getPA().sendFrame126("@or2@- Lives Remaining: @or1@" + this.getLives(), 29169);
+							offset++;
+						}
+					}
 				}
-				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
-				this.getPA().sendFrame126("@or2@- Consecutive Tasks: @or1@" + this.getSlayer().getConsecutiveTasks(), 29171+offset);
-				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
-				this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
-				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
-				this.getPA().sendFrame126("@or2@- Kill/Death: @or1@" + this.killcount + "@or2@/@or1@" + this.deathcount, 29175+offset);
-				break;
-			case 2: // Slayer Points increase
-				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
-				break;
-			case 3: // Donor Points
-				this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
-				break;
-			case 4: // PK Points
-				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
-				break;
-			case 5: // Players
-				this.getPA().sendFrame126("@or1@- Players Online: @gre@" + PlayerHandler.getPlayerCount(), 29162);
-				if(staff == 0) {
-					this.getPA().sendFrame126("@or1@- Staff Online: @red@" + PlayerHandler.getStaffCount(), 29163);
-				} else {
-					this.getPA().sendFrame126("@or1@- Staff Online: @gre@" + PlayerHandler.getStaffCount(), 29163);			
+			}
+			
+			if (task == null) {
+				this.getPA().sendFrame126("@or2@- Slayer Task: @red@None", 29169+offset);			
+			} else {
+				this.getPA().sendFrame126("@or2@- Slayer Task: @gre@" + this.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169+offset);
+				this.getPA().sendFrame126("@or1@Teleport to Task?", 29170+offset);
+				offset++;
+			}
+			this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
+			this.getPA().sendFrame126("@or2@- Consecutive Tasks: @or1@" + this.getSlayer().getConsecutiveTasks(), 29171+offset);
+			this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
+			this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
+			this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
+			this.getPA().sendFrame126("@or2@- Kill/Death: @or1@" + this.killcount + "@or2@/@or1@" + this.deathcount, 29175+offset);
+			break;
+			
+		case 1:
+			
+			this.getPA().sendFrame126("@or1@- Players Online: @gre@" + (PlayerHandler.getPlayerCount()), 29162);
+			if(staff == 0) {
+				this.getPA().sendFrame126("@or1@- Staff Online: @red@" + (staff), 29163);
+			} else {
+				this.getPA().sendFrame126("@or1@- Staff Online: @gre@" + (staff), 29163);			
+			}
+			this.getPA().sendFrame126("@or1@- <img=11> <col=697ec7>Discord</col>", 29164);
+			this.getPA().sendFrame126("@or1@- <img=17> <col=e58888>Forums</col>", 29165);
+			this.getPA().sendFrame126("", 29166);
+			
+			this.getPA().sendFrame126("<img=0> Character Info", 663);
+			if(this.getRights().getPrimary().getValue() != 0) {
+				this.getPA().sendFrame126("@or2@- Rank: @or1@<img=" + (this.getRights().getPrimary().getValue()-1) + "> " + this.getRights().getPrimary().toString(), 29167);
+			} else {
+				this.getPA().sendFrame126("@or2@- Rank: @or1@" + this.getRights().getPrimary().toString(), 29167);				
+			}
+			this.getPA().sendFrame126("@or2@- Play time: @or1@" + time, 29168);
+			
+			if(this != null) {
+				if(!this.getTutorial().isActive()) {
+					if(this.getMode().isHardcoreIronman()) {
+						this.getPA().sendFrame126("@or2@- Lives Remaining: @or1@" + this.getLives(), 29169);
+						offset++;
+					}
 				}
-				break;
-			case 6: // Vote Points
-				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
-				break;
-				
+			}
+			
+			if (task == null) {
+				this.getPA().sendFrame126("@or2@- Slayer Task: @red@None", 29169+offset);			
+			} else {
+				this.getPA().sendFrame126("@or2@- Slayer Task: @gre@" + this.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169+offset);
+				this.getPA().sendFrame126("@or1@Teleport to Task?", 29170+offset);
+				offset++;
+			}
+			this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
+			this.getPA().sendFrame126("@or2@- Consecutive Tasks: @or1@" + this.getSlayer().getConsecutiveTasks(), 29171+offset);
+			this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
+			this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
+			this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
+			this.getPA().sendFrame126("@or2@- Kill/Death: @or1@" + this.killcount + "@or2@/@or1@" + this.deathcount, 29175+offset);
+			break;
 		}
+			
+		// FIXME: REMOVE THIS
+//		case 0: // Gained a Slayer Task
+//			
+//				int offset = 0;
+//				if(this.getMode().isHardcoreIronman()) offset++;
+//				if (task == null) {
+//					this.getPA().sendFrame126("@or2@- Slayer Task: @red@None", 29169+offset);			
+//				} else {
+//					this.getPA().sendFrame126("@or2@- Slayer Task: @gre@" + this.getSlayer().getTaskAmount() + " " + task.getPrimaryName(), 29169+offset-1);
+//					this.getPA().sendFrame126("@or1@Teleport to Task?", 29170+offset-1);
+//					offset++;
+//				}
+//				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
+//				this.getPA().sendFrame126("@or2@- Consecutive Tasks: @or1@" + this.getSlayer().getConsecutiveTasks(), 29171+offset);
+//				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
+//				this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
+//				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
+//				this.getPA().sendFrame126("@or2@- Kill/Death: @or1@" + this.killcount + "@or2@/@or1@" + this.deathcount, 29175+offset);
+//				break;
+//			case 2: // Slayer Points increase
+//				this.getPA().sendFrame126("@or2@- Slayer Points: @or1@" + this.getSlayer().getPoints(), 29170+offset);
+//				break;
+//			case 3: // Donor Points
+//				this.getPA().sendFrame126("@or2@- Donator Points: @or1@<img=18> " + this.donatorPoints, 29173+offset);
+//				break;
+//			case 4: // PK Points
+//				this.getPA().sendFrame126("@or2@- PK Points: @or1@" + this.pkp, 29174+offset);
+//				break;
+//			case 5: // Players
+//				this.getPA().sendFrame126("@or1@- Players Online: @gre@" + PlayerHandler.getPlayerCount(), 29162);
+//				if(staff == 0) {
+//					this.getPA().sendFrame126("@or1@- Staff Online: @red@" + PlayerHandler.getStaffCount(), 29163);
+//				} else {
+//					this.getPA().sendFrame126("@or1@- Staff Online: @gre@" + PlayerHandler.getStaffCount(), 29163);			
+//				}
+//				break;
+//			case 6: // Vote Points
+//				this.getPA().sendFrame126("@or2@- Vote Points: @or1@" + this.votePoints, 29172+offset);
+//				break;
+//			case 7:
+//				sendFrame126("@or2@- Lives Remaining: @or1@" + c.getLives(), 29169);
+				
 	}
 	
 	public void loadDiaryTab() {
@@ -1022,13 +1133,16 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			}
 			if(rights.getPrimary().getValue() == 3) {
 				PlayerHandler.executeGlobalMessage("<col=00ff00><shad=000000>[+] </shad></col>" + "<col=ff0000><shad=000000>" + nameIdentifier + getName() + "</shad></col>");
+				PlayerHandler.refreshQuestTab(1, true);
 			} else if(rights.getPrimary().getValue() == 2) {
 				PlayerHandler.executeGlobalMessage("<col=00ff00><shad=000000>[+] </shad></col>" + "<col=999909><shad=000000> " + nameIdentifier + getName() + "</shad></col>");
+				PlayerHandler.refreshQuestTab(1, true);
 			} else if(getRights().isOrInherits(Right.MODERATOR)) {
 				PlayerHandler.executeGlobalMessage("<col=00ff00><shad=000000>[+] </shad></col>" + "<col=cccccc><shad=000000> " + nameIdentifier + getName() + "</shad></col>");
+				PlayerHandler.refreshQuestTab(1, true);
 			} else {
 				PlayerHandler.executeGlobalMessage("<col=00ff00><shad=000000>[+] </shad></col>" + nameIdentifier + getName());
-				refreshQuestTab(5);
+				PlayerHandler.refreshQuestTab(1, true);
 			}
 			
 		//	checkWellOfGoodwillTimers();
@@ -1160,6 +1274,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			if (startPack == false) {
 				getRights().remove(Right.IRONMAN);
 				getRights().remove(Right.ULTIMATE_IRONMAN);
+				getRights().remove(Right.HARDCORE_IRONMAN);
 				startPack = true;
 				Server.clanManager.getHelpClan().addMember(this);
 				tutorial.setStage(Stage.START);
@@ -3729,6 +3844,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	public boolean canPrestige = false;
 	public int prestigePoints;
 	public boolean newStarter = false;
+	private int lives = -1;
 	/**
 	 * 0 North
 	 * 1 East
@@ -4801,6 +4917,14 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 
 	public QuickPrayers getQuick() {
 		return quick;
+	}
+	
+	public void setLives(int lives) {
+		this.lives = lives;
+	}
+
+	public int getLives() {
+		return lives;
 	}
 
 }

@@ -20,6 +20,7 @@ import ethos.model.players.ConnectedFrom;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.PlayerSave;
+import ethos.model.players.Right;
 import ethos.net.PacketBuilder;
 import ethos.punishments.PunishmentType;
 import ethos.punishments.Punishments;
@@ -140,6 +141,7 @@ public class RS2LoginProtocol extends FrameDecoder {
 		if (!name.matches("[A-Za-z0-9 ]+") || name.contains("  ") ) {
 			returnCode = 4;
 		}
+		
 		if (name.length() > 12) {
 			returnCode = 8;
 		}
@@ -167,6 +169,10 @@ public class RS2LoginProtocol extends FrameDecoder {
 		if (slot == -1) {
 			returnCode = 7;
 			player.saveFile = false;
+		}
+		
+		if(player.getRights().getPrimary().isOrInherits(Right.DEAD_HARDCORE_IRONMAN)) {
+			returnCode = 12;
 		}
 
 		if (punishments.contains(PunishmentType.BAN, name) || punishments.contains(PunishmentType.MAC_BAN, macAddress)
