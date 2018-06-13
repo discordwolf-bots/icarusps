@@ -304,7 +304,7 @@ public class Thieving {
 			{
 				put(Rarity.ALWAYS, Arrays.asList(new GameItem(995, 750), new GameItem(995, 1000), new GameItem(995, 1250)));
 			}
-		}), FARMER(60, 65, 52000, new HashMap<Rarity, List<GameItem>>() {
+		}), FARMER(60, 65, 45000, new HashMap<Rarity, List<GameItem>>() {
 			{
 				put(Rarity.ALWAYS, Arrays.asList(new GameItem(5291), new GameItem(5292), new GameItem(5293)));
 				put(Rarity.COMMON, Arrays.asList(new GameItem(5294), new GameItem(5297), new GameItem(5296)));
