@@ -284,6 +284,10 @@ public class AttackPlayer {
 			}			
 			break;
 		}
+		
+		if(c.getRights().isOrInherits(Right.HCIM_DEAD)) {
+			experience = 0;
+		}
 		if (experience > 0) {
 			c.getPA().sendExperienceDrop(true, experience, ArrayUtils.toPrimitive(skills.toArray(new Integer[skills.size()])));
 		}

@@ -1705,21 +1705,26 @@ public void sendFrame107() {
 
 	public void applyDead() {
 		if(c.getMode().isHardcoreIronman()) {
-			if(c.getLives() == 0) {
-				c.setMode(Mode.forType(ModeType.IRON_MAN));
-				c.getRights().remove(Right.HARDCORE_IRONMAN);
-				c.getRights().setPrimary(Right.HCIM_DEAD);
-				c.sendMessage("<img=25> <col=ff0000><shad=000000>Bwahahahaha! That was your last life!</col>");
-				new Thread(new Highscores(c)).start();
-				
-				if(c.getPA().totalLevel() >= 150) {
-					PlayerHandler.executeGlobalMessage("<img=25><col=" + Right.HARDCORE_IRONMAN.getColor() + "><shad=000000> " + c.getName() + "</shad></col> has just died with a total level of " + c.getPA().totalLevel() + " on Hardcore Ironman Mode!");	
+			if(!c.isSafeDeath()) {
+				if(c.getLives() == 0) {
+					c.setMode(Mode.forType(ModeType.IRON_MAN));
+					c.getRights().remove(Right.HARDCORE_IRONMAN);
+					c.getRights().setPrimary(Right.HCIM_DEAD);
+					c.sendMessage("<img=25> <col=ff0000><shad=000000>Bwahahahaha! That was your last life!</col>");
+					new Thread(new Highscores(c)).start();
+					
+					if(c.getPA().totalLevel() >= 150) {
+						PlayerHandler.executeGlobalMessage("<img=25><col=" + Right.HARDCORE_IRONMAN.getColor() + "><shad=000000> " + c.getName() + "</shad></col> has just died with a total level of " + c.getPA().totalLevel() + " on Hardcore Ironman Mode!");	
+					}
+					c.getPA().spellTeleport(3504, 3575, 0);
+					return;
+				} else {
+					c.setLives(c.getLives()-1);
+					c.sendMessage("<img=25> <col=ff0000><shad=000000>You got lucky this time! You only have @gre@" + c.getLives() + "<col=ff0000> lives remaining!</col>");
+					c.refreshQuestTab(1);
 				}
-				c.logout();
 			} else {
-				c.setLives(c.getLives()-1);
-				c.sendMessage("<img=25> <col=ff0000><shad=000000>You got lucky this time! You only have @gre@" + c.getLives() + "<col=ff0000> lives remaining!</col>");
-				c.refreshQuestTab(1);
+				c.sendMessage("Do not worry! That was a @gre@Safe Death");
 			}
 		}
 		c.getPA().sendFrame126(":quicks:off", -1);
@@ -2099,7 +2104,11 @@ public void sendFrame107() {
 			removeAllWindows();
 			closeAllWindows();
 		} else {
-			movePlayer(Config.RESPAWN_X, Config.RESPAWN_Y, 0);
+			if(c.getRights().isOrInherits(Right.HCIM_DEAD)) {
+				movePlayer(3502, 3572, 0);
+			} else {
+				movePlayer(Config.RESPAWN_X, Config.RESPAWN_Y, 0);
+			}
 			c.isSkulled = false;
 			c.skullTimer = 0;
 			c.attackedPlayers.clear();
@@ -2250,6 +2259,9 @@ public void sendFrame107() {
 	}
 
 	public boolean canTeleport(String type) {
+		if(c.getRights().getPrimary().isOrInherits(Right.DEAD_HARDCORE_IRONMAN)) {
+			return false;
+		}
 		if (c.morphed) {
 			c.sendMessage("You cannot do this now.");
 			return false;
@@ -3628,6 +3640,10 @@ public void sendFrame107() {
 			if(petSummoned == 13326)
 				amount *= 1.15;
 			break;
+		}
+		
+		if(c.getRights().isOrInherits(Right.HCIM_DEAD)) {
+			amount *= 0;
 		}
 		
 		

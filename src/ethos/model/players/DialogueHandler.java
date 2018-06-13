@@ -63,6 +63,29 @@ public class DialogueHandler {
 		}
 		switch (dialogue) {
 		
+		/**
+		 * Dead HCIM
+		 */
+		case 696969:
+			sendNpcChat("Im sorry " + c.getName() + " but you have died!", "That is it for your account!", "You cannot teleport from here.");
+			c.nextChat = 696970;
+			break;
+		
+		case 696970:
+			sendNpcChat("Feel free to make a new Hardcore Ironman!", "Or if you didnt like that risk, feel free to create an account", "on a different game mode!");
+			c.nextChat = -1;
+			break;
+			
+		case 696971:
+			sendNpcChat("You will get extra lives at certain total levels though!", "These are at 750, 1500, 2000 and 2640", "Goodluck!");
+			c.nextChat = 696972;
+			break;
+		
+		case 696972:
+			sendNpcChat("I must warn you again!", "<col=ff0000><shad=000000>If you die with 0 lives remaining", "<col=ff0000><shad=000000>You will not be able to play this account!!!");
+			c.nextChat = 648;
+			break;
+		
 		/*
 		  Raids historian
 		 */
@@ -2529,16 +2552,19 @@ public class DialogueHandler {
 		case 647:
 			if (c.getMode().getType().equals(ModeType.REGULAR)) {
 				sendNpcChat("You have chosen to play without a particular mode.", "You can always create a new account in the future", "if you want to try something new.");
+				c.nextChat = 648;
 			} else if (c.getMode().getType().equals(ModeType.OSRS)) {
 				sendNpcChat("You have chosen the OSRS mode, with x1 experience rates.");
+				c.nextChat = 648;
 			} else if (c.getMode().getType().equals(ModeType.HARDCORE)) {
 				sendNpcChat("You have chosen the Hardcore Ironman mode.",
 							"Take this set of armour to help you on your way.",
-							"<col=ff0000>Remember! If you die, you go back to Ironman mode!</col>");
+							"<col=ff0000>Remember! If you die, that's it!</col>");
+				c.nextChat = 696971;
 			} else {
 				sendNpcChat("You have chosen the mode " + c.getMode().getType().toString() + ".", "Take this set of armour to help you on your way.");
+				c.nextChat = 648;
 			}
-			c.nextChat = 648;
 			break;
 
 		case 648:

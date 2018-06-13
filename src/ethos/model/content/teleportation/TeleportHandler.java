@@ -150,6 +150,10 @@ public class TeleportHandler {
 			// 20 wilderness.");
 			return;
 		}
+		
+		if(player.getRights().isOrInherits(Right.HCIM_DEAD)) {
+			return;
+		}
 
 		switch (Id) {
 		// Handle Magic Book Teleports

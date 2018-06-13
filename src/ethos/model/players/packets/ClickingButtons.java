@@ -2133,20 +2133,22 @@ public class ClickingButtons implements PacketType {
 		case 117048:
 		case 75010:
 		case 50056:
-			if (c.inClanWars() || c.inClanWarsSafe()) {
-				c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
-				return;
-			}
-			/*if (!c.getRights().isOrInherits(Right.OWNER)) {
-				if (c.inWild()) {
-					if (!c.getItems().playerHasItem(563, 3)) {
-						c.sendMessage("Teleporting from within the wilderness requires 3 law runes.");
-						return;
-					}
-					c.getItems().deleteItem(563, 3);
+			if(c.getPA().canTeleport("glory")) {
+				if (c.inClanWars() || c.inClanWarsSafe()) {
+					c.sendMessage("@cr10@You can not teleport from here, speak to the doomsayer to leave.");
+					return;
 				}
-			}*/
-			c.getPA().spellTeleport(1502, 3629, 0);
+				/*if (!c.getRights().isOrInherits(Right.OWNER)) {
+					if (c.inWild()) {
+						if (!c.getItems().playerHasItem(563, 3)) {
+							c.sendMessage("Teleporting from within the wilderness requires 3 law runes.");
+							return;
+						}
+						c.getItems().deleteItem(563, 3);
+					}
+				}*/
+				c.getPA().spellTeleport(1502, 3629, 0);
+			}
 			break;
 		
 //		 case 4171: case 50056: case 117048: if (c.homeTeleDelay <= 0) { c.homeTele = 10; } else if (c.homeTeleDelay <= 0) { c.homeTele = 10; }

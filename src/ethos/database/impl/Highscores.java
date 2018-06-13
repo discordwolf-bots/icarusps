@@ -51,17 +51,12 @@ public class Highscores implements Runnable {
 			if(player.getMode().isUltimateIronman()) mode = 3;
 			int rights = player.getRights().getPrimary().getValue();
 			
-			boolean dead = false;
-			if(rights == Right.HCIM_DEAD.getValue()) {
-				dead = true;
-			}
-			
 			if(player.getRights().isOrInherits(Right.ADMINISTRATOR)) {
 				return;
 			}
 			
 			String name = player.getName();
-			String queryFetch = "SELECT * FROM "+TABLE+" WHERE username='"+name+"' AND dead=0";
+			String queryFetch = "SELECT * FROM "+TABLE+" WHERE username='"+name+"' LIMIT 1";
 			Statement stmtFetch = conn.createStatement();
 			ResultSet rsFetchI = stmtFetch.executeQuery(queryFetch);
 			
@@ -91,9 +86,6 @@ public class Highscores implements Runnable {
 				int nRights = rights;
 				if(oRights != nRights) updateRequired = true;
 				
-				if(dead) {
-					updateRequired = true;
-				}
 				
 				int oTLevel = rsFetch.getInt("overall_level");
 				int nTLevel = player.getPA().totalLevel();
@@ -199,9 +191,6 @@ public class Highscores implements Runnable {
 					}
 					if(oRights != nRights) {
 						updateQuery += "rights=" + nRights +", ";
-					}
-					if(dead) {
-						updateQuery += "dead=1, ";
 					}
 					
 					if(oTLevel != nTLevel) {
@@ -316,6 +305,8 @@ public class Highscores implements Runnable {
 					stmtUpdateTime.close();
 					System.out.println("Updated highscores: " + name);
 					
+				} else {
+					System.out.println(name + " doesnt need updating");
 				}
 			}
 				

@@ -4927,4 +4927,13 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		return lives;
 	}
 
+	public boolean isSafeDeath() {
+		if(this.inCwGame) return true;
+		if(this.inPits) return true;
+		if(this.inDuel) return true;
+		if(this.inClanWarsSafe()) return true;
+		if(Boundary.isIn(this, Boundary.FIGHT_CAVE)) return true;
+		return false;
+	}
+
 }

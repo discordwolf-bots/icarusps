@@ -51,6 +51,10 @@ public class NpcOptionOne {
 		}
 		switch (npcType) {
 		
+		case 5982:
+			player.getDH().sendDialogues(696969, 5982);
+			break;
+		
 		case 7690:
 			player.createInfernoInstance();
 			player.getInfernoMinigame().create(1);
