@@ -2581,7 +2581,7 @@ public class DialogueHandler {
 			break;
 
 		case 650:
-			if (c.getMode().isIronman() || c.getMode().isUltimateIronman()) {
+			if (c.getMode().isIronman() || c.getMode().isUltimateIronman() || c.getMode().isHardcoreIronman()) {
 				sendNpcChat("Hello " + c.playerName + ". How can I help you?");
 				c.nextChat = 651;
 			} else {
@@ -2666,12 +2666,12 @@ public class DialogueHandler {
 			break;
 
 		case 661:
-			if (!c.getMode().isIronman() && !c.getMode().isUltimateIronman()) {
+			if (!c.getMode().isIronman() && !c.getMode().isUltimateIronman() && !c.getMode().isHardcoreIronman()) {
 				sendNpcChat("You need to be an iron man to use this service.");
 				c.nextChat = -1;
 				return;
 			}
-			EquipmentSet set = c.getMode().isIronman() ? EquipmentSet.IRON_MAN_ARMOUR : c.getMode().isUltimateIronman() ? EquipmentSet.ULTIMATE_IRON_MAN_ARMOUR : null;
+			EquipmentSet set = c.getMode().isIronman() ? EquipmentSet.IRON_MAN_ARMOUR : c.getMode().isUltimateIronman() ? EquipmentSet.ULTIMATE_IRON_MAN_ARMOUR : c.getMode().isHardcoreIronman() ? EquipmentSet.HARDCORE_IRON_MAN_ARMOUR : null;
 
 			if (set == null) {
 				sendNpcChat("You need to be an iron man to use this service.");

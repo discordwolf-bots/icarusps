@@ -345,7 +345,7 @@ public class PestControlRewards {
 				player.sendMessage("You need at least 5 free slots to purchase this pack.");
 				return;
 			}
-			if (player.getMode().isIronman() || player.getMode().isUltimateIronman()) {
+			if (player.getMode().isIronman() || player.getMode().isUltimateIronman() || player.getMode().isHardcoreIronman()) {
 				player.sendMessage("Iron man are currently unable to purchase rewards from pest control.");
 				return;
 			}

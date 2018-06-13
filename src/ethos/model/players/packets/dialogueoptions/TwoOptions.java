@@ -755,7 +755,7 @@ public class TwoOptions {
 			if (c.inWild() || c.inDuelArena() || Server.getMultiplayerSessionListener().inAnySession(c)) {
 				return;
 			}
-			if (c.getMode().isIronman() || c.getMode().isUltimateIronman()) {
+			if (c.getMode().isIronman() || c.getMode().isUltimateIronman() || c.getMode().isHardcoreIronman()) {
 				c.sendMessage("You are not allowed to do this on your game mode.");
 				return;
 			}

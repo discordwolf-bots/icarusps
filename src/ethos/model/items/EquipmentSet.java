@@ -20,7 +20,8 @@ public enum EquipmentSet {
 		KARIL(new int[][] { { 4732, 4734, 4736, 4738 }, { 4928, 4934, 4940, 4946 }, { 4929, 4935, 4941, 4947 }, { 4930, 4936, 4942, 4948 }, { 4931, 4937, 4943, 4949 } }), 
 		IRON_MAN_ARMOUR(new int[][] { { 12810, 12811, 12812 } }), 
 		DESERT_ROBES(new int[][] { { 1833, 1835 } }),
-		ULTIMATE_IRON_MAN_ARMOUR(new int[][] { { 12813, 12814, 12815 } 
+		ULTIMATE_IRON_MAN_ARMOUR(new int[][] { { 12813, 12814, 12815 } }), 
+		HARDCORE_IRON_MAN_ARMOUR(new int[][] { { 20792, 20794, 20796 }
 	
 	});
 

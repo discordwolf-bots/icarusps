@@ -247,7 +247,7 @@ public abstract class Entity {
 				Player player = (Player) killer;
 				NPC npc = (NPC) this;
 				
-				if ((player.getMode().isIronman() || player.getMode().isUltimateIronman()) && !Boundary.isIn(player, Boundary.GODWARS_BOSSROOMS) && 
+				if ((player.getMode().isIronman() || player.getMode().isUltimateIronman() || player.getMode().isHardcoreIronman()) && !Boundary.isIn(player, Boundary.GODWARS_BOSSROOMS) && 
 					!Boundary.isIn(player, Boundary.CORPOREAL_BEAST_LAIR) &&
 					!Boundary.isIn(player, Boundary.DAGANNOTH_KINGS) &&
 					!Boundary.isIn(player, Boundary.TEKTON) &&

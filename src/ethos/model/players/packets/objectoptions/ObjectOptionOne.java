@@ -1100,7 +1100,7 @@ public class ObjectOptionOne {
 			break;
 		case 535:
 			if (obX == 3722 && obY == 5798) {
-				if (c.getMode().isIronman() || c.getMode().isUltimateIronman()) {
+				if (c.getMode().isIronman() || c.getMode().isUltimateIronman() || c.getMode().isHardcoreIronman()) {
 					c.getPA().movePlayer(3677, 5775, 4);
 				} else {
 					c.getPA().movePlayer(3677, 5775, 0);
@@ -2113,7 +2113,7 @@ public class ObjectOptionOne {
 			if (c.inWild()) {
 				return;
 			}
-			if (c.getMode().isIronman() || c.getMode().isUltimateIronman()) {
+			if (c.getMode().isIronman() || c.getMode().isUltimateIronman() || c.getMode().isHardcoreIronman()) {
 				c.sendMessage("Your game mode prohibits use of this altar.");
 				return;
 			}

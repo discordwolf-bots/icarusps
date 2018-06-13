@@ -359,7 +359,7 @@ public class NpcOptionTwo {
 			break;
 
 		case 506:
-			if (player.getMode().isIronman() || player.getMode().isUltimateIronman()) {
+			if (player.getMode().isIronman() || player.getMode().isUltimateIronman() || player.getMode().isHardcoreIronman()) {
 				player.getShops().openShop(41);
 			} else {
 				player.sendMessage("You must be an Iron Man to access this shop.");

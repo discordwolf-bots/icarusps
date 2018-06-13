@@ -76,7 +76,7 @@ public class Godwars {
 	 * @return The height level of the instance.
 	 */
 	private int getInstanceHeight() {
-		if (player.getMode().isIronman() || player.getMode().isUltimateIronman()) {
+		if (player.getMode().isIronman() || player.getMode().isUltimateIronman() || player.getMode().isHardcoreIronman()) {
 			return InstancedAreaManager.GODWARS_IRONMAN_HEIGHT;
 		} else {
 			return 0;

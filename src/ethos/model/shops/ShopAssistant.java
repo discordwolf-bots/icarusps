@@ -1621,7 +1621,7 @@ public class ShopAssistant {
 		}
 		
 		if (c.myShopId == 6) {
-			if (c.getMode().isIronman() || c.getMode().isUltimateIronman()) {
+			if (c.getMode().isIronman() || c.getMode().isUltimateIronman() || c.getMode().isHardcoreIronman()) {
 				if (!c.getDiaryManager().getVarrockDiary().hasDoneMedium()) {
 					c.sendMessage("You must have completed the varrock diary up to medium to purchase this.");
 					return false;
@@ -1845,7 +1845,7 @@ public class ShopAssistant {
 								c.getItems().deleteItem(995, c.getItems().getItemSlot(995), TotPrice2);
 								c.getItems().addItem(itemID, 1);
 								if (c.myShopId == 6) {
-									if (c.getMode().isIronman() || c.getMode().isUltimateIronman()) {
+									if (c.getMode().isIronman() || c.getMode().isUltimateIronman() || c.getMode().isHardcoreIronman()) {
 										if (!c.getDiaryManager().getVarrockDiary().hasDoneMedium()) {
 											c.sendMessage("You must have completed the varrock diary up to medium to purchase this.");
 											return false;
