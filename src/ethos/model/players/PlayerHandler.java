@@ -361,10 +361,8 @@ public class PlayerHandler {
 			}
 			
 			if(loggedin) {
-				System.out.println("In");
 				player.refreshQuestTab(1);				
 			} else {
-				System.out.println("Out");
 				player.refreshQuestTab(0);				
 			}
 			
