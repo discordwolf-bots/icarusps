@@ -505,6 +505,7 @@ public class Farming {
 	public void setLastBerryFarm(long millis) {
 		this.lastPoisonBerryFarm = millis;
 	}
+	
 	public enum State {
 		NONE(0),
 		RAKED(1),
