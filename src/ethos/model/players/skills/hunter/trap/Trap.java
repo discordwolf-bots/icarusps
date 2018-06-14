@@ -216,6 +216,7 @@ public abstract class Trap {
 	 */
 	public void setObject(int id) {
 		if(!Server.getGlobalObjects().anyExists(getObject().getX(), getObject().getY(), getObject().getHeight())) {
+			// FIXME: Error popping up with box trap hunting
 			System.out.println("Hunter; No trap existed while attempting to catch");
 			return;
 		}
