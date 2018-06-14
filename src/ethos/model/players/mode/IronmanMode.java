@@ -184,7 +184,7 @@ public class IronmanMode extends Mode {
 
 	@Override
 	public boolean isItemSellable(int shopId, int itemId) {
-		System.out.println("Checking: " + shopId + " with item " + itemId);
+		
 		switch (shopId) {
 		case 2:
 		case 26:
