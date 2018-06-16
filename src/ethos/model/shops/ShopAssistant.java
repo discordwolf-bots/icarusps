@@ -658,7 +658,7 @@ public class ShopAssistant {
 			case 4720:
 			case 4722:
 			case 4718: //Dharok
-				return 120;
+				return 150;
 			case 4724:
 			case 4726:
 			case 4728:
@@ -671,7 +671,7 @@ public class ShopAssistant {
 			case 4755:
 			case 4757:
 			case 4759: //Verac
-				return 100;
+				return 250;
 			case 4708:
 			case 4710:
 			case 4712:
@@ -682,19 +682,19 @@ public class ShopAssistant {
 			case 4738: //Karil
 				return 200;
 			case 12006: //Abyssal tentacle
-				return 400;
+				return 4000;
 			case 13263: //Bludgeon
 				return 3500;
 			case 13271: //Abyssal dagger
-				return 800;
+				return 1800;
 			case 19481: //Ballista
 				return 1500;
 			case 12902: //Toxic staff
-				return 1000;
+				return 5000;
 			case 12924: //Blowpipe
 				return 3000;
 			case 11286: //Visage
-				return 100;
+				return 1000;
 			case 11785: //Armadyl crossbow
 				return 2500;
 			case 13227: //Crystals
@@ -715,7 +715,7 @@ public class ShopAssistant {
 			case 11826: //Armadyl helm
 			case 11828: //Armadyl chest
 			case 11830: //Armadyl skirt
-				return 700;
+				return 1700;
 			case 6737: //Berseker ring
 				return 500;
 			case 6735: //Warrior ring
@@ -734,11 +734,11 @@ public class ShopAssistant {
 			case 11802: //Ags
 				return 2000;
 			case 11804: //Bgs
-				return 200;
+				return 2000;
 			case 11806: //Sgs
 				return 1000;
 			case 11808: //Zgs
-				return 300;
+				return 3000;
 			case 13576: //Dwh
 				return 3000;
 			case 11235: //Dbow
@@ -754,10 +754,10 @@ public class ShopAssistant {
 			case 11665: //Void melee helm
 			case 11664: //Void ranger helm
 			case 8842: //Void gloves
-				return 50;
+				return 150;
 			case 8839: //Void top
 			case 8840: //Void bottom
-				return 75;
+				return 100;
 			}
 			break;
 			

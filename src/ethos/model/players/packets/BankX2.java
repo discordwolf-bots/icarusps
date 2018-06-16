@@ -499,8 +499,8 @@ public class BankX2 implements PacketType {
 		case 1:
 			c.getPA().closeAllWindows();
 			c.tablet = 0;
-			if (Xamount > 100) {
-				c.sendMessage("You may only create 100 at a time.");
+			if (Xamount > 10000) {
+				c.sendMessage("You may only create 10000 at a time.");
 				return;
 			}
 
@@ -512,8 +512,8 @@ public class BankX2 implements PacketType {
 		case 2:
 			c.getPA().closeAllWindows();
 			c.tablet = 0;
-			if (Xamount > 100) {
-				c.sendMessage("You may only create 100 at a time.");
+			if (Xamount > 10000) {
+				c.sendMessage("You may only create 10000 at a time.");
 				return;
 			}
 			try {
