@@ -140,10 +140,10 @@ public enum Mineral {
 					new int[] { 30371, 30372 }, // rock objects
 					"none", // bar name
 					92, // level
-					140, // experience
-					0, // depletion (1 in value+1)
+					150, // experience
+					-1, // depletion (1 in value+1)
 					100, // respawn rate (cycles to respawn)
-					40, // extraction rate
+					17, // extraction rate
 					11500, // pet chance
 					false, // does it deplete?
 					generateExclusive(21347) // mineral return

@@ -14,7 +14,7 @@ public class DragonBoltSpecial implements DamageEffect {
 		if (defender.antifireDelay > 0 || defender.getItems().isWearingAnyItem(11283, 11284, 1540)) {
 			return;
 		}
-		int change = Misc.random((int) (damage.getAmount() * 1.45));
+		int change = Misc.random((int) (damage.getAmount() * 1.85));
 		damage.setAmount(change);
 		RangeExtras.createCombatGraphic(attacker, defender, 756, false);
 	}
@@ -24,7 +24,7 @@ public class DragonBoltSpecial implements DamageEffect {
 		if (defender.getDefinition().getNpcName() != null && defender.getDefinition().getNpcName().toLowerCase().contains("dragon")) {
 			return;
 		}
-		int change = Misc.random((int) (damage.getAmount() * 1.45));
+		int change = Misc.random((int) (damage.getAmount() * 1.85));
 		damage.setAmount(change);
 		RangeExtras.createCombatGraphic(attacker, defender, 756, false);
 	}

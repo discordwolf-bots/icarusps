@@ -50,7 +50,7 @@ public final class BirdSnare extends Trap {
 	/**
 	 * The distance the npc has to have from the snare before it gets triggered.
 	 */
-	private static final int DISTANCE_PORT = 3;
+	private static final int DISTANCE_PORT = 6;
 
 	/**
 	 * A collection of all the npcs that can be caught with a bird snare.

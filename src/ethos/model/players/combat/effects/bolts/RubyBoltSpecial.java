@@ -12,7 +12,7 @@ public class RubyBoltSpecial implements DamageEffect {
 
 	@Override
 	public void execute(Player attacker, Player defender, Damage damage) {
-		int change = Misc.random((int) (defender.getHealth().getAmount() / 5));
+		int change = Misc.random((int) (defender.getHealth().getAmount() / 3));
 		int playerDamage = attacker.getHealth().getAmount() / 10;
 		if (attacker.getHealth().getAmount() < 10) {
 			return;
@@ -27,7 +27,7 @@ public class RubyBoltSpecial implements DamageEffect {
 		if (defender.getDefinition().getNpcName() == null) {
 			return;
 		}
-		int change = Misc.random((int) (defender.getHealth().getAmount() / 5));
+		int change = Misc.random((int) (defender.getHealth().getAmount() / 3));
 		int playerDamage = attacker.getHealth().getAmount() / 10;
 		if (attacker.getHealth().getAmount() < 10) {
 			return;

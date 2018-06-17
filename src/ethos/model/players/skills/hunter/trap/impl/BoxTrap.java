@@ -55,7 +55,7 @@ public final class BoxTrap extends Trap {
 	/**
 	 * The distance the npc has to have from the box trap before it gets triggered.
 	 */
-	private static final int DISTANCE_PORT = 3;
+	private static final int DISTANCE_PORT = 6;
 	
 	/**
 	 * A collection of all the npcs that can be caught with a box trap.
