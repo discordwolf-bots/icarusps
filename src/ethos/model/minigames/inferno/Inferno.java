@@ -1,6 +1,7 @@
 package ethos.model.minigames.inferno;
 
 import ethos.Server;
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEvent;
 import ethos.event.CycleEventContainer;
 import ethos.event.CycleEventHandler;
@@ -150,6 +151,8 @@ public class Inferno extends Tzkalzuk {
 		
 		if (Misc.random(200) == 0) {
 			 if (player.getItems().getItemCount(13225, true) == 0 && player.summonId != 13225) {
+				 String[] feed = new String[] {"TzTok-Jad"};
+				 BotMain.sendFeed(player, null, 4, feed);
 				 PlayerHandler.executeGlobalMessage("[@red@PET@bla@] @cr20@<col=255> " + player.playerName + "</col> received a pet from <col=255>TzTok-Jad</col>.");
 				 player.getItems().addItemUnderAnyCircumstance(13225, 1);
 				 player.getDH().sendDialogues(74, 2180);

@@ -70,6 +70,8 @@ public class BotMain {
 				builder.appendField(emoji + " Pet!", c.getName() + " just got a " + extra[0] + " pet", false);
 				break;
 			case 5: // Update!
+				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName("Pet");
+				builder.appendField(emoji + " Update!", c.getName() + " has set an update for " + extra[0] + " seconds", false);
 				break;
 				
 				

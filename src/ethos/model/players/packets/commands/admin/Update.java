@@ -3,6 +3,7 @@ package ethos.model.players.packets.commands.admin;
 import java.util.Objects;
 
 import ethos.Server;
+import ethos.discord.main.BotMain;
 import ethos.model.content.wogw.Wogw;
 import ethos.model.multiplayer_session.MultiplayerSessionFinalizeType;
 import ethos.model.multiplayer_session.MultiplayerSessionStage;
@@ -27,6 +28,8 @@ public class Update extends Command {
 			c.sendMessage("The timer cannot be lower than 15 seconds so other operations can be sorted.");
 			seconds = 15;
 		}
+		String[] feed = new String[] {String.valueOf(seconds)};
+		BotMain.sendFeed(c, null, 5, feed);
 		PlayerHandler.updateSeconds = seconds;
 		PlayerHandler.updateAnnounced = false;
 		PlayerHandler.updateRunning = true;
