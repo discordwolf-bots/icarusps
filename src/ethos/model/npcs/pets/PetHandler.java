@@ -11,6 +11,7 @@ import com.google.common.collect.ImmutableSet;
 
 import ethos.Server;
 import ethos.clip.Region;
+import ethos.discord.main.BotMain;
 import ethos.model.npcs.NPC;
 import ethos.model.npcs.NPCHandler;
 import ethos.model.players.Boundary;
@@ -315,6 +316,8 @@ public class PetHandler {
 				player.getItems().addItemUnderAnyCircumstance(p.itemId, 1);
 				spawn(player, p, false, false);
 				PlayerHandler.executeGlobalMessage("[@red@PET@bla@] @cr20@<col=255> <img="+rights+">" + Misc.formatPlayerName(player.playerName) + "</col> received a pet from <col=255><shad=000000>" + p.parent + "</shad></col>.");
+				String[] feed = new String[] {String.valueOf(p.parent)};
+				BotMain.sendFeed(player, null, 4, feed);
 			}
 		});
 

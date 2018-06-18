@@ -5,7 +5,6 @@ import java.util.Optional;
 import ethos.model.items.ItemAssistant;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
-import ethos.model.players.Right;
 import ethos.model.players.packets.commands.Command;
 import ethos.util.Misc;
 

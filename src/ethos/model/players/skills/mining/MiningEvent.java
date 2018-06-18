@@ -4,6 +4,7 @@ import org.apache.commons.lang3.RandomUtils;
 
 import ethos.Config;
 import ethos.Server;
+import ethos.discord.main.BotMain;
 import ethos.event.Event;
 import ethos.model.content.SkillcapePerks;
 import ethos.model.content.achievement.AchievementType;
@@ -296,6 +297,8 @@ public class MiningEvent extends Event<Player> {
 		}
 
 		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13321, false) == 0 && attachment.summonId != 13321) {
+			String[] feed = new String[] {"Mining"};
+			 BotMain.sendFeed(attachment, null, 4, feed);
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + attachment.playerName
 					+ "</col> mined a rock and formed the <col=CC0000>Rock golem</col> pet!");
 			attachment.getItems().addItemUnderAnyCircumstance(13321, 1);

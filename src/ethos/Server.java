@@ -14,18 +14,18 @@ import org.jboss.netty.util.HashedWheelTimer;
 import ethos.clip.ObjectDef;
 import ethos.clip.Region;
 import ethos.clip.doors.DoorDefinition;
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEventHandler;
 import ethos.event.EventHandler;
 import ethos.event.impl.BonusApplianceEvent;
 import ethos.event.impl.DidYouKnowEvent;
 import ethos.event.impl.SkeletalMysticEvent;
 import ethos.event.impl.WheatPortalEvent;
-import ethos.model.content.wogw.Wogw;
 import ethos.model.content.godwars.GodwarsEquipment;
 import ethos.model.content.godwars.GodwarsNPCs;
-import ethos.model.players.combat.monsterhunt.MonsterHunt;
 import ethos.model.content.tradingpost.Listing;
 import ethos.model.content.trails.CasketRewards;
+import ethos.model.content.wogw.Wogw;
 import ethos.model.holiday.HolidayController;
 import ethos.model.items.ItemDefinition;
 import ethos.model.minigames.FightPits;
@@ -37,6 +37,7 @@ import ethos.model.npcs.NPCHandler;
 import ethos.model.npcs.drops.DropManager;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.PlayerSave;
+import ethos.model.players.combat.monsterhunt.MonsterHunt;
 import ethos.model.players.packets.Commands;
 import ethos.net.PipelineFactory;
 import ethos.punishments.PunishmentCycleEvent;
@@ -202,7 +203,7 @@ public class Server {
 		try {
 			long startTime = System.currentTimeMillis();
 			System.setOut(extracted());
-			
+			BotMain.main(args);
 			PUNISHMENTS.initialize();
 			events.submit(new DidYouKnowEvent());
 			events.submit(new WheatPortalEvent());

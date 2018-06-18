@@ -3,6 +3,7 @@ package ethos.model.players.skills.thieving;
 import com.google.common.collect.Lists;
 import ethos.Config;
 import ethos.Server;
+import ethos.discord.main.BotMain;
 import ethos.model.content.SkillcapePerks;
 import ethos.model.content.achievement.AchievementType;
 import ethos.model.content.achievement.Achievements;
@@ -272,8 +273,12 @@ public class Thieving {
 		}
 		
 		 if (Misc.random(petChance) == 20 && player.getItems().getItemCount(20663, false) == 0 && player.summonId != 20663) {
+			 String[] feed = new String[] {"Thieving"};
+			 BotMain.sendFeed(player, null, 4, feed);
 			 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> now goes hand in hand with a <col=CC0000>Rocky</col> pet!");
 			 player.getItems().addItemUnderAnyCircumstance(20663, 1);
+		 } else if(Misc.random(petChance) == 20 && (player.getItems().getItemCount(20663, false) > 0 || player.summonId == 20663)) {
+				player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 		 }
 		Achievements.increase(player, AchievementType.THIEV, 1);
 		player.getPA().addSkillXP((int) (pickpocket.experience * (player.getMode().getType().equals(ModeType.OSRS) ? 1 : Config.THIEVING_EXPERIENCE) + percentOfXp), Skill.THIEVING.getId(), true);

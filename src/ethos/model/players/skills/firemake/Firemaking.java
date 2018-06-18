@@ -3,6 +3,7 @@ package ethos.model.players.skills.firemake;
 import ethos.Config;
 import ethos.Server;
 import ethos.clip.Region;
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEvent;
 import ethos.event.CycleEventContainer;
 import ethos.event.CycleEventHandler;
@@ -150,6 +151,9 @@ public class Firemaking {
 			if (Misc.random(petChance) == 2585 && player.getItems().getItemCount(20693, false) == 0 && player.summonId != 20693) {
 				int rights = player.getRights().getPrimary().getValue() - 1;
 				player.getItems().addItemUnderAnyCircumstance(20693, 1);
+				
+				String[] feed = new String[] {"Firemaking"};
+				BotMain.sendFeed(player, null, 4, feed);	
 				PlayerHandler.executeGlobalMessage("[@red@PET@bla@] @cr20@<col=255> <img="+rights+">" + player.playerName + "</col> received a Phoenix pet.");
 			} else if(Misc.random(petChance) == 2585 && (player.getItems().getItemCount(20693, false) > 0 || player.summonId == 20693)) {
 				player.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");

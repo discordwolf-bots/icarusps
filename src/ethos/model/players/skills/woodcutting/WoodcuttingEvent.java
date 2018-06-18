@@ -4,6 +4,7 @@ import ethos.Config;
 import ethos.Server;
 import ethos.clip.Region;
 import ethos.clip.WorldObject;
+import ethos.discord.main.BotMain;
 import ethos.event.Event;
 import ethos.model.content.SkillcapePerks;
 import ethos.model.content.achievement.AchievementType;
@@ -240,6 +241,8 @@ public class WoodcuttingEvent extends Event<Player> {
 		}
 		
 		if (Misc.random(petChance) == 2 && attachment.getItems().getItemCount(13322, false) == 0 && attachment.summonId != 13322) {
+			String[] feed = new String[] {"Woodcutting"};
+			BotMain.sendFeed(attachment, null, 4, feed);
 			PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + attachment.playerName + "</col> chopped down the nest for <col=CC0000>Beaver</col> pet!");
 			attachment.getItems().addItemUnderAnyCircumstance(13322, 1);
 		} else if(Misc.random(petChance) == 2 && (attachment.getItems().getItemCount(13322, false) > 0 || attachment.summonId == 13322)) {

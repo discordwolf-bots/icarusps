@@ -20,6 +20,7 @@ import ethos.clip.PathChecker;
 import ethos.clip.Region;
 import ethos.database.impl.Highscores;
 import ethos.database.impl.LevelUp;
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEventHandler;
 import ethos.event.DelayEvent;
 import ethos.event.impl.WheatPortalEvent;
@@ -3132,7 +3133,6 @@ public void sendFrame107() {
 	 */
 
 	public void levelUp(int skill) {
-		int oldTotal = c.getPA().totalLevel();
 		int totalLevel = (getLevelForXP(c.playerXP[0]) + getLevelForXP(c.playerXP[1]) + getLevelForXP(c.playerXP[2]) + getLevelForXP(c.playerXP[3]) + getLevelForXP(c.playerXP[4])
 				+ getLevelForXP(c.playerXP[5]) + getLevelForXP(c.playerXP[6]) + getLevelForXP(c.playerXP[7]) + getLevelForXP(c.playerXP[8]) + getLevelForXP(c.playerXP[9])
 				+ getLevelForXP(c.playerXP[10]) + getLevelForXP(c.playerXP[11]) + getLevelForXP(c.playerXP[12]) + getLevelForXP(c.playerXP[13]) + getLevelForXP(c.playerXP[14])
@@ -3292,6 +3292,9 @@ public void sendFrame107() {
 		if(c.getRights().isOrInherits(Right.HARDCORE_IRONMAN)) gm = "Hardcore Ironman";
 		if (c.maxRequirements(c)) {
 			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
+				String[] sk = new String[1];
+				sk[0] = "";
+				BotMain.sendFeed(c, null, 2, sk);				
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has <col=255>MAXED</col> out all skills on " + gm + " Mode, congratulations.");
@@ -3300,7 +3303,10 @@ public void sendFrame107() {
 		}
 		if (getLevelForXP(c.playerXP[skill]) == 99) {
 			Skill s = Skill.forId(skill);
-			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {			
+			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
+				String[] sk = new String[1];
+				sk[0] = String.valueOf(skill);
+				BotMain.sendFeed(c, null, 0, sk);
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has reached level 99 <col=CC0000>"
@@ -3310,7 +3316,10 @@ public void sendFrame107() {
 		}
 		if (getLevelForXP(c.playerXP[skill]) == 120) {
 			Skill s = Skill.forId(skill);
-			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {			
+			if(!c.getRights().isOrInherits(Right.ADMINISTRATOR)) {
+				String[] sk = new String[1];
+				sk[0] = String.valueOf(skill);
+				BotMain.sendFeed(c, null, 1, sk);
 				PlayerHandler.executeGlobalMessage("<col=ff0000><shad=000000><img=" 
 						+ (c.getRights().getPrimary().getValue()-1) + "> " + Misc.capitalize(c.playerName) 
 						+ "</shad></col> has reached level 120 <col=CC0000>"

@@ -2,6 +2,7 @@ package ethos.model.players;
 
 import ethos.Config;
 import ethos.Server;
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEventHandler;
 import ethos.model.content.IronManInterface.Action;
 import ethos.model.content.dailytasks.DailyTasks;
@@ -329,6 +330,8 @@ public class DialogueHandler {
 					}
 					c.getItems().addItemUnderAnyCircumstance(13262, 1);
 					PlayerHandler.executeGlobalMessage("[@red@PET@bla@] @cr20@<col=255> <img="+rights+">" + c.playerName + "</col> received a pet from <col=255>Abyssal Sire.</col>.");
+					String[] feed = new String[] {"Abyssal Sire"};
+					BotMain.sendFeed(c, null, 4, feed);	
 				}
 				switch (reward) {
 				case 13274:

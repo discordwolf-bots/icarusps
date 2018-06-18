@@ -3,6 +3,7 @@ package ethos.model.players.skills.runecrafting;
 import java.util.stream.IntStream;
 
 import ethos.Config;
+import ethos.discord.main.BotMain;
 import ethos.model.content.achievement_diary.ardougne.ArdougneDiaryEntry;
 import ethos.model.content.achievement_diary.falador.FaladorDiaryEntry;
 import ethos.model.content.achievement_diary.karamja.KaramjaDiaryEntry;
@@ -160,6 +161,8 @@ public class Runecrafting extends SkillHandler {
 							petChance /= 15;
 						}
 					if (Misc.random(petChance) == 18 && player.getItems().getItemCount(data.getPetId(), false) == 0 && player.summonId != data.getPetId()) {
+						String[] feed = new String[] {"Runecrafting"};
+						 BotMain.sendFeed(player, null, 4, feed);
 						PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> successfully crafted a <col=CC0000>Rift guardian</col> pet!");
 						player.getItems().addItemUnderAnyCircumstance(data.getPetId(), 1);
 					} else if(Misc.random(petChance) == 18 && (player.getItems().getItemCount(data.getPetId(), false) > 0 || player.summonId == data.getPetId())) {

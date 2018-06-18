@@ -1,5 +1,6 @@
 package ethos.model.players.skills.agility;
 
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEvent;
 import ethos.event.CycleEventContainer;
 import ethos.event.CycleEventHandler;
@@ -549,6 +550,8 @@ public class AgilityHandler {
 			}
 			
 			 if (Misc.random(petChance) == 20 && c.getItems().getItemCount(20659, false) == 0 && c.summonId != 20659) {
+				 String[] feed = new String[] {"Agility"};
+				 BotMain.sendFeed(c, null, 4, feed);
 				 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + c.playerName + "</col> is apperantly agile like a <col=CC0000>Squirrel</col> pet!");
 				 c.getItems().addItemUnderAnyCircumstance(20659, 1);
 			 } else if(Misc.random(petChance) == 20 && (c.getItems().getItemCount(20659, false) > 0 || c.summonId == 20659)) {
@@ -566,9 +569,13 @@ public class AgilityHandler {
 			c.sendMessage("You received some XP for completing the track!");
 			c.getPlayerAssistant().addSkillXP(experience, 16, true);
 			Achievements.increase(c, AchievementType.ROOFTOP, 1);
-			 if (Misc.random(petChance) == 20 && c.getItems().getItemCount(20659, false) == 0 && c.summonId != 20659) {
+			if (Misc.random(petChance) == 20 && c.getItems().getItemCount(20659, false) == 0 && c.summonId != 20659) {
+				 String[] feed = new String[] {"Agility"};
+				 BotMain.sendFeed(c, null, 4, feed);
 				 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + c.playerName + "</col> is apperantly agile like a <col=CC0000>Squirrel</col> pet!");
 				 c.getItems().addItemUnderAnyCircumstance(20659, 1);
+			 } else if(Misc.random(petChance) == 20 && (c.getItems().getItemCount(20659, false) > 0 || c.summonId == 20659)) {
+				 c.sendMessage("<col=ff0000>You have a funny feeling like you would have been followed...");
 			 }
 		} else {
 			c.sendMessage("You must complete the full course to gain experience.");

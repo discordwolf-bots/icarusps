@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.commons.lang3.Range;
 
 import ethos.database.impl.RareDrops;
+import ethos.discord.main.BotMain;
 import ethos.model.items.GameItem;
 import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
@@ -82,8 +83,11 @@ public class TableGroup extends ArrayList<Table> {
 													+ "<col=0000ff><shad=000000>" + item.getAmount() + "</shad></col>x "
 													+ "<col=0000ff><shad=000000>" + ItemAssistant.getItemName(item.getId()) + "</shad></col>.");
 									// Very Rare drops get sent to the database
-									if(item.getId() != 20703)
+									if(item.getId() != 20703) {
+										String[] drops = new String[] {String.valueOf(item.getAmount()), ItemAssistant.getItemName(item.getId())};
+										BotMain.sendFeed(player, null, 3, drops);
 										new Thread(new RareDrops(player, item)).start();
+									}
 								}
 							}
 						}

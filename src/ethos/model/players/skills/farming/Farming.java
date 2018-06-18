@@ -1,6 +1,7 @@
 package ethos.model.players.skills.farming;
 
 import ethos.Config;
+import ethos.discord.main.BotMain;
 import ethos.event.CycleEvent;
 import ethos.event.CycleEventContainer;
 import ethos.event.CycleEventHandler;
@@ -383,6 +384,8 @@ public class Farming {
 							player.getItems().addItem(herb.getGrimyId(), 1);
 							player.getPA().addSkillXP((int) (player.getMode().getType().equals(ModeType.OSRS) ? osrsHarvestExperience : regHarvestExperience), 19, true);
 							if (Misc.random(petChance) == 20 && player.getItems().getItemCount(20661, false) == 0 && player.summonId != 20661) {
+								 String[] feed = new String[] {"Farming"};
+								 BotMain.sendFeed(player, null, 4, feed);
 								 PlayerHandler.executeGlobalMessage("[<col=CC0000>News</col>] @cr20@ <col=255>" + player.playerName + "</col> harvested some crops and found <col=CC0000>Tangleroot</col> pet!");
 								 player.getItems().addItemUnderAnyCircumstance(20661, 1);
 							} else if(Misc.random(petChance) == 20 && (player.getItems().getItemCount(20661, false) > 0 || player.summonId == 20661)) {
