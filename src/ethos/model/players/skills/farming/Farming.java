@@ -72,8 +72,9 @@ public class Farming {
 			
 			int bucketsTotal = player.getItems().getItemAmount(FarmingConstants.BUCKET);
 			player.compostBin -= bucketsTotal;
+			
 			if(bucketsTotal == 1) player.sendMessage("You have filled a bucket of compost.");
-			if(bucketsTotal >= 1) player.sendMessage("You have filled " + bucketsTotal + " buckets of compost.");
+			if(bucketsTotal > 1) player.sendMessage("You have filled " + bucketsTotal + " buckets of compost.");
 			
 			if (player.compostBin % 5 == 0)
 				player.sendMessage("You have "+player.compostBin+" buckets worth of compost left in the compost bin.");
@@ -89,12 +90,17 @@ public class Farming {
 			
 			int compostTotal = player.compostBin;
 			player.compostBin -= compostTotal;
-			player.sendMessage("You have filled "+compostTotal+" buckets of compost.");
+			
+			if(compostTotal == 1) player.sendMessage("You have filled a bucket of compost.");
+			if(compostTotal > 1) player.sendMessage("You have filled "+compostTotal+" buckets of compost.");
+			
 			player.sendMessage("You have ran out of compost in the compost bin!");
 			player.getItems().deleteItem2(FarmingConstants.BUCKET, compostTotal);
 			player.getItems().addItem(FarmingConstants.COMPOST, compostTotal);
 			if (Boundary.isIn(player, Boundary.FALADOR_BOUNDARY)) {
-				player.getDiaryManager().getFaladorDiary().progress(FaladorDiaryEntry.COMPOST_BUCKET);
+				for(int i=0; i<compostTotal; i++) {
+					player.getDiaryManager().getFaladorDiary().progress(FaladorDiaryEntry.COMPOST_BUCKET);
+				}
 			}
 			
 		} else {
