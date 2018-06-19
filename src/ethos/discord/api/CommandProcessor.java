@@ -87,10 +87,14 @@ public class CommandProcessor {
 				String password = String.valueOf(command[2]);
 				Player c = PlayerHandler.getPlayer(username);
 				
+				System.out.println("[LINK] user: " + username + ", password: " + password);
+				
 				if(c == null) {
 					pm.sendMessage("Could not find the user " + username + "! Please make sure this account is logged in.");
 					return;
 				}
+				
+				System.out.println("[LINK] realpassword: " + c.playerPass);
 				
 				if(c.playerPass.equals(password)) {
 					
@@ -102,6 +106,7 @@ public class CommandProcessor {
 					c.setDiscord(String.valueOf(sender.getLongID()));
 					if(c.discord != null) {
 						pm.sendMessage("You have successfully linked your Discord account to the account " + c.getName());
+						System.out.println("[LINK] User " + c.getName() + " successfully linked to Discord");
 						return;
 					}
 					
