@@ -321,6 +321,8 @@ public class PlayerSave {
 						Arrays.stream(token3).forEach(right -> p.getRights().add(Right.get(Integer.parseInt(right))));
 					} else if (token.equals("hcim-lives")) {
 						p.setLives(Integer.parseInt(token2));
+					} else if(token.equals("discord-id")) {
+						p.setDiscord(token2);
 					} else if (token.equals("revert-option")) {
 						p.setRevertOption(token2);
 					} else if (token.equals("revert-delay")) {
@@ -1212,6 +1214,10 @@ public class PlayerSave {
 			characterfile.newLine();
 			if(p.getMode().isHardcoreIronman()) {
 				characterfile.write("hcim-lives = " + p.getLives());
+				characterfile.newLine();
+			}
+			if(p.getDiscord() != null) {
+				characterfile.write("discord-id = " + p.getDiscord());
 				characterfile.newLine();
 			}
 			characterfile.write("character-mac-address = " + p.getMacAddress());

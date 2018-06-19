@@ -3845,6 +3845,11 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	public int prestigePoints;
 	public boolean newStarter = false;
 	private int lives = -1;
+	
+	// Discord
+	public String discord;
+	public boolean discordverify;
+	
 	/**
 	 * 0 North
 	 * 1 East
@@ -4934,6 +4939,14 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		if(this.inClanWarsSafe()) return true;
 		if(Boundary.isIn(this, Boundary.FIGHT_CAVE)) return true;
 		return false;
+	}
+
+	public void setDiscord(String discordID) {
+		this.discord = discordID;
+	}
+	
+	public String getDiscord() {
+		return discord;
 	}
 
 }
