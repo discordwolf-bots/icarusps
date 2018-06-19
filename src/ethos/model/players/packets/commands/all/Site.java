@@ -23,7 +23,7 @@ public class Site extends Command {
 			c.sendMessage("<col=ff0000><shad=000000>Forums coming soon</shad></col>");
 			break;
 		case "discord":
-			c.getPA().sendString("https://discord.gg/QWzRp6c", 12000);
+			c.getPA().sendString("https://discord.gg/PdKhKp9", 12000);
 			break;	
 		case "donate":
 			//c.getPA().sendFrame126("https://icarusps.com/store", 12000);

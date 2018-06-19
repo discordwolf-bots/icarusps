@@ -288,7 +288,7 @@ public class ClickingButtons implements PacketType {
 		// Discord Link
 		case 113236:
 			c.sendMessage("<col=00ff00><shad=000000>Loading Discord</shad></col>");
-			c.getPA().sendFrame126("https://discord.gg/4yTnb4s", 12000);
+			c.getPA().sendFrame126("https://discord.gg/PdKhKp9", 12000);
 			break;
 		// Forums Link
 		case 113237:
