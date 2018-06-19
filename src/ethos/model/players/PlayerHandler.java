@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import ethos.Config;
 import ethos.Server;
 import ethos.ServerState;
+import ethos.discord.main.BotMain;
 import ethos.model.multiplayer_session.MultiplayerSessionFinalizeType;
 import ethos.model.multiplayer_session.MultiplayerSessionStage;
 import ethos.model.multiplayer_session.MultiplayerSessionType;
@@ -361,9 +362,11 @@ public class PlayerHandler {
 			}
 			
 			if(loggedin) {
-				player.refreshQuestTab(1);				
+				player.refreshQuestTab(1);
+				BotMain.newPlayer(getPlayerCount());
 			} else {
-				player.refreshQuestTab(0);				
+				player.refreshQuestTab(0);
+				BotMain.newPlayer(getPlayerCount()-1);
 			}
 			
 		}

@@ -8,9 +8,11 @@ import ethos.model.players.skills.Skill;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventDispatcher;
+import sx.blah.discord.handle.obj.ActivityType;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IEmoji;
 import sx.blah.discord.handle.obj.IUser;
+import sx.blah.discord.handle.obj.StatusType;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.EmbedBuilder;
 
@@ -26,6 +28,7 @@ public class BotMain {
 		System.out.println(bot.getApplicationClientID());
 		EventDispatcher dis = bot.getDispatcher();
 		dis.registerListener(new BotListener());
+		bot.changePresence(StatusType.ONLINE, null, "Server is starting up!");
 	}
 	
 	public static IDiscordClient createClient(String token, boolean login)
@@ -98,8 +101,10 @@ public class BotMain {
 		
 		feedChannel.sendMessage(builder.build());
 		
-		
-		
+	}
+	
+	public static void newPlayer(int counter) {
+		bot.changePresence(StatusType.ONLINE, null, "Players online: " + counter);
 	}
 	
 }

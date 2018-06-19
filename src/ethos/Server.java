@@ -232,6 +232,7 @@ public class Server {
 			System.out.println("Server has successfully started up in " + elapsed + " milliseconds.");
 			GAME_THREAD.scheduleAtFixedRate(SERVER_TASKS, 0, 600, TimeUnit.MILLISECONDS);
 			IO_THREAD.scheduleAtFixedRate(IO_TASKS, 0, 30, TimeUnit.SECONDS);
+			BotMain.newPlayer(0);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
