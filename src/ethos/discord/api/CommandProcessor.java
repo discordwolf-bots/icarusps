@@ -19,7 +19,7 @@ public class CommandProcessor {
 		IGuild guild = message.getGuild();
 		IChannel pm = sender.getOrCreatePMChannel();
 		
-		String[] command = message.getContent().toLowerCase().replaceFirst(prefix, "").split(" ");
+		String[] command = message.getContent().replaceFirst(prefix, "").split(" ");
 		
 		IChannel feedChannel = message.getClient().getChannelByID(458715499556110344L);
 		
@@ -28,7 +28,7 @@ public class CommandProcessor {
 		 * Usage: ping
 		 * Description: Sends a pong if the bot is online
 		 */
-		if(command[0].equals("ping")) {
+		if(command[0].toLowerCase().equals("ping")) {
 			channel.sendMessage("pong!");
 		}
 		
@@ -36,7 +36,7 @@ public class CommandProcessor {
 		 * Usage: avatar <@user>
 		 * Description: Displays a users avatar
 		 */
-		else if(command[0].equals("avatar")) {
+		else if(command[0].toLowerCase().equals("avatar")) {
 			if(command.length == 2) {
 				command[1] = command[1].replaceAll("[<>@!]", "");
 				
@@ -63,7 +63,7 @@ public class CommandProcessor {
 		 * Usage: loc
 		 * Description: Test command for "feed" channel
 		 */
-		else if(command[0].equals("loc")) {
+		else if(command[0].toLowerCase().equals("loc")) {
 			EmbedBuilder builder = new EmbedBuilder();
 			String skillName = Skill.forId(1).name().toLowerCase();
 			skillName = skillName.substring(0, 1).toUpperCase() + skillName.substring(1);
@@ -77,7 +77,7 @@ public class CommandProcessor {
 		/**
 		 * 
 		 */
-		else if(command[0].equals("link")) {
+		else if(command[0].toLowerCase().equals("link")) {
 			if(!channel.isPrivate()) {
 				message.delete();
 				pm.sendMessage("Please only do that in PM!");
@@ -87,14 +87,10 @@ public class CommandProcessor {
 				String password = String.valueOf(command[2]);
 				Player c = PlayerHandler.getPlayer(username);
 				
-				System.out.println("[LINK] user: " + username + ", password: " + password);
-				
 				if(c == null) {
 					pm.sendMessage("Could not find the user " + username + "! Please make sure this account is logged in.");
 					return;
 				}
-				
-				System.out.println("[LINK] realpassword: " + c.playerPass);
 				
 				if(c.playerPass.equals(password)) {
 					
@@ -106,7 +102,7 @@ public class CommandProcessor {
 					c.setDiscord(String.valueOf(sender.getLongID()));
 					if(c.discord != null) {
 						pm.sendMessage("You have successfully linked your Discord account to the account " + c.getName());
-						System.out.println("[LINK] User " + c.getName() + " successfully linked to Discord");
+						System.err.println("[LINK] User " + c.getName() + " successfully linked to Discord");
 						return;
 					}
 					

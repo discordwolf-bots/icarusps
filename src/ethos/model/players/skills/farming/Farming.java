@@ -1,5 +1,10 @@
 package ethos.model.players.skills.farming;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import ethos.Config;
 import ethos.discord.main.BotMain;
 import ethos.event.CycleEvent;
@@ -9,7 +14,8 @@ import ethos.model.content.SkillcapePerks;
 import ethos.model.content.achievement.AchievementType;
 import ethos.model.content.achievement.Achievements;
 import ethos.model.content.achievement_diary.falador.FaladorDiaryEntry;
-import ethos.model.entity.HealthStatus;
+import ethos.model.content.dailytasks.DailyTasks;
+import ethos.model.content.dailytasks.DailyTasks.PossibleTasks;
 import ethos.model.players.Boundary;
 import ethos.model.players.ClientGameTimer;
 import ethos.model.players.Player;
@@ -17,14 +23,6 @@ import ethos.model.players.PlayerHandler;
 import ethos.model.players.mode.ModeType;
 import ethos.model.players.skills.Skill;
 import ethos.util.Misc;
-import ethos.model.content.dailytasks.DailyTasks;
-import ethos.model.content.dailytasks.DailyTasks.PossibleTasks;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -459,10 +457,6 @@ public class Farming {
 		if (player.getItems().freeSlots() < (hasMagicSecateurs() ? 4 : 2)) {
 			player.sendMessage("You need at least " + (hasMagicSecateurs() ? 4 : 2) + " free slots to do this.");
 			return;
-		}
-		int maximum = player.getLevelForXP(player.playerXP[Skill.FARMING.getId()]);
-		if (Misc.random(100) < (10 + (maximum - level))) {
-			player.getHealth().proposeStatus(HealthStatus.POISON, 6, Optional.empty());
 		}
 		if (Boundary.isIn(player, Boundary.FALADOR_BOUNDARY)) {
 			player.getDiaryManager().getFaladorDiary().progress(FaladorDiaryEntry.PICK_POSION_BERRY);
