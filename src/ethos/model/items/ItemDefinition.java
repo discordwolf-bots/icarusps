@@ -44,7 +44,7 @@ public class ItemDefinition {
 	private static Map<Integer, ItemDefinition> definitions = new HashMap<>();
 
 	/**
-	 * Loads item definitions from item_defs.json
+	 * Loads item definitions from item_defs.json 
 	 */
 	public static void load() throws IOException {
 		System.out.println("Loading item definitions...");
