@@ -204,7 +204,6 @@ public class Server {
 			long startTime = System.currentTimeMillis();
 			System.setOut(extracted());
 			BotMain.main(args);
-			BotMain.startingUp();
 			PUNISHMENTS.initialize();
 			events.submit(new DidYouKnowEvent());
 			events.submit(new WheatPortalEvent());
@@ -213,6 +212,7 @@ public class Server {
 			events.submit(new PunishmentCycleEvent(PUNISHMENTS, 50));
 			Listing.loadNextSale();
 			Wogw.init();
+			BotMain.startingUp();
 			NPCDefinitions2.load();
 			ItemDefinition.load();
 			DoorDefinition.load();
@@ -233,6 +233,7 @@ public class Server {
 			System.out.println("Server has successfully started up in " + elapsed + " milliseconds.");
 			GAME_THREAD.scheduleAtFixedRate(SERVER_TASKS, 0, 600, TimeUnit.MILLISECONDS);
 			IO_THREAD.scheduleAtFixedRate(IO_TASKS, 0, 30, TimeUnit.SECONDS);
+			
 			BotMain.newPlayer(0);
 		} catch (Exception e) {
 			e.printStackTrace();
