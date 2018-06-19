@@ -204,6 +204,7 @@ public class Server {
 			long startTime = System.currentTimeMillis();
 			System.setOut(extracted());
 			BotMain.main(args);
+			BotMain.startingUp();
 			PUNISHMENTS.initialize();
 			events.submit(new DidYouKnowEvent());
 			events.submit(new WheatPortalEvent());

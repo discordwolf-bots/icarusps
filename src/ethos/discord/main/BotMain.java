@@ -28,7 +28,6 @@ public class BotMain {
 		System.out.println(bot.getApplicationClientID());
 		EventDispatcher dis = bot.getDispatcher();
 		dis.registerListener(new BotListener());
-		bot.changePresence(StatusType.ONLINE, null, "Server is starting up!");
 	}
 	
 	public static IDiscordClient createClient(String token, boolean login)
@@ -101,6 +100,10 @@ public class BotMain {
 		
 		feedChannel.sendMessage(builder.build());
 		
+	}
+	
+	public static void startingUp() {
+		bot.changePresence(StatusType.ONLINE, null, "Server starting up");
 	}
 	
 	public static void newPlayer(int counter) {
