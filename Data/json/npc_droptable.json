@@ -1030,34 +1030,34 @@
       "accessibility": 3,
       "items": [
         {
-          "item": 556,
-          "minimum": 80,
-          "maximum": 120
+          "item": 199,
+          "minimum": 8,
+          "maximum": 15
         },
         {
-          "item": 554,
-          "minimum": 70,
-          "maximum": 200
+          "item": 201,
+          "minimum": 7,
+          "maximum": 20
         },
         {
-          "item": 1213,
+          "item": 203,
+          "minimum": 10,
+          "maximum": 15
+        },
+        {
+          "item": 205,
           "minimum": 1,
-          "maximum": 1
+          "maximum": 14
         },
         {
-          "item": 1392,
+          "item": 207,
           "minimum": 1,
-          "maximum": 4
+          "maximum": 10
         },
         {
-          "item": 1147,
-          "minimum": 1,
-          "maximum": 1
-        },
-        {
-          "item": 7937,
-          "minimum": 25,
-          "maximum": 100
+          "item": 209,
+          "minimum": 5,
+          "maximum": 10
         }
       ]
     },
@@ -1065,7 +1065,7 @@
       "accessibility": 10,
       "items": [
         {
-          "item": 564,
+          "item": 561,
           "minimum": 20,
           "maximum": 50
         },
@@ -1075,29 +1075,29 @@
           "maximum": 80
         },
         {
-          "item": 1432,
+          "item": 565,
           "minimum": 1,
-          "maximum": 1
+          "maximum": 50
         },
         {
-          "item": 1397,
+          "item": 564,
           "minimum": 1,
-          "maximum": 4
+          "maximum": 40
         },
         {
-          "item": 4105,
+          "item": 560,
           "minimum": 1,
-          "maximum": 1
+          "maximum": 70
         },
         {
-          "item": 211,
+          "item": 554,
           "minimum": 1,
-          "maximum": 4
+          "maximum": 400
         },
         {
-          "item": 213,
+          "item": 555,
           "minimum": 1,
-          "maximum": 4
+          "maximum": 400
         }
       ]
     },
@@ -1106,7 +1106,7 @@
       "accessibility": 150,
       "items": [
         {
-          "item": 1163,
+          "item": 6562,
           "minimum": 1,
           "maximum": 1
         },
