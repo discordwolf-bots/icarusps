@@ -1,3 +1,5 @@
 Data/characters
 Data/logs
 Data/server
+src/ethos/discord
+src/ethos/DiscordToken.java
