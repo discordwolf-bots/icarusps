@@ -228,7 +228,7 @@ public class SkillInterfaces {
 			optionTab("Attack", type, "Bronze", "Iron", "Steel", "Black", "White", "Mithril", "Adamant", "Rune", "Dragon", "Barrows", "Special", "Milestones", "");
 		} else if (screen == 5) {
 			clearMenu();
-			String level = "10";
+			String level = "65";
 			String type = "White";
 			menuLine(level, type + " Dagger", 6591, 0);
 			menuLine(level, type + " Mace", 6601, 1);
@@ -450,7 +450,7 @@ public class SkillInterfaces {
 
 		else if (screen == 5) {
 			clearMenu();
-			String level = "10";
+			String level = "65";
 			String type = "White";
 			menuLine(level, type + " Square Shield", 6631, 0);
 			menuLine(level, type + " Kiteshield", 6633, 1);
@@ -1605,11 +1605,11 @@ public class SkillInterfaces {
 			menuLine("15", "Iron(50% Chance of Success)", 2351, 1);
 			menuLine("20", "Elemental Metal(After Elemental Workshop", 2893, 2);
 			menuLine("20", "Silver", 2355, 3);
-			menuLine("30", "Steel(2 Coal + 1 Iron Ore", 2353, 4);
+			menuLine("30", "Steel(1 Coal + 1 Iron Ore", 2353, 4);
 			menuLine("40", "Gold", 2357, 5);
-			menuLine("50", "Mithril(4 Coal + 1 Mithril Ore", 2359, 6);
-			menuLine("70", "Adamant(6 Coal + 1 Adamantite Ore", 2361, 7);
-			menuLine("85", "Runite(8 Coal + 1 Runite Ore", 2363, 8);
+			menuLine("50", "Mithril(1 Coal + 1 Mithril Ore", 2359, 6);
+			menuLine("70", "Adamant(1 Coal + 1 Adamantite Ore", 2361, 7);
+			menuLine("85", "Runite(1 Coal + 1 Runite Ore", 2363, 8);
 			optionTab("Smithing", "Smelting", "Smelting", "Bronze", "Iron", "Steel", "Mithril", "Adamantite", "Runite", "Gold", "Elemental", "Other", "Milestones", "", "");
 		}
 

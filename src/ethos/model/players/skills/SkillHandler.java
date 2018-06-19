@@ -15,7 +15,7 @@ public class SkillHandler {
 	public static final int HERBLORE_XP = SKILLING_XP;
 	public static final int FISHING_XP = SKILLING_XP;
 	public static final int FLETCHING_XP = SKILLING_XP;
-	// public static final int FIREMAKING_XP = SKILLING_XP;
+	public static final int FIREMAKING_XP = SKILLING_XP;
 	public static boolean[] isSkilling = new boolean[25];
 
 	public static boolean noInventorySpace(Player c, String skill) {
