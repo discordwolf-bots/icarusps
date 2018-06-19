@@ -998,6 +998,7 @@
       ]
     },
     "rare": {
+	
       "accessibility": 20,
       "items": [
         {
@@ -1019,6 +1020,110 @@
           "item": 2485,
           "minimum": 1,
           "maximum": 5
+        }
+      ]
+    }
+  },
+  {
+    "npc_id": 6607,
+    "common": {
+      "accessibility": 3,
+      "items": [
+        {
+          "item": 556,
+          "minimum": 80,
+          "maximum": 120
+        },
+        {
+          "item": 554,
+          "minimum": 70,
+          "maximum": 200
+        },
+        {
+          "item": 1213,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 1392,
+          "minimum": 1,
+          "maximum": 4
+        },
+        {
+          "item": 1147,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 7937,
+          "minimum": 25,
+          "maximum": 100
+        }
+      ]
+    },
+    "uncommon": {
+      "accessibility": 10,
+      "items": [
+        {
+          "item": 564,
+          "minimum": 20,
+          "maximum": 50
+        },
+        {
+          "item": 562,
+          "minimum": 30,
+          "maximum": 80
+        },
+        {
+          "item": 1432,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 1397,
+          "minimum": 1,
+          "maximum": 4
+        },
+        {
+          "item": 4105,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 211,
+          "minimum": 1,
+          "maximum": 4
+        },
+        {
+          "item": 213,
+          "minimum": 1,
+          "maximum": 4
+        }
+      ]
+    },
+    "very_rare": {
+	
+      "accessibility": 150,
+      "items": [
+        {
+          "item": 1163,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 20520,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 20517,
+          "minimum": 1,
+          "maximum": 1
+        },
+        {
+          "item": 20595,
+          "minimum": 1,
+          "maximum": 1
         }
       ]
     }
