@@ -3,7 +3,6 @@ package ethos.discord.api;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.skills.Skill;
-import ethos.util.Misc;
 import sx.blah.discord.handle.obj.IChannel;
 import sx.blah.discord.handle.obj.IEmoji;
 import sx.blah.discord.handle.obj.IGuild;
@@ -15,7 +14,6 @@ public class CommandProcessor {
 	
 	public static void processCommand(IMessage message, String prefix) {
 		
-		@SuppressWarnings("unused")
 		IUser sender = message.getAuthor();
 		IChannel channel = message.getChannel();
 		IGuild guild = message.getGuild();
