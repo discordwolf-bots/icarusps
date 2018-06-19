@@ -21,7 +21,7 @@ public class CommandProcessor {
 		
 		String[] command = message.getContent().toLowerCase().replaceFirst(prefix, "").split(" ");
 		
-		IChannel feedChannel = message.getClient().getChannelByID(458391954594463764L);
+		IChannel feedChannel = message.getClient().getChannelByID(458715499556110344L);
 		
 		
 		/**

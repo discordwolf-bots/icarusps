@@ -18,7 +18,7 @@ import sx.blah.discord.util.EmbedBuilder;
 public class BotMain {
 	
 	public static final String token = DiscordToken.token;
-	public static final String channelID = "425462149415043092";
+	public static final String channelID = "458715499556110344";
 	
 	public static final IDiscordClient bot = createClient(token, true);
 	
@@ -43,7 +43,7 @@ public class BotMain {
 	}
 	
 	public static void sendFeed(Player c, String msg, int feedType, String[] extra) {
-		IChannel feedChannel = bot.getChannelByID(458391954594463764L);
+		IChannel feedChannel = bot.getChannelByID(458715499556110344L);
 		
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.withTimestamp(System.currentTimeMillis());
