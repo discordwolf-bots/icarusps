@@ -146,7 +146,7 @@ public class Farming {
 					player.startAnimation(FarmingConstants.RAKING_ANIM);
 					player.turnPlayerTo(x, y);
 					if(weeds <= 0)
-						weeds = 3;
+						weeds = hasMagicSecateurs() ? 1 : 3;
 					CycleEventHandler.getSingleton().stopEvents(this);
 					CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
 						@Override
@@ -215,9 +215,9 @@ public class Farming {
 					 * Calculate experience
 					 */
 					double osrsExperience = herb.getPlantingXp() + herb.getPlantingXp() / 20 * pieces;
-					double regExperience = herb.getPlantingXp() * (Config.FARMING_EXPERIENCE + (hasMagicSecateurs() ? 1 : 0)) + herb.getPlantingXp() * Config.FARMING_EXPERIENCE / 20 * pieces;
+					double regExperience = herb.getPlantingXp() * (Config.FARMING_EXPERIENCE + (hasMagicSecateurs() ? 2 : 0)) + herb.getPlantingXp() * Config.FARMING_EXPERIENCE / 20 * pieces;
 					if (player.debugMessage)
-					System.out.println("Plant xp: " + herb.getPlantingXp() * (Config.FARMING_EXPERIENCE + (hasMagicSecateurs() ? 5 : 0)) + herb.getPlantingXp() + ", Pieces: " + pieces);
+					System.out.println("Plant xp: " + herb.getPlantingXp() * (Config.FARMING_EXPERIENCE + (hasMagicSecateurs() ? 2 : 0)) + herb.getPlantingXp() + ", Pieces: " + pieces);
 					CycleEventHandler.getSingleton().stopEvents(this);
 					CycleEventHandler.getSingleton().addEvent(this, new CycleEvent() {
 
@@ -290,9 +290,9 @@ public class Farming {
 				 * Experience calculation
 				 */
 				double osrsHarvestExperience = herb.getHarvestingXp() + herb.getHarvestingXp() / 5 * pieces;
-				double regHarvestExperience = herb.getHarvestingXp() * Config.FARMING_EXPERIENCE + herb.getHarvestingXp() * Config.FARMING_EXPERIENCE / 5 * pieces;
+				double regHarvestExperience = herb.getHarvestingXp() * (Config.FARMING_EXPERIENCE + (hasMagicSecateurs() ? 2 : 0)) + herb.getHarvestingXp() * Config.FARMING_EXPERIENCE / 5 * pieces;
 				if(player.debugMessage)
-					System.out.println("Harvest xp: " + herb.getHarvestingXp() * Config.FARMING_EXPERIENCE + herb.getHarvestingXp() + ", Pieces: " + pieces);
+					System.out.println("Harvest xp: " + herb.getHarvestingXp() * (Config.FARMING_EXPERIENCE + (hasMagicSecateurs() ? 2 : 0)) + herb.getHarvestingXp() + ", Pieces: " + pieces);
 				if(herb != null) {
 					if (player.stopPlayerSkill)
 						return true;
