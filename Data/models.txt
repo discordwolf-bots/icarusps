@@ -1,0 +1,16 @@
+21408 - Ascension GROUND
+21409 - Ascension WIELD
+21410 - Barbarian Halberd WIELD
+21411 - 
+21412 - Fancy Sword WIELD
+21413 - 
+21414 - Ice Dagger WIELD
+21415 -
+21416 - Light Dragon Helm WIELD
+21417 -
+21418 - Light Dragon Body WIELD
+21419 -
+21420 - Light Dragon Legs WIELD
+21421 - 
+21422 -
+
