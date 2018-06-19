@@ -2,6 +2,7 @@ package ethos.discord.main;
 
 import java.awt.Color;
 
+import ethos.DiscordToken;
 import ethos.model.players.Player;
 import ethos.model.players.skills.Skill;
 import sx.blah.discord.api.ClientBuilder;
@@ -13,9 +14,10 @@ import sx.blah.discord.handle.obj.IUser;
 import sx.blah.discord.util.DiscordException;
 import sx.blah.discord.util.EmbedBuilder;
 
+@SuppressWarnings("all")
 public class BotMain {
 	
-	public static final String token = "NDI1NDI2NTUyOTgyMDc3NDUy.Dgmyzw.K8EufdbYiXU7TjytB_nRE22HSVo";
+	public static final String token = DiscordToken.token;
 	public static final String channelID = "425462149415043092";
 	
 	public static final IDiscordClient bot = createClient(token, true);
