@@ -5148,6 +5148,8 @@ public class NPCHandler {
 		switch (npcs[npcId].npcType) {
 		case 1610:
 		case 1611:
+		case 1799:
+		case 1800:		
 		case 1612:
 		case 2205:
 		case 2206:
