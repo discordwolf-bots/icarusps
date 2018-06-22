@@ -75,7 +75,8 @@ public class CommandProcessor {
 		}
 		
 		/**
-		 * 
+		 * Usage: link <@username> <@password>
+		 * Description: Links your Discord account to your ingame account
 		 */
 		else if(command[0].toLowerCase().equals("link")) {
 			if(!channel.isPrivate()) {
@@ -83,12 +84,14 @@ public class CommandProcessor {
 				pm.sendMessage("Please only do that in PM!");
 				return;
 			} else {
-				String username = String.valueOf(command[1]);
+				String username = String.valueOf(command[1]).replace("_", " ");
 				String password = String.valueOf(command[2]);
 				Player c = PlayerHandler.getPlayer(username);
 				
 				if(c == null) {
-					pm.sendMessage("Could not find the user " + username + "! Please make sure this account is logged in.");
+					pm.sendMessage("Could not find the user " + username + "! Please make sure this account is logged in."
+							+ "\n"
+							+ "Make sure if your account has a space in it that you put an underscore (_) instead of the space");
 					return;
 				}
 				
