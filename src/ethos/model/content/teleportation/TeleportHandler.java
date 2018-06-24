@@ -267,7 +267,7 @@ public class TeleportHandler {
 				player.sendMessage("Teleporting to " + cityNames[1] + ".");
 			} else if (player.teleSelected == 5) { // Donator - Donator Zone
 				if (c.amDonated >= 10 || c.getRights().isOrInherits(Right.OWNER)) {
-					player.getPA().startTeleport(2135, 4913, 0, "modern");
+					player.getPA().startTeleport(2597, 3874, 0, "modern");
 					player.sendMessage("Teleporting to " + donatorNames[1] + ".");
 				} else {
 					player.sendMessage("You must be a donator to access this.");

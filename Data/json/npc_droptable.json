@@ -1030,7 +1030,7 @@
       "accessibility": 3,
       "items": [
         {
-          "item": 199,
+          "item": 1776,
           "minimum": 8,
           "maximum": 15
         },
@@ -6231,7 +6231,7 @@
       "accessibility": 5,
       "items": [
         {
-          "item": 995,
+          "item": 76,
           "minimum": 1,
           "maximum": 200
         },
@@ -11164,7 +11164,7 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 554,
+          "item": 1776,
           "minimum": 70,
           "maximum": 70
         },
@@ -11347,9 +11347,9 @@
       "accessibility": 1,
       "items": [
         {
-          "item": 1113,
-          "minimum": 1,
-          "maximum": 1
+          "item": 1776,
+          "minimum": 200,
+          "maximum": 200
         },
         {
           "item": 2434,
