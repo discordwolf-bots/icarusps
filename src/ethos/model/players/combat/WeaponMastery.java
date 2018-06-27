@@ -21,7 +21,18 @@ public enum WeaponMastery {
 	SWORD(1, 
 			new int[] {
 				1305, // Dragon Longsword
-				6607 // White Sword
+				7185, // Dragon 2h Sword
+				6607, // White Longsword
+				6605, // White sword
+				6609, // White 2h Sword
+				11802, // Armadyl Godsword
+				20368, // Armadyl Godsword (or)
+				11804, // Bandos Godsword
+				20370, // Bandos Godsword (or)
+				11806, // Saradomin Godsword
+				20372, // Saradomin Godsword (or)
+				11808, // Zamorak Godsword
+				20374 // Zamorak Godsword (or)
 			},
 		"Sword"
 	),
@@ -47,7 +58,8 @@ public enum WeaponMastery {
 	SCIMITAR(4, 
 			new int[] {
 				4587, // Dragon Scimitar
-				20000 // Dragon Scimitar (or)
+				20000, // Dragon Scimitar (or)
+				6611 // White Scimitar
 			},
 		"Scimitar"
 	), 
@@ -65,21 +77,30 @@ public enum WeaponMastery {
 	
 	BOW(6, 
 			new int[] {
-					
+				861, // Magic Shortbow
+				859, // Magic Longbow
+				11235, // Dark Bow
+				20997, // Twisted Bow
+				4212 // Crystal Bow
 			},
 		"Bow"
 	),
 	
 	CROSSBOW(7, 
 			new int[] {
-					
+				9185, // Rune C'Bow
+				11785 // Armadyl C'Bow
 			},
 		"Crossbow"
 	),
 	
 	PROJECTILE(8, 
 			new int[] {
-					
+				11230, // Dragon Dart
+				10033, // Chinchompa
+				10034, // Red Chinchompa
+				11959, // Black Chinchompa
+				12926 // Toxic Blowpipe
 			},
 		"Projectile"
 	),
@@ -96,6 +117,31 @@ public enum WeaponMastery {
 				-1 // Unarmed
 			},
 		"Unarmed"
+	),
+	
+	WARHAMMER(11, 
+			new int[] {
+				13576 // Dragon Warhammer
+			},
+		"Warhammer"
+	),
+	
+	MACE(12, 
+			new int[] {
+				1434 // Dragon Mace
+			},
+		"Mace"
+	),
+	
+	SPEAR(13, 
+			new int[] {
+				3204, // Dragon Halberd
+				1249, // Dragon Spear
+				4158, // Leaf-Bladed Spear
+				11824, // Zamorakian Spear
+				11889 // Zamorakian Hasta
+			},
+		"Spear"
 	);
 	
 	private int slotID;

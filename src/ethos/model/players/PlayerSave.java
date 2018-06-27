@@ -1088,7 +1088,7 @@ public class PlayerSave {
 					
 				case 19:
 					if(token.startsWith("mastery")) {
-						p.setMasteryExperience(Integer.parseInt(token3[0]), Integer.parseInt(token3[1]));
+						p.setMasteryExperience(Integer.parseInt(token3[1]), Integer.parseInt(token3[2]));
 					}
 				}
 			} else {
@@ -2314,7 +2314,7 @@ public class PlayerSave {
 			characterfile.newLine();
 			for(int masterySlot = 0; masterySlot <= WeaponMastery.getMaxSlot(); masterySlot++) {
 				WeaponMastery mastery = WeaponMastery.forSlot(masterySlot);
-				characterfile.write("mastery = " + mastery.getSlot() + "	" + p.getWeaponMastery(masterySlot));
+				characterfile.write("mastery = " + mastery.getMasteryName() + "	" + mastery.getSlot() + "	" + p.getMasteryExperience(masterySlot));
 				characterfile.newLine();
 			}
 			

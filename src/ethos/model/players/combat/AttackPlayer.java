@@ -26,7 +26,6 @@ import ethos.model.players.ClientGameTimer;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.Right;
-import ethos.model.players.Equipment.Slot;
 import ethos.model.players.combat.effects.AmuletOfTheDamnedDharokEffect;
 import ethos.model.players.combat.effects.AmuletOfTheDamnedKarilEffect;
 import ethos.model.players.combat.effects.SerpentineHelmEffect;
@@ -201,26 +200,45 @@ public class AttackPlayer {
 		int experience = 0;
 		List<Integer> skills = new ArrayList<>();
 		
-		int WeaponUsed = c.lastWeaponUsed;
-		if(WeaponUsed != -1) {
-			ItemDefinition defForWeapon = ItemDefinition.forId(WeaponUsed);
-			System.out.println(defForWeapon.getName());
-		} else {
-			System.out.println("[FIGHTING] Unarmed");
-		}
-		//System.out.println(c.lastWeaponUsed);
 		
-		
-//		if(c.getEquipment() == null) {
-//			System.out.println("No equpiment");
-//		} else {
-//			if(c.getEquipment().getItem(Slot.WEAPON) != null) {
-//				System.out.println("[FIGHTING] " + c.getEquipment().getItem(Slot.WEAPON).toString());			
-//			} else {
-//				System.out.println("[FIGHTING] Unarmed");
-//			}			
-//		}
-		
+		WeaponMastery mastery = WeaponMastery.forWeapon(c.playerEquipment[c.playerWeapon]);
+		if(mastery != null) {
+			int masterySlot = mastery.getSlot();
+			switch (type) {
+				default:
+				case MELEE:
+					if(masterySlot != WeaponMastery.BOW.getSlot() 
+					&& masterySlot != WeaponMastery.CROSSBOW.getSlot() 
+					&& masterySlot != WeaponMastery.PROJECTILE.getSlot() 
+					&& masterySlot != WeaponMastery.MAGIC.getSlot()) {
+						c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
+						if(c.getName().equalsIgnoreCase("wolf")) {
+							c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
+							c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
+						}
+					}
+					break;
+				case RANGE:
+					if(masterySlot == WeaponMastery.BOW.getSlot()
+					|| masterySlot == WeaponMastery.CROSSBOW.getSlot()
+					|| masterySlot == WeaponMastery.PROJECTILE.getSlot()) {
+						c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
+						if(c.getName().equalsIgnoreCase("wolf")) {
+							c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
+							c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
+						}
+					}
+					break;
+				case MAGE:
+					if(masterySlot == WeaponMastery.MAGIC.getSlot()) {
+						c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
+						if(c.getName().equalsIgnoreCase("wolf")) {
+							c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
+							c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
+						}}
+					break;
+			}
+		}		
 		
 		switch (type) {
 		

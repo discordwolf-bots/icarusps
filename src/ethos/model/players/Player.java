@@ -114,7 +114,6 @@ import ethos.model.players.combat.CombatAssistant;
 import ethos.model.players.combat.DamageQueueEvent;
 import ethos.model.players.combat.Degrade;
 import ethos.model.players.combat.Hitmark;
-import ethos.model.players.combat.WeaponMastery;
 import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.melee.QuickPrayers;
 import ethos.model.players.mode.Mode;
@@ -4957,7 +4956,7 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 		return weaponMasteries;
 	}
 	
-	public int getWeaponMastery(int index) {
+	public int getMasteryExperience(int index) {
 		return weaponMasteries[index];
 	}
 	
