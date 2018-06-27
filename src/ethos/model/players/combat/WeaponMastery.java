@@ -23,7 +23,7 @@ public enum WeaponMastery {
 				1305, // Dragon Longsword
 				6607 // White Sword
 			},
-		"Whip"
+		"Sword"
 	),
 	
 	AXE(2, 
@@ -31,7 +31,7 @@ public enum WeaponMastery {
 				1377, // Dragon Battleaxe
 				13263 // Abyssal Bludgeon
 			},
-		"Whip"
+		"Axe"
 	),
 	
 	BARROWS(3, 
@@ -41,7 +41,7 @@ public enum WeaponMastery {
 				4747, // Torag Hammers
 				4718 // Dharok's Greataxe
 			},
-		"Whip"
+		"Barrows"
 	),
 	
 	SCIMITAR(4, 
@@ -49,7 +49,7 @@ public enum WeaponMastery {
 				4587, // Dragon Scimitar
 				20000 // Dragon Scimitar (or)
 			},
-		"Whip"
+		"Scimitar"
 	), 
 	
 	DAGGER(5, 
@@ -60,42 +60,42 @@ public enum WeaponMastery {
 				13269, // Abyssal Dagger (p+)
 				13271 // Abyssal Dagger (p++)
 			},
-		"Whip"
+		"Dagger"
 	),
 	
 	BOW(6, 
 			new int[] {
 					
 			},
-		"Whip"
+		"Bow"
 	),
 	
 	CROSSBOW(7, 
 			new int[] {
 					
 			},
-		"Whip"
+		"Crossbow"
 	),
 	
-	THROWN(8, 
+	PROJECTILE(8, 
 			new int[] {
 					
 			},
-		"Whip"
+		"Projectile"
 	),
 	
 	MAGIC(9, 
 			new int[] {
 					
 			},
-		"Whip"
+		"Magic"
 	),
 	
 	UNARMED(10, 
 			new int[] {
 				-1 // Unarmed
 			},
-		"Whip"
+		"Unarmed"
 	);
 	
 	private int slotID;
