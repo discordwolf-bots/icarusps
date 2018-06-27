@@ -262,7 +262,7 @@ public class MeleeData {
 		if (weaponName.startsWith("dragon dagger")) {
 			return 402;
 		}
-		if (weaponName.contains("byssal dagger")) {
+		if (weaponName.contains("Abyssal dagger")) {
 			return c.fightMode == 1 ? 3295 : c.fightMode == 0 || c.fightMode == 2 ? 3297 : 3294;
 		}
 		if (weaponName.contains("dagger")) {
@@ -463,8 +463,14 @@ public class MeleeData {
 		case 9703:
 			return 5;
 		}
+		if (s.equals("harry's cutlass"))
+				return 3;
+		if (s.equals("harry's cutlass"))
+				return 3;
 		if (s.endsWith("greataxe"))
 			return 7;
+		if (s.equals("rapier"))
+			return 3;
 		else if (s.equals("torags hammers"))
 			return 5;
 		else if (s.equals("barrelchest anchor"))
