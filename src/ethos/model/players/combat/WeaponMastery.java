@@ -20,6 +20,10 @@ public enum WeaponMastery {
 	
 	SWORD(1, 
 			new int[] {
+				7140, // harry's cutlass
+				7141, // lucky cutlass
+				7142, // rapier
+				11902, // leaf- bladed sword
 				1305, // Dragon Longsword
 				7185, // Dragon 2h Sword
 				6607, // White Longsword
@@ -39,6 +43,8 @@ public enum WeaponMastery {
 	
 	AXE(2, 
 			new int[] {
+				6589, // white battle axe
+				20727, // leaf-bladed battleaxe
 				1377, // Dragon Battleaxe
 				13263 // Abyssal Bludgeon
 			},
@@ -81,13 +87,23 @@ public enum WeaponMastery {
 				859, // Magic Longbow
 				11235, // Dark Bow
 				20997, // Twisted Bow
-				4212 // Crystal Bow
+				4214, // Crystal Bow
+				4215, // crystal bow 9/10
+				4216, // crystal bow 8/10
+				4217, // crystal bow 7/10
+				4218, // crystal bow 6/10
+				4219, // crystal bow 5/10
+				4220, // crystal bow 4/10
+				4221, // crystal bow 3/10
+				4222, // crystal bow 2/10
+				4223, // crystal bow 1/10
 			},
 		"Bow"
 	),
 	
 	CROSSBOW(7, 
 			new int[] {
+				4734, // karils cross bow
 				9185, // Rune C'Bow
 				11785 // Armadyl C'Bow
 			},
@@ -135,6 +151,16 @@ public enum WeaponMastery {
 	
 	SPEAR(13, 
 			new int[] {
+				13092, // c hally full
+				13093, // c hally 9/10
+				13094, // c hally 8/10
+				13095, // c hally 7/10
+				13096, // c hally 6/10
+				13097, // c hally 5/10
+				13098, // c hally 4/10
+				13099, // c hally 3/10
+				13100, // c hally 2/10
+				13101, // c hally 1/10
 				3204, // Dragon Halberd
 				1249, // Dragon Spear
 				4158, // Leaf-Bladed Spear
