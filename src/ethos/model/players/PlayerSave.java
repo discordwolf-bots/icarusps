@@ -37,6 +37,7 @@ import ethos.model.content.titles.Title;
 import ethos.model.items.GameItem;
 import ethos.model.items.bank.BankItem;
 import ethos.model.items.bank.BankTab;
+import ethos.model.players.combat.WeaponMastery;
 import ethos.model.players.mode.Mode;
 import ethos.model.players.mode.ModeType;
 import ethos.model.players.skills.farming.Farming;
@@ -1084,6 +1085,11 @@ public class PlayerSave {
 						p.getNpcDeathTracker().getTracker().put(token, Integer.parseInt(token2));
 					}
 					break;
+					
+				case 19:
+					if(token.startsWith("mastery")) {
+						p.setMasteryExperience(Integer.parseInt(token3[0]), Integer.parseInt(token3[1]));
+					}
 				}
 			} else {
 				if (line.equals("[ACCOUNT]")) {
@@ -1134,6 +1140,8 @@ public class PlayerSave {
 					ReadMode = 17;
 				} else if (line.equals("[NPC-TRACKER]")) {
 					ReadMode = 18;
+				} else if (line.equals("[MASTERIES]")) {
+					ReadMode = 19;
 				} else if (line.equals("[EOF]")) {
 					try {
 						characterfile.close();
@@ -2300,6 +2308,16 @@ public class PlayerSave {
 					}
 				}
 			}
+			characterfile.newLine();
+			
+			characterfile.write("[MASTERIES]");
+			characterfile.newLine();
+			for(int masterySlot = 0; masterySlot <= WeaponMastery.getMaxSlot(); masterySlot++) {
+				WeaponMastery mastery = WeaponMastery.forSlot(masterySlot);
+				characterfile.write("mastery = " + mastery.getSlot() + "	" + p.getWeaponMastery(masterySlot));
+				characterfile.newLine();
+			}
+			
 			characterfile.newLine();
 
 			characterfile.write("[EOF]", 0, 5);

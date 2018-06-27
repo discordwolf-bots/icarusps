@@ -30,7 +30,6 @@
 	<classpathentry kind="lib" path="deps/slf4j-nop.jar"/>
 	<classpathentry kind="lib" path="deps/slf4j.jar"/>
 	<classpathentry kind="lib" path="deps/xstream.jar"/>
-	<classpathentry kind="lib" path="deps/Discord4J-2.10.1.jar" sourcepath="deps/DiscordBot.jar"/>
 	<classpathentry kind="lib" path="deps/Discord4J-2.10.1-shaded.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

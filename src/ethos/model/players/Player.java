@@ -114,6 +114,7 @@ import ethos.model.players.combat.CombatAssistant;
 import ethos.model.players.combat.DamageQueueEvent;
 import ethos.model.players.combat.Degrade;
 import ethos.model.players.combat.Hitmark;
+import ethos.model.players.combat.WeaponMastery;
 import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.melee.QuickPrayers;
 import ethos.model.players.mode.Mode;
@@ -3850,6 +3851,9 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	public String discord;
 	public boolean discordverify;
 	
+	// Weapon Masteries
+	public int[] weaponMasteries = new int[25];
+	
 	/**
 	 * 0 North
 	 * 1 East
@@ -4947,6 +4951,22 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	
 	public String getDiscord() {
 		return discord;
+	}
+	
+	public int[] getWeaponMasteries() {
+		return weaponMasteries;
+	}
+	
+	public int getWeaponMastery(int index) {
+		return weaponMasteries[index];
+	}
+	
+	public int getWeaponMasteryLevel(int index) {
+		return this.getPA().getLevelForXP(weaponMasteries[index]);
+	}
+	
+	public void setMasteryExperience(int index, int experience) {
+		this.weaponMasteries[index] = experience;
 	}
 
 }

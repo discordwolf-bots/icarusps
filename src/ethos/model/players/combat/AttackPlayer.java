@@ -16,6 +16,7 @@ import ethos.model.content.achievement_diary.wilderness.WildernessDiaryEntry;
 import ethos.model.items.EquipmentSet;
 import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
+import ethos.model.items.ItemDefinition;
 import ethos.model.multiplayer_session.MultiplayerSessionType;
 import ethos.model.multiplayer_session.duel.DuelSession;
 import ethos.model.multiplayer_session.duel.DuelSessionRules.Rule;
@@ -25,6 +26,7 @@ import ethos.model.players.ClientGameTimer;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.Right;
+import ethos.model.players.Equipment.Slot;
 import ethos.model.players.combat.effects.AmuletOfTheDamnedDharokEffect;
 import ethos.model.players.combat.effects.AmuletOfTheDamnedKarilEffect;
 import ethos.model.players.combat.effects.SerpentineHelmEffect;
@@ -121,68 +123,68 @@ public class AttackPlayer {
 		if (damage > 0)
 			c.getCombat().applyRecoil(damage, i);
 		switch (c.specEffect) {
-		case 1: // dragon scimmy special
-			if (damage > 0) {
-				if (o.prayerActive[16] || o.prayerActive[17] || o.prayerActive[18]) {
-					o.headIcon = -1;
-					o.getPA().sendFrame36(c.PRAYER_GLOW[16], 0);
-					o.getPA().sendFrame36(c.PRAYER_GLOW[17], 0);
-					o.getPA().sendFrame36(c.PRAYER_GLOW[18], 0);
-				}
-				o.sendMessage("You have been injured!");
-				o.stopPrayerDelay = System.currentTimeMillis();
-				o.prayerActive[16] = false;
-				o.prayerActive[17] = false;
-				o.prayerActive[18] = false;
-				o.getPA().requestUpdates();
-			}
-			break;
-
-		case 2:
-			if (damage > 0) {
-				if (o.freezeTimer <= 0)
-					o.freezeTimer = 30;
-				o.gfx0(369);
-				o.sendMessage("You have been frozen.");
-				o.frozenBy = c.getIndex();
-				o.stopMovement();
-				c.sendMessage("You freeze your enemy.");
-			}
-			break;
-		case 3:
-			if (damage > 0) {
-				o.playerLevel[1] -= damage;
-				o.sendMessage("You feel weak.");
-				if (o.playerLevel[1] < 1)
-					o.playerLevel[1] = 1;
-				o.getPA().refreshSkill(1);
-			}
-			break;
-		case 4:
-			if (damage > 0) {
-				c.getHealth().increase(damage);
-			}
-			break;
-
-		case 5:
-			if (c.playerIndex > 0) {
+			case 1: // dragon scimmy special
 				if (damage > 0) {
-					c.playerLevel[5] += damage;
-					if (c.playerLevel[5] < 0)
-						c.playerLevel[5] = 0;
-					else if (c.playerLevel[5] > c.getPA().getLevelForXP(c.playerXP[5]))
-						c.playerLevel[5] = c.getPA().getLevelForXP(c.playerXP[5]);
-					c.getPA().refreshSkill(5);
-
-					o.playerLevel[5] -= damage;
-					if (o.playerLevel[5] < 0)
-						o.playerLevel[5] = 0;
-					else if (o.playerLevel[5] > c.getPA().getLevelForXP(o.playerXP[5]))
-						o.playerLevel[5] = c.getPA().getLevelForXP(o.playerXP[5]);
-					o.getPA().refreshSkill(5);
+					if (o.prayerActive[16] || o.prayerActive[17] || o.prayerActive[18]) {
+						o.headIcon = -1;
+						o.getPA().sendFrame36(c.PRAYER_GLOW[16], 0);
+						o.getPA().sendFrame36(c.PRAYER_GLOW[17], 0);
+						o.getPA().sendFrame36(c.PRAYER_GLOW[18], 0);
+					}
+					o.sendMessage("You have been injured!");
+					o.stopPrayerDelay = System.currentTimeMillis();
+					o.prayerActive[16] = false;
+					o.prayerActive[17] = false;
+					o.prayerActive[18] = false;
+					o.getPA().requestUpdates();
 				}
-			}
-			break;
+				break;
+	
+			case 2:
+				if (damage > 0) {
+					if (o.freezeTimer <= 0)
+						o.freezeTimer = 30;
+					o.gfx0(369);
+					o.sendMessage("You have been frozen.");
+					o.frozenBy = c.getIndex();
+					o.stopMovement();
+					c.sendMessage("You freeze your enemy.");
+				}
+				break;
+			case 3:
+				if (damage > 0) {
+					o.playerLevel[1] -= damage;
+					o.sendMessage("You feel weak.");
+					if (o.playerLevel[1] < 1)
+						o.playerLevel[1] = 1;
+					o.getPA().refreshSkill(1);
+				}
+				break;
+			case 4:
+				if (damage > 0) {
+					c.getHealth().increase(damage);
+				}
+				break;
+	
+			case 5:
+				if (c.playerIndex > 0) {
+					if (damage > 0) {
+						c.playerLevel[5] += damage;
+						if (c.playerLevel[5] < 0)
+							c.playerLevel[5] = 0;
+						else if (c.playerLevel[5] > c.getPA().getLevelForXP(c.playerXP[5]))
+							c.playerLevel[5] = c.getPA().getLevelForXP(c.playerXP[5]);
+						c.getPA().refreshSkill(5);
+	
+						o.playerLevel[5] -= damage;
+						if (o.playerLevel[5] < 0)
+							o.playerLevel[5] = 0;
+						else if (o.playerLevel[5] > c.getPA().getLevelForXP(o.playerXP[5]))
+							o.playerLevel[5] = c.getPA().getLevelForXP(o.playerXP[5]);
+						o.getPA().refreshSkill(5);
+					}
+				}
+				break;
 		}
 		c.specEffect = 0;
 		o.logoutDelay = System.currentTimeMillis();
@@ -198,91 +200,117 @@ public class AttackPlayer {
 	public static void addCombatXP(Player c, CombatType type, int damage) {
 		int experience = 0;
 		List<Integer> skills = new ArrayList<>();
+		
+		int WeaponUsed = c.lastWeaponUsed;
+		if(WeaponUsed != -1) {
+			ItemDefinition defForWeapon = ItemDefinition.forId(WeaponUsed);
+			System.out.println(defForWeapon.getName());
+		} else {
+			System.out.println("[FIGHTING] Unarmed");
+		}
+		//System.out.println(c.lastWeaponUsed);
+		
+		
+//		if(c.getEquipment() == null) {
+//			System.out.println("No equpiment");
+//		} else {
+//			if(c.getEquipment().getItem(Slot.WEAPON) != null) {
+//				System.out.println("[FIGHTING] " + c.getEquipment().getItem(Slot.WEAPON).toString());			
+//			} else {
+//				System.out.println("[FIGHTING] Unarmed");
+//			}			
+//		}
+		
+		
 		switch (type) {
-		default:
-		case MELEE:
-			experience += (int) Math.ceil((damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE))) / 3;
-			skills.add(Skill.HITPOINTS.getId());
-			c.getPA().addSkillXP((int) Math.ceil((damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE))) / 3, 3, false);
-
-			switch (c.fightMode) {
+		
 			default:
-			case 0: // Accurate
-				skills.add(Skill.ATTACK.getId());
-				experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
-				c.getPA().addSkillXP((int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)), 0, false);
-				break;
-			case 1: // Block
-				skills.add(Skill.DEFENCE.getId());
-				experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
-				c.getPA().addSkillXP((int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)), 1, false);
-				break;
-			case 2: // Aggressive
-				skills.add(Skill.STRENGTH.getId());
-				experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
-				c.getPA().addSkillXP((int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)), 2, false);
-				break;
-			case 3: // Controlled
-				int split = (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)) / 3;
-				experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
-				for (int i = 0; i < 3; i++) {
-					c.getPA().addSkillXP(split, i, false);// 1.3
-					skills.add(i);
-				}
-				break;
-			}
-			break;
-
-		case RANGE:
-			skills.add(Skill.HITPOINTS.getId());
-			experience += (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE)) / 3;
-			c.getPA().addSkillXP((damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE)) / 3, 3, false);
-			switch (c.fightMode) {
-			case 0: // Accurate
-			case 2: // Rapid
-				skills.add(Skill.RANGED.getId());
-				experience += (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE));
-				c.getPA().addSkillXP(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE), 4, false);
-				break;
-			case 1: // Block
-			case 3:
-				skills.add(Skill.RANGED.getId());
-				skills.add(Skill.DEFENCE.getId());
-				experience += (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE)) + (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE) / 2);
-				c.getPA().addSkillXP(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE), 1, false);
-				c.getPA().addSkillXP(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE) / 2, 4, false);
-				break;
-			}
-			break;
-		case MAGE:
-			skills.add(Skill.MAGIC.getId());
-			int hpXp = 0;
-			int magicXp = 0;
-			int defenceXp = 0;
-			switch (c.fightMode) {
-			case 1: // Pure Magic
-				if(damage > 0) skills.add(Skill.HITPOINTS.getId());
-				hpXp = (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE)) / 3;
-				magicXp = MagicData.MAGIC_SPELLS[c.oldSpellId][7] + (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE));
-				c.getPA().addSkillXP(hpXp, 3, false);
-				c.getPA().addSkillXP(magicXp, 6, false);
-				experience += hpXp + magicXp;
-				break;
-			case 2: // Magic + Defence
-				if(damage > 0) {
-					skills.add(Skill.HITPOINTS.getId());
+			case MELEE:
+				experience += (int) Math.ceil((damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE))) / 3;
+				skills.add(Skill.HITPOINTS.getId());
+				c.getPA().addSkillXP((int) Math.ceil((damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE))) / 3, 3, false);
+	
+				switch (c.fightMode) {
+				default:
+				case 0: // Accurate
+					skills.add(Skill.ATTACK.getId());
+					experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
+					c.getPA().addSkillXP((int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)), 0, false);
+					break;
+				case 1: // Block
 					skills.add(Skill.DEFENCE.getId());
+					experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
+					c.getPA().addSkillXP((int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)), 1, false);
+					break;
+				case 2: // Aggressive
+					skills.add(Skill.STRENGTH.getId());
+					experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
+					c.getPA().addSkillXP((int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)), 2, false);
+					break;
+				case 3: // Controlled
+					int split = (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE)) / 3;
+					experience += (int) Math.ceil(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MELEE_EXP_RATE));
+					for (int i = 0; i < 3; i++) {
+						c.getPA().addSkillXP(split, i, false);// 1.3
+						skills.add(i);
+					}
+					break;
 				}
-				hpXp = (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE)) / 3;
-				magicXp = (MagicData.MAGIC_SPELLS[c.oldSpellId][7] + (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE))) / 2;
-				defenceXp = (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE)) / 2;
-				c.getPA().addSkillXP(hpXp, 3, false);
-				c.getPA().addSkillXP(magicXp, 6, false);
-				c.getPA().addSkillXP(defenceXp, 1, false);
-				experience += hpXp + magicXp + defenceXp;
 				break;
-			}			
-			break;
+	
+				
+			case RANGE:
+				skills.add(Skill.HITPOINTS.getId());
+				experience += (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE)) / 3;
+				c.getPA().addSkillXP((damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE)) / 3, 3, false);
+				switch (c.fightMode) {
+				case 0: // Accurate
+				case 2: // Rapid
+					skills.add(Skill.RANGED.getId());
+					experience += (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE));
+					c.getPA().addSkillXP(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE), 4, false);
+					break;
+				case 1: // Block
+				case 3:
+					skills.add(Skill.RANGED.getId());
+					skills.add(Skill.DEFENCE.getId());
+					experience += (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE)) + (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE) / 2);
+					c.getPA().addSkillXP(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE), 1, false);
+					c.getPA().addSkillXP(damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.RANGE_EXP_RATE) / 2, 4, false);
+					break;
+				}
+				break;
+				
+				
+			case MAGE:
+				skills.add(Skill.MAGIC.getId());
+				int hpXp = 0;
+				int magicXp = 0;
+				int defenceXp = 0;
+				switch (c.fightMode) {
+				case 1: // Pure Magic
+					if(damage > 0) skills.add(Skill.HITPOINTS.getId());
+					hpXp = (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE)) / 3;
+					magicXp = MagicData.MAGIC_SPELLS[c.oldSpellId][7] + (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE));
+					c.getPA().addSkillXP(hpXp, 3, false);
+					c.getPA().addSkillXP(magicXp, 6, false);
+					experience += hpXp + magicXp;
+					break;
+				case 2: // Magic + Defence
+					if(damage > 0) {
+						skills.add(Skill.HITPOINTS.getId());
+						skills.add(Skill.DEFENCE.getId());
+					}
+					hpXp = (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE)) / 3;
+					magicXp = (MagicData.MAGIC_SPELLS[c.oldSpellId][7] + (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE))) / 2;
+					defenceXp = (damage * (c.getMode().getType().equals(ModeType.OSRS) ? 4 : Config.MAGIC_EXP_RATE)) / 2;
+					c.getPA().addSkillXP(hpXp, 3, false);
+					c.getPA().addSkillXP(magicXp, 6, false);
+					c.getPA().addSkillXP(defenceXp, 1, false);
+					experience += hpXp + magicXp + defenceXp;
+					break;
+				}			
+				break;
 		}
 		
 		if(c.getRights().isOrInherits(Right.HCIM_DEAD)) {
