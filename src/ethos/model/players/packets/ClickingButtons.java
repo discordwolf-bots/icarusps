@@ -1,6 +1,7 @@
 package ethos.model.players.packets;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
@@ -32,6 +33,7 @@ import ethos.model.players.Right;
 import ethos.model.players.combat.Special;
 import ethos.model.players.combat.Specials;
 import ethos.model.players.combat.WeaponMastery;
+import ethos.model.players.combat.WeaponPerks;
 import ethos.model.players.combat.magic.LunarSpells;
 import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.magic.NonCombatSpells;
@@ -173,23 +175,58 @@ public class ClickingButtons implements PacketType {
 				c.getPA().sendFrame126("", i);
 			}
 			// The frames that it can see
-			int[] frames = { 8147, 8148, 8149, 8150, 8151, 8152, 8153, 8154, 8155, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8163, 8164, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8172, 8173,
-					8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194 };
-			c.getPA().sendFrame126("Weapon Masteries", 8144);
-			c.getPA().sendFrame126("", 8145);
-			
-			int frameIndex = 0;
-			
+			int frameIndex = 8144;
+			c.getPA().sendFrame126("Weapon Masteries", frameIndex++);
+			c.getPA().sendFrame126("", frameIndex++);
+			frameIndex++;
 			for (int i = 0; i <= WeaponMastery.getMaxSlot(); i++) {
 				WeaponMastery mastery = WeaponMastery.forSlot(i);
-				if(frameIndex > frames.length - 1) 
-					break; 
+				int masteryExperience = c.getMasteryExperience(i);
+				int masteryLevel = c.getWeaponMasteryLevel(i);
+				WeaponPerks perk = WeaponPerks.forLevel(masteryLevel);
 
-				c.getPA().sendFrame126("@blu@" + mastery.getMasteryName() 
-				+ "@bla@ : Level @blu@" + c.getWeaponMasteryLevel(i) 
-				+ "@bla@ (@blu@" + c.getMasteryExperience(i) + "@bla@ xp)", frames[frameIndex]);
-				frameIndex++;
-			}
+//				if(masteryExperience > 0) {
+					// Mastery Category
+					c.getPA().sendFrame126("@blu@" + mastery.getMasteryName() 
+					+ "@bla@ : Level @blu@" + masteryLevel 
+					+ "@bla@ (@blu@" + NumberFormat.getIntegerInstance().format(masteryExperience) + "@bla@ xp)", frameIndex++);
+					
+					
+					// Poison Chance
+					if(perk != null) {
+						if(perk.getPoisonChance() == 0) {
+														
+						} else {
+							c.getPA().sendFrame126("Poison Chance (<col=1e9600><shad=000000>" + perk.getPoisonChance() + "%</shad>@bla@) : Poison Damage (<col=1e9600><shad=000000>" + perk.getPoisonDamage() + "</shad>@bla@)", frameIndex++);							
+						}
+					}
+	
+					// Critical Chance
+					if(perk != null) {
+						if(perk.getCritical() == 0 && perk.getWeaponSpeed() == 0) {
+														
+						} else if(perk.getCritical() > 0 && perk.getWeaponSpeed() == 0) {
+							c.getPA().sendFrame126("Critical Chance (<col=1e9600><shad=000000>" + perk.getCritical() + "%</shad>@bla@)", frameIndex++);							
+						} else {
+							c.getPA().sendFrame126("Critical Chance (<col=1e9600><shad=000000>" + perk.getCritical() + "%</shad>@bla@) : Weapon Speed (<col=1e9600><shad=000000>+" + perk.getWeaponSpeed() + "</shad>@bla@)", frameIndex++);
+						}
+					}
+	
+					// Damage Modifiers
+					if(perk != null) {
+						if(perk.getMinDamage() == 0 && perk.getMaxDamage() == 0) {
+														
+						} else if(perk.getMinDamage() > 0 && perk.getMaxDamage() == 0) {
+							c.getPA().sendFrame126("Minimum Damage (<col=1e9600><shad=000000>+" + perk.getMinDamage() + "</shad>@bla@)", frameIndex++);							
+						} else {
+							c.getPA().sendFrame126("Minimum Damage (<col=1e9600><shad=000000>+" + perk.getMinDamage() + "</shad>@bla@) : Maximum Damage (<col=1e9600><shad=000000>+" + perk.getMaxDamage() + "</shad>@bla@)", frameIndex++);
+						}
+					}
+					frameIndex++;
+				}
+				
+				
+//			}
 			c.getPA().showInterface(8134);
 		}
 		if (c.battlestaffDialogue) {
