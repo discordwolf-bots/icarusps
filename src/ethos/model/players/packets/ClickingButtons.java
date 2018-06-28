@@ -31,6 +31,7 @@ import ethos.model.players.PlayerHandler;
 import ethos.model.players.Right;
 import ethos.model.players.combat.Special;
 import ethos.model.players.combat.Specials;
+import ethos.model.players.combat.WeaponMastery;
 import ethos.model.players.combat.magic.LunarSpells;
 import ethos.model.players.combat.magic.MagicData;
 import ethos.model.players.combat.magic.NonCombatSpells;
@@ -166,6 +167,30 @@ public class ClickingButtons implements PacketType {
 		c.getPestControlRewards().click(actionButtonId);
 		if (c.getTitles().click(actionButtonId)) {
 			return;
+		}
+		if (actionButtonId == 114091) {
+			for (int i = 8144; i < 8195; i++) {
+				c.getPA().sendFrame126("", i);
+			}
+			// The frames that it can see
+			int[] frames = { 8147, 8148, 8149, 8150, 8151, 8152, 8153, 8154, 8155, 8156, 8157, 8158, 8159, 8160, 8161, 8162, 8163, 8164, 8165, 8166, 8167, 8168, 8169, 8170, 8171, 8172, 8173,
+					8174, 8175, 8176, 8177, 8178, 8179, 8180, 8181, 8182, 8183, 8184, 8185, 8186, 8187, 8188, 8189, 8190, 8191, 8192, 8193, 8194 };
+			c.getPA().sendFrame126("Weapon Masteries", 8144);
+			c.getPA().sendFrame126("", 8145);
+			
+			int frameIndex = 0;
+			
+			for (int i = 0; i <= WeaponMastery.getMaxSlot(); i++) {
+				WeaponMastery mastery = WeaponMastery.forSlot(i);
+				if(frameIndex > frames.length - 1) 
+					break; 
+
+				c.getPA().sendFrame126("@blu@" + mastery.getMasteryName() 
+				+ "@bla@ : Level @blu@" + c.getWeaponMasteryLevel(i) 
+				+ "@bla@ (@blu@" + c.getMasteryExperience(i) + "@bla@ xp)", frames[frameIndex]);
+				frameIndex++;
+			}
+			c.getPA().showInterface(8134);
 		}
 		if (c.battlestaffDialogue) {
 			BattlestaveMaking.craftBattlestave(c, actionButtonId);

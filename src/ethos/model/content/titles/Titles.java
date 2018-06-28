@@ -110,16 +110,17 @@ public class Titles {
 	 * @return true if the button clicked belongs to the title interface
 	 */
 	public boolean click(int buttonId) {
-		if (buttonId == 114091) {
-			if(player.debugMessage) {
-				display();
-				player.getPA().showInterface(33000);
-				return true;
-			} else {
-				player.sendMessage("Titles are disabled.");
-				return false;
-			}
-		}
+		// TODO: Fix titles
+//		if (buttonId == 114091) {
+//			if(player.debugMessage) {
+//				display();
+//				player.getPA().showInterface(33000);
+//				return true;
+//			} else {
+//				player.sendMessage("Titles are disabled.");
+//				return false;
+//			}
+//		}
 		if (buttonId == 128248) {
 			player.sendMessage("<col=1B6607>Green</col> titles are purchased and displayable.");
 			player.sendMessage("<col=ff6600>Orange</col> titles are purchased but undisplayable at this time.");

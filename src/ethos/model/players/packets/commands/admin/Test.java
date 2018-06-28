@@ -221,6 +221,10 @@ public class Test extends Command {
 			player.setSidebarInterface(2, 45000);
 			break;
 			
+		case "qt":
+			player.setSidebarInterface(2, 638);
+			break;
+			
 		case "hat":
 			System.out.println("isFullHat; " + Item.isFullHat(3385));
 			System.out.println("isFullMask; " + Item.isFullMask(3385));

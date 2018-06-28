@@ -59,6 +59,9 @@ public class AttackNPC {
 		int maximumDefence = Misc.random(defender.defence + getBonusDefence(attacker, defender, combatType));
 		Hitmark hitmark1 = null;
 		Hitmark hitmark2 = null;
+		
+		WeaponMastery mastery = WeaponMastery.forWeapon(attacker.playerEquipment[attacker.playerWeapon]);
+		
 		int accuracy = 0;
 		if (Objects.nonNull(attacker) && Objects.nonNull(defender)) {
 			if (combatType.equals(CombatType.MELEE)) {
@@ -70,7 +73,38 @@ public class AttackNPC {
 					maximumAccuracy *= special.getAccuracy();
 					maximumDamage *= special.getDamageModifier();
 				}
+				
+				
+				/**
+				 * Increase Maximum Damage
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						attacker.sendMessage("Max damage : " + perks.getMaxDamage());
+						maximumDamage += perks.getMaxDamage();						
+					}
+				}
+				
 				damage = Misc.random(maximumDamage);
+				
+				
+				/**
+				 * Apply a Minimum Damage increase
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						attacker.sendMessage("Min damage : " + perks.getMinDamage());
+						if(damage > 0 && damage < perks.getMinDamage()) {
+							damage = perks.getMinDamage();
+						}						
+					}
+					
+				}
+				
 				accuracy = Misc.random(maximumAccuracy);
 				if (defender.npcType == 6600) {
 					Pickaxe pickaxe = Pickaxe.getBestPickaxe(attacker);
@@ -166,6 +200,22 @@ public class AttackNPC {
 				if (defender.npcType == Skotizo.SKOTIZO_ID) {
 					damage = attacker.getSkotizo().calculateSkotizoHit(attacker, damage);
 				}
+				
+				/**
+				 * Apply critical hit chance
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						int randomCrit = Misc.random(100);
+						attacker.sendMessage("Crit role needed : " + perks.getCritical() + ", rolled a " + randomCrit);
+						if(randomCrit < perks.getCritical() && perks.getCritical() > 0) {
+							damage *= 1.5;
+						}
+					}
+				}
+				
 				if (defender.getHealth().getAmount() - damage < 0) {
 					damage = defender.getHealth().getAmount();
 				}
@@ -227,7 +277,37 @@ public class AttackNPC {
 					maximumAccuracy *= special.getAccuracy();
 					maximumDamage *= special.getDamageModifier();
 				}
+				
+				/**
+				 * Increase Maximum Damage
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						attacker.sendMessage("Min damage : " + perks.getMinDamage());
+						maximumDamage += perks.getMaxDamage();						
+					}
+				}
+				
+				
 				damage = Misc.random(maximumDamage);
+				
+				/**
+				 * Apply a Minimum Damage increase
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						attacker.sendMessage("Min damage : " + perks.getMinDamage());
+						if(damage > 0 && damage < perks.getMinDamage()) {
+							damage = perks.getMinDamage();
+						}						
+					}
+					
+				}
+				
 				accuracy = Misc.random(maximumAccuracy);
 				if (Misc.random(maximumDefence) > accuracy && !attacker.ignoreDefence) {
 					damage = 0;
@@ -303,6 +383,22 @@ public class AttackNPC {
 				if (defender.npcType == Skotizo.SKOTIZO_ID) {
 					damage = attacker.getSkotizo().calculateSkotizoHit(attacker, damage);
 				}
+				
+				/**
+				 * Apply critical hit chance
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						int randomCrit = Misc.random(100);
+						attacker.sendMessage("Crit role needed : " + perks.getCritical() + ", rolled a " + randomCrit);
+						if(randomCrit < perks.getCritical() && perks.getCritical() > 0) {
+							damage *= 1.5;
+						}
+					}
+				}
+				
 				if (defender.getHealth().getAmount() - damage < 0) {
 					damage = defender.getHealth().getAmount();
 				}
@@ -452,7 +548,22 @@ public class AttackNPC {
 		if ((optional.isPresent() && optional.get() == 1249 || attacker.getItems().isWearingItem(1249, attacker.playerWeapon)) && attacker.usingSpecial) {
 			return;
 		}
+		
+		
 		int delay = attacker.hitDelay;
+		
+		/**
+		 * Apply Attack Speed Modifier
+		 */
+		if(mastery != null) {
+			int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+			WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+			if(perks != null) {
+				delay -= perks.getWeaponSpeed();						
+			}
+			
+		}
+		
 		Damage hit1 = new Damage(defender, damage, delay, attacker.playerEquipment, hitmark1, combatType, special);
 		attacker.getDamageQueue().add(hit1);
 		if (special != null) {
@@ -839,6 +950,7 @@ public class AttackNPC {
 
 			c.lastNpcAttacked = i;
 
+			WeaponMastery mastery = WeaponMastery.forWeapon(c.playerEquipment[c.playerWeapon]);
 			if (damage.getAmount() > 0) {
 				if (!npc.getHealth().isNotSusceptibleTo(HealthStatus.POISON)) {
 					damage.getEquipment().ifPresent(equipment -> {
@@ -856,7 +968,25 @@ public class AttackNPC {
 								npc.getHealth().proposeStatus(HealthStatus.POISON, pl.getPoisonDamage(), Optional.of(c));
 							}
 						});
+						
 					});
+					
+					/**
+					 * Apply poison damage
+					 */
+					if(mastery != null) {
+						int masteryLevel = c.getWeaponMasteryLevel(mastery.getSlot());
+						WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+						if(perks != null) {
+							c.sendMessage("Poison chance: " + perks.getPoisonChance() + ", Poison Damage: " + perks.getPoisonDamage());
+							if(perks.getPoisonChance() > 0 && perks.getPoisonDamage() > 0) {
+								if (RandomUtils.nextInt(0, perks.getPoisonChance()) == 1) {
+									npc.getHealth().proposeStatus(HealthStatus.POISON, perks.getPoisonDamage(), Optional.of(c));
+								}
+							}
+						}
+						
+					}
 				}
 			}
 			if (damage.getCombatType() != null) {

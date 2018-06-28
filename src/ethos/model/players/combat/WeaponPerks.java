@@ -11,16 +11,16 @@ public enum WeaponPerks {
 	 * @poisonDamage = how much damage the poison will start at when successful
 	 * @weaponSpeed = how many ticks the attack speed will be reduced by
 	 */
-	LEVEL_10(10, 0, 0, 0, 0, 0, 0),
-	LEVEL_20(20, 0, 0, 0, 0, 0, 0),
-	LEVEL_30(30, 0, 0, 0, 0, 0, 0),
-	LEVEL_40(40, 0, 0, 0, 0, 0, 0),
-	LEVEL_50(50, 0, 0, 0, 0, 0, 0),
-	LEVEL_60(60, 0, 0, 0, 0, 0, 0),
-	LEVEL_70(70, 0, 0, 0, 0, 0, 0),
-	LEVEL_80(80, 0, 0, 0, 0, 0, 0),
-	LEVEL_90(90, 0, 0, 0, 0, 0, 0),
-	LEVEL_99(99, 0, 0, 0, 0, 0, 1);
+	LEVEL_10(10, 0, 0, 5, 0, 0, 0),
+	LEVEL_20(20, 0, 0, 5, 5, 0, 0),
+	LEVEL_30(30, 0, 0, 10, 5, 5, 0),
+	LEVEL_40(40, 0, 0, 10, 5, 10, 0),
+	LEVEL_50(50, 30, 3, 10, 5, 10, 0),
+	LEVEL_60(60, 30, 5, 15, 5, 10, 0),
+	LEVEL_70(70, 20, 5, 15, 7, 10, 0),
+	LEVEL_80(80, 20, 5, 20, 7, 10, 0),
+	LEVEL_90(90, 10, 6, 20, 7, 10, 0),
+	LEVEL_99(99, 10, 6, 25, 10, 10, 1);
 	
 	private int levelRequired;
 	private int poisonChance, poisonDamage;
@@ -30,7 +30,7 @@ public enum WeaponPerks {
 	
 	
 	// Constructor
-	private WeaponPerks(int levelRequired, int minDamage, int maxDamage, int critical, int poisonChance, int poisonDamage, int weaponSpeed) {
+	private WeaponPerks(int levelRequired, int poisonChance, int poisonDamage, int critical, int minDamage, int maxDamage, int weaponSpeed) {
 		this.levelRequired = levelRequired;
 		this.poisonChance = poisonChance;
 		this.poisonDamage = poisonDamage;
@@ -57,16 +57,16 @@ public enum WeaponPerks {
 		return critical;
 	}
 	
-	public int getWeaponSpeed() {
-		return weaponSpeed;
-	}
-	
 	public int getMinDamage() {
 		return minDamage;
 	}
 	
 	public int getMaxDamage() {
 		return maxDamage;
+	}
+	
+	public int getWeaponSpeed() {
+		return weaponSpeed;
 	}
 	
 	
