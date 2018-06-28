@@ -20,6 +20,7 @@ public enum WeaponMastery {
 	
 	SWORD(1, 
 			new int[] {
+				12426, // 3rd age long sword
 				7140, // harry's cutlass
 				7141, // lucky cutlass
 				7142, // rapier
@@ -83,6 +84,7 @@ public enum WeaponMastery {
 	
 	BOW(6, 
 			new int[] {
+				12424, // 3rd age bow
 				861, // Magic Shortbow
 				859, // Magic Longbow
 				11235, // Dark Bow
