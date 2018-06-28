@@ -548,10 +548,12 @@ public class AttackNPC {
 			}
 		}
 		attacker.attackTimer = attacker.getCombat().getAttackDelay(ItemAssistant.getItemName(attacker.playerEquipment[attacker.playerWeapon]).toLowerCase());
+		
 		Optional<Integer> optional = PoisonedWeapon.getOriginal(attacker.playerEquipment[attacker.playerWeapon]);
 		if ((optional.isPresent() && optional.get() == 1249 || attacker.getItems().isWearingItem(1249, attacker.playerWeapon)) && attacker.usingSpecial) {
 			return;
 		}
+		
 		
 		
 		int delay = attacker.hitDelay;
@@ -563,7 +565,9 @@ public class AttackNPC {
 			int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
 			WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 			if(perks != null) {
-				delay -= perks.getWeaponSpeed();						
+				System.out.println("Start : " + attacker.attackTimer);
+				attacker.attackTimer -= perks.getWeaponSpeed();
+				System.out.println("Result : " + attacker.attackTimer);
 			}
 			
 		}

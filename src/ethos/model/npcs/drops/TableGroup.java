@@ -12,6 +12,7 @@ import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
+import ethos.model.players.Right;
 import ethos.util.Misc;
 
 @SuppressWarnings("serial")
@@ -84,9 +85,11 @@ public class TableGroup extends ArrayList<Table> {
 													+ "<col=0000ff><shad=000000>" + ItemAssistant.getItemName(item.getId()) + "</shad></col>.");
 									// Very Rare drops get sent to the database
 									if(item.getId() != 20703) {
-										String[] drops = new String[] {String.valueOf(item.getAmount()), ItemAssistant.getItemName(item.getId())};
-										BotMain.sendFeed(player, null, 3, drops);
-										new Thread(new RareDrops(player, item)).start();
+										if(!player.getRights().isOrInherits(Right.ADMINISTRATOR)) {
+											String[] drops = new String[] {String.valueOf(item.getAmount()), ItemAssistant.getItemName(item.getId())};
+											BotMain.sendFeed(player, null, 3, drops);
+											new Thread(new RareDrops(player, item)).start();
+										}
 									}
 								}
 							}
