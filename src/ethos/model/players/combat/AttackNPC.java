@@ -211,7 +211,9 @@ public class AttackNPC {
 						int randomCrit = Misc.random(100);
 						attacker.sendMessage("Crit role needed : " + perks.getCritical() + ", rolled a " + randomCrit);
 						if(randomCrit < perks.getCritical() && perks.getCritical() > 0) {
+							attacker.sendMessage("<col=ff6464>Old damage: " + damage + ", new Damage: " + (damage * 1.5));
 							damage *= 1.5;
+							attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
 						}
 					}
 				}
@@ -394,7 +396,9 @@ public class AttackNPC {
 						int randomCrit = Misc.random(100);
 						attacker.sendMessage("Crit role needed : " + perks.getCritical() + ", rolled a " + randomCrit);
 						if(randomCrit < perks.getCritical() && perks.getCritical() > 0) {
+							attacker.sendMessage("<col=ff6464>Old damage: " + damage + ", new Damage: " + (damage * 1.5));
 							damage *= 1.5;
+							attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
 						}
 					}
 				}
