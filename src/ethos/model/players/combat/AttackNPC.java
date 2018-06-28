@@ -82,7 +82,6 @@ public class AttackNPC {
 					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
 					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 					if(perks != null) {
-						attacker.sendMessage("Max damage : " + perks.getMaxDamage());
 						maximumDamage += perks.getMaxDamage();						
 					}
 				}
@@ -97,7 +96,6 @@ public class AttackNPC {
 					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
 					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 					if(perks != null) {
-						attacker.sendMessage("Min damage : " + perks.getMinDamage());
 						if(damage > 0 && damage < perks.getMinDamage()) {
 							damage = perks.getMinDamage();
 						}						
@@ -209,9 +207,7 @@ public class AttackNPC {
 					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 					if(perks != null) {
 						int randomCrit = Misc.random(100);
-						attacker.sendMessage("Crit role needed : " + perks.getCritical() + ", rolled a " + randomCrit);
-						if(randomCrit < perks.getCritical() && perks.getCritical() > 0) {
-							attacker.sendMessage("<col=ff6464>Old damage: " + damage + ", new Damage: " + (damage * 1.5));
+						if(randomCrit < perks.getCritical() && perks.getCritical() > 0 && damage > 0) {
 							damage *= 1.5;
 							attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
 						}
@@ -287,7 +283,6 @@ public class AttackNPC {
 					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
 					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 					if(perks != null) {
-						attacker.sendMessage("Min damage : " + perks.getMinDamage());
 						maximumDamage += perks.getMaxDamage();						
 					}
 				}
@@ -302,7 +297,6 @@ public class AttackNPC {
 					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
 					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 					if(perks != null) {
-						attacker.sendMessage("Min damage : " + perks.getMinDamage());
 						if(damage > 0 && damage < perks.getMinDamage()) {
 							damage = perks.getMinDamage();
 						}						
@@ -394,9 +388,7 @@ public class AttackNPC {
 					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 					if(perks != null) {
 						int randomCrit = Misc.random(100);
-						attacker.sendMessage("Crit role needed : " + perks.getCritical() + ", rolled a " + randomCrit);
-						if(randomCrit < perks.getCritical() && perks.getCritical() > 0) {
-							attacker.sendMessage("<col=ff6464>Old damage: " + damage + ", new Damage: " + (damage * 1.5));
+						if(randomCrit < perks.getCritical() && perks.getCritical() > 0 && damage > 0) {
 							damage *= 1.5;
 							attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
 						}
@@ -565,9 +557,7 @@ public class AttackNPC {
 			int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
 			WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 			if(perks != null) {
-				System.out.println("Start : " + attacker.attackTimer);
 				attacker.attackTimer -= perks.getWeaponSpeed();
-				System.out.println("Result : " + attacker.attackTimer);
 			}
 			
 		}
@@ -986,10 +976,12 @@ public class AttackNPC {
 						int masteryLevel = c.getWeaponMasteryLevel(mastery.getSlot());
 						WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 						if(perks != null) {
-							c.sendMessage("Poison chance: " + perks.getPoisonChance() + ", Poison Damage: " + perks.getPoisonDamage());
 							if(perks.getPoisonChance() > 0 && perks.getPoisonDamage() > 0) {
 								if (RandomUtils.nextInt(0, perks.getPoisonChance()) == 1) {
-									npc.getHealth().proposeStatus(HealthStatus.POISON, perks.getPoisonDamage(), Optional.of(c));
+									if(!npc.getHealth().getStatus().isPoisoned()) {
+										npc.getHealth().proposeStatus(HealthStatus.POISON, perks.getPoisonDamage(), Optional.of(c));
+										c.sendMessage("<col=1e9600><shad=000000>Your opponent has been poisoned");
+									}
 								}
 							}
 						}
