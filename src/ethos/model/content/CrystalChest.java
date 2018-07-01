@@ -89,6 +89,9 @@ public class CrystalChest {
 				new GameItem(6199,1),
 				new GameItem(21307),				
 				new GameItem(1333,1)));
+		
+		items.put(Rarity.VERY_RARE, Arrays.asList(
+				new GameItem(7141)));
 				
 	}
 
@@ -123,7 +126,7 @@ public class CrystalChest {
 	}
 
 	enum Rarity {
-		UNCOMMON, COMMON, RARE
+		UNCOMMON, COMMON, RARE, VERY_RARE
 	}
 
 }
