@@ -96,7 +96,7 @@ public class CrystalChest {
 
 	private static GameItem randomChestRewards(int chance) {
 		int random = Misc.random(chance);
-		List<GameItem> itemList = random < chance ? items.get(Rarity.COMMON) : items.get(Rarity.UNCOMMON);
+		List<GameItem> itemList = random < chance ? items.get(Rarity.COMMON) : items.get(Rarity.UNCOMMON) ; items.get(Rarity.RARE); items.get(Rarity.VERY_RARE);
 		return Misc.getRandomItem(itemList);
 	}
 
