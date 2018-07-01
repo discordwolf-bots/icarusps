@@ -4,6 +4,7 @@ import ethos.Server;
 import ethos.model.content.achievement.AchievementType;
 import ethos.model.content.achievement.Achievements;
 import ethos.model.items.GameItem;
+import ethos.model.items.Item;
 import ethos.model.players.Boundary;
 import ethos.model.players.Player;
 import ethos.model.players.Right;
@@ -21,6 +22,8 @@ public class CrystalChest {
 	private static final int KEY_HALVE1 = 985;
 	private static final int KEY_HALVE2 = 987;
 	private static final int ANIMATION = 881;
+	
+	private static String rarity = ""; 
 
 	private static final Map<Rarity, List<GameItem>> items = new HashMap<>();
 
@@ -48,7 +51,9 @@ public class CrystalChest {
 				new GameItem(1632, 1), 
 				new GameItem(537, 10), 
 				new GameItem(384, 15), 
-				new GameItem(4131, 1)));
+				new GameItem(4131, 1)
+				)
+			);
 		
 		items.put(Rarity.UNCOMMON, Arrays.asList(
 				new GameItem(386, 20), 
@@ -69,7 +74,9 @@ public class CrystalChest {
 				new GameItem(3139, 150), 
 				new GameItem(246, 100), 
 				new GameItem(232, 100), 
-				new GameItem(11840, 1)));
+				new GameItem(11840, 1)
+				)
+			);
 		
 		items.put(Rarity.RARE, Arrays.asList(
 				new GameItem(20703,1),
@@ -87,16 +94,47 @@ public class CrystalChest {
 				new GameItem(20791,1),
 				new GameItem(6199,1),
 				new GameItem(21307),				
-				new GameItem(1333,1)));
+				new GameItem(1333,1)
+				)
+			);
 		
 		items.put(Rarity.VERY_RARE, Arrays.asList(
-				new GameItem(7141)));
+				new GameItem(7141)
+				)
+			);
 				
 	}
 
-	private static GameItem randomChestRewards(int chance) {
-		int random = Misc.random(chance);
-		List<GameItem> itemList = random < chance ? items.get(Rarity.COMMON) : items.get(Rarity.UNCOMMON) ; items.get(Rarity.RARE); items.get(Rarity.VERY_RARE);
+	private static GameItem randomChestRewards(Player c, int max, int mult) {
+		
+		int random = Misc.random(max);
+		// Apply a multiplier if the player is in Donator Zone
+		random *= mult;
+		
+		double common = max * 0.8;
+		double uncommon = max * 0.17; uncommon += common;
+		double rare = max * 0.029; rare += uncommon;
+		
+		boolean announceme = false;
+		
+		List<GameItem> itemList;
+		
+		if(random <= common) {
+			rarity = "Common";
+			itemList = items.get(Rarity.COMMON);
+		} else if( random > common && random <= uncommon) {
+			rarity = "Uncommon";
+			itemList = items.get(Rarity.UNCOMMON);
+		} else if( random > uncommon && random <= rare) {
+			rarity = "Rare";
+			itemList = items.get(Rarity.RARE);
+		} else {
+			// Very Rare loot
+			announceme = true;
+			rarity = "Very Rare";
+			itemList = items.get(Rarity.VERY_RARE);
+		}
+		
 		return Misc.getRandomItem(itemList);
 	}
 
@@ -113,12 +151,16 @@ public class CrystalChest {
 			c.getItems().deleteItem(KEY, 1);
 			c.startAnimation(ANIMATION);
 			c.getItems().addItem(DRAGONSTONE, 1);
-			GameItem reward = Boundary.isIn(c, Boundary.DONATOR_ZONE) && c.getRights().isOrInherits(Right.DONATOR) ? randomChestRewards(2) : randomChestRewards(9);
+			GameItem reward = Boundary.isIn(c, Boundary.DONATOR_ZONE) && c.getRights().isOrInherits(Right.DONATOR) ? randomChestRewards(c, 3500, 2) : randomChestRewards(c, 3500, 1);
 			if (!c.getItems().addItem(reward.getId(), reward.getAmount())) {
 				Server.itemHandler.createGroundItem(c, reward.getId(), c.getX(), c.getY(), c.heightLevel, reward.getAmount());
 			}
+			String rarityColour = "2b42b4";
+			if(rarity.equals("Uncommon")) rarityColour = "069a26";
+			if(rarity.equals("Rare")) rarityColour = "988f3b";
+			if(rarity.equals("Very Rare")) rarityColour = "ad3cae";
 			Achievements.increase(c, AchievementType.LOOT_CRYSTAL_CHEST, 1);
-			c.sendMessage("@blu@You stick your hand in the chest and pull an item out.");
+			c.sendMessage("<col=" + rarityColour + ">You stick your hand in the chest and pull out " + reward.getAmount() + "x " + Item.getItemName(reward.getId()));
 		} else {
 			c.sendMessage("@blu@The chest is locked, you need a crystal key to open this!");
 		}
