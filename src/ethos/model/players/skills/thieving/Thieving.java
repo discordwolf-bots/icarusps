@@ -286,7 +286,7 @@ public class Thieving {
 	}
 
 	private enum Rarity {
-		ALWAYS(0), COMMON(5), UNCOMMON(10), RARE(15), VERY_RARE(25);
+		ALWAYS(0), COMMON(8), UNCOMMON(11), RARE(15), VERY_RARE(50);
 
 		/**
 		 * The rarity
@@ -406,7 +406,7 @@ public class Thieving {
 		Fur(new GameItem(6814), 50, 54, 10, 33000),
 		Magic(new GameItem(1613), 75, 80, 10, 30000), 
 		Scimitar(new GameItem(6721), 90, 100, 10, 27500),
-		Gem(new GameItem(995, Misc.random(250)+1), 99, 125, 0, 25000);
+		Gem(new GameItem(995, Misc.random(2499)+1), 99, 125, 0, 25000);
 
 		/**
 		 * The item received from the stall
