@@ -236,7 +236,7 @@ public class LootingBag {
 	
 		if (player.viewingLootBag) {
 			removeMultipleItemsFromBag(id, amount);
-			//withdraw(id, amount);
+			withdraw(id, amount);
 			return true;
 		}
 		if (player.addingItemsToLootBag) {
