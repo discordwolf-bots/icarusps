@@ -71,6 +71,25 @@ public class CrystalChest {
 				new GameItem(246, 100), 
 				new GameItem(232, 100), 
 				new GameItem(11840, 1)));
+		
+		items.put(Rarity.RARE, Arrays.asList(
+				new GameItem(20703,1),
+				new GameItem(995,1000000),
+				new GameItem(9096),
+				new GameItem(9097),
+				new GameItem(9098),
+				new GameItem(9099),
+				new GameItem(776),
+				new GameItem(7509),
+				new GameItem(11968),
+				new GameItem(9100),
+				new GameItem(9101),
+				new GameItem(9084),
+				new GameItem(20791,1),
+				new GameItem(6199,1),
+				new GameItem(21307),				
+				new GameItem(1333,1)));
+				
 	}
 
 	private static GameItem randomChestRewards(int chance) {
