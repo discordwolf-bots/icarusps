@@ -65,8 +65,7 @@ public class CrystalChest {
 				new GameItem(222, 100), 
 				new GameItem(226, 100),
 				new GameItem(224, 100), 
-				new GameItem(240, 100), 
-				new GameItem(664, 100), 
+				new GameItem(240, 100),  
 				new GameItem(3139, 150), 
 				new GameItem(246, 100), 
 				new GameItem(232, 100), 
@@ -119,9 +118,9 @@ public class CrystalChest {
 				Server.itemHandler.createGroundItem(c, reward.getId(), c.getX(), c.getY(), c.heightLevel, reward.getAmount());
 			}
 			Achievements.increase(c, AchievementType.LOOT_CRYSTAL_CHEST, 1);
-			c.sendMessage("@blu@You stick your hand in the chest and pull an item out of the chest.");
+			c.sendMessage("@blu@You stick your hand in the chest and pull an item out.");
 		} else {
-			c.sendMessage("@blu@The chest is locked, it won't budge!");
+			c.sendMessage("@blu@The chest is locked, you need a crystal key to open this!");
 		}
 	}
 
