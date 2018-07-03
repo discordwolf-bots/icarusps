@@ -7,6 +7,7 @@ import ethos.model.items.GameItem;
 import ethos.model.items.Item;
 import ethos.model.players.Boundary;
 import ethos.model.players.Player;
+import ethos.model.players.PlayerHandler;
 import ethos.model.players.Right;
 import ethos.util.Misc;
 
@@ -24,6 +25,7 @@ public class CrystalChest {
 	private static final int ANIMATION = 881;
 	
 	private static String rarity = ""; 
+	private static boolean announceme;
 
 	private static final Map<Rarity, List<GameItem>> items = new HashMap<>();
 
@@ -115,7 +117,6 @@ public class CrystalChest {
 		double uncommon = max * 0.17; uncommon += common;
 		double rare = max * 0.029; rare += uncommon;
 		
-		boolean announceme = false;
 		
 		List<GameItem> itemList;
 		
@@ -161,6 +162,9 @@ public class CrystalChest {
 			if(rarity.equals("Very Rare")) rarityColour = "ad3cae";
 			Achievements.increase(c, AchievementType.LOOT_CRYSTAL_CHEST, 1);
 			c.sendMessage("<col=" + rarityColour + ">You stick your hand in the chest and pull out " + reward.getAmount() + "x " + Item.getItemName(reward.getId()));
+			if(announceme) {
+				// TODO: Announcement for very rare loot
+			}
 		} else {
 			c.sendMessage("@blu@The chest is locked, you need a crystal key to open this!");
 		}
