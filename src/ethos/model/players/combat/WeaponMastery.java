@@ -125,7 +125,7 @@ public enum WeaponMastery {
 	
 	MAGIC(9, 
 			new int[] {
-					
+				
 			},
 		"Magic"
 	),

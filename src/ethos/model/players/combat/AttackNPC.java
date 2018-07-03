@@ -428,6 +428,15 @@ public class AttackNPC {
 					maximumAccuracy *= special.getAccuracy();
 					maximumDamage *= special.getDamageModifier();
 				}
+				
+				/**
+				 * Increase maximum Damage
+				 */
+				int masteryLevel = attacker.getWeaponMasteryLevel(WeaponMastery.MAGIC.getSlot());
+				WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+				if(perks != null) {
+					maximumDamage += perks.getMaxDamage();						
+				}
 
 				switch (defender.npcType) {
 				
@@ -468,6 +477,16 @@ public class AttackNPC {
 					break;
 				}
 				damage = Misc.random(maximumDamage);
+				
+				/**
+				 * Increase minimum Damage
+				 */
+				if(perks != null) {
+					if(damage > 0 && damage < perks.getMinDamage()) {
+						damage = perks.getMinDamage();
+					}
+				}
+				
 				accuracy = Misc.random(maximumAccuracy);
 				if (damage > 0 && EquipmentSet.AHRIM.isWearing(attacker) && attacker.getItems().isWearingItem(12853) && Misc.random(100) < 30) {
 					damage = Misc.random((int) (attacker.getCombat().magicMaxHit() * 1.3));
@@ -516,6 +535,18 @@ public class AttackNPC {
 					damage = attacker.getCombat().magicMaxHit();
 					accuracy = attacker.getCombat().mageAtk();
 				}
+				
+				/**
+				 * Apply Critical Hit
+				 */
+				if(perks != null) {
+					int randomCrit = Misc.random(100);
+					if(randomCrit < perks.getCritical() && perks.getCritical() > 0 && damage > 0) {
+						damage *= 1.5;
+						attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
+					}
+				}
+				
 				hitmark1 = damage > 0 ? Hitmark.HIT : Hitmark.MISS;
 				hitmark2 = damage2 > 0 ? Hitmark.HIT : Hitmark.MISS;
 				
@@ -531,7 +562,7 @@ public class AttackNPC {
 					AttackPlayer.addCombatXP(attacker, CombatType.MAGE, damage + (damage2 > 0 ? damage2 : 0));
 					attacker.getPA().refreshSkill(6);
 				}
-			}
+			} // End of Magic
 		}
 		if (Boundary.isIn(attacker, PestControl.GAME_BOUNDARY)) {
 			attacker.pestControlDamage += damage;
@@ -553,13 +584,14 @@ public class AttackNPC {
 		/**
 		 * Apply Attack Speed Modifier
 		 */
-		if(mastery != null) {
-			int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
-			WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
-			if(perks != null) {
-				attacker.attackTimer -= perks.getWeaponSpeed();
+		if(!attacker.usingMagic) {
+			if(mastery != null) {
+				int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+				WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+				if(perks != null) {
+					attacker.attackTimer -= perks.getWeaponSpeed();
+				}	
 			}
-			
 		}
 		
 		Damage hit1 = new Damage(defender, damage, delay, attacker.playerEquipment, hitmark1, combatType, special);
@@ -972,8 +1004,8 @@ public class AttackNPC {
 					/**
 					 * Apply poison damage
 					 */
-					if(mastery != null) {
-						int masteryLevel = c.getWeaponMasteryLevel(mastery.getSlot());
+					if(c.usingMagic) {
+						int masteryLevel = c.getWeaponMasteryLevel(WeaponMastery.MAGIC.getSlot());
 						WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
 						if(perks != null) {
 							if(perks.getPoisonChance() > 0 && perks.getPoisonDamage() > 0) {
@@ -985,7 +1017,21 @@ public class AttackNPC {
 								}
 							}
 						}
-						
+					} else {
+						if(mastery != null) {
+							int masteryLevel = c.getWeaponMasteryLevel(mastery.getSlot());
+							WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+							if(perks != null) {
+								if(perks.getPoisonChance() > 0 && perks.getPoisonDamage() > 0) {
+									if (RandomUtils.nextInt(0, perks.getPoisonChance()) == 1) {
+										if(!npc.getHealth().getStatus().isPoisoned()) {
+											npc.getHealth().proposeStatus(HealthStatus.POISON, perks.getPoisonDamage(), Optional.of(c));
+											c.sendMessage("<col=1e9600><shad=000000>Your opponent has been poisoned");
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}

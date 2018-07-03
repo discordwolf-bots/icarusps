@@ -43,6 +43,12 @@ import ethos.model.players.skills.herblore.PoisonedWeapon;
 import ethos.util.Misc;
 
 public class AttackPlayer {
+	
+	private static int oldWMLevel;
+	private static int oldWMExp;
+	private static int newWMLevel;
+	private static int newWMExp;
+	private static String WMType;
 
 	public static void applyPlayerHit(final Player c, final int i, final Damage damage) {
 		c.getCombat().applyPlayerMeleeDamage(i, 1, damage.getAmount(), damage.getHitmark());
@@ -201,44 +207,95 @@ public class AttackPlayer {
 		List<Integer> skills = new ArrayList<>();
 		
 		
-		WeaponMastery mastery = WeaponMastery.forWeapon(c.playerEquipment[c.playerWeapon]);
-		if(mastery != null) {
-			int masterySlot = mastery.getSlot();
+		if(type != CombatType.MAGE) {
+			WeaponMastery mastery = WeaponMastery.forWeapon(c.playerEquipment[c.playerWeapon]);
+			if(mastery != null) {
+				int masterySlot = mastery.getSlot();
+				switch (type) {
+					default:
+					case MELEE:
+						if(masterySlot != WeaponMastery.BOW.getSlot() 
+						&& masterySlot != WeaponMastery.CROSSBOW.getSlot() 
+						&& masterySlot != WeaponMastery.PROJECTILE.getSlot() 
+						&& masterySlot != WeaponMastery.MAGIC.getSlot()) {
+							WMType = mastery.getMasteryName();
+							oldWMLevel = c.getWeaponMasteryLevel(masterySlot);
+							oldWMExp = c.getMasteryExperience(masterySlot);
+							c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
+							if(c.getName().equalsIgnoreCase("wolf")) {
+								c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
+								c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
+							}
+							newWMLevel = c.getWeaponMasteryLevel(masterySlot);
+							newWMExp = c.getMasteryExperience(masterySlot);
+						}
+						break;
+					case RANGE:
+						if(masterySlot == WeaponMastery.BOW.getSlot()
+						|| masterySlot == WeaponMastery.CROSSBOW.getSlot()
+						|| masterySlot == WeaponMastery.PROJECTILE.getSlot()) {
+							WMType = mastery.getMasteryName();
+							oldWMLevel = c.getWeaponMasteryLevel(masterySlot);
+							oldWMExp = c.getMasteryExperience(masterySlot);
+							c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
+							if(c.getName().equalsIgnoreCase("wolf")) {
+								c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
+								c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
+							}
+							newWMLevel = c.getWeaponMasteryLevel(masterySlot);
+							newWMExp = c.getMasteryExperience(masterySlot);
+						}
+						break;
+				}
+			}
+		} else {
+			int masterySlot = WeaponMastery.MAGIC.getSlot();
+			switch (type) {
+			case MAGE:
+				WMType = WeaponMastery.forSlot(masterySlot).getMasteryName();
+				oldWMLevel = c.getWeaponMasteryLevel(masterySlot);
+				oldWMExp = c.getMasteryExperience(masterySlot);
+				c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
+				if(c.getName().equalsIgnoreCase("wolf")) {
+					c.sendMessage("Gained " + damage + " experience in " + WeaponMastery.MAGIC.getMasteryName());
+					c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
+				}
+				newWMLevel = c.getWeaponMasteryLevel(masterySlot);
+				newWMExp = c.getMasteryExperience(masterySlot);
+				break;
+			default:
+				break;
+			}
+		}
+		
+		/**
+		 * Level up Weapon Masteries
+		 */
+		if(newWMLevel > oldWMLevel) {
 			switch (type) {
 				default:
 				case MELEE:
-					if(masterySlot != WeaponMastery.BOW.getSlot() 
-					&& masterySlot != WeaponMastery.CROSSBOW.getSlot() 
-					&& masterySlot != WeaponMastery.PROJECTILE.getSlot() 
-					&& masterySlot != WeaponMastery.MAGIC.getSlot()) {
-						c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
-						if(c.getName().equalsIgnoreCase("wolf")) {
-							c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
-							c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
-						}
+					c.sendMessage("[<col=aa1212>WeaponMastery</col>] <img=45> Your <col=aa1212><shad=000000>" + WMType + "</col></shad> Level is now " + newWMLevel);
+					if(newWMLevel == 99) {
+						PlayerHandler.executeGlobalMessage("[<col=aa1212>WeaponMastery</col>] <img=45> " + c.getName() + " has just reached level 99 in <col=aa1212><shad=000000>" + WMType + "</col></shad>");
 					}
 					break;
 				case RANGE:
-					if(masterySlot == WeaponMastery.BOW.getSlot()
-					|| masterySlot == WeaponMastery.CROSSBOW.getSlot()
-					|| masterySlot == WeaponMastery.PROJECTILE.getSlot()) {
-						c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
-						if(c.getName().equalsIgnoreCase("wolf")) {
-							c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
-							c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
-						}
+					c.sendMessage("[<col=12aa43>WeaponMastery</col>] <img=49> Your <col=12aa43><shad=000000>" + WMType + "</col></shad> Level is now " + newWMLevel);
+					if(newWMLevel == 99) {
+						PlayerHandler.executeGlobalMessage("[<col=12aa43>WeaponMastery</col>] <img=49> " + c.getName() + " has just reached level 99 in <col=12aa43><shad=000000>" + WMType + "</col></shad>");
 					}
 					break;
 				case MAGE:
-					if(masterySlot == WeaponMastery.MAGIC.getSlot()) {
-						c.setMasteryExperience(masterySlot, c.getMasteryExperience(masterySlot) + damage);
-						if(c.getName().equalsIgnoreCase("wolf")) {
-							c.sendMessage("Gained " + damage + " experience in " + mastery.getMasteryName());
-							c.sendMessage("Now have " + c.getMasteryExperience(masterySlot) + "xp : Level " + c.getWeaponMasteryLevel(masterySlot));
-						}}
+					c.sendMessage("[<col=125aaa>WeaponMastery</col>] <img=51> Your <col=125aaa><shad=000000>" + WMType + "</col></shad> Level is now " + newWMLevel);
+					if(newWMLevel == 99) {
+						PlayerHandler.executeGlobalMessage("[<col=125aaa>WeaponMastery</col>] <img=51> " + c.getName() + " has just reached level 99 in <col=125aaa><shad=000000>" + WMType + "</col></shad>");
+					}
 					break;
 			}
-		}		
+		}
+		
+		// TODO: Experience milestones
 		
 		switch (type) {
 		
