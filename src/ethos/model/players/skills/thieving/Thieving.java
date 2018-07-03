@@ -313,31 +313,31 @@ public class Thieving {
 		}), FARMER(60, 65, 36000, new HashMap<Rarity, List<GameItem>>() {
 			{
 				put(Rarity.ALWAYS, Arrays.asList(new GameItem(5291), new GameItem(5292), new GameItem(5293)));
-				put(Rarity.COMMON, Arrays.asList(new GameItem(5294), new GameItem(5297), new GameItem(2677), new GameItem(5296)));
-				put(Rarity.UNCOMMON, Arrays.asList(new GameItem(5295), new GameItem(5298), new GameItem(2801), new GameItem(5301), new GameItem(5302)));
-				put(Rarity.RARE, Arrays.asList(new GameItem(5299), new GameItem(5300), new GameItem(2722), new GameItem(5303)));
-				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(19841)));
+				put(Rarity.COMMON, Arrays.asList(new GameItem(5294), new GameItem(5297), new GameItem(5296)));
+				put(Rarity.UNCOMMON, Arrays.asList(new GameItem(5295), new GameItem(5298), new GameItem(5301), new GameItem(5302)));
+				put(Rarity.RARE, Arrays.asList(new GameItem(5299), new GameItem(5300), new GameItem(5303)));
+				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(2677), new GameItem(2801), new GameItem(2722), new GameItem(19841)));
 			}
 		}), MENAPHITE_THUG(65, 75, 35000, new HashMap<Rarity, List<GameItem>>() {
 			{
 				put(Rarity.ALWAYS, Arrays.asList(new GameItem(995, 1000), new GameItem(995, 800), new GameItem(995, 950)));
-				put(Rarity.UNCOMMON, Arrays.asList(new GameItem(560, 2), new GameItem(565), new GameItem(2801), new GameItem(1601)));
-				put(Rarity.RARE, Arrays.asList(new GameItem(2722)));
-				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(19841)));
+				put(Rarity.UNCOMMON, Arrays.asList(new GameItem(560, 2), new GameItem(565), new GameItem(1333), new GameItem(1601)));
+				put(Rarity.RARE, Arrays.asList(new GameItem(20791)));
+				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(2677), new GameItem(2801), new GameItem(2722), new GameItem(19841)));
 			} 
 		}), GNOME(75, 85, 33000, new HashMap<Rarity, List<GameItem>>() {
 			{
 				put(Rarity.ALWAYS, Arrays.asList(new GameItem(995, 1200), new GameItem(995, 800), new GameItem(995, 1250)));
 				put(Rarity.UNCOMMON, Arrays.asList(new GameItem(444), new GameItem(557), new GameItem(13431, 5)));
-				put(Rarity.RARE, Arrays.asList(new GameItem(2722)));
-				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(19841)));
+				put(Rarity.RARE, Arrays.asList(new GameItem(20791)));
+				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(2677), new GameItem(2801), new GameItem(2722), new GameItem(19841)));
 			}
 		}), HERO(80, 100, 30000, new HashMap<Rarity, List<GameItem>>() {
 			{
 				put(Rarity.ALWAYS, Arrays.asList(new GameItem(995, 1500), new GameItem(995, 1800), new GameItem(995, 3500)));
 				put(Rarity.UNCOMMON, Arrays.asList(new GameItem(560, 2), new GameItem(565), new GameItem(2801), new GameItem(1601)));
-				put(Rarity.RARE, Arrays.asList(new GameItem(2722)));
-				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(19841)));
+				put(Rarity.RARE, Arrays.asList(new GameItem(20791)));
+				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(2677), new GameItem(2801), new GameItem(2722), new GameItem(19841)));
 			}
 		});
 		
