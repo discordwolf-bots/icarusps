@@ -541,6 +541,7 @@ public class AttackNPC {
 				 */
 				if(perks != null) {
 					int randomCrit = Misc.random(100);
+					attacker.sendMessage("Crit chance? " + randomCrit);
 					if(randomCrit < perks.getCritical() && perks.getCritical() > 0 && damage > 0) {
 						damage *= 1.5;
 						attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
