@@ -286,7 +286,7 @@ public class Thieving {
 	}
 
 	private enum Rarity {
-		ALWAYS(0), COMMON(8), UNCOMMON(11), RARE(15), VERY_RARE(50);
+		ALWAYS(0), COMMON(8), UNCOMMON(11), RARE(40), VERY_RARE(50);
 
 		/**
 		 * The rarity
@@ -339,6 +339,17 @@ public class Thieving {
 				put(Rarity.RARE, Arrays.asList(new GameItem(20791)));
 				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(5304), new GameItem(2677), new GameItem(2801), new GameItem(2722), new GameItem(19841)));
 			}
+		}), Guard(40, 50, 45000, new HashMap<Rarity, List<GameItem>>() {
+			{
+				put(Rarity.ALWAYS, Arrays.asList(new GameItem(995, 750), new GameItem(995, 1000), new GameItem(995, 1250)));
+				put(Rarity.VERY_RARE, Arrays.asList(new GameItem(2677), new GameItem(20791)));
+				
+			}
+	   }), Knight_of_Ardougne(55, 70, 35000, new HashMap<Rarity, List<GameItem>>() {
+		{
+			put(Rarity.ALWAYS, Arrays.asList(new GameItem(995, 750), new GameItem(995, 1000), new GameItem(995, 1250)));
+			put(Rarity.VERY_RARE, Arrays.asList(new GameItem(2677), new GameItem(20791)));
+		}
 		});
 		
 
