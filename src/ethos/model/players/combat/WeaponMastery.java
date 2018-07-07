@@ -20,6 +20,7 @@ public enum WeaponMastery {
 	
 	SWORD(1, 
 			new int[] {
+				20155, // gilded 2h sword
 				6527, // obby maul sword
 				6523, // obby sword
 				21009, // dragon sword
@@ -77,6 +78,7 @@ public enum WeaponMastery {
 	
 	SCIMITAR(4, 
 			new int[] {
+				12389, // gilded scimtar
 				1333, // rune scimtar
 				4587, // Dragon Scimitar
 				20000, // Dragon Scimitar (or)
@@ -190,6 +192,8 @@ public enum WeaponMastery {
 	
 	SPEAR(13, 
 			new int[] {
+				20158, // gilded spear
+				20161, // gilded hasta
 				3202, // rune hally
 				1247, // rune spear
 				1261, // rune spear(p)
