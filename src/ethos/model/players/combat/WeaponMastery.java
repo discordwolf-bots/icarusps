@@ -171,6 +171,7 @@ public enum WeaponMastery {
 	
 	WARHAMMER(11, 
 			new int[] {
+				21003, // elder maul
 				4153, // granite maul
 				6528, // obby maul
 				1347, // rune war hammer
