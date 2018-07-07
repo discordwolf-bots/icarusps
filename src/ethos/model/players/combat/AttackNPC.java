@@ -217,6 +217,7 @@ public class AttackNPC {
 				if (defender.getHealth().getAmount() - damage < 0) {
 					damage = defender.getHealth().getAmount();
 				}
+				
 				if (damage2 > 0) {
 					if (damage == defender.getHealth().getAmount() && defender.getHealth().getAmount() - damage2 > 0) {
 						damage2 = 0;
@@ -228,6 +229,30 @@ public class AttackNPC {
 				if (damage < 0) {
 					damage = 0;
 				}
+				
+				/**
+				 * Apply life steal
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						int randomCrit = Misc.random(100);
+						if(randomCrit < perks.getLifeSteal() && perks.getLifeSteal() > 0 && damage > 0) {
+							int toHeal = damage;
+							toHeal *= perks.getLifeStealAmount();
+							toHeal /= 100;
+							if(attacker.getHealth().getAmount()+toHeal > attacker.getMaximumHealth()) {
+								toHeal = attacker.getMaximumHealth() - attacker.getHealth().getAmount();
+							}
+							attacker.getHealth().increase(toHeal);
+							if(toHeal > 0) {
+								attacker.sendMessage("<col=ff6464><shad=000000>[Weapon Mastery] You restore " + toHeal + " health!");								
+							}
+						}
+					}
+				}
+				
 				if (damage2 < 0 && damage2 != -1) {
 					damage2 = 0;
 				}
@@ -408,6 +433,29 @@ public class AttackNPC {
 				}
 				if (damage < 0)
 					damage = 0;
+				
+				/**
+				 * Apply life steal
+				 */
+				if(mastery != null) {
+					int masteryLevel = attacker.getWeaponMasteryLevel(mastery.getSlot());
+					WeaponPerks perks = WeaponPerks.forLevel(masteryLevel);
+					if(perks != null) {
+						int randomCrit = Misc.random(100);
+						if(randomCrit < perks.getLifeSteal() && perks.getLifeSteal() > 0 && damage > 0) {
+							int toHeal = damage / 100;
+							toHeal *= perks.getLifeStealAmount();
+							if(attacker.getHealth().getAmount()+toHeal > attacker.getMaximumHealth()) {
+								toHeal = attacker.getMaximumHealth() - attacker.getHealth().getAmount();
+							}
+							attacker.getHealth().increase(toHeal);
+							if(toHeal > 0) {
+								attacker.sendMessage("<col=ff6464><shad=000000>You steal " + toHeal + " health!");								
+							}
+						}
+					}
+				}
+				
 				if (damage2 < 0 && damage2 != -1)
 					damage2 = 0;
 				hitmark1 = damage > 0 ? Hitmark.HIT : Hitmark.MISS;
@@ -541,12 +589,31 @@ public class AttackNPC {
 				 */
 				if(perks != null) {
 					int randomCrit = Misc.random(100);
-					attacker.sendMessage("Crit chance? " + randomCrit);
 					if(randomCrit < perks.getCritical() && perks.getCritical() > 0 && damage > 0) {
 						damage *= 1.5;
 						attacker.sendMessage("<col=ff6464><shad=000000>CRITICAL HIT!");
 					}
 				}
+				
+				/**
+				 * Apply life steal
+				 */
+				if(perks != null) {
+					int randomCrit = Misc.random(100);
+					if(randomCrit < perks.getLifeSteal() && perks.getLifeSteal() > 0 && damage > 0) {
+						int toHeal = damage / 100;
+						toHeal *= perks.getLifeStealAmount();
+						if(attacker.getHealth().getAmount()+toHeal > attacker.getMaximumHealth()) {
+							toHeal = attacker.getMaximumHealth() - attacker.getHealth().getAmount();
+						}
+						attacker.getHealth().increase(toHeal);
+						if(toHeal > 0) {
+							attacker.sendMessage("<col=ff6464><shad=000000>You steal " + toHeal + " health!");								
+						}
+					}
+				}
+				
+				
 				
 				hitmark1 = damage > 0 ? Hitmark.HIT : Hitmark.MISS;
 				hitmark2 = damage2 > 0 ? Hitmark.HIT : Hitmark.MISS;
