@@ -71,6 +71,10 @@ public enum WeaponPerks {
 		return weaponSpeed;
 	}
 	
+	public int getLifeSteal() {
+		return lifeSteal;
+	}
+	
 	
 	/**
 	 * Finds the highest level of perk you can use based on your level
