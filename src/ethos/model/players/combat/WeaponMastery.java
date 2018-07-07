@@ -147,7 +147,14 @@ public enum WeaponMastery {
 	
 	PROJECTILE(8, 
 			new int[] {
+				811, //rune dart
+				817, // rune dart (p)
+				5634, // rune dart (p+)
+				5641, // rune dart (p++)
 				868, // rune knife
+				876, // rune kife (p)
+				5660, // rune knife (p+)
+				5667, // rune (p++)
 				6522, // obby rings
 				20849, // dragon throwing axe
 				11230, // Dragon Dart
