@@ -32,6 +32,10 @@ public enum WeaponMastery {
 				7142, // rapier
 				11902, // leaf- bladed sword
 				1305, // Dragon Longsword
+				1319, // rune 2h sword
+				1303, // rune longsword
+				1289, // rune short sword
+				11037, // brine sabre
 				7185, // Dragon 2h Sword
 				6607, // White Longsword
 				6605, // White sword
@@ -50,7 +54,8 @@ public enum WeaponMastery {
 	
 	AXE(2, 
 			new int[] {
-				6528, // obby maul
+				1373, // rune battle axe
+				1377, // dragon battle axe
 				6589, // white battle axe
 				20727, // leaf-bladed battleaxe
 				1377, // Dragon Battleaxe
@@ -72,6 +77,7 @@ public enum WeaponMastery {
 	
 	SCIMITAR(4, 
 			new int[] {
+				1333, // rune scimtar
 				4587, // Dragon Scimitar
 				20000, // Dragon Scimitar (or)
 				6611 // White Scimitar
@@ -81,6 +87,10 @@ public enum WeaponMastery {
 	
 	DAGGER(5, 
 			new int[] {
+				1213, // rune dagger
+				1229, // rune dagger (p)
+				5678, // rune dagger (P+)
+				5696, // rune dagger (p++)
 				6525, // obby looking dagger
 				1215, // dragon dagger
 				1231, // dragon dagger (p)
@@ -96,7 +106,13 @@ public enum WeaponMastery {
 	
 	BOW(6, 
 			new int[] {
+				855, // yew longbow
+				857, // yew shortbow
 				12424, // 3rd age bow
+				12765, // green dark bow
+				12766, // blue dark bow
+				12767, // yellow dark bow
+				12768, // white dark bow
 				861, // Magic Shortbow
 				859, // Magic Longbow
 				11235, // Dark Bow
@@ -117,6 +133,7 @@ public enum WeaponMastery {
 	
 	CROSSBOW(7, 
 			new int[] {
+				21012, // dragon hunter crossbow
 				4734, // karils cross bow
 				9185, // Rune C'Bow
 				11785 // Armadyl C'Bow
@@ -126,6 +143,7 @@ public enum WeaponMastery {
 	
 	PROJECTILE(8, 
 			new int[] {
+				868, // rune knife
 				6522, // obby rings
 				20849, // dragon throwing axe
 				11230, // Dragon Dart
@@ -153,6 +171,9 @@ public enum WeaponMastery {
 	
 	WARHAMMER(11, 
 			new int[] {
+				4153, // granite maul
+				6528, // obby maul
+				1347, // rune war hammer
 				13576 // Dragon Warhammer
 			},
 		"Warhammer"
@@ -160,6 +181,7 @@ public enum WeaponMastery {
 	
 	MACE(12, 
 			new int[] {
+				1432, // rune mace
 				1434 // Dragon Mace
 			},
 		"Mace"
@@ -167,6 +189,11 @@ public enum WeaponMastery {
 	
 	SPEAR(13, 
 			new int[] {
+				3202, // rune hally
+				1247, // rune spear
+				1261, // rune spear(p)
+				5714, // rune spear (P+)
+				5728, // rune spear (p++)
 				1256, // d spear p
 				5716, // d spear P+
 				5730, // d spear p++
