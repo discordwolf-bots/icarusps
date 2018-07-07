@@ -135,6 +135,8 @@ public enum WeaponMastery {
 	
 	CROSSBOW(7, 
 			new int[] {
+				19481, // heavy balista
+				19478, // light balista
 				21012, // dragon hunter crossbow
 				4734, // karils cross bow
 				9185, // Rune C'Bow
