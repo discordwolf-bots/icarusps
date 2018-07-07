@@ -20,6 +20,9 @@ public enum WeaponMastery {
 	
 	SWORD(1, 
 			new int[] {
+				6527, // obby maul sword
+				6523, // obby sword
+				21009, // dragon sword
 				12808, // saradomin blessed sword (full)
 				12809, //  saradomin blessed sword
 				11838, //  saradomin sword
@@ -47,6 +50,7 @@ public enum WeaponMastery {
 	
 	AXE(2, 
 			new int[] {
+				6528, // obby maul
 				6589, // white battle axe
 				20727, // leaf-bladed battleaxe
 				1377, // Dragon Battleaxe
@@ -77,6 +81,7 @@ public enum WeaponMastery {
 	
 	DAGGER(5, 
 			new int[] {
+				6525, // obby looking dagger
 				1215, // dragon dagger
 				1231, // dragon dagger (p)
 				5680, // dragon dagger (p+)
@@ -121,6 +126,8 @@ public enum WeaponMastery {
 	
 	PROJECTILE(8, 
 			new int[] {
+				6522, // obby rings
+				20849, // dragon throwing axe
 				11230, // Dragon Dart
 				10033, // Chinchompa
 				10034, // Red Chinchompa
