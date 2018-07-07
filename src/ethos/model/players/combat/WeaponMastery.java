@@ -20,6 +20,9 @@ public enum WeaponMastery {
 	
 	SWORD(1, 
 			new int[] {
+				12808, // saradomin blessed sword (full)
+				12809, //  saradomin blessed sword
+				11838, //  saradomin sword
 				12426, // 3rd age long sword
 				7140, // harry's cutlass
 				7141, // lucky cutlass
@@ -54,6 +57,7 @@ public enum WeaponMastery {
 	
 	BARROWS(3, 
 			new int[] {
+				4710, //  ahrims staff
 				4755, // Verac Flail
 				4726, // Guthan Warspear
 				4747, // Torag Hammers
@@ -73,6 +77,9 @@ public enum WeaponMastery {
 	
 	DAGGER(5, 
 			new int[] {
+				1215, // dragon dagger
+				1231, // dragon dagger (p)
+				5680, // dragon dagger (p+)
 				5698, // Dragon Dagger (p++)
 				13265, // Abyssal Dagger
 				13267, // Abyssal Dagger (p)
@@ -153,6 +160,9 @@ public enum WeaponMastery {
 	
 	SPEAR(13, 
 			new int[] {
+				1256, // d spear p
+				5716, // d spear P+
+				5730, // d spear p++
 				13092, // c hally full
 				13093, // c hally 9/10
 				13094, // c hally 8/10
