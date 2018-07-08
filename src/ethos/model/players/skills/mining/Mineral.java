@@ -143,7 +143,7 @@ public enum Mineral {
 					150, // experience
 					-1, // depletion (1 in value+1)
 					100, // respawn rate (cycles to respawn)
-					17, // extraction rate
+					30, // extraction rate
 					11500, // pet chance
 					false, // does it deplete?
 					generateExclusive(21347) // mineral return
