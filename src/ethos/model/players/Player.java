@@ -59,6 +59,7 @@ import ethos.model.content.instances.InstancedAreaManager;
 import ethos.model.content.kill_streaks.Killstreak;
 import ethos.model.content.presets.Presets;
 import ethos.model.content.prestige.PrestigeSkills;
+import ethos.model.content.ExperienceLamp;
 import ethos.model.content.safebox.SafeBox;
 import ethos.model.content.staff.PunishmentPanel;
 import ethos.model.content.teleportation.TeleportHandler;
@@ -205,6 +206,7 @@ public class Player extends Entity {
 	 */
 	private ExpLock explock = new ExpLock(this);
 	private PrestigeSkills prestigeskills = new PrestigeSkills(this);
+	private ExperienceLamp experienceLamp = new ExperienceLamp(this);
 	private LootingBag lootingBag = new LootingBag(this);
 	private SafeBox safeBox = new SafeBox(this);
 	public RechargeItems getRechargeItems() {
@@ -4863,6 +4865,11 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 	public PrestigeSkills getPrestige() {
 		return prestigeskills;
 	}
+	
+	public ExperienceLamp getExperienceLamp() {
+		return experienceLamp;
+	}
+	
 	public ExpLock getExpLock() {
 		return explock;
 	}

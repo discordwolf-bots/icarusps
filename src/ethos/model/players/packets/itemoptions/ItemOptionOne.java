@@ -446,12 +446,16 @@ public class ItemOptionOne implements PacketType {
 		if (itemId == 19835) {
 			MasterClue.progressScroll(c);
 		}
+		
+		// Experience Lamp
 		if (itemId == 2528) {
 			c.usingLamp = true;
 			c.normalLamp = true;
 			c.antiqueLamp = false;
 			c.sendMessage("You rub the lamp...");
-			c.getPA().showInterface(2808);
+			// Initialise
+			c.getPA().sendFrame126("Current Level: @whi@" + c.playerLevel[c.playerAttack], 37608);
+			c.getPA().showInterface(37600);
 		}
 		/*
 		 * if (itemId == 4447) { c.usingLamp = true; c.antiqueLamp = true; c.normalLamp = false; c.sendMessage("You rub the antique lamp of 13 million experience..." );

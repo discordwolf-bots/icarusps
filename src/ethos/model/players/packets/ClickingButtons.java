@@ -82,6 +82,9 @@ public class ClickingButtons implements PacketType {
 		if (c.getPrestige().prestigeClicking(c, actionButtonId)) {
 			return;
 		}
+		if(c.getExperienceLamp().experienceClicking(c, actionButtonId)) {
+			return;
+		}
 		if (c.getExpLock().ExpLockClicking(c, actionButtonId)) {
 			return;
 		}
