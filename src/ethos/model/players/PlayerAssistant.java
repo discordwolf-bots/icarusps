@@ -3663,6 +3663,9 @@ public void sendFrame107() {
 			amount *= 0;
 		}
 		
+		// 5% extra experience for linking account with Discord
+		if(c.getDiscord() != null)
+			amount *= 1.05;
 		
 		if (dropExperience) {
 			c.getPA().sendExperienceDrop(true, amount, skill);

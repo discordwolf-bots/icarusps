@@ -1,5 +1,6 @@
 package ethos.discord.api;
 
+import ethos.discord.main.BotMain;
 import ethos.model.players.Player;
 import ethos.model.players.PlayerHandler;
 import ethos.model.players.skills.Skill;
@@ -21,7 +22,7 @@ public class CommandProcessor {
 		
 		String[] command = message.getContent().replaceFirst(prefix, "").split(" ");
 		
-		IChannel feedChannel = message.getClient().getChannelByID(458715499556110344L);
+		IChannel feedChannel = message.getClient().getChannelByID(BotMain.channelID);
 		
 		
 		/**
@@ -67,8 +68,8 @@ public class CommandProcessor {
 			EmbedBuilder builder = new EmbedBuilder();
 			String skillName = Skill.forId(1).name().toLowerCase();
 			skillName = skillName.substring(0, 1).toUpperCase() + skillName.substring(1);
-			IEmoji emoji = message.getClient().getGuildByID(418458996941258752L).getEmojiByName(skillName);
-			builder.withAuthorName(message.getAuthor().getName());
+			IEmoji emoji = message.getClient().getGuildByID(BotMain.guildID).getEmojiByName(skillName);
+			builder.withAuthorName(message.getAuthor().getDisplayName(guild));
 			builder.appendField(emoji + " test", "hello", false);
 			feedChannel.sendMessage(builder.build());
 			message.delete();
@@ -106,6 +107,7 @@ public class CommandProcessor {
 					if(c.discord != null) {
 						pm.sendMessage("You have successfully linked your Discord account to the account " + c.getName());
 						System.err.println("[LINK] User " + c.getName() + " successfully linked to Discord");
+						feedChannel.sendMessage(sender.getDisplayName(guild) + " has linked their account : " + c.getName());
 						return;
 					}
 					

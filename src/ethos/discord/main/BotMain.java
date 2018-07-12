@@ -20,7 +20,9 @@ import sx.blah.discord.util.EmbedBuilder;
 public class BotMain {
 	
 	public static final String token = DiscordToken.token;
-	public static final String channelID = "458715499556110344";
+	
+	public static final long channelID = 458715499556110344L;
+	public static final long guildID = 418458996941258752L;
 	
 	public static final IDiscordClient bot = createClient(token, true);
 	
@@ -45,7 +47,7 @@ public class BotMain {
 	}
 	
 	public static void sendFeed(Player c, String msg, int feedType, String[] extra) {
-		IChannel feedChannel = bot.getChannelByID(458715499556110344L);
+		IChannel feedChannel = bot.getChannelByID(channelID);
 		
 		EmbedBuilder builder = new EmbedBuilder();
 		builder.withTimestamp(System.currentTimeMillis());
@@ -63,7 +65,7 @@ public class BotMain {
 		
 		if(user != null) {
 			builder.withAuthorIcon(user.getAvatarURL());
-			builder.withAuthorName(user.getName());
+			builder.withAuthorName(user.getDisplayName(bot.getGuildByID(guildID)));
 			builder.withColor(Color.decode("#" + c.getRights().getPrimary().getColor()));
 		}
 		
@@ -71,29 +73,29 @@ public class BotMain {
 			case 0: // Level up 99
 				skillName = Skill.forId(Integer.parseInt(extra[0])).name().toLowerCase();
 				skillName = skillName.substring(0, 1).toUpperCase() + skillName.substring(1);
-				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName(skillName);
+				emoji = bot.getGuildByID(guildID).getEmojiByName(skillName);
 				builder.appendField(emoji + " Level Up!", "**" + c.getName() + "** has reached level 99 in " + skillName, false);
 				break;
 			case 1: // Level up 120
 				skillName = Skill.forId(Integer.parseInt(extra[0])).name().toLowerCase();
 				skillName = skillName.substring(0, 1).toUpperCase() + skillName.substring(1);
-				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName(skillName);
+				emoji = bot.getGuildByID(guildID).getEmojiByName(skillName);
 				builder.appendField(emoji + " Level Up!", "**" +  c.getName() + "** has reached level 120 in " + skillName, false);
 				break;
 			case 2: // 99 Everything
-				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName("Overall");
+				emoji = bot.getGuildByID(guildID).getEmojiByName("Overall");
 				builder.appendField(emoji + " Maxed!", "**" +  c.getName() + "** has reached level 99 in **ALL** skills", false);
 				break;
 			case 3: // Rare Drop
-				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName("Money");
+				emoji = bot.getGuildByID(guildID).getEmojiByName("Money");
 				builder.appendField(emoji + " Rare Drop!", "**" +  c.getName() + "** just found " + Integer.parseInt(extra[0]) + " x " + extra[1], false);
 				break;
 			case 4: // Pet
-				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName("Pet");
+				emoji = bot.getGuildByID(guildID).getEmojiByName("Pet");
 				builder.appendField(emoji + " Pet!", "**" +  c.getName() + "** just got a " + extra[0] + " pet", false);
 				break;
 			case 5: // Update!
-				emoji = bot.getGuildByID(418458996941258752L).getEmojiByName("Clock");
+				emoji = bot.getGuildByID(guildID).getEmojiByName("Clock");
 				builder.appendField(emoji + " Update!", "**" +  c.getName() + "** has set an update for " + extra[0] + " seconds", false);
 				break;				
 		}
