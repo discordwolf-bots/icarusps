@@ -17,7 +17,7 @@ public class Donatorzone extends Command {
 		if (c.inTrade || c.inDuel || c.inWild()) {
 			return;
 		}
-		c.getPA().startTeleport(2135, 4913, 0, "modern");
+		c.getPA().startTeleport(2953, 3880, 0, "modern");
 	}
 
 	@Override

@@ -21,7 +21,7 @@ public class Dz extends Command {
 			c.sendMessage("@cr10@This player is currently at the pk district.");
 			return;
 		}
-		c.getPA().startTeleport(2135, 4913, 0, "modern");
+		c.getPA().startTeleport(2953, 3880, 0, "modern");
 	}
 
 	@Override
