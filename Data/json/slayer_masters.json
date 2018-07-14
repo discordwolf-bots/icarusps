@@ -207,7 +207,7 @@
                 "minimum": 10,
                 "maximum": 50,
 				"locations": [ "Wilderness Level 14-24" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [2976, 3601, 0]
             },
             {
                 "names": [ "elf warrior" ],
@@ -885,7 +885,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "West of Wildy Agility" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [2986, 3911, 0]
             },
 			{
                 "names": [ "abyssal demon" ],
@@ -894,16 +894,16 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "South of Wildy Resource" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3339, 3888, 0]
             },
 			{
                 "names": [ "lava dragon" ],
-                "level": 1,
+                "level": 10,
                 "experience": 228,
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "Lava Dragon Teleport" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3202, 3860, 0]
             },
 			{
                 "names": [ "green dragon" ],
@@ -912,7 +912,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "East and West Teleports" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [2976, 3601, 0]
             },
 			{
                 "names": [ "skeleton" ],
@@ -920,8 +920,8 @@
                 "experience": 70,
                 "minimum": 55,
                 "maximum": 95,
-				"locations": [ "South of Dark Warriors Castle" ],
-				"teleport": [-1, -1, -1]
+				"locations": [ "edgevill dungeon" ],
+				"teleport": [3133, 9937, 0]
             },
 			{
                 "names": [ "chaos druid" ],
@@ -930,7 +930,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "edgevill dungeon" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3133, 9937, 0]
             },
 			{
                 "names": [ "lesser demon" ],
@@ -939,7 +939,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "Demonic Ruins" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3307, 3811, 0]
             },
 			{
                 "names": [ "black demon" ],
@@ -948,7 +948,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "Edgeville Dungeon" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3094, 9963, 0]
             },
 			{
                 "names": [ "ice warrior" ],
@@ -957,7 +957,7 @@
                 "minimum": 45,
                 "maximum": 75,
 				"locations": [ "South West of Wildy Agility" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [2960, 3884, 0]
             },
 			{
                 "names": [ "ankou" ],
@@ -966,7 +966,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "Forgotten Cemetary" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [2970, 3737, 0]
             },
 			{
                 "names": [ "ent" ],
@@ -975,7 +975,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "East of Chaos Altar" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3297, 3641, -1]
             },
 			{
                 "names": [ "fire giant" ],
@@ -984,7 +984,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "Wilderness Volcano" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3367, 3926, 0]
             },
 			{
                 "names": [ "hellhound" ],
@@ -993,7 +993,7 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "North East of Wildy Resource" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3211, 3941, 0]
             },
 			{
                 "names": [ "earth warrior" ],
@@ -1001,8 +1001,8 @@
                 "experience": 44,
                 "minimum": 55,
                 "maximum": 95,
-				"locations": [ "Dwarf Cave" ],
-				"teleport": [-1, -1, -1]
+				"locations": [ "edgevill dungeon" ],
+				"teleport": [3120, 9971, 0]
             },
 			{
                 "names": [ "mammoth" ],
@@ -1011,16 +1011,16 @@
                 "minimum": 55,
                 "maximum": 95,
 				"locations": [ "East of Wildy Agility Bridge" ],
-				"teleport": [-1, -1, -1]
+				"teleport": [3011, 3909, 0]
             },
 			{
-                "names": [ "dark warrior" ],
+                "names": [ "Chaos_dwarf" ],
                 "level": 1,
                 "experience": 162,
                 "minimum": 55,
                 "maximum": 95,
-				"locations": [ "Dark Warriors Fortress" ],
-				"teleport": [-1, -1, -1]
+				"locations": [ "dwarf cave entrance" ],
+				"teleport": [3247, 3801, 0]
             }
 		]
 	}
