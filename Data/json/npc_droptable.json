@@ -304,23 +304,6 @@
       ]
     }
   },
-  {
-  "npc_id": 6606,
-  "constant": {
-	"accessibility": 0,
-		"items": [
-		{
-		"item": 74
-		"minimum": 1,
-		"maximum": 1
-		},
-		"item": 75
-		"minimum": 1,
-		"maximum": 1
-	    }
-      ]
-    }
-  },
     {
     "npc_id": 6604,
     "constant": {
