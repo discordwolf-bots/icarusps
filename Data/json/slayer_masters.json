@@ -352,7 +352,7 @@
                 "teleport": [2835, 9821, 0]
             },
             {
-                "names": [ "bloodveld", "insatiable bloodveld" ],
+                "names": [ "bloodveld", "mutated bloodveld", "insatiable bloodveld" ],
                 "level": 50,
                 "experience": 134,
                 "minimum": 80,
@@ -1013,6 +1013,13 @@
 				"locations": [ "East of Wildy Agility Bridge" ],
 				"teleport": [3011, 3909, 0]
             },
+			    "names": [ "shadow warrior" ],
+                "level": 1,
+                "experience": 120,
+                "minimum": 55,
+                "maximum": 95,
+				"locations": [ "Dark castle" ],
+				"teleport": [3016, 3632, 0]
 			{
                 "names": [ "Chaos_dwarf" ],
                 "level": 1,
