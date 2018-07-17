@@ -31,7 +31,7 @@ public class TeleportHandler {
 		this.c = player;
 	}
 
-	String[] monsterNames = { "Select your Monster Teleport", "Rock Crabs", "Cows", "Yaks", "Bob's Island",
+	String[] monsterNames = { "Select your Monster Teleport", "Rock Crabs", "Cows", "Normal dragon;s", "Bob's Island",
 			"Desert Bandits", "Elf Warriors", "Dagannoths", "Chickens", "Slayer Tower", "Brimhaven Dungeon",
 			"Taverley Dungeon", "Stronghold Cave", "Relleka Dungeon", "Mithril Dragons", "Asgarnian Ice Cave",
 			"Catacombs", "Cave Kraken", "Smoke Devils", "", "" };
@@ -305,8 +305,8 @@ public class TeleportHandler {
 		case 254030:
 			if (!teleportCheck(player))
 				return;
-			if (player.teleSelected == 0) { // Monster - Yaks
-				player.getPA().startTeleport(2326, 3801, 0, "modern");
+			if (player.teleSelected == 0) { // Monster - Normal dragons
+				player.getPA().startTeleport(3297, 9824, 0, "modern");
 				player.sendMessage("Teleporting to " + monsterNames[3] + ".");
 			} else if (player.teleSelected == 1) { // Minigames - Pest Control
 				player.getPA().startTeleport(2660, 2648, 0, "modern");
