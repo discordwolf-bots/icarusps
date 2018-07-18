@@ -558,6 +558,14 @@
                 "locations": [ "brimhaven dungeon" ],
                 "teleport": [2711, 9432, 0]
             },
+			    "names": [ "King white knight", ],
+                "level": 50,
+                "experience": 300,
+                "minimum": 60,
+                "maximum": 90,
+                "locations": [ "Falador" ],
+                "teleport": [2961, 3338, 0]
+            },
             {
                 "names": [ "spiritual mage", "spiritual ranger", "spiritual warrior" ],
                 "level": 83,
