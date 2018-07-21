@@ -201,6 +201,7 @@ public enum WeaponMastery {
 	
 	SPEAR(13, 
 			new int[] {
+				6599, // white hally
 				20158, // gilded spear
 				20161, // gilded hasta
 				3202, // rune hally
