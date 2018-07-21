@@ -361,7 +361,7 @@
                 "teleport": [3422, 3572, 1]
             },
 			{
-                "names": [ "mutated bloodveld", "insatiable mutated bloodveld" ],
+                "names": [ "mutated bloodveld", "insatiable mutated bloodveld", "bloodveld" ],
                 "level": 50,
                 "experience": 170,
                 "minimum": 70,
