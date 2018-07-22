@@ -11159,18 +11159,23 @@
       ]
     },
     "uncommon": {
-      "accessibility": 10,
+      "accessibility": 90,
       "items": [
         {
-          "item": 1617,
+          "item": 21298,
           "minimum": 1,
           "maximum": 1
         },
         {
-          "item": 6522,
-          "minimum": 10,
-          "maximum": 30
-        }
+          "item": 21301,
+          "minimum": 1,
+          "maximum": 1
+        },
+		{
+		  "item": 21304,
+          "minimum": 1,
+          "maximum": 1
+		}
       ]
     },
     "rare": {
