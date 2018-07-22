@@ -16791,14 +16791,14 @@
       "accessibility": 12,
       "items": [
         {
-          "item": 1079,
+          "item": 6611,
           "minimum": 1,
           "maximum": 1
         },
         {
           "item": 1163,
-          "minimum": 2,
-          "maximum": 2
+          "minimum": 1,
+          "maximum": 1
         },
         {
           "item": 11377,
