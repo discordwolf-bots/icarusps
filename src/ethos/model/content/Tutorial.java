@@ -167,8 +167,8 @@ public class Tutorial {
 					player.getItems().wearItem(12810, 1, player.playerHat);
 					player.getItems().wearItem(12811, 1, player.playerChest);
 					player.getItems().wearItem(12812, 1, player.playerLegs);
-					player.getItems().wearItem(1323, 1, player.playerWeapon);
-					player.getItems().addItem(1171, 1);
+					player.getItems().wearItem(7675, 1, player.playerWeapon);
+					player.getItems().addItem(7676, 1);
 					player.getItems().addItem(841, 1);
 					player.getItems().addItem(882, 100);
 					player.getItems().addItem(556, 100);
@@ -177,15 +177,14 @@ public class Tutorial {
 					player.getItems().addItem(557, 100);
 					player.getItems().addItem(559, 100);
 					player.getItems().addItem(554, 100);
-					player.getItems().addItem(563, 100);
 					player.getItems().addItem(1381, 1);
 				} else if (player.getMode().isUltimateIronman()) {
 					PlayerHandler.executeGlobalMessage("<col=" + Right.ULTIMATE_IRONMAN.getColor() + "><shad=000000><img=13> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
 					player.getItems().wearItem(12813, 1, player.playerHat);
 					player.getItems().wearItem(12814, 1, player.playerChest);
 					player.getItems().wearItem(12815, 1, player.playerLegs);
-					player.getItems().wearItem(1323, 1, player.playerWeapon);
-					player.getItems().addItem(1171, 1);
+					player.getItems().wearItem(7675, 1, player.playerWeapon);
+					player.getItems().addItem(7676, 1);
 					player.getItems().addItem(841, 1);
 					player.getItems().addItem(882, 100);
 					player.getItems().addItem(556, 100);
@@ -194,15 +193,14 @@ public class Tutorial {
 					player.getItems().addItem(557, 100);
 					player.getItems().addItem(559, 100);
 					player.getItems().addItem(554, 100);
-					player.getItems().addItem(563, 100);
 					player.getItems().addItem(1381, 1);
 				} else if(player.getMode().isHardcoreIronman()) {
 					PlayerHandler.executeGlobalMessage("<col=" + Right.HARDCORE_IRONMAN.getColor() + "><shad=000000><img=23> " + Misc.capitalizeJustFirst(player.playerName) + "</shad></col> has just joined the server!");
 					player.getItems().wearItem(20792, 1, player.playerHat);
 					player.getItems().wearItem(20794, 1, player.playerChest);
 					player.getItems().wearItem(20796, 1, player.playerLegs);
-					player.getItems().wearItem(1323, 1, player.playerWeapon);
-					player.getItems().addItem(1171, 1);
+					player.getItems().wearItem(7675, 1, player.playerWeapon);
+					player.getItems().addItem(7676, 1);
 					player.getItems().addItem(841, 1);
 					player.getItems().addItem(882, 100);
 					player.getItems().addItem(556, 100);
@@ -211,7 +209,6 @@ public class Tutorial {
 					player.getItems().addItem(557, 100);
 					player.getItems().addItem(559, 100);
 					player.getItems().addItem(554, 100);
-					player.getItems().addItem(563, 100);
 					player.getItems().addItem(1381, 1);
 					player.setLives(0);
 				} else {

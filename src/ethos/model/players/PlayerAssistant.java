@@ -3923,17 +3923,16 @@ public void sendFrame107() {
 		long occurances = starters.stream().filter(data -> data.equals(c.getMacAddress())).count();
 		if (occurances < 3) {
 			c.getItems().addItem(995, 1000000);
-			c.getItems().addItem(1323, 1);
-			c.getItems().addItem(1309, 1);
+			c.getItems().addItem(2429, 5);
+			c.getItems().addItem(114, 5);
 			c.getItems().addItem(1333, 1);
 			c.getItems().addItem(1319, 1);
 			c.getItems().addItem(7458, 1);
 			c.getItems().addItem(380, 100);
 			c.getItems().addItem(1265, 1);
 			c.getItems().addItem(1351, 1);
-			c.getItems().addItem(1205, 1);
-			c.getItems().addItem(1277, 1);
-			c.getItems().addItem(1171, 1);
+			c.getItems().addItem(7675, 1);
+			c.getItems().addItem(7676, 1);
 			c.getItems().addItem(841, 1);
 			c.getItems().addItem(882, 100);
 			c.getItems().addItem(556, 100);
@@ -3942,10 +3941,10 @@ public void sendFrame107() {
 			c.getItems().addItem(557, 100);
 			c.getItems().addItem(559, 100);
 			c.getItems().addItem(554, 100);
-			c.getItems().addItem(563, 100);
+			c.getItems().addItem(20703, 1);
+			c.getItems().addItem(20791, 1);
 			c.getItems().addItem(1381, 1);
-			c.getItems().addItem(1713, 10);
-			c.getItems().addItem(11699, 10);
+			c.getItems().addItem(1712, 10);
 			Server.getServerData().addStarter(c.getMacAddress());
 		} else {
 			c.sendMessage("You did not receive a starter pack because you have already received two.");
