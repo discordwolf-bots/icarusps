@@ -127,7 +127,7 @@ public class ItemOptionTwo implements PacketType {
 				player.sendMessage("You cannot do that right now.");
 				return;
 			}
-			if (player.wildLevel > Config.NO_TELEPORT_WILD_LEVEL) {
+			if (player.wildLevel > Config.NO_TELEPORT_WILD_LEVEL && !player.getRights().isOrInherits(Right.MODERATOR)) {
 				player.sendMessage("You can't teleport above level " + Config.NO_TELEPORT_WILD_LEVEL + " in the wilderness.");
 				return;
 			}

@@ -16,7 +16,6 @@ import ethos.model.content.achievement_diary.wilderness.WildernessDiaryEntry;
 import ethos.model.items.EquipmentSet;
 import ethos.model.items.Item;
 import ethos.model.items.ItemAssistant;
-import ethos.model.items.ItemDefinition;
 import ethos.model.multiplayer_session.MultiplayerSessionType;
 import ethos.model.multiplayer_session.duel.DuelSession;
 import ethos.model.multiplayer_session.duel.DuelSessionRules.Rule;
@@ -44,11 +43,11 @@ import ethos.util.Misc;
 
 public class AttackPlayer {
 	
-	private static int oldWMLevel;
-	private static int oldWMExp;
-	private static int newWMLevel;
-	private static int newWMExp;
-	private static String WMType;
+	private static int oldWMLevel = 0;
+	private static int oldWMExp = 0;
+	private static int newWMLevel = 0;
+	private static int newWMExp = 0;
+	private static String WMType = "";
 
 	public static void applyPlayerHit(final Player c, final int i, final Damage damage) {
 		c.getCombat().applyPlayerMeleeDamage(i, 1, damage.getAmount(), damage.getHitmark());

@@ -1,7 +1,6 @@
 package ethos.model.content;
 
 import ethos.model.players.Player;
-import ethos.model.players.mode.ModeType;
 import ethos.model.players.skills.Skill;
 
 public class ExperienceLamp {

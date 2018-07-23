@@ -84,8 +84,14 @@ public class NonCombatSpells extends MagicRequirements {
 					}
 					if (c.playerLevel[c.playerSmithing] < data[i][6]) {
 						c.sendMessage("You need a smithing level of " + data[i][6] + " to heat this ore.");
+						// Temporary fix for it depleting runes
+						c.getItems().addItem(554, 4);
+						c.getItems().addItem(561, 1);
 						return;
+					} else {
+						c.sendMessage("" + c.playerLevel[c.playerSmithing] + " " + data[i][6]);
 					}
+					c.sendMessage("continue");
 					c.getItems().deleteItem(itemID, c.getItems().getItemSlot(itemID), 1);
 					for (int lol = 0; lol < data[i][3]; lol++) {
 						c.getItems().deleteItem(data[i][2], c.getItems().getItemSlot(data[i][2]), 1);

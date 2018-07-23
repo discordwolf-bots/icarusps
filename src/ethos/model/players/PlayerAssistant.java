@@ -2322,7 +2322,7 @@ public void sendFrame107() {
 					return false;
 				}
 			} else {
-				if (c.wildLevel > 30) {
+				if (c.wildLevel > 30 && !c.getRights().isOrInherits(Right.MODERATOR)) {
 					c.sendMessage("You can't teleport above level 30 in the wilderness.");
 					c.getPA().closeAllWindows();
 					return false;

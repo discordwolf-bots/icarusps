@@ -3705,7 +3705,6 @@ public Inferno inferno = new Inferno(this, Boundary.INFERNO, 0);
 			return true;
 		if (s.contains("godsword"))
 			return true;
-		
 		return false;
 	}
 

@@ -1,5 +1,10 @@
 package ethos.model.content;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import ethos.Server;
 import ethos.model.content.achievement.AchievementType;
 import ethos.model.content.achievement.Achievements;
@@ -7,14 +12,8 @@ import ethos.model.items.GameItem;
 import ethos.model.items.Item;
 import ethos.model.players.Boundary;
 import ethos.model.players.Player;
-import ethos.model.players.PlayerHandler;
 import ethos.model.players.Right;
 import ethos.util.Misc;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class CrystalChest {
 
