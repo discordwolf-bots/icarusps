@@ -348,8 +348,14 @@ public class NPCHandler {
 		
 		if(!searching){
 			if (Boundary.isIn(npc, Boundary.GODWARS_BOSSROOMS) 
-					|| Boundary.isIn(npc, Boundary.CORPOREAL_BEAST_LAIR)) {
-				return true;
+				|| Boundary.isIn(npc, Boundary.CORPOREAL_BEAST_LAIR)
+				|| Boundary.isIn(npc, Boundary.CATACOMBS)
+			) 
+			{
+				if(npc.getDefinition().getNpcCombat() > 0) {
+					return true;
+				}
+				return false;
 			}
 		}
 		

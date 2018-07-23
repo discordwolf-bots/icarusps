@@ -88,10 +88,7 @@ public class NonCombatSpells extends MagicRequirements {
 						c.getItems().addItem(554, 4);
 						c.getItems().addItem(561, 1);
 						return;
-					} else {
-						c.sendMessage("" + c.playerLevel[c.playerSmithing] + " " + data[i][6]);
 					}
-					c.sendMessage("continue");
 					c.getItems().deleteItem(itemID, c.getItems().getItemSlot(itemID), 1);
 					for (int lol = 0; lol < data[i][3]; lol++) {
 						c.getItems().deleteItem(data[i][2], c.getItems().getItemSlot(data[i][2]), 1);

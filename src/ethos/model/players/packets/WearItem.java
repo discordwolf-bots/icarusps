@@ -10,6 +10,7 @@ import ethos.model.multiplayer_session.MultiplayerSessionType;
 import ethos.model.multiplayer_session.duel.DuelSession;
 import ethos.model.players.PacketType;
 import ethos.model.players.Player;
+import ethos.model.players.Right;
 import ethos.model.players.skills.runecrafting.Pouches;
 import ethos.model.players.skills.runecrafting.Pouches.Pouch;
 
@@ -95,6 +96,30 @@ public class WearItem implements PacketType {
 			break;
 		case 5512:
 			Pouches.empty(c, Pouch.forId(wearId), wearId, 2);
+			break;
+		case 20792:
+		case 20794:
+		case 20796:
+			if(!c.getRights().isOrInherits(Right.HARDCORE_IRONMAN) && !c.getRights().isOrInherits(Right.OWNER)) {
+				c.sendMessage("You aren't a Hardcore Ironman!");
+				return;
+			}
+			break;
+		case 12810:
+		case 12811:
+		case 12812:
+			if(!c.getRights().isOrInherits(Right.IRONMAN) && !c.getRights().isOrInherits(Right.OWNER)) {
+				c.sendMessage("You aren't an Ironman!");
+				return;
+			}
+			break;
+		case 12813:
+		case 12814:
+		case 12815:
+			if(!c.getRights().isOrInherits(Right.ULTIMATE_IRONMAN) && !c.getRights().isOrInherits(Right.OWNER)) {
+				c.sendMessage("You aren't an Ultimate Ironman!");
+				return;
+			}
 			break;
 		}
 		
