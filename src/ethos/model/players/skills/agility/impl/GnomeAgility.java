@@ -14,6 +14,9 @@ import ethos.model.players.skills.agility.AgilityHandler;
 
 public class GnomeAgility {
 
+	public boolean doingAgility;
+	private boolean log, net1, tree, rope, tree_branch, net2, pipes;
+	
 	private static long clickTimer = 0;
 
 	public static final int LOG_OBJECT = 23145, NET1_OBJECT = 23134, TREE_OBJECT = 23559, ROPE_OBJECT = 23557, TREE_BRANCH_OBJECT = 23560, NET2_OBJECT = 23135,

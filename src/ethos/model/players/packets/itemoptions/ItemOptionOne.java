@@ -1,5 +1,6 @@
 package ethos.model.players.packets.itemoptions;
 
+import java.text.NumberFormat;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -455,6 +456,7 @@ public class ItemOptionOne implements PacketType {
 			c.sendMessage("You rub the lamp...");
 			// Initialise
 			c.getPA().sendFrame126("Current Level: @whi@" + c.playerLevel[c.playerAttack], 37608);
+			c.getPA().sendFrame126("Reward: @whi@" + NumberFormat.getInstance().format((c.playerLevel[c.playerAttack]*1000)) + " XP", 37609);
 			c.getPA().showInterface(37600);
 		}
 		/*

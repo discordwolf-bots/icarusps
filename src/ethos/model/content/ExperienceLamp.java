@@ -1,5 +1,7 @@
 package ethos.model.content;
 
+import java.text.NumberFormat;
+
 import ethos.model.players.Player;
 import ethos.model.players.skills.Skill;
 
@@ -20,9 +22,13 @@ public class ExperienceLamp {
 		if(button == 147000) skillID = 21;
 		player.antiqueSelect = skillID;
 		String skillName = Skill.forId(skillID).name().toLowerCase();
+		
+		int level = player.playerLevel[skillID];
+		
 		skillName = skillName.substring(0, 1).toUpperCase() + skillName.substring(1);
 		player.getPA().sendFrame126(skillName + ":", 37607);
 		player.getPA().sendFrame126("Current Level: @whi@" + player.playerLevel[skillID], 37608);
+		player.getPA().sendFrame126("Reward: @whi@" + NumberFormat.getInstance().format((level*1000)) + " XP", 37609);
 	}
 	
 	public void gainExperience() {
@@ -32,11 +38,11 @@ public class ExperienceLamp {
 			return;
 		}
 		
-		player.getPA().addSkillXP(150000, player.antiqueSelect, true);
+		player.getPA().addSkillXP(player.playerLevel[player.antiqueSelect]*1000, player.antiqueSelect, true);
 		int skillIcon = 45 + player.antiqueSelect;
 		String skillName = Skill.forId(player.antiqueSelect).name().toLowerCase();
 		skillName = skillName.substring(0, 1).toUpperCase() + skillName.substring(1);
-		player.sendMessage("<img=" + skillIcon + "> You gain 150,000 experience in " + skillName);
+		player.sendMessage("<img=" + skillIcon + "> You gain " + NumberFormat.getInstance().format((player.playerLevel[player.antiqueSelect]*1000)) + " experience in " + skillName);
 		player.getItems().deleteItem2(2528, 1);
 		
 		if(!player.getItems().playerHasItem(2528, 1)) {
