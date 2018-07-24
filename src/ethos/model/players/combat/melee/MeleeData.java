@@ -463,10 +463,12 @@ public class MeleeData {
 		case 9703:
 			return 5;
 		}
-		if (s.equals("harry's cutlass"))
+		if (s.equals("lucky cutlass"))
 				return 3;
 		if (s.equals("harry's cutlass"))
 				return 3;
+		if (s.equals("leaf-bladed battleaxe"))
+			return 4;
 		if (s.endsWith("greataxe"))
 			return 7;
 		if (s.equals("rapier"))
