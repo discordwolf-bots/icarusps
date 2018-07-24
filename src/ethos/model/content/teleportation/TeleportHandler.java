@@ -31,7 +31,7 @@ public class TeleportHandler {
 		this.c = player;
 	}
 
-	String[] monsterNames = { "Select your Monster Teleport", "Rock Crabs", "Cows", "Normal dragon;s", "Bob's Island",
+	String[] monsterNames = { "Select your Monster Teleport", "Rock Crabs", "Cows", "Normal dragons", "Bob's Island",
 			"Desert Bandits", "Elf Warriors", "Dagannoths", "Chickens", "Slayer Tower", "Brimhaven Dungeon",
 			"Taverley Dungeon", "Stronghold Cave", "Relleka Dungeon", "Mithril Dragons", "Asgarnian Ice Cave",
 			"Catacombs", "Cave Kraken", "Smoke Devils", "", "" };
