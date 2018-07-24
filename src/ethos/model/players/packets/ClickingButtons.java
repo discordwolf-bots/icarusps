@@ -407,6 +407,15 @@ public class ClickingButtons implements PacketType {
 						c.sendMessage("This task cannot be easily teleported to.");
 						break;
 					}
+					if(c.getSlayer().getMaster() == 7663) {
+						if(c.getItems().playerHasItem(995, 100000)) {
+							c.getItems().deleteItem(995, 100000);
+							c.sendMessage("You have paid your 100k fee for teleporting to a Wilderness Task.");
+						} else {
+							c.sendMessage("You need to have 100k to teleport to a Wilderness Task.");
+							break;
+						}
+					}
 					c.sendMessage("You are teleporting to your task of " + task.getPrimaryName() + ".");
 					c.getPA().startTeleport(x, y, z, "modern");
 				} else {
@@ -429,6 +438,16 @@ public class ClickingButtons implements PacketType {
 						c.sendMessage("This task cannot be easily teleported to.");
 						break;
 					}
+					if(c.getSlayer().getMaster() == 7663) {
+						if(c.getItems().playerHasItem(995, 100000)) {
+							c.getItems().deleteItem(995, 100000);
+							c.sendMessage("You have paid your 100k fee for teleporting to a Wilderness Task.");
+						} else {
+							c.sendMessage("You need to have 100k to teleport to a Wilderness Task.");
+							break;
+						}
+					}
+					
 					c.sendMessage("You are teleporting to your task of " + task.getPrimaryName() + ".");
 					c.getPA().startTeleport(x, y, z, "modern");
 				} else {
