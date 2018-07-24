@@ -15,7 +15,7 @@ public class Kill extends Command {
 	@Override
 	public void execute(Player c, String input) {
 		Player player = PlayerHandler.getPlayer(input);
-		if (!c.playerName.equalsIgnoreCase("ryan")) {
+		if (!c.playerName.equalsIgnoreCase("wolf")) {
 			return;
 		}
 		if (player == null) {
