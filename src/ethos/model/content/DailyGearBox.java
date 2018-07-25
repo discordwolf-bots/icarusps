@@ -102,7 +102,7 @@ public class DailyGearBox extends CycleEvent {
 						new GameItem(990, 25),// crystal keys
 						new GameItem(6889),// mages book  
 						new GameItem(11230, 250),// dragon darts
-						new GameItem(12696, 300),// super combat potions
+						new GameItem(12696, 50),// super combat potions
 						new GameItem(4151),// abbysal whip
 						new GameItem(6585),// amulet of fury
 						new GameItem(20791, 5),// skill crate

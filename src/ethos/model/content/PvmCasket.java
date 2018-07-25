@@ -55,7 +55,7 @@ public class PvmCasket extends CycleEvent {
 					new GameItem(6130),// rockshell platelegs
 					new GameItem(537, 75),// dragon bones
 					new GameItem(1705, 10),// amjulet of glory
-					new GameItem(1215, 5),// dragon dagger
+					new GameItem(1216, 1),// dragon dagger
 					new GameItem(3145, 300),// cooked karambwan
 					new GameItem(2441, 50),// super strength
 					new GameItem(2437, 50),// super attack
@@ -91,7 +91,7 @@ public class PvmCasket extends CycleEvent {
 						new GameItem(19675),// arc light
 						new GameItem(12696, 100),// super combat potion
 						new GameItem(6686, 200),// saradomin brew
-						new GameItem(3025, 200),// super restore (4)
+						new GameItem(3025, 100),// super restore (4)
 						new GameItem(13307, 750),// blood moeny
 						new GameItem(6522, 400),// obby rings
 						new GameItem(6536),// obby shield		
